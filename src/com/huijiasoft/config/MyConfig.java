@@ -18,6 +18,7 @@ public class MyConfig extends JFinalConfig {
 	@Override
 	public void configConstant(Constants me) {
 		me.setDevMode(true);
+		me.setError404View("404.html");
 
 	}
 	
@@ -26,7 +27,8 @@ public class MyConfig extends JFinalConfig {
 	public void configRoute(Routes me) {
 		me.add("/",IndexContrlller.class);
 		me.add("/admin",AdminController.class);
-		me.add("/login",UserController.class);
+		//me.add("/login",UserController.class);
+		
 
 	}
 
@@ -48,7 +50,7 @@ public class MyConfig extends JFinalConfig {
 		me.add(cp);
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(cp);
 		me.add(arp);
-		arp.addMapping("user", User.class);
+		//arp.addMapping("user", User.class);
 		
 
 	}
