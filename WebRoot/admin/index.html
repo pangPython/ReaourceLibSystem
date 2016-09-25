@@ -1,130 +1,227 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE HTML>
 <html>
 <head>
-    <title>��̨</title>
-    <link rel="stylesheet" href="js/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/skins/_all-skins.css">
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<LINK rel="Bookmark" href="/favicon.ico" >
+<LINK rel="Shortcut Icon" href="/favicon.ico" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="lib/html5.js"></script>
+<script type="text/javascript" src="lib/respond.min.js"></script>
+<script type="text/javascript" src="lib/PIE_IE678.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.7/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="lib/icheck/icheck.css" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<title>H-ui.admin v2.4</title>
+<meta name="keywords" content="H-ui.admin v2.4,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+<meta name="description" content="H-ui.admin v2.4，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 </head>
-<body class="hold-transition skin-blue sidebar-mini" style="overflow:hidden;">
-    <div id="ajax-loader" style="cursor: progress; position: fixed; top: -50%; left: -50%; width: 200%; height: 200%; background: #fff; z-index: 10000; overflow: hidden;">
-        <img src="img/ajax-loader.gif" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; margin: auto;" />
-    </div>
-    <div class="wrapper">
-        <!--ͷ����Ϣ-->
-        <header class="main-header">
-            <a href="http://www.learun.cn/adms/index.html" target="_blank" class="logo">
-                <span class="logo-mini">LR</span>
-                <span class="logo-lg">learun<strong>���ݿ��</strong></span>
-            </a>
-            <nav class="navbar navbar-static-top">
-                <a class="sidebar-toggle">
-                    <span class="sr-only">Toggle navigation</span>
-                </a>
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown messages-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-envelope-o "></i>
-                                <span class="label label-success">4</span>
-                            </a>
-                        </li>
-                        <li class="dropdown notifications-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-bell-o"></i>
-                                <span class="label label-warning">10</span>
-                            </a>
-                        </li>
-                        <li class="dropdown tasks-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-flag-o"></i>
-                                <span class="label label-danger">9</span>
-                            </a>
-                        </li>
-                        <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="img/user2-160x160.jpg" class="user-image" alt="User Image">
-                                <span class="hidden-xs">administrator</span>
-                            </a>
-                            <ul class="dropdown-menu pull-right">
-                                <li><a class="menuItem" data-id="userInfo" href="/SystemManage/User/Info"><i class="fa fa-user"></i>������Ϣ</a></li>
-                                <li><a href="javascript:void();"><i class="fa fa-trash-o"></i>��ջ���</a></li>
-                                <li><a href="javascript:void();"><i class="fa fa-paint-brush"></i>Ƥ������</a></li>
-                                <li class="divider"></li>
-                                <li><a href="~/Login/OutLogin"><i class="ace-icon fa fa-power-off"></i>��ȫ�˳�</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <!--��ߵ���-->
-        <div class="main-sidebar">
-            <div class="sidebar">
-                <div class="user-panel">
-                    <div class="pull-left image">
-                        <img src="img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                    </div>
-                    <div class="pull-left info">
-                        <p>administrator</p>
-                        <a><i class="fa fa-circle text-success"></i>����</a>
-                    </div>
-                </div>
-                <form action="#" method="get" class="sidebar-form">
-                    <div class="input-group">
-                        <input type="text" name="q" class="form-control" placeholder="Search...">
-                        <span class="input-group-btn">
-                            <a class="btn btn-flat"><i class="fa fa-search"></i></a>
-                        </span>
-                    </div>
-                </form>
-                <ul class="sidebar-menu" id="sidebar-menu">
-                    <!--<li class="header">�����˵�</li>-->
-                </ul>
-            </div>
-        </div>
-        <!--�м�����-->
-        <div id="content-wrapper" class="content-wrapper">
-            <div class="content-tabs">
-                <button class="roll-nav roll-left tabLeft">
-                    <i class="fa fa-backward"></i>
-                </button>
-                <nav class="page-tabs menuTabs">
-                    <div class="page-tabs-content" style="margin-left: 0px;">
-                        <a href="javascript:;" class="menuTab active" data-id="/Home/Default">��ӭ��ҳ</a>
-                        <a href="javascript:;" class="menuTab" data-id="/Home/About" style="padding-right: 15px;">ƽ̨����</a>
-                        <a href="javascript:;" class="menuTab" data-id="/SystemManage/Organize/Index">�������� <i class="fa fa-remove"></i></a>
-                        <a href="javascript:;" class="menuTab" data-id="/SystemManage/Role/Index">��ɫ���� <i class="fa fa-remove"></i></a>
-                        <a href="javascript:;" class="menuTab" data-id="/SystemManage/Duty/Index">��λ���� <i class="fa fa-remove"></i></a>
-                        <a href="javascript:;" class="menuTab" data-id="/SystemManage/User/Index">�û����� <i class="fa fa-remove"></i></a>
-                    </div>
-                </nav>
-                <button class="roll-nav roll-right tabRight">
-                    <i class="fa fa-forward" style="margin-left: 3px;"></i>
-                </button>
-                <div class="btn-group roll-nav roll-right">
-                    <button class="dropdown tabClose" data-toggle="dropdown">
-                        ҳǩ����<i class="fa fa-caret-down" style="padding-left: 3px;"></i>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-right">
-                        <li><a class="tabReload" href="javascript:void();">ˢ�µ�ǰ</a></li>
-                        <li><a class="tabCloseCurrent" href="javascript:void();">�رյ�ǰ</a></li>
-                        <li><a class="tabCloseAll" href="javascript:void();">ȫ���ر�</a></li>
-                        <li><a class="tabCloseOther" href="javascript:void();">����֮��ȫ���ر�</a></li>
-                    </ul>
-                </div>
-                <button class="roll-nav roll-right fullscreen"><i class="fa fa-arrows-alt"></i></button>
-            </div>
-            <div class="content-iframe" style="overflow: hidden;">
-                <div class="mainContent" id="content-main" style="margin: 10px; margin-bottom: 0px; padding: 0;">
-                    <iframe class="LRADMS_iframe" width="100%" height="100%" src="default.html" frameborder="0" data-id="default.html"></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="js/jquery/jQuery-2.2.0.min.js"></script>
-    <script src="js/bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/index.js"></script>
+<body>
+<header class="navbar-wrapper">
+	<div class="navbar navbar-fixed-top">
+		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">H-ui.admin</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml">H-ui</a> <span class="logo navbar-slogan f-l mr-10 hidden-xs">v2.4</span> <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
+			<nav class="nav navbar-nav">
+				<ul class="cl">
+					<li class="dropDown dropDown_hover"><a href="javascript:;" class="dropDown_A"><i class="Hui-iconfont">&#xe600;</i> 新增 <i class="Hui-iconfont">&#xe6d5;</i></a>
+						<ul class="dropDown-menu menu radius box-shadow">
+							<li><a href="javascript:;" onclick="article_add('添加资讯','article-add.html')"><i class="Hui-iconfont">&#xe616;</i> 资讯</a></li>
+							<li><a href="javascript:;" onclick="picture_add('添加资讯','picture-add.html')"><i class="Hui-iconfont">&#xe613;</i> 图片</a></li>
+							<li><a href="javascript:;" onclick="product_add('添加资讯','product-add.html')"><i class="Hui-iconfont">&#xe620;</i> 产品</a></li>
+							<li><a href="javascript:;" onclick="member_add('添加用户','member-add.html','','510')"><i class="Hui-iconfont">&#xe60d;</i> 用户</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+			<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
+				<ul class="cl">
+					<li>超级管理员</li>
+					<li class="dropDown dropDown_hover"> <a href="#" class="dropDown_A">admin <i class="Hui-iconfont">&#xe6d5;</i></a>
+						<ul class="dropDown-menu menu radius box-shadow">
+							<li><a href="#">个人信息</a></li>
+							<li><a href="#">切换账户</a></li>
+							<li><a href="#">退出</a></li>
+						</ul>
+					</li>
+					<li id="Hui-msg"> <a href="#" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li>
+					<li id="Hui-skin" class="dropDown right dropDown_hover"> <a href="javascript:;" class="dropDown_A" title="换肤"><i class="Hui-iconfont" style="font-size:18px">&#xe62a;</i></a>
+						<ul class="dropDown-menu menu radius box-shadow">
+							<li><a href="javascript:;" data-val="default" title="默认（黑色）">默认（黑色）</a></li>
+							<li><a href="javascript:;" data-val="blue" title="蓝色">蓝色</a></li>
+							<li><a href="javascript:;" data-val="green" title="绿色">绿色</a></li>
+							<li><a href="javascript:;" data-val="red" title="红色">红色</a></li>
+							<li><a href="javascript:;" data-val="yellow" title="黄色">黄色</a></li>
+							<li><a href="javascript:;" data-val="orange" title="绿色">橙色</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
+<aside class="Hui-aside">
+	<input runat="server" id="divScrollValue" type="hidden" value="" />
+	<div class="menu_dropdown bk_2">
+		<dl id="menu-article">
+			<dt><i class="Hui-iconfont">&#xe616;</i> 资讯管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a _href="article-list.html" data-title="资讯管理" href="javascript:void(0)">资讯管理</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-picture">
+			<dt><i class="Hui-iconfont">&#xe613;</i> 图片管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a _href="picture-list.html" data-title="图片管理" href="javascript:void(0)">图片管理</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-product">
+			<dt><i class="Hui-iconfont">&#xe620;</i> 产品管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a _href="product-brand.html" data-title="品牌管理" href="javascript:void(0)">品牌管理</a></li>
+					<li><a _href="product-category.html" data-title="分类管理" href="javascript:void(0)">分类管理</a></li>
+					<li><a _href="product-list.html" data-title="产品管理" href="javascript:void(0)">产品管理</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-comments">
+			<dt><i class="Hui-iconfont">&#xe622;</i> 评论管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a _href="http://h-ui.duoshuo.com/admin/" data-title="评论列表" href="javascript:;">评论列表</a></li>
+					<li><a _href="feedback-list.html" data-title="意见反馈" href="javascript:void(0)">意见反馈</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-member">
+			<dt><i class="Hui-iconfont">&#xe60d;</i> 会员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a _href="member-list.html" data-title="会员列表" href="javascript:;">会员列表</a></li>
+					<li><a _href="member-del.html" data-title="删除的会员" href="javascript:;">删除的会员</a></li>
+					<li><a _href="member-level.html" data-title="等级管理" href="javascript:;">等级管理</a></li>
+					<li><a _href="member-scoreoperation.html" data-title="积分管理" href="javascript:;">积分管理</a></li>
+					<li><a _href="member-record-browse.html" data-title="浏览记录" href="javascript:void(0)">浏览记录</a></li>
+					<li><a _href="member-record-download.html" data-title="下载记录" href="javascript:void(0)">下载记录</a></li>
+					<li><a _href="member-record-share.html" data-title="分享记录" href="javascript:void(0)">分享记录</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-admin">
+			<dt><i class="Hui-iconfont">&#xe62d;</i> 管理员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a _href="admin-role.html" data-title="角色管理" href="javascript:void(0)">角色管理</a></li>
+					<li><a _href="admin-permission.html" data-title="权限管理" href="javascript:void(0)">权限管理</a></li>
+					<li><a _href="admin-list.html" data-title="管理员列表" href="javascript:void(0)">管理员列表</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-tongji">
+			<dt><i class="Hui-iconfont">&#xe61a;</i> 系统统计<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a _href="charts-1.html" data-title="折线图" href="javascript:void(0)">折线图</a></li>
+					<li><a _href="charts-2.html" data-title="时间轴折线图" href="javascript:void(0)">时间轴折线图</a></li>
+					<li><a _href="charts-3.html" data-title="区域图" href="javascript:void(0)">区域图</a></li>
+					<li><a _href="charts-4.html" data-title="柱状图" href="javascript:void(0)">柱状图</a></li>
+					<li><a _href="charts-5.html" data-title="饼状图" href="javascript:void(0)">饼状图</a></li>
+					<li><a _href="charts-6.html" data-title="3D柱状图" href="javascript:void(0)">3D柱状图</a></li>
+					<li><a _href="charts-7.html" data-title="3D饼状图" href="javascript:void(0)">3D饼状图</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-system">
+			<dt><i class="Hui-iconfont">&#xe62e;</i> 系统管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a _href="system-base.html" data-title="系统设置" href="javascript:void(0)">系统设置</a></li>
+					<li><a _href="system-category.html" data-title="栏目管理" href="javascript:void(0)">栏目管理</a></li>
+					<li><a _href="system-data.html" data-title="数据字典" href="javascript:void(0)">数据字典</a></li>
+					<li><a _href="system-shielding.html" data-title="屏蔽词" href="javascript:void(0)">屏蔽词</a></li>
+					<li><a _href="system-log.html" data-title="系统日志" href="javascript:void(0)">系统日志</a></li>
+				</ul>
+			</dd>
+		</dl>
+	</div>
+</aside>
+<div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
+<section class="Hui-article-box">
+	<div id="Hui-tabNav" class="Hui-tabNav hidden-xs">
+		<div class="Hui-tabNav-wp">
+			<ul id="min_title_list" class="acrossTab cl">
+				<li class="active"><span title="我的桌面" data-href="welcome.html">我的桌面</span><em></em></li>
+			</ul>
+		</div>
+		<div class="Hui-tabNav-more btn-group"><a id="js-tabNav-prev" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d4;</i></a><a id="js-tabNav-next" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d7;</i></a></div>
+	</div>
+	<div id="iframe_box" class="Hui-article">
+		<div class="show_iframe">
+			<div style="display:none" class="loading"></div>
+			<iframe scrolling="yes" frameborder="0" src="welcome.html"></iframe>
+		</div>
+	</div>
+</section>
+<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="lib/layer/2.1/layer.js"></script> 
+<script type="text/javascript" src="static/h-ui/js/H-ui.js"></script> 
+<script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"></script> 
+<script type="text/javascript">
+/*资讯-添加*/
+function article_add(title,url){
+	var index = layer.open({
+		type: 2,
+		title: title,
+		content: url
+	});
+	layer.full(index);
+}
+/*图片-添加*/
+function picture_add(title,url){
+	var index = layer.open({
+		type: 2,
+		title: title,
+		content: url
+	});
+	layer.full(index);
+}
+/*产品-添加*/
+function product_add(title,url){
+	var index = layer.open({
+		type: 2,
+		title: title,
+		content: url
+	});
+	layer.full(index);
+}
+/*用户-添加*/
+function member_add(title,url,w,h){
+	layer_show(title,url,w,h);
+}
+</script> 
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?080836300300be57b7f34f4b3e97d911";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s)})();
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F080836300300be57b7f34f4b3e97d911' type='text/javascript'%3E%3C/script%3E"));
+</script>
 </body>
 </html>
