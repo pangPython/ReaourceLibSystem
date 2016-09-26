@@ -1,5 +1,6 @@
 package com.huijiasoft.controller;
 
+import com.huijiasoft.model.User;
 import com.huijiasoft.validate.AdminValidator;
 import com.jfinal.aop.Before;
 import com.jfinal.core.Controller;
@@ -30,6 +31,11 @@ public class AdminController extends Controller {
 		render(new CaptchaRender());
 	}
 	
+	
+	public void search(){
+		setAttr("userPage", User.usermodel.paginate(getParaToInt(0,1), 10));
+		render("article-list.html");
+	}
 	
 	
 	

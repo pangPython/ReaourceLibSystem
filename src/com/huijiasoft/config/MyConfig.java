@@ -64,7 +64,9 @@ public class MyConfig extends JFinalConfig {
 		me.add(c3p0Plugin);
 		
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(c3p0Plugin);
-	
+		
+		me.add(arp);
+		
 		_MappingKit.mapping(arp);
 		
 
