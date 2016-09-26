@@ -8,9 +8,9 @@ public class IndexContrlller extends Controller {
 	//½øÈëÊ×Ò³
 	
 	public void index(){
-		if(getSessionAttr("uanme")){
-			setAttr("errMsg", "hahahah");
-		}
+//		if(getSessionAttr("uanme")){
+//			setAttr("errMsg", "hahahah");
+//		}
 		render("index.html");
 	}
 	

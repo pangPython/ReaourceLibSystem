@@ -8,10 +8,13 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <title>Highcharts export server</title>
 <link rel="stylesheet" type="text/css" href="resources/css/demo.css" />
-<link rel="stylesheet" type="text/css" href="resources/css/codemirror.css" />
+<link rel="stylesheet" type="text/css"
+	href="resources/css/codemirror.css" />
 <script src="resources/js//jquery-1.11.0.min.js"></script>
 <script src="resources/js/codemirror-compressed.js"></script>
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700,400italic" type="text/css" />
+<link rel="stylesheet"
+	href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700,400italic"
+	type="text/css" />
 <script>
 	var editors = [];
 
@@ -144,77 +147,81 @@
 	<div id="top">
 		<a href="http://www.highcharts.com" title="Highcharts Home Page"
 			id="logo"><img alt="Highcharts Home Page"
-			src="http://www.highcharts.com/templates/highsoft_colorful/images/logo.svg" border="0"></a>
+			src="http://www.highcharts.com/templates/highsoft_colorful/images/logo.svg"
+			border="0"></a>
 	</div>
 
 	<div id="wrap">
 		<form id="exportForm" action="./" method="POST">
 
 			<h1>Highcharts Export Server</h1>
-		
-			<p>This page allows you to experiment with different options for the export server.</p>
+
+			<p>This page allows you to experiment with different options for
+				the export server.</p>
 
 			<div>
 				<input id="options" title="Highcharts config object" type="radio"
-					name="content" value="options"> 
-				<label for="options"
-					class="radio">Highcharts config object (JSON)</label> 
+					name="content" value="options"> <label for="options"
+					class="radio">Highcharts config object (JSON)</label>
 			</div>
 
 			<div>
 				<input id="svg" title="svg xml content" type="radio" name="content"
-					value="svg"> 
-				<label for="svg" class="radio">SVG
+					value="svg"> <label for="svg" class="radio">SVG
 					(XML) </label>
 			</div>
 
 			<div id="options">
 				<label id="options" for="options">Options</label>
-				<div class="info">Your Highcharts
-					configuration object.</div>
+				<div class="info">Your Highcharts configuration object.</div>
 				<textarea id="options" name="options" rows="12" cols="30"><%@include
 						file="/WEB-INF/jspf/config.js"%></textarea>
 			</div>
 			<div id="svg"></div>
-			<label for="type">Image file format</label> 
-			<select name="type" id="type">
+			<label for="type">Image file format</label> <select name="type"
+				id="type">
 				<option value="image/png">image/png</option>
 				<option value="image/jpeg">image/jpeg</option>
 				<option value="image/svg+xml">image/svg+xml</option>
 				<option value="application/pdf">application/pdf</option>
-			</select>
-
-			<label for="width">Width</label>
-			<div class="info">The exact pixel width of the exported image.
-				Defaults to <code>chart.width</code> or <code>600px</code>. Maximum width is <code>2000px</code>.</div>
-			
-			<input id="width" name="width" type="text" value="" /> <br/> 
-
-			<label for="scale">Scale</label>
-			<div class="info">A scaling factor for a higher image
-				resolution. Maximum scaling is set to 4x. Remember that the width parameter has a higher
-				precedence over scaling.</div>
-			<input id="scale" name="scale" 	type="text" value="" />
-
-			
-			
-			<label for="constructor">Constructor</label>
+			</select> <label for="width">Width</label>
 			<div class="info">
-				Either <code>Chart</code> or <code>StockChart</code> depending on what product you use.
+				The exact pixel width of the exported image. Defaults to
+				<code>chart.width</code>
+				or
+				<code>600px</code>
+				. Maximum width is
+				<code>2000px</code>
+				.
+			</div>
+
+			<input id="width" name="width" type="text" value="" /> <br /> <label
+				for="scale">Scale</label>
+			<div class="info">A scaling factor for a higher image
+				resolution. Maximum scaling is set to 4x. Remember that the width
+				parameter has a higher precedence over scaling.</div>
+			<input id="scale" name="scale" type="text" value="" /> <label
+				for="constructor">Constructor</label>
+			<div class="info">
+				Either
+				<code>Chart</code>
+				or
+				<code>StockChart</code>
+				depending on what product you use.
 			</div>
 			<select name="constr">
 				<option value="Chart">Chart</option>
 				<option value="StockChart">StockChart</option>
 			</select> </br> <br /> <label for="callback">Callback</label>
-			<div class="info">The callback will be fired after
-				the chart is created.</div>
+			<div class="info">The callback will be fired after the chart is
+				created.</div>
 			<textarea id="callback" name="callback" rows="12" cols="30" /><%@include
-					file="/WEB-INF/jspf/callback.js"%>
+				file="/WEB-INF/jspf/callback.js"%>
 			</textarea>
 
 
-			<input id="submit" type="submit" value="Download">
-			<input id="preview" type="submit" value="Preview" />
+			<input id="submit" type="submit" value="Download"> <input
+				id="preview" type="submit" value="Preview" />
 		</form>
 	</div>
 	<div id="result">

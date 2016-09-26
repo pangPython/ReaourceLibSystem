@@ -13,8 +13,8 @@ public class AdminValidator extends Validator{
 
 	@Override
 	protected void validate(Controller arg0) {
-		validateRequiredString("admin.name", "LoginMsg","请输入用户名！");
-		
+		validateRequiredString("admin.name", "LoginNameMsg","请输入用户名！");
+		validateRequiredString("admin.pwd", "LoginPwdMsg","请输入密码！");
 	}
 
 }
