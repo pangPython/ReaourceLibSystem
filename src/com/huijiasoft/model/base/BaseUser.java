@@ -25,6 +25,22 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("username");
 	}
 
+	public void setAge(java.lang.Integer age) {
+		set("age", age);
+	}
+
+	public java.lang.Integer getAge() {
+		return get("age");
+	}
+
+	public void setArtType(java.lang.Integer artType) {
+		set("art_type", artType);
+	}
+
+	public java.lang.Integer getArtType() {
+		return get("art_type");
+	}
+
 	public void setPassword(java.lang.String password) {
 		set("password", password);
 	}
@@ -159,6 +175,14 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 
 	public java.lang.String getYsjj() {
 		return get("ysjj");
+	}
+
+	public void setStatus(java.lang.Integer status) {
+		set("status", status);
+	}
+
+	public java.lang.Integer getStatus() {
+		return get("status");
 	}
 
 }

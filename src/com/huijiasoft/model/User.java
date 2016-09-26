@@ -10,7 +10,7 @@ public class User extends BaseUser<User> {
 	
 	public Page<User> paginate(int pageNumber,int pageSize){
 		
-		return paginate(pageNumber, pageSize, "select *", "from user");
+		return paginate(pageNumber, pageSize, "select *", "from user order by id asc");
 	}
 	
 
