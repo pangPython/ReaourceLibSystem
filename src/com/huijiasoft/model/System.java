@@ -8,4 +8,11 @@ import com.huijiasoft.model.base.BaseSystem;
 @SuppressWarnings("serial")
 public class System extends BaseSystem<System> {
 	public static final System dao = new System();
+	
+	
+	public System getSytem(){
+		return dao.findFirst("select * from system limit 1");
+	}
+	
+	
 }

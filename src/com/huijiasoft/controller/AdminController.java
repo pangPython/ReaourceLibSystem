@@ -7,6 +7,7 @@ import com.huijiasoft.model.DeclareType;
 import com.huijiasoft.model.Degree;
 import com.huijiasoft.model.Edu;
 import com.huijiasoft.model.Mz;
+import com.huijiasoft.model.System;
 import com.huijiasoft.model.User;
 import com.huijiasoft.model.Zzmm;
 import com.huijiasoft.validate.AdminValidator;
@@ -100,7 +101,13 @@ public class AdminController extends Controller {
 	public void area(){
 		setAttr("areaPage", Area.dao.paginate(getParaToInt(0,1),10));
 		render("area.html");
-	}	
+	}
+	
+	//系统参数配置
+	public void system(){
+		setAttr("system", System.dao.getSytem());
+		render("system-base.html");
+	}
 	
 	
 	
