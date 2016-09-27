@@ -1,5 +1,7 @@
 package com.huijiasoft.controller;
 
+import com.huijiasoft.interceptor.AdminAuthInterceptor;
+import com.huijiasoft.model.Admin;
 import com.huijiasoft.model.Area;
 import com.huijiasoft.model.DeclareType;
 import com.huijiasoft.model.Degree;
@@ -9,30 +11,41 @@ import com.huijiasoft.model.User;
 import com.huijiasoft.model.Zzmm;
 import com.huijiasoft.validate.AdminValidator;
 import com.jfinal.aop.Before;
+import com.jfinal.aop.Clear;
 import com.jfinal.core.Controller;
 import com.jfinal.render.CaptchaRender;
 
+
+@Before(AdminAuthInterceptor.class)
 public class AdminController extends Controller {
 	
 	public void index(){
 		render("login.html");
 	}
 	
+	@Clear
 	@Before(AdminValidator.class)
 	public void login(){
 		
 		String admin_name = getPara("admin.name");
 		String admin_pwd = getPara("admin.pwd");
 		
-		System.out.println(admin_name+"-------------");
+		String sql = "select * from admin where adminname = ? and adminpassword = ? limit 1";
 		
-		if("admin".equals(admin_name)&&"admin".equals(admin_pwd)){
+		Admin admin = Admin.dao.findFirst(sql,admin_name,admin_pwd);
+		
+		
+		if(admin != null){
+			this.setSessionAttr("Admin", admin);
 			render("index.html");
+		}else{
+			redirect("index");
 		}
 		
 	}
 	
 	public void logout(){
+		removeSessionAttr("Admin");
 		redirect("index");
 	}
 	

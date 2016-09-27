@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50547
 File Encoding         : 65001
 
-Date: 2016-09-27 15:11:32
+Date: 2016-09-27 19:28:55
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -24,12 +24,13 @@ CREATE TABLE `admin` (
   `adminname` varchar(20) NOT NULL,
   `adminpassword` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of admin
 -- ----------------------------
 INSERT INTO `admin` VALUES ('1', 'admin', '123456');
+INSERT INTO `admin` VALUES ('2', 'py', '123456789');
 
 -- ----------------------------
 -- Table structure for `area`
@@ -210,6 +211,12 @@ INSERT INTO `mz` VALUES ('57', ' 其他');
 DROP TABLE IF EXISTS `system`;
 CREATE TABLE `system` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  `keywords` text,
+  `description` text,
+  `copyright` varchar(255) DEFAULT NULL,
+  `record` varchar(255) DEFAULT NULL,
+  `statistics_code` text,
   `open` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
@@ -217,7 +224,7 @@ CREATE TABLE `system` (
 -- ----------------------------
 -- Records of system
 -- ----------------------------
-INSERT INTO `system` VALUES ('1', '1');
+INSERT INTO `system` VALUES ('1', '东营市社会文艺人才信息资源库', null, null, null, null, null, '1');
 
 -- ----------------------------
 -- Table structure for `uploads`
