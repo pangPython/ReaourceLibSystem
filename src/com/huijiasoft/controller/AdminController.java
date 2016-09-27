@@ -1,6 +1,8 @@
 package com.huijiasoft.controller;
 
 import com.huijiasoft.model.DeclareType;
+import com.huijiasoft.model.Degree;
+import com.huijiasoft.model.Edu;
 import com.huijiasoft.model.Mz;
 import com.huijiasoft.model.User;
 import com.huijiasoft.model.Zzmm;
@@ -60,5 +62,21 @@ public class AdminController extends Controller {
 		setAttr("zzmmPage", Zzmm.dao.paginate(getParaToInt(0,1), 10));
 		render("zzmm.html");
 	}
+	
+	//学历信息管理
+	public void education(){
+		
+		setAttr("educationPage", Edu.dao.paginate(getParaToInt(0,1), 10));
+		render("education.html");
+		
+	}
+	
+	//学位信息管理
+	
+	public void degree(){
+		setAttr("degreePage", Degree.dao.paginate(getParaToInt(0,1), 10));
+		render("degree.html");
+	}
+	
 	
 }
