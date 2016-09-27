@@ -1,9 +1,9 @@
 package com.huijiasoft.controller;
 
-import com.huijiasoft.model.Dec;
 import com.huijiasoft.model.DeclareType;
 import com.huijiasoft.model.Mz;
 import com.huijiasoft.model.User;
+import com.huijiasoft.model.Zzmm;
 import com.huijiasoft.validate.AdminValidator;
 import com.jfinal.aop.Before;
 import com.jfinal.core.Controller;
@@ -54,5 +54,11 @@ public class AdminController extends Controller {
 		render("nation.html");
 	}
 	
+	
+	//政治面貌管理
+	public void zzmm(){
+		setAttr("zzmmPage", Zzmm.dao.paginate(getParaToInt(0,1), 10));
+		render("zzmm.html");
+	}
 	
 }
