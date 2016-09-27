@@ -1,6 +1,8 @@
 package com.huijiasoft.controller;
 
 import com.huijiasoft.model.Dec;
+import com.huijiasoft.model.DeclareType;
+import com.huijiasoft.model.Mz;
 import com.huijiasoft.model.User;
 import com.huijiasoft.validate.AdminValidator;
 import com.jfinal.aop.Before;
@@ -41,8 +43,15 @@ public class AdminController extends Controller {
 	
 	//申报类型管理
 	public void declare(){
-		setAttr("declarePage",Dec.decModel.paginate(getParaToInt(0,1), 10));
+		setAttr("declarePage",DeclareType.dao.paginate(getParaToInt(0,1), 10));
 		render("declare.html");
+	}
+	
+	//民族分类管理
+	
+	public void nation(){
+		setAttr("nationPage", Mz.dao.paginate(getParaToInt(0,1), 10));
+		render("nation.html");
 	}
 	
 	

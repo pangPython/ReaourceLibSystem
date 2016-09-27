@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50547
 File Encoding         : 65001
 
-Date: 2016-09-27 08:53:25
+Date: 2016-09-27 10:39:40
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -125,11 +125,68 @@ CREATE TABLE `mz` (
   `mz_id` int(11) NOT NULL AUTO_INCREMENT,
   `mzname` varchar(20) NOT NULL,
   PRIMARY KEY (`mz_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mz
 -- ----------------------------
+INSERT INTO `mz` VALUES ('1', '汉族');
+INSERT INTO `mz` VALUES ('2', '蒙古族');
+INSERT INTO `mz` VALUES ('3', '回族');
+INSERT INTO `mz` VALUES ('4', '藏族');
+INSERT INTO `mz` VALUES ('5', '维吾尔族');
+INSERT INTO `mz` VALUES ('6', '苗族');
+INSERT INTO `mz` VALUES ('7', '彝族');
+INSERT INTO `mz` VALUES ('8', '壮族');
+INSERT INTO `mz` VALUES ('9', '布依族');
+INSERT INTO `mz` VALUES ('10', '朝鲜族');
+INSERT INTO `mz` VALUES ('11', '满族');
+INSERT INTO `mz` VALUES ('12', '侗族');
+INSERT INTO `mz` VALUES ('13', '瑶族');
+INSERT INTO `mz` VALUES ('14', '白族');
+INSERT INTO `mz` VALUES ('15', '土家族');
+INSERT INTO `mz` VALUES ('16', '哈尼族');
+INSERT INTO `mz` VALUES ('17', '哈萨克族');
+INSERT INTO `mz` VALUES ('18', '傣族');
+INSERT INTO `mz` VALUES ('19', '黎族');
+INSERT INTO `mz` VALUES ('20', '傈僳族');
+INSERT INTO `mz` VALUES ('21', '佤族');
+INSERT INTO `mz` VALUES ('22', '畲族');
+INSERT INTO `mz` VALUES ('23', '高山族');
+INSERT INTO `mz` VALUES ('24', '拉祜族');
+INSERT INTO `mz` VALUES ('25', '水族');
+INSERT INTO `mz` VALUES ('26', '东乡族');
+INSERT INTO `mz` VALUES ('27', '纳西族');
+INSERT INTO `mz` VALUES ('28', '景颇族');
+INSERT INTO `mz` VALUES ('29', '柯尔克孜族');
+INSERT INTO `mz` VALUES ('30', '土族');
+INSERT INTO `mz` VALUES ('31', '达斡尔族');
+INSERT INTO `mz` VALUES ('32', '仫佬族');
+INSERT INTO `mz` VALUES ('33', '羌族');
+INSERT INTO `mz` VALUES ('34', ' 布朗族');
+INSERT INTO `mz` VALUES ('35', ' 撒拉族');
+INSERT INTO `mz` VALUES ('36', ' 毛难族');
+INSERT INTO `mz` VALUES ('37', ' 仡佬族');
+INSERT INTO `mz` VALUES ('38', ' 锡伯族');
+INSERT INTO `mz` VALUES ('39', ' 阿昌族');
+INSERT INTO `mz` VALUES ('40', ' 普米族');
+INSERT INTO `mz` VALUES ('41', ' 塔吉克族');
+INSERT INTO `mz` VALUES ('42', ' 怒族');
+INSERT INTO `mz` VALUES ('43', ' 乌孜别克族');
+INSERT INTO `mz` VALUES ('44', ' 俄罗斯族');
+INSERT INTO `mz` VALUES ('45', ' 鄂温克族');
+INSERT INTO `mz` VALUES ('46', ' 崩龙族');
+INSERT INTO `mz` VALUES ('47', ' 保安族');
+INSERT INTO `mz` VALUES ('48', ' 裕固族');
+INSERT INTO `mz` VALUES ('49', ' 京族');
+INSERT INTO `mz` VALUES ('50', ' 塔塔尔族');
+INSERT INTO `mz` VALUES ('51', ' 独龙族');
+INSERT INTO `mz` VALUES ('52', ' 鄂伦春族');
+INSERT INTO `mz` VALUES ('53', ' 赫哲族');
+INSERT INTO `mz` VALUES ('54', ' 门巴族');
+INSERT INTO `mz` VALUES ('55', ' 珞巴族');
+INSERT INTO `mz` VALUES ('56', ' 基诺族');
+INSERT INTO `mz` VALUES ('57', ' 其他');
 
 -- ----------------------------
 -- Table structure for `system`
@@ -217,9 +274,21 @@ CREATE TABLE `zzmm` (
   `zzmm_id` int(11) NOT NULL AUTO_INCREMENT,
   `zzmmname` varchar(20) NOT NULL,
   PRIMARY KEY (`zzmm_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of zzmm
 -- ----------------------------
-INSERT INTO `zzmm` VALUES ('1', '团员');
+INSERT INTO `zzmm` VALUES ('1', '中共党员');
+INSERT INTO `zzmm` VALUES ('2', ' 中共预备党员');
+INSERT INTO `zzmm` VALUES ('3', ' 共青团员');
+INSERT INTO `zzmm` VALUES ('4', ' 民革党员');
+INSERT INTO `zzmm` VALUES ('5', ' 民盟盟员');
+INSERT INTO `zzmm` VALUES ('6', ' 民建会员');
+INSERT INTO `zzmm` VALUES ('7', ' 民进会员');
+INSERT INTO `zzmm` VALUES ('8', ' 农工党党员');
+INSERT INTO `zzmm` VALUES ('9', ' 致公党党员');
+INSERT INTO `zzmm` VALUES ('10', ' 九三学社社员');
+INSERT INTO `zzmm` VALUES ('11', ' 台盟盟员');
+INSERT INTO `zzmm` VALUES ('12', ' 无党派民族人士');
+INSERT INTO `zzmm` VALUES ('13', ' 普通公民(群众)');
