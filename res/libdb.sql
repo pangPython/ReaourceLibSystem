@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50547
 File Encoding         : 65001
 
-Date: 2016-09-27 10:39:40
+Date: 2016-09-27 15:11:32
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -37,15 +37,20 @@ INSERT INTO `admin` VALUES ('1', 'admin', '123456');
 DROP TABLE IF EXISTS `area`;
 CREATE TABLE `area` (
   `area_id` int(11) NOT NULL AUTO_INCREMENT,
-  `add_1` varchar(20) NOT NULL,
-  `jibie` varchar(20) NOT NULL,
+  `area_name` varchar(50) NOT NULL,
+  `area_type` int(20) NOT NULL COMMENT '使用0代表市,1代表县区',
   PRIMARY KEY (`area_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of area
 -- ----------------------------
-INSERT INTO `area` VALUES ('1', '河口区', '县/区');
+INSERT INTO `area` VALUES ('1', '东营市', '0');
+INSERT INTO `area` VALUES ('2', '东营区', '1');
+INSERT INTO `area` VALUES ('3', ' 河口区', '1');
+INSERT INTO `area` VALUES ('4', '广饶县', '1');
+INSERT INTO `area` VALUES ('5', ' 垦利县', '1');
+INSERT INTO `area` VALUES ('6', '利津县', '1');
 
 -- ----------------------------
 -- Table structure for `country_user`
@@ -97,11 +102,14 @@ CREATE TABLE `degree` (
   `degree_id` int(11) NOT NULL AUTO_INCREMENT,
   `degreename` varchar(20) NOT NULL,
   PRIMARY KEY (`degree_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of degree
 -- ----------------------------
+INSERT INTO `degree` VALUES ('1', '学士');
+INSERT INTO `degree` VALUES ('2', '硕士');
+INSERT INTO `degree` VALUES ('3', ' 博士');
 
 -- ----------------------------
 -- Table structure for `edu`
@@ -116,6 +124,14 @@ CREATE TABLE `edu` (
 -- ----------------------------
 -- Records of edu
 -- ----------------------------
+INSERT INTO `edu` VALUES ('0', ' 小学');
+INSERT INTO `edu` VALUES ('1', ' 初中');
+INSERT INTO `edu` VALUES ('2', ' 中专');
+INSERT INTO `edu` VALUES ('3', ' 高中');
+INSERT INTO `edu` VALUES ('4', ' 专科');
+INSERT INTO `edu` VALUES ('5', ' 本科');
+INSERT INTO `edu` VALUES ('6', ' 硕士研究生');
+INSERT INTO `edu` VALUES ('7', ' 博士研究生');
 
 -- ----------------------------
 -- Table structure for `mz`

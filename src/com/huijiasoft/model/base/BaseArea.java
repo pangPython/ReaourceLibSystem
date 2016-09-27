@@ -17,20 +17,20 @@ public abstract class BaseArea<M extends BaseArea<M>> extends Model<M> implement
 		return get("area_id");
 	}
 
-	public void setAdd1(java.lang.String add1) {
-		set("add_1", add1);
+	public void setAreaName(java.lang.String areaName) {
+		set("area_name", areaName);
 	}
 
-	public java.lang.String getAdd1() {
-		return get("add_1");
+	public java.lang.String getAreaName() {
+		return get("area_name");
 	}
 
-	public void setJibie(java.lang.String jibie) {
-		set("jibie", jibie);
+	public void setAreaType(java.lang.Integer areaType) {
+		set("area_type", areaType);
 	}
 
-	public java.lang.String getJibie() {
-		return get("jibie");
+	public java.lang.Integer getAreaType() {
+		return get("area_type");
 	}
 
 }

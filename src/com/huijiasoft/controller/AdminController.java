@@ -1,5 +1,6 @@
 package com.huijiasoft.controller;
 
+import com.huijiasoft.model.Area;
 import com.huijiasoft.model.DeclareType;
 import com.huijiasoft.model.Degree;
 import com.huijiasoft.model.Edu;
@@ -81,6 +82,13 @@ public class AdminController extends Controller {
 		setAttr("degreePage", Degree.dao.paginate(getParaToInt(0,1), 10));
 		render("degree.html");
 	}
+	
+	//地区管理
+	public void area(){
+		setAttr("areaPage", Area.dao.paginate(getParaToInt(0,1),10));
+		render("area.html");
+	}	
+	
 	
 	
 }
