@@ -1,5 +1,6 @@
 package com.huijiasoft.controller;
 
+import com.huijiasoft.model.Dec;
 import com.huijiasoft.model.User;
 import com.huijiasoft.validate.AdminValidator;
 import com.jfinal.aop.Before;
@@ -32,11 +33,17 @@ public class AdminController extends Controller {
 	}
 	
 	
+	//后台搜索页面
 	public void search(){
 		setAttr("userPage", User.usermodel.paginate(getParaToInt(0,1), 10));
 		render("article-list.html");
 	}
 	
+	//申报类型管理
+	public void declare(){
+		setAttr("declarePage",Dec.decModel.paginate(getParaToInt(0,1), 10));
+		render("declare.html");
+	}
 	
 	
 }

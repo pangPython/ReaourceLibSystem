@@ -145,12 +145,12 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("address");
 	}
 
-	public void setCompany(java.lang.String Company) {
-		set("Company", Company);
+	public void setCompany(java.lang.String company) {
+		set("company", company);
 	}
 
 	public java.lang.String getCompany() {
-		return get("Company");
+		return get("company");
 	}
 
 	public void setTc(java.lang.String tc) {

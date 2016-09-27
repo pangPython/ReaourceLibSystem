@@ -19,7 +19,7 @@ public class _MappingKit {
 		arp.addMapping("admin", "id", Admin.class);
 		arp.addMapping("area", "area_id", Area.class);
 		arp.addMapping("country_user", "country_id", CountryUser.class);
-		arp.addMapping("dec", "dec_id", Dec.class);
+		arp.addMapping("declare_type", "dec_id", DeclareType.class);
 		arp.addMapping("degree", "degree_id", Degree.class);
 		arp.addMapping("edu", "edu_id", Edu.class);
 		arp.addMapping("mz", "mz_id", Mz.class);
