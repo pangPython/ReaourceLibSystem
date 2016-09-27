@@ -14,7 +14,7 @@ import com.jfinal.render.CaptchaRender;
 public class AdminController extends Controller {
 	
 	public void index(){
-		render("index.html");
+		render("login.html");
 	}
 	
 	@Before(AdminValidator.class)
@@ -29,6 +29,10 @@ public class AdminController extends Controller {
 			render("index.html");
 		}
 		
+	}
+	
+	public void logout(){
+		redirect("index");
 	}
 	
 	
