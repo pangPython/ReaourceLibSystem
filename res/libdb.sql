@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50547
 File Encoding         : 65001
 
-Date: 2016-09-27 21:05:50
+Date: 2016-09-28 16:13:50
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -225,7 +225,7 @@ CREATE TABLE `system` (
 -- ----------------------------
 -- Records of system
 -- ----------------------------
-INSERT INTO `system` VALUES ('1', '东营市社会文艺人才信息资源库', '关键词设置', '网站描述设置', ' 版权设置', ' 备案号设置', ' 统计代码设置', '1');
+INSERT INTO `system` VALUES ('1', '东营市社会文艺人才信息资源库', '关键词设置1', '网站描述设置', '山东汇佳软件科技有限公司版权所有', '鲁ICP备00000000001号', ' 统计代码设置', '1');
 
 -- ----------------------------
 -- Table structure for `uploads`

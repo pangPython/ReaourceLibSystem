@@ -21,7 +21,7 @@ import com.jfinal.render.CaptchaRender;
 public class AdminController extends Controller {
 	
 	public void index(){
-		render("login.html");
+		render("index.html");
 	}
 	
 	@Clear
@@ -34,9 +34,9 @@ public class AdminController extends Controller {
 		Admin admin = Admin.dao.findFirst(sql,admin_name,admin_pwd);
 		if(admin != null){
 			this.setSessionAttr("Admin", admin);
-			render("index.html");
-		}else{
 			redirect("index");
+		}else{
+			render("login.html");
 		}
 		
 	}
