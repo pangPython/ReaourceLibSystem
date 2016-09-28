@@ -17,6 +17,54 @@ public abstract class BaseSystem<M extends BaseSystem<M>> extends Model<M> imple
 		return get("id");
 	}
 
+	public void setTitle(java.lang.String title) {
+		set("title", title);
+	}
+
+	public java.lang.String getTitle() {
+		return get("title");
+	}
+
+	public void setKeywords(java.lang.String keywords) {
+		set("keywords", keywords);
+	}
+
+	public java.lang.String getKeywords() {
+		return get("keywords");
+	}
+
+	public void setDescription(java.lang.String description) {
+		set("description", description);
+	}
+
+	public java.lang.String getDescription() {
+		return get("description");
+	}
+
+	public void setCopyright(java.lang.String copyright) {
+		set("copyright", copyright);
+	}
+
+	public java.lang.String getCopyright() {
+		return get("copyright");
+	}
+
+	public void setRecord(java.lang.String record) {
+		set("record", record);
+	}
+
+	public java.lang.String getRecord() {
+		return get("record");
+	}
+
+	public void setStatisticsCode(java.lang.String statisticsCode) {
+		set("statistics_code", statisticsCode);
+	}
+
+	public java.lang.String getStatisticsCode() {
+		return get("statistics_code");
+	}
+
 	public void setOpen(java.lang.Integer open) {
 		set("open", open);
 	}
