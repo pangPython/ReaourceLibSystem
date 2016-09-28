@@ -1,5 +1,7 @@
 package com.huijiasoft.model;
 
+import java.util.List;
+
 import com.huijiasoft.model.base.BaseEdu;
 import com.jfinal.plugin.activerecord.Page;
 
@@ -11,7 +13,11 @@ public class Edu extends BaseEdu<Edu> {
 	public static final Edu dao = new Edu();
 	
 	public Page<Edu> paginate(int pageNumber,int pageSize){
-		return paginate(pageNumber, pageSize, "select *", "from edu order by edu_id desc");
+		return paginate(pageNumber, pageSize, "select *", "from edu order by edu_id asc");
 	}
 	
+	public List<Edu> getAllEdu() {
+		return dao.find("select * from edu order by edu_id asc");
+
+	}
 }

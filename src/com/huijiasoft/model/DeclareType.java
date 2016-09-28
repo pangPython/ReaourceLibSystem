@@ -1,5 +1,7 @@
 package com.huijiasoft.model;
 
+import java.util.List;
+
 import com.huijiasoft.model.base.BaseDeclareType;
 import com.jfinal.plugin.activerecord.Page;
 
@@ -14,5 +16,11 @@ public class DeclareType extends BaseDeclareType<DeclareType> {
 		return paginate(pageNumber, pageSize, "select *", "from declare_type order by dec_id asc");
 		
 	}
+	
+	//未使用分页，获取所有的申报类别
+	public List<DeclareType> getAllDecType(){
+		return dao.find(" select * from declare_type order by dec_id asc");
+	}
+	
 	
 }

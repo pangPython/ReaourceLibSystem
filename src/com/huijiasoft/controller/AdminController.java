@@ -58,34 +58,34 @@ public class AdminController extends Controller {
 	
 	//后台搜索页面
 	public void search(){
-		setAttr("userPage", User.usermodel.paginate(getParaToInt(0,1), 10));
+		setAttr("userList", User.usermodel.getAllUser());
 		render("article-list.html");
 	}
 	
 	//申报类型管理
 	public void declare(){
-		setAttr("declarePage",DeclareType.dao.paginate(getParaToInt(0,1), 10));
+		setAttr("declareList",DeclareType.dao.getAllDecType());
 		render("declare.html");
 	}
 	
 	//民族分类管理
 	
 	public void nation(){
-		setAttr("nationPage", Mz.dao.paginate(getParaToInt(0,1), 10));
+		setAttr("nationList", Mz.dao.getAllMz());
 		render("nation.html");
 	}
 	
 	
 	//政治面貌管理
 	public void zzmm(){
-		setAttr("zzmmPage", Zzmm.dao.paginate(getParaToInt(0,1), 10));
+		setAttr("zzmmList", Zzmm.dao.getAllZzmm());
 		render("zzmm.html");
 	}
 	
 	//学历信息管理
 	public void education(){
 		
-		setAttr("educationPage", Edu.dao.paginate(getParaToInt(0,1), 10));
+		setAttr("educationList", Edu.dao.getAllEdu());
 		render("education.html");
 		
 	}
@@ -93,13 +93,13 @@ public class AdminController extends Controller {
 	//学位信息管理
 	
 	public void degree(){
-		setAttr("degreePage", Degree.dao.paginate(getParaToInt(0,1), 10));
+		setAttr("degreeList", Degree.dao.getAllDegree());
 		render("degree.html");
 	}
 	
 	//地区管理
 	public void area(){
-		setAttr("areaPage", Area.dao.paginate(getParaToInt(0,1),10));
+		setAttr("areaList", Area.dao.getAllArea());
 		render("area.html");
 	}
 	

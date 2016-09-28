@@ -1,5 +1,7 @@
 package com.huijiasoft.model;
 
+import java.util.List;
+
 import com.huijiasoft.model.base.BaseZzmm;
 import com.jfinal.plugin.activerecord.Page;
 
@@ -11,7 +13,11 @@ public class Zzmm extends BaseZzmm<Zzmm> {
 	public static final Zzmm dao = new Zzmm();
 	
 	public Page<Zzmm> paginate(int pageNumber,int pageSize){
-		return paginate(pageNumber,pageSize,"select *","from zzmm order by zzmm_id desc");		
+		return paginate(pageNumber,pageSize,"select *","from zzmm order by zzmm_id asc");		
+	}
+	
+	public List<Zzmm> getAllZzmm(){
+		return dao.find("select * from zzmm order by zzmm_id asc");
 	}
 	
 }

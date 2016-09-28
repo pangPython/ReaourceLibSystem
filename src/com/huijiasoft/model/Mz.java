@@ -1,5 +1,7 @@
 package com.huijiasoft.model;
 
+import java.util.List;
+
 import com.huijiasoft.model.base.BaseMz;
 import com.jfinal.plugin.activerecord.Page;
 
@@ -13,5 +15,10 @@ public class Mz extends BaseMz<Mz> {
 	public Page<Mz> paginate(int pageNumber,int pageSize){
 		return paginate(pageNumber,pageSize,"select *","from mz order by mz_id asc");
 	}
+	
+	public List<Mz> getAllMz(){
+		return dao.find("select * from mz order by mz_id asc");
+	}
+	
 	
 }
