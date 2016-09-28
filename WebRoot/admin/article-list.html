@@ -53,7 +53,7 @@
 				<td><input type="checkbox" value="" name=""></td>
 				<td>${x.id}</td>
 				<td class="text-l">
-				<u style="cursor:pointer" class="text-primary" onClick="article_edit('查看','user-check.html','10001')" title="查看">${x.username}</u></td>
+				<a style="cursor:pointer" class="text-primary" href="checkUser?id=${x.id!}" title="查看">${x.username}</a></td>
 				<td>
 				<#if x.usersex == 1>
 				男

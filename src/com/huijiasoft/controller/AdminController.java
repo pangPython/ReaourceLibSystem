@@ -113,6 +113,15 @@ public class AdminController extends Controller {
 		renderText("更新成功！");
 	}
 	
+	//查看某个用户
+	public void checkUser(){
+		setAttr("user", User.usermodel.findById(getPara("id")));
+		render("user-check.html");
+	}
+	
+	
+	
+	
 	
 	
 }

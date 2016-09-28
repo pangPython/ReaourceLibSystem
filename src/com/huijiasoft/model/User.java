@@ -24,5 +24,11 @@ public class User extends BaseUser<User> {
 		return  usermodel.find("select * from user order by id asc");
 	}
 	
+	
+	public User findById(int id){
+		return usermodel.findById(id);
+	}
+	
+	
 
 }
