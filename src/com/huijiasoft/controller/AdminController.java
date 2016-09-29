@@ -1,5 +1,6 @@
 package com.huijiasoft.controller;
 
+import java.io.File;
 import java.io.IOException;
 
 import com.huijiasoft.interceptor.AdminAuthInterceptor;
@@ -124,14 +125,16 @@ public class AdminController extends Controller {
 	
 	//打印
 	public void printer(){
+		
+		String fileName = "";
+		int id = getParaToInt("id");
 		try {
-			WriteToDocx.write("1");
+			fileName = WriteToDocx.write(id);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		renderFile("1.docx");
-		//renderText("打印成功！");
+		renderFile(new File(fileName));
 		
 	}
 	

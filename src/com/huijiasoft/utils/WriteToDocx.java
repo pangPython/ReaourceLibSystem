@@ -35,6 +35,9 @@ import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
 
+import com.huijiasoft.model.User;
+import com.jfinal.plugin.activerecord.Model;
+
 /**
 * A simple WOrdprocessingML document created by POI XWPF API
 *
@@ -42,8 +45,16 @@ import org.apache.poi.xwpf.usermodel.XWPFRun;
 */
 public class WriteToDocx {
 
-	public static void write(String docName) throws IOException{
-		 XWPFDocument doc = new XWPFDocument();
+	public static String write(int userId) throws IOException{
+		
+		
+		User user = User.usermodel.findById(userId) ;
+		
+		String docName = user.getUsername()+".docx";
+		
+		String filePath = "WebRoot/"+docName;
+		
+		XWPFDocument doc = new XWPFDocument();
 
 	     XWPFParagraph p1 = doc.createParagraph();
 	     p1.setAlignment(ParagraphAlignment.CENTER);
@@ -58,7 +69,7 @@ public class WriteToDocx {
 
 	     XWPFRun r1 = p1.createRun();
 	     r1.setBold(true);
-	     r1.setText("POI测试文档");
+	     r1.setText("姓名:"+user.getUsername()+"性别:"+user.getUsersex());
 	     r1.setBold(true);
 	     r1.setFontFamily("Courier");
 	     r1.setUnderline(UnderlinePatterns.DOT_DOT_DASH);
@@ -75,8 +86,8 @@ public class WriteToDocx {
 	     p2.setBorderBetween(Borders.SINGLE);
 
 	     XWPFRun r2 = p2.createRun();
-	     r2.setText("呵呵呵呵呵呵");
-	     r2.setStrike(true);
+	     r2.setText("民族:"+user.getMzId()+" 政治面貌:"+user.getZzmmId());
+	    // r2.setStrike(true);
 	     r2.setFontSize(20);
 
 	     XWPFRun r3 = p2.createRun();
@@ -129,10 +140,11 @@ public class WriteToDocx {
 	     r5.setText("The pangs of despised love, the law's delay,"
 	             + "The insolence of office and the spurns" + ".......");
 
-	     FileOutputStream out = new FileOutputStream("WebRoot/"+docName+".docx");
+	     FileOutputStream out = new FileOutputStream(filePath);
 	     doc.write(out);
 	     out.close();
-
+	     
+	     return filePath;
 
 	}
 	
