@@ -16,7 +16,7 @@ public class _JFinalGenerator {
 		return c3p0Plugin.getDataSource();
 	}
 	
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 		String baseModelPackageName = "com.huijiasoft.model.base";
 		String baseModelOutputDir = PathKit.getWebRootPath()+"/../src/com/huijiasoft/model/base";
 		String modelPackage = "com.huijiasoft.model";
@@ -32,6 +32,6 @@ public class _JFinalGenerator {
 		//generator.setRemovedTableNamePrefixes("t_");
 		// Éú³É
 		generator.generate();
-	}
+	}*/
 	
 }

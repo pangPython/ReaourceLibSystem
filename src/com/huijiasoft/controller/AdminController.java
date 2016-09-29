@@ -1,5 +1,7 @@
 package com.huijiasoft.controller;
 
+import java.io.IOException;
+
 import com.huijiasoft.interceptor.AdminAuthInterceptor;
 import com.huijiasoft.model.Admin;
 import com.huijiasoft.model.Area;
@@ -10,6 +12,7 @@ import com.huijiasoft.model.Mz;
 import com.huijiasoft.model.System;
 import com.huijiasoft.model.User;
 import com.huijiasoft.model.Zzmm;
+import com.huijiasoft.utils.WriteToDocx;
 import com.huijiasoft.validate.AdminValidator;
 import com.jfinal.aop.Before;
 import com.jfinal.aop.Clear;
@@ -119,7 +122,18 @@ public class AdminController extends Controller {
 		render("user-check.html");
 	}
 	
-	
+	//打印
+	public void printer(){
+		try {
+			WriteToDocx.write("1");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		renderFile("1.docx");
+		//renderText("打印成功！");
+		
+	}
 	
 	
 	
