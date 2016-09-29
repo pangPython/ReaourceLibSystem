@@ -1,33 +1,30 @@
 package com.huijiasoft.controller;
 
-import com.huijiasoft.validate.LoginValidator;
-import com.jfinal.aop.Before;
+import com.huijiasoft.service.IndexService;
 import com.jfinal.core.Controller;
 
 public class IndexContrlller extends Controller {
 	//进入首页
 	
 	public void index(){
-//		if(getSessionAttr("uanme")){
-//			setAttr("errMsg", "hahahah");
-//		}
-		render("index.html");
-	}
-	
-	@Before(LoginValidator.class)
-	public void login(){
-		//登录之前先进行判断session是否有用户登录
-		//y logined
-		//n login register
+		//if(IndexService.siteIsOpen()){
+			setAttr("system", IndexService.getSysConfig());
+			render("index.html");	
+	//	}else{
+	//		renderText("站点已经关闭！");
+	//	}
 		
-		System.out.println(getPara("login.name"));
-		if ("admin"==getPara("login.name")) {
-			setSessionAttr("uname", "login");
-		}
-		render("index.html");
 	}
 	
 	
+	public void login(){
+		setAttr("system", IndexService.getSysConfig());
+		render("login.html");
+	}
+	
+	public void regist(){
+		render("regist.html");
+	}
 	
 	
 }
