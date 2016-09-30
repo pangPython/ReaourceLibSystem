@@ -51,15 +51,11 @@
         .form({
           fields: {
             email: {
-              identifier  : 'email',
+              identifier  : 'uname',
               rules: [
                 {
                   type   : 'empty',
-                  prompt : 'Please enter your e-mail'
-                },
-                {
-                  type   : 'email',
-                  prompt : 'Please enter a valid e-mail'
+                  prompt : '请输入用户名！'
                 }
               ]
             },
@@ -68,11 +64,7 @@
               rules: [
                 {
                   type   : 'empty',
-                  prompt : 'Please enter your password'
-                },
-                {
-                  type   : 'length[6]',
-                  prompt : 'Your password must be at least 6 characters'
+                  prompt : '请输入密码！'
                 }
               ]
             }
@@ -98,13 +90,13 @@
         <div class="field">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="text" name="email" placeholder="E-mail address">
+            <input type="text" name="uname" placeholder="用户名">
           </div>
         </div>
         <div class="field">
           <div class="ui left icon input">
             <i class="lock icon"></i>
-            <input type="password" name="password" placeholder="Password">
+            <input type="password" name="password" placeholder="密码">
           </div>
         </div>
         <div class="ui fluid large teal submit button">登录</div>
