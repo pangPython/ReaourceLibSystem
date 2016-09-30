@@ -3,6 +3,10 @@ package com.huijiasoft.validate;
 import com.jfinal.core.Controller;
 import com.jfinal.validate.Validator;
 
+/**
+ * @author pangPython
+ *
+ */
 public class AdminValidator extends Validator{
 
 	@Override

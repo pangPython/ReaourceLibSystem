@@ -3,6 +3,10 @@ package com.huijiasoft.controller;
 import com.huijiasoft.service.IndexService;
 import com.jfinal.core.Controller;
 
+/**
+ * @author pangPython
+ *
+ */
 public class IndexContrlller extends Controller {
 	//ฝ๘ศ๋สืาณ
 	

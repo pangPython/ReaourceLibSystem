@@ -16,7 +16,7 @@ import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
 
-public class MyConfig extends JFinalConfig {
+public class MyJFinalConfig extends JFinalConfig {
 
 	public static void main(String[] args) {
 		JFinal.start("WebRoot",80,"/",5);

@@ -21,6 +21,10 @@ import com.jfinal.core.Controller;
 import com.jfinal.render.CaptchaRender;
 
 
+/**
+ * @author pangPython
+ *
+ */
 @Before(AdminAuthInterceptor.class)
 public class AdminController extends Controller {
 	

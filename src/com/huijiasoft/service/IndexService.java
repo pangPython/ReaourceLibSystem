@@ -2,6 +2,10 @@ package com.huijiasoft.service;
 
 import com.huijiasoft.model.System;
 
+/**
+ * @author pangPython
+ *
+ */
 public class IndexService {
 	public static System getSysConfig(){
 		return System.dao.findFirst("select * from system limit 1");

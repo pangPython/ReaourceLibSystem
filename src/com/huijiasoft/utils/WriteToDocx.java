@@ -1,7 +1,5 @@
 package com.huijiasoft.utils;
 
-import java.io.FileNotFoundException;
-
 /* ====================================================================
 Licensed to the Apache Software Foundation (ASF) under one or more
 contributor license agreements.  See the NOTICE file distributed with
@@ -36,13 +34,12 @@ import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
 
 import com.huijiasoft.model.User;
-import com.jfinal.plugin.activerecord.Model;
+
 
 /**
-* A simple WOrdprocessingML document created by POI XWPF API
-*
-* @author Yegor Kozlov
-*/
+ * @author pangPython
+ *
+ */
 public class WriteToDocx {
 
 	public static String write(int userId) throws IOException{
