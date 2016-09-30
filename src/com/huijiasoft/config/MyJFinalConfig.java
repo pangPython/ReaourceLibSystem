@@ -1,10 +1,6 @@
 package com.huijiasoft.config;
 
-import com.huijiasoft.controller.AdminController;
-import com.huijiasoft.controller.IndexContrlller;
-import com.huijiasoft.controller.UserController;
 import com.huijiasoft.handler.ResourceHandler;
-import com.huijiasoft.model.User;
 import com.huijiasoft.model._MappingKit;
 import com.huijiasoft.routes.AdminRoutes;
 import com.huijiasoft.routes.FrontRoutes;
@@ -15,11 +11,16 @@ import com.jfinal.config.JFinalConfig;
 import com.jfinal.config.Plugins;
 import com.jfinal.config.Routes;
 import com.jfinal.core.JFinal;
-import com.jfinal.ext.handler.UrlSkipHandler;
 import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
 
+
+
+/**
+ * @author pangPython
+ * JFinal配置文件
+ */
 public class MyJFinalConfig extends JFinalConfig {
 
 	public static void main(String[] args) {
@@ -47,14 +48,11 @@ public class MyJFinalConfig extends JFinalConfig {
 
 	@Override
 	public void configHandler(Handlers me) {
-		//跳过html等请求
-		//new UrlSkipHandler(".+\\.\\w{1,4}", false)
 		me.add(new ResourceHandler());
 	}
 
 	@Override
 	public void configInterceptor(Interceptors arg0) {
-		// TODO Auto-generated method stub
 
 	}
 	
@@ -67,14 +65,9 @@ public class MyJFinalConfig extends JFinalConfig {
 	public void configPlugin(Plugins me) {
 		C3p0Plugin c3p0Plugin = createC3p0Plugin();
 		me.add(c3p0Plugin);
-		
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(c3p0Plugin);
-		
 		me.add(arp);
-		
 		_MappingKit.mapping(arp);
-		
-
 	}
 	
 

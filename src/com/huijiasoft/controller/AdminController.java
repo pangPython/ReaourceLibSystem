@@ -29,7 +29,6 @@ import com.jfinal.render.CaptchaRender;
 @Before(AdminAuthInterceptor.class)
 public class AdminController extends Controller {
 	
-	
 	public void index(){
 		render("index.html");
 	}
@@ -39,7 +38,7 @@ public class AdminController extends Controller {
 		render("index.html");
 	}
 	
-	
+	//取消登录验证的后台登录方法
 	@Clear
 	@Before(AdminValidator.class)
 	public void login(){
@@ -57,12 +56,13 @@ public class AdminController extends Controller {
 		
 	}
 	
+	//退出方法
 	public void logout(){
 		removeSessionAttr("Admin");
 		redirect("index");
 	}
 	
-	
+	//后台服务器信息总览页面
 	public void welcome() {
 		render("welcome.html");
 	}
