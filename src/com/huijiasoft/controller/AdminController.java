@@ -63,10 +63,6 @@ public class AdminController extends Controller {
 	}
 	
 	
-	public void img(){
-		render(new CaptchaRender());
-	}
-	
 	public void welcome() {
 		render("welcome.html");
 	}

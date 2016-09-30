@@ -1,5 +1,7 @@
 package com.huijiasoft.routes;
 
+import com.huijiasoft.controller.CommonController;
+import com.huijiasoft.controller.IndexContrlller;
 import com.jfinal.config.Routes;
 
 /**
@@ -10,8 +12,8 @@ public class FrontRoutes extends Routes {
 
 	@Override
 	public void config() {
-		// TODO Auto-generated method stub
-		
+		add("/",IndexContrlller.class);
+		add("/common",CommonController.class);
 	}
 
 }

@@ -6,6 +6,8 @@ import com.huijiasoft.controller.UserController;
 import com.huijiasoft.handler.ResourceHandler;
 import com.huijiasoft.model.User;
 import com.huijiasoft.model._MappingKit;
+import com.huijiasoft.routes.AdminRoutes;
+import com.huijiasoft.routes.FrontRoutes;
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
 import com.jfinal.config.Interceptors;
@@ -37,11 +39,10 @@ public class MyJFinalConfig extends JFinalConfig {
 	
 	@Override
 	public void configRoute(Routes me) {
-		me.add("/",IndexContrlller.class);
-		me.add("/admin",AdminController.class);
-		//me.add("/login",UserController.class);
-		
-
+		//配置前端路由
+		me.add(new FrontRoutes());
+		//配置后端路由
+		me.add(new AdminRoutes());
 	}
 
 	@Override

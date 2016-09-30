@@ -1,10 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <!-- Site Properties -->
+  <title>注册</title>
+  <link rel="stylesheet" type="text/css" href="static/css/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="static/components/icon.css">
+  <script src="static/js/jquery.min.js"></script>
+  <script src="static/js/semantic.min.js"></script>
+  
+<style>
+    .column {
+      max-width: 450px;
+    }
+</style>
 </head>
 <body>
-<h1>Regist</h1>
+
+<div class="ui middle aligned center aligned grid ">
+  <div class="column">
+<h1 class="ui center aligned header ">用户注册</h1>
+    <form class="ui large form">
+      <div class="ui stacked segment">
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <input type="text" name="uname" placeholder="用户名">
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            <input type="password" name="password" placeholder="密码">
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            <input type="password" name="confirmpassword" placeholder="确认密码">
+          </div>
+        </div>
+        
+        <button class="positive ui button">注册</button>
+      </div>
+
+      <div class="ui error message"></div>
+
+    </form>
+
+  </div>
+</div>
+
+
+
+
+
+
 </body>
 </html>
