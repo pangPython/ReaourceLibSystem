@@ -1,6 +1,7 @@
 package com.huijiasoft.controller;
 
 import com.huijiasoft.service.IndexService;
+import com.jfinal.core.ActionKey;
 import com.jfinal.core.Controller;
 
 /**
@@ -10,14 +11,10 @@ import com.jfinal.core.Controller;
 public class IndexContrlller extends Controller {
 	//进入首页
 	
+	@ActionKey("/")
 	public void index(){
-		//if(IndexService.siteIsOpen()){
 			setAttr("system", IndexService.getSysConfig());
 			render("index.html");	
-	//	}else{
-	//		renderText("站点已经关闭！");
-	//	}
-		
 	}
 	
 	

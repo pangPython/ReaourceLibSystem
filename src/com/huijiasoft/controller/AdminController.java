@@ -17,6 +17,7 @@ import com.huijiasoft.utils.WriteToDocx;
 import com.huijiasoft.validate.AdminValidator;
 import com.jfinal.aop.Before;
 import com.jfinal.aop.Clear;
+import com.jfinal.core.ActionKey;
 import com.jfinal.core.Controller;
 import com.jfinal.render.CaptchaRender;
 
@@ -28,9 +29,16 @@ import com.jfinal.render.CaptchaRender;
 @Before(AdminAuthInterceptor.class)
 public class AdminController extends Controller {
 	
+	
 	public void index(){
 		render("index.html");
 	}
+	
+	@ActionKey("/admin/")
+	public void root(){
+		render("index.html");
+	}
+	
 	
 	@Clear
 	@Before(AdminValidator.class)
@@ -59,6 +67,9 @@ public class AdminController extends Controller {
 		render(new CaptchaRender());
 	}
 	
+	public void welcome() {
+		render("welcome.html");
+	}
 	
 	//ºóÌ¨ËÑË÷Ò³Ãæ
 	public void search(){

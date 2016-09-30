@@ -3,6 +3,7 @@ package com.huijiasoft.config;
 import com.huijiasoft.controller.AdminController;
 import com.huijiasoft.controller.IndexContrlller;
 import com.huijiasoft.controller.UserController;
+import com.huijiasoft.handler.ResourceHandler;
 import com.huijiasoft.model.User;
 import com.huijiasoft.model._MappingKit;
 import com.jfinal.config.Constants;
@@ -12,6 +13,7 @@ import com.jfinal.config.JFinalConfig;
 import com.jfinal.config.Plugins;
 import com.jfinal.config.Routes;
 import com.jfinal.core.JFinal;
+import com.jfinal.ext.handler.UrlSkipHandler;
 import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
@@ -43,9 +45,10 @@ public class MyJFinalConfig extends JFinalConfig {
 	}
 
 	@Override
-	public void configHandler(Handlers arg0) {
-		// TODO Auto-generated method stub
-
+	public void configHandler(Handlers me) {
+		//Ìø¹ýhtmlµÈÇëÇó
+		//new UrlSkipHandler(".+\\.\\w{1,4}", false)
+		me.add(new ResourceHandler());
 	}
 
 	@Override
