@@ -47,7 +47,7 @@ public class WriteToDocx {
 		
 		User user = User.usermodel.findById(userId) ;
 		
-		String docName = user.getUsername()+".docx";
+		String docName = user.getUname()+".docx";
 		
 		String filePath = "WebRoot/"+docName;
 		
@@ -66,7 +66,7 @@ public class WriteToDocx {
 
 	     XWPFRun r1 = p1.createRun();
 	     r1.setBold(true);
-	     r1.setText("姓名:"+user.getUsername()+"性别:"+user.getUsersex());
+	     r1.setText("姓名:"+user.getUname()+"性别:"+user.getUsersex());
 	     r1.setBold(true);
 	     r1.setFontFamily("Courier");
 	     r1.setUnderline(UnderlinePatterns.DOT_DOT_DASH);

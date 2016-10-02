@@ -46,6 +46,7 @@ public class AdminController extends Controller {
 		String admin_name = getPara("admin.name");
 		String admin_pwd = getPara("admin.pwd");
 		String sql = "select * from admin where adminname = ? and adminpassword = ? limit 1";
+		
 		Admin admin = Admin.dao.findFirst(sql,admin_name,admin_pwd);
 		if(admin != null){
 			this.setSessionAttr("Admin", admin);

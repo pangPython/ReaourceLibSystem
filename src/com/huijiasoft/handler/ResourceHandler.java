@@ -12,9 +12,6 @@ import com.jfinal.kit.HandlerKit;
  */
 
 public class ResourceHandler extends Handler {
-
-	
-	
 	
 	@Override
 	public void handle(String target, HttpServletRequest request, HttpServletResponse response, boolean[] isHandled) {
@@ -24,8 +21,6 @@ public class ResourceHandler extends Handler {
 		}
 		next.handle(target, request, response, isHandled);
 	}
-	
-	
 
 	private static boolean isDisableAccess(String target) {
 		String suffixHtml = ".html";

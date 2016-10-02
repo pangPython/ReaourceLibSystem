@@ -17,12 +17,12 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("id");
 	}
 
-	public void setUsername(java.lang.String username) {
-		set("username", username);
+	public void setUname(java.lang.String uname) {
+		set("uname", uname);
 	}
 
-	public java.lang.String getUsername() {
-		return get("username");
+	public java.lang.String getUname() {
+		return get("uname");
 	}
 
 	public void setAge(java.lang.Integer age) {
@@ -41,12 +41,12 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("art_type");
 	}
 
-	public void setPassword(java.lang.String password) {
-		set("password", password);
+	public void setPwd(java.lang.String pwd) {
+		set("pwd", pwd);
 	}
 
-	public java.lang.String getPassword() {
-		return get("password");
+	public java.lang.String getPwd() {
+		return get("pwd");
 	}
 
 	public void setDecId(java.lang.Integer decId) {

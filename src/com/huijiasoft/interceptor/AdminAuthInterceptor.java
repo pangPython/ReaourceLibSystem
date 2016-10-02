@@ -7,7 +7,7 @@ import com.jfinal.core.Controller;
 
 /**
  * @author pangPython
- *
+ *	ºóÌ¨µÄµÇÂ¼À¹½ØÆ÷
  */
 public class AdminAuthInterceptor implements Interceptor {
 
