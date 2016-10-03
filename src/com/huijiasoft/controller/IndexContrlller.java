@@ -7,6 +7,7 @@ import com.jfinal.aop.Before;
 import com.jfinal.aop.Clear;
 import com.jfinal.core.ActionKey;
 import com.jfinal.core.Controller;
+import com.jfinal.ext.kit.SessionIdKit;
 
 /**
  * @author pangPython
@@ -34,7 +35,12 @@ public class IndexContrlller extends Controller {
 		User user = User.usermodel.findFirst(sql,uname,pwd);
 		//登录成功
 		if(user!=null){
-			setSessionAttr(user.getId().toString(), user);
+			//生成唯一标识
+			String sessionId = SessionIdKit.me().generate(getRequest());
+			//设置服务器端session
+			setSessionAttr(sessionId, user);
+			//设置用户端cookie
+			setCookie("cuser", sessionId, 600);
 			redirect("/user");
 		}else{
 			setAttr("system", IndexService.getSysConfig());
