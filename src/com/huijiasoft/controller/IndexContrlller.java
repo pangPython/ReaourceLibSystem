@@ -25,6 +25,14 @@ public class IndexContrlller extends Controller {
 	//前台登录方法
 	
 	public void login(){
+		//如果请求参数cookie中可以获取到当前登录用户
+		//先移除其登录信息
+		String cuser = getCookie("cuser");
+		System.out.println(cuser+"=========cuser");
+		if(cuser!=null){
+			removeSessionAttr(cuser);
+		}
+		
 		String uname = getPara("uname");
 		String pwd = getPara("password");
 		

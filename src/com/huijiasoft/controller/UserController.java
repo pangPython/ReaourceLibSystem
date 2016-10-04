@@ -29,9 +29,9 @@ public class UserController extends Controller {
 	}
 	//已经登录用户的退出操作
 	public void logout(){
-		removeAttr(getCookie("cuser"));
+		removeSessionAttr(getCookie("cuser"));
 		removeCookie("cuser");
-		render("/index.html");
+		redirect("/");
 	}
 	
 	
