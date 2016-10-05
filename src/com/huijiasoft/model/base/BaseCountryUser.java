@@ -9,28 +9,28 @@ import com.jfinal.plugin.activerecord.IBean;
 @SuppressWarnings("serial")
 public abstract class BaseCountryUser<M extends BaseCountryUser<M>> extends Model<M> implements IBean {
 
-	public void setCountryId(java.lang.Integer countryId) {
-		set("country_id", countryId);
+	public void setId(java.lang.Integer id) {
+		set("id", id);
 	}
 
-	public java.lang.Integer getCountryId() {
-		return get("country_id");
+	public java.lang.Integer getId() {
+		return get("id");
 	}
 
-	public void setCountryname(java.lang.String countryname) {
-		set("countryname", countryname);
+	public void setName(java.lang.String name) {
+		set("name", name);
 	}
 
-	public java.lang.String getCountryname() {
-		return get("countryname");
+	public java.lang.String getName() {
+		return get("name");
 	}
 
-	public void setCountrypassword(java.lang.String countrypassword) {
-		set("countrypassword", countrypassword);
+	public void setPwd(java.lang.String pwd) {
+		set("pwd", pwd);
 	}
 
-	public java.lang.String getCountrypassword() {
-		return get("countrypassword");
+	public java.lang.String getPwd() {
+		return get("pwd");
 	}
 
 	public void setAreaId(java.lang.Integer areaId) {
@@ -41,12 +41,12 @@ public abstract class BaseCountryUser<M extends BaseCountryUser<M>> extends Mode
 		return get("area_id");
 	}
 
-	public void setJibie(java.lang.String jibie) {
-		set("jibie", jibie);
+	public void setType(java.lang.String type) {
+		set("type", type);
 	}
 
-	public java.lang.String getJibie() {
-		return get("jibie");
+	public java.lang.String getType() {
+		return get("type");
 	}
 
 }

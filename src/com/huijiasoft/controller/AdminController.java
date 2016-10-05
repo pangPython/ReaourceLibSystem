@@ -150,6 +150,10 @@ public class AdminController extends Controller {
 		
 	}
 	
+	public void adminList(){
+		render("admin-list.html");
+	}
+	
 	
 	
 	

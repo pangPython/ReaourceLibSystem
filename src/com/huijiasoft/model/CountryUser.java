@@ -1,5 +1,7 @@
 package com.huijiasoft.model;
 
+import java.util.List;
+
 import com.huijiasoft.model.base.BaseCountryUser;
 
 /**
@@ -8,4 +10,9 @@ import com.huijiasoft.model.base.BaseCountryUser;
 @SuppressWarnings("serial")
 public class CountryUser extends BaseCountryUser<CountryUser> {
 	public static final CountryUser dao = new CountryUser();
+	
+	public List<CountryUser> getAllCountryUser(){
+		return null;
+	}
+	
 }
