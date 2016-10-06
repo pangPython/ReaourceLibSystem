@@ -1,5 +1,7 @@
 package com.huijiasoft.controller;
 
+
+
 import com.huijiasoft.model.User;
 import com.huijiasoft.service.IndexService;
 import com.huijiasoft.validate.RegistValidator;
@@ -7,7 +9,6 @@ import com.jfinal.aop.Before;
 import com.jfinal.core.ActionKey;
 import com.jfinal.core.Controller;
 import com.jfinal.ext.kit.SessionIdKit;
-import com.jfinal.ext.render.CaptchaRender;
 
 /**
  * @author pangPython
@@ -38,7 +39,7 @@ public class IndexContrlller extends Controller {
 		
 		String uname = getPara("uname");
 		String pwd = getPara("password");
-		String verifycode = getPara("verifycode");
+		
 		//验证码结果
 		boolean result = validateCaptcha("verifycode");
 		
@@ -63,14 +64,21 @@ public class IndexContrlller extends Controller {
 	
 	//注册
 	
-	public void regist(){
-		
+	public void register(){
 		render("regist.html");
 	}
 	
+	
+	@ActionKey("regist")
 	@Before(RegistValidator.class)
-	public void newUser(){
-		renderText("注册");
+	public void regist(){
+		//使用jfinal标识生成工具生成随机数作为密码的盐
+		String salt = SessionIdKit.me().generate(getRequest());
+		
+		
+		
+		getModel(User.class).save();
+		renderText("注册成功");
 	}
 	
 	

@@ -8,6 +8,7 @@ import com.jfinal.kit.HandlerKit;
 
 /**
  * @author pangPython
+ *	防止直接访问模板文件的过滤器
  *
  */
 

@@ -28,40 +28,42 @@
 </div>
 <div class="ui container middle aligned center aligned grid">
   <div class="column">
-    <form class="ui large form" method="POST" action="newUser">
+    <form class="ui large form" method="POST" action="regist">
       <div class="ui stacked segment raised">
       <h2 class="ui center aligned icon header"><i class="circular users icon"></i>  用户注册</h2>
         <div class="field">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="text" name="reg.uname" placeholder="用户名">
-            <p>${unameMsg!}</p>
+            <input type="text" name="user.uname" placeholder="用户名">
           </div>
+            <br><p>${unameMsg!}</p>
         </div>
         <div class="field">
           <div class="ui left icon input">
             <i class="lock icon"></i>
-            <input type="password" name="reg.pwd" placeholder="密码">
-            <p>${pwdMsg!}</p>
+            <input type="password" name="user.pwd" placeholder="密码">
+            
           </div>
+          <br><p>${pwdMsg!}</p>
         </div>
         <div class="field">
           <div class="ui left icon input">
             <i class="lock icon"></i>
             <input type="password" name="reg.confirmpwd" placeholder="确认密码">
-            <p>${confirmMsg!}</p>
+            
           </div>
+          <br><p>${confirmMsg!}</p>
         </div>
         <div class="field">
           <div class="ui left icon input">
             <i class="lock icon"></i>
             <input type="text" name="reg.verifycode" placeholder="验证码">
              <img class="ui medium right floated image" src="verifycode">
-             <p>${vcMsg!}</p>
           </div>
+             <br><p>${vcMsg!}</p>
         </div>
         
-        <button class="positive ui button">注册</button>
+        <button class="positive ui button" type="submit">注册</button>
       </div>
 
       <div class="ui error message"></div>
@@ -70,11 +72,6 @@
 
   </div>
 </div>
-
-
-
-
-
 
 </body>
 </html>
