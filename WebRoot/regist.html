@@ -28,32 +28,36 @@
 </div>
 <div class="ui container middle aligned center aligned grid">
   <div class="column">
-    <form class="ui large form">
+    <form class="ui large form" method="POST" action="newUser">
       <div class="ui stacked segment raised">
       <h2 class="ui center aligned icon header"><i class="circular users icon"></i>  用户注册</h2>
         <div class="field">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="text" name="uname" placeholder="用户名">
+            <input type="text" name="reg.uname" placeholder="用户名">
+            <p>${unameMsg!}</p>
           </div>
         </div>
         <div class="field">
           <div class="ui left icon input">
             <i class="lock icon"></i>
-            <input type="password" name="password" placeholder="密码">
+            <input type="password" name="reg.pwd" placeholder="密码">
+            <p>${pwdMsg!}</p>
           </div>
         </div>
         <div class="field">
           <div class="ui left icon input">
             <i class="lock icon"></i>
-            <input type="password" name="confirmpassword" placeholder="确认密码">
+            <input type="password" name="reg.confirmpwd" placeholder="确认密码">
+            <p>${confirmMsg!}</p>
           </div>
         </div>
         <div class="field">
           <div class="ui left icon input">
             <i class="lock icon"></i>
-            <input type="text" name="confirmpassword" placeholder="验证码">
+            <input type="text" name="reg.verifycode" placeholder="验证码">
              <img class="ui medium right floated image" src="verifycode">
+             <p>${vcMsg!}</p>
           </div>
         </div>
         

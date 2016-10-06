@@ -2,6 +2,8 @@ package com.huijiasoft.controller;
 
 import com.huijiasoft.model.User;
 import com.huijiasoft.service.IndexService;
+import com.huijiasoft.validate.RegistValidator;
+import com.jfinal.aop.Before;
 import com.jfinal.core.ActionKey;
 import com.jfinal.core.Controller;
 import com.jfinal.ext.kit.SessionIdKit;
@@ -62,9 +64,14 @@ public class IndexContrlller extends Controller {
 	//зЂВс
 	
 	public void regist(){
+		
 		render("regist.html");
 	}
 	
+	@Before(RegistValidator.class)
+	public void newUser(){
+		renderText("зЂВс");
+	}
 	
 	
 }
