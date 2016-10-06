@@ -39,21 +39,18 @@
         <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60e;</i></label>
         <div class="formControls col-xs-8">
           <input id="admin.pwd" name="admin.pwd" type="password" placeholder="密码" class="input-text size-L">
-        <br><input type="hidden" value="${LoginPwdMsg!}">
+        <br><p>${LoginPwdMsg!}</p>
         </div>
       </div>
       <div class="row cl">
         <div class="formControls col-xs-8 col-xs-offset-3">
-          <input class="input-text size-L" type="text" placeholder="验证码" onblur="if(this.value==''){this.value='验证码:'}" onclick="if(this.value=='验证码:'){this.value='';}" value="验证码:" style="width:150px;">
-          <img src="/verifycode"> <a id="kanbuq" href="javascript:;">看不清，换一张</a> </div>
+          <input class="input-text size-L" type="text" placeholder="验证码" name="verifycode" id="verifycode" style="width:150px;">
+          <img src="/verifycode"> <a id="kanbuq" href="javascript:;">看不清，换一张</a>
+          <br><p>${codeMsg!}</p>
+           </div>
+          	
       </div>
-      <div class="row cl">
-        <div class="formControls col-xs-8 col-xs-offset-3">
-          <label for="online">
-            <input type="checkbox" name="online" id="online" value="">
-            使我保持登录状态</label>
-        </div>
-      </div>
+
       <div class="row cl">
         <div class="formControls col-xs-8 col-xs-offset-3">
           <input name="" type="submit" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">

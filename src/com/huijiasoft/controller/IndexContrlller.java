@@ -5,6 +5,7 @@ import com.huijiasoft.service.IndexService;
 import com.jfinal.core.ActionKey;
 import com.jfinal.core.Controller;
 import com.jfinal.ext.kit.SessionIdKit;
+import com.jfinal.ext.render.CaptchaRender;
 
 /**
  * @author pangPython
@@ -35,12 +36,15 @@ public class IndexContrlller extends Controller {
 		
 		String uname = getPara("uname");
 		String pwd = getPara("password");
+		String verifycode = getPara("verifycode");
+		//验证码结果
+		boolean result = validateCaptcha("verifycode");
 		
 		String sql = "select * from user where uname = ? and pwd = ? limit 1";
 		
 		User user = User.usermodel.findFirst(sql,uname,pwd);
 		//登录成功
-		if(user!=null){
+		if(user!=null && result){
 			//生成唯一标识
 			String sessionId = SessionIdKit.me().generate(getRequest());
 			//设置服务器端session
