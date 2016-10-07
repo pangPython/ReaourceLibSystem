@@ -4,6 +4,8 @@ package com.huijiasoft.controller;
 
 import com.huijiasoft.model.User;
 import com.huijiasoft.service.IndexService;
+import com.huijiasoft.utils.DateUtils;
+import com.huijiasoft.utils.MD5;
 import com.huijiasoft.validate.RegistValidator;
 import com.jfinal.aop.Before;
 import com.jfinal.core.ActionKey;
@@ -72,13 +74,23 @@ public class IndexContrlller extends Controller {
 	@ActionKey("regist")
 	@Before(RegistValidator.class)
 	public void regist(){
+		//使用工具包把当前时间转换成unix时间戳再转换成string类型
+		//注册时间，并作为用户密码md5加密的salt
+		String reg_date = DateUtils.unixTimestampToDate(DateUtils.dateToUnixTimestamp(DateUtils.getNowTime()));
+		
 		//使用jfinal标识生成工具生成随机数作为密码的盐
-		String salt = SessionIdKit.me().generate(getRequest());
 		
+		String pwd = MD5.GetMD5Code(getPara("user.pwd")+reg_date);
 		
+		System.out.println(pwd+"md5 密码：！");
 		
-		getModel(User.class).save();
-		renderText("注册成功");
+		User user = this.getModel(User.class);
+		
+		user.setRegDate(reg_date);
+		user.setPwd(pwd);
+		user.save();
+		//getModel(User.class).save();
+		renderText("注册成功!");
 	}
 	
 	

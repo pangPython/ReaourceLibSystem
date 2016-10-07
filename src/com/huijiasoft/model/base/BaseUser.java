@@ -177,6 +177,14 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("ysjj");
 	}
 
+	public void setRegDate(java.lang.String regDate) {
+		set("reg_date", regDate);
+	}
+
+	public java.lang.String getRegDate() {
+		return get("reg_date");
+	}
+
 	public void setStatus(java.lang.Integer status) {
 		set("status", status);
 	}
