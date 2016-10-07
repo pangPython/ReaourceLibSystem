@@ -28,8 +28,12 @@ public class IndexContrlller extends Controller {
 	}
 	
 	
-	//前台登录方法
+	public void loginpage(){
+		setAttr("system", IndexService.getSysConfig());
+		render("login.html");
+	}
 	
+	//前台登录方法
 	public void login(){
 		//如果请求参数cookie中可以获取到当前登录用户
 		//先移除其登录信息
@@ -40,27 +44,36 @@ public class IndexContrlller extends Controller {
 		}
 		
 		String uname = getPara("uname");
-		String pwd = getPara("password");
+		String sql = "select * from user where uname = ? limit 1";
 		
 		//验证码结果
 		boolean result = validateCaptcha("verifycode");
 		
-		String sql = "select * from user where uname = ? and pwd = ? limit 1";
-		
-		User user = User.usermodel.findFirst(sql,uname,pwd);
-		//登录成功
+		User user = User.usermodel.findFirst(sql,uname);
 		if(user!=null && result){
-			//生成唯一标识
-			String sessionId = SessionIdKit.me().generate(getRequest());
-			//设置服务器端session
-			setSessionAttr(sessionId, user);
-			//设置用户端cookie
-			setCookie("cuser", sessionId, 600);
-			redirect("/user");
+			String pwd = MD5.GetMD5Code(getPara("password")+user.getRegDate());
+			
+			if(user.getPwd().equals(pwd)){
+				
+				//生成唯一标识
+				String sessionId = SessionIdKit.me().generate(getRequest());
+				//设置服务器端session
+				setSessionAttr(sessionId, user);
+				//设置用户端cookie
+				setCookie("cuser", sessionId, 600);
+				redirect("/user");
+				
+			}else{
+				
+				redirect("loginpage");
+				
+			}
+			
 		}else{
-			setAttr("system", IndexService.getSysConfig());
-			render("login.html");
+			
+			redirect("loginpage");
 		}
+		
 		
 	}
 	
