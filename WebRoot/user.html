@@ -110,11 +110,6 @@
 </head>
 <body>
 
-  <div class="ui main text container">
-   
-    <p>在全市打造更加浓厚的人人参与的、现代化、信息化的文化氛围!</p>
-  </div>
-
 
   <div class="ui borderless main menu">
     <div class="ui text container">
@@ -130,17 +125,54 @@
         <a class="ui button" href="/user/center">${user.uname}</a>
       </div>
       <div class="item">
+        <a class="ui button" href="/user/edit">点击修改个人信息</a>
+      </div>
+      <div class="item">
+        <a class="ui button" href="/user/mediainfo">视音频资料</a>
+      </div>
+      <div class="item">
         <a class="ui primary button" href="logout">退出</a>
       </div>
     </div>
     </div>
   </div>
 
-  <div class="ui text container">
-    
-  </div>
+	<div class="ui container center aligned grid">
+		<div class="colum">
+			<div class="ui stacked segment raised">
+				<div class="field">
+					<div class="ui text container">
 
-  <div class="ui inverted vertical footer segment">
+						<h1 class="ui dividing header">个人资料</h1>
+
+						<div class="ui grid">
+							<div class="four wide column">姓名：${user.uname!}</div>
+							<div class="four wide column">年龄：${user.age!}</div>
+							<div class="four wide column">申报类型：${user.dec_id!}</div>
+							<div class="four wide column">性别：${user.usersex!}</div>
+							<div class="four wide column">身份证号：</div>
+							<div class="four wide column">${user.card!}</div>
+							<div class="four wide column">地址：</div>
+							<div class="four wide column">${user.address!}</div>
+							<div class="four wide column">所在公司：</div>
+							<div class="four wide column">${user.company!}</div>
+							<div class="four wide column">艺术简介：</div>
+							<div class="four wide column">${user.ysjj!}</div>
+							<div class="four wide column">是否审核：</div>
+							<div class="four wide column">${user.status!}</div>
+						</div>
+						
+						<div class="ui dividing"></div>
+						<button class="ui button">
+							打印文档
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="ui inverted vertical footer segment">
     <div class="ui center aligned container">
       <div class="ui stackable inverted divided grid">
         <div class="three wide column">

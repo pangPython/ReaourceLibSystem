@@ -18,14 +18,25 @@ public class UserController extends Controller {
 		User user = (User) getSession().getAttribute(getCookie("cuser"));
 		
 			setAttr("user", user);
-			render("/user.html");
+			
+			if(user.getAge()==null){
+				renderText("请完善个人信息，再进行其他操作！");
+			}else{
+				
+				render("/user.html");
+			}
+			
+			
 		
 		
 	}
 	
 	//用户中心方法
 	public void center() {
-		renderText("用户中心！");
+User user = (User) getSession().getAttribute(getCookie("cuser"));
+		
+		setAttr("user", user);
+		render("/center.html");
 	}
 	//已经登录用户的退出操作
 	public void logout(){
@@ -34,6 +45,17 @@ public class UserController extends Controller {
 		redirect("/");
 	}
 	
+	//个人音频视频资料
+	public void mediainfo(){
+		render("/mediainfo.html");
+	}
 	
+	
+	public void edit(){
+		User user = (User) getSession().getAttribute(getCookie("cuser"));
+		
+		setAttr("user", user);
+		render("/editinfo.html");
+	}
 
 }
