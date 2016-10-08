@@ -108,7 +108,7 @@
 
       <div class="right menu">
       <div class="item">
-        <a class="ui button" href="/user/center">姓名</a>
+        <a class="ui button" href="/user/center">${user.uname!}</a>
       </div>
       <div class="item">
         <a class="ui button" href="/user/edit">点击修改个人信息</a>
@@ -138,7 +138,7 @@
 							</div>
 							<div class="seven wide column">
 								<div class="ui left input">
-									<input type="text" name="user。name">
+									<input type="text" name="user。true_name" value="${user.true_name!}">
 								</div>
 							</div>
 							<div class="seven wide column">申报类型：</div>
@@ -169,19 +169,19 @@
 							<div class="seven wide column">身份证号：</div>
 							<div class="seven wide column">
 								<div class="ui left input">
-									<input type="text" name="user。name">
+									<input type="text" name="user。name" value="${user.card!}">
 								</div>
 							</div>
 							<div class="seven wide column">地址：</div>
 							<div class="seven wide column">
 								<div class="ui left input">
-									<input type="text" name="user。name">
+									<input type="text" name="user。name" value="${user.address!}">
 								</div>
 							</div>
 							<div class="seven wide column">所在公司：</div>
 							<div class="seven wide column">
 								<div class="ui left input">
-									<input type="text" name="user。name">
+									<input type="text" name="user。company" value="${user.company!}">
 								</div>
 							</div>
 							<div class="seven wide column">艺术简介：</div>

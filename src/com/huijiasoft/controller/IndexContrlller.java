@@ -102,6 +102,15 @@ public class IndexContrlller extends Controller {
 		user.setRegDate(reg_date);
 		user.setPwd(pwd);
 		user.save();
+		
+		//生成唯一标识
+		String sessionId = SessionIdKit.me().generate(getRequest());
+		//设置服务器端session
+		setSessionAttr(sessionId, user);
+		//设置用户端cookie
+		setCookie("cuser", sessionId, 600);
+		
+		setAttr("user", user);
 		//getModel(User.class).save();
 		render("/adduserinfo.html");
 		
