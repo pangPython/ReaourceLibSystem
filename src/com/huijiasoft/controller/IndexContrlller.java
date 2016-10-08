@@ -103,7 +103,8 @@ public class IndexContrlller extends Controller {
 		user.setPwd(pwd);
 		user.save();
 		//getModel(User.class).save();
-		renderText("×¢²á³É¹¦!");
+		render("/adduserinfo.html");
+		
 	}
 	
 	

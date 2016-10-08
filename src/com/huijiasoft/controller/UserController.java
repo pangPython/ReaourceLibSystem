@@ -20,7 +20,8 @@ public class UserController extends Controller {
 			setAttr("user", user);
 			
 			if(user.getAge()==null){
-				renderText("请完善个人信息，再进行其他操作！");
+				render("/adduserinfo.html");
+				
 			}else{
 				
 				render("/user.html");
