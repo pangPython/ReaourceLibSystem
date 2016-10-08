@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50547
 File Encoding         : 65001
 
-Date: 2016-10-07 22:49:47
+Date: 2016-10-08 17:27:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -250,6 +250,7 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `uname` varchar(20) NOT NULL,
+  `true_name` varchar(255) DEFAULT NULL,
   `age` int(255) DEFAULT NULL,
   `art_type` int(255) DEFAULT NULL,
   `pwd` varchar(255) DEFAULT NULL,
@@ -262,9 +263,9 @@ CREATE TABLE `user` (
   `edu_id` int(11) DEFAULT NULL,
   `gzdate` varchar(30) DEFAULT NULL,
   `person` varchar(50) DEFAULT NULL,
-  `card` varchar(25) DEFAULT NULL,
+  `card` varchar(255) DEFAULT NULL,
   `area_id` varchar(20) DEFAULT NULL,
-  `address` varchar(50) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
   `company` varchar(20) DEFAULT NULL,
   `tc` varchar(20) DEFAULT NULL,
   `zywork` varchar(20) DEFAULT NULL,
@@ -272,25 +273,12 @@ CREATE TABLE `user` (
   `reg_date` varchar(255) NOT NULL,
   `status` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', '张三', '22', '0', '12345', '1', '123213', '1', '1', '1', '0', '0', '2016-08-09', '这是我的个人信息', '372321199911111111', '1', '山东省东营市东营软件园', ' 山东汇佳软件科技有限公司', ' 打球、上网', 'SEO、网络推广', '女高音、瑜伽', '', '0');
-INSERT INTO `user` VALUES ('2', '李华', '15', '0', '111111', '2', '122323', '0', '0', '0', '1', '1', '31231231', '是否发生大幅度', '21313213123', '1', '234234', '水电费是否', '萨芬的', '萨芬的', '啥地方都是', '', '0');
-INSERT INTO `user` VALUES ('3', '王五', '65', '0', '123456', '1', '11', '1', '1', '1', '0', '0', '111', '111', '111', '1', '11111', '1111', '111', '111', '111', '', '0');
-INSERT INTO `user` VALUES ('4', '赵四', '22', '0', '000000', '2', '131231', '1', '11', '111', '1', '3', '123', '13', '123', '123', '12', '123', '1234', '12321', '1231', '', '0');
-INSERT INTO `user` VALUES ('5', '花花', '17', '0', '111111', '1', '', '0', '0', '0', '0', '1', '111111', '区1', '123213', '11', '123123', '123123', '123123', '12321', '32123', '', '0');
-INSERT INTO `user` VALUES ('6', '二和', '18', '0', '101010', '1', '1111', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '', '0');
-INSERT INTO `user` VALUES ('7', '庞勇', '18', '0', '12333', '111', '111', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '', '0');
-INSERT INTO `user` VALUES ('8', '黑黑', '25', '0', 'admin', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '', '0');
-INSERT INTO `user` VALUES ('9', '于丽', '33', '0', '123', '11', '1', '0', '23', '3', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '', '0');
-INSERT INTO `user` VALUES ('10', '常和', '19', '0', '111', '111', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '', '0');
-INSERT INTO `user` VALUES ('11', '李白', '20', '0', '12345678', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '', '0');
-INSERT INTO `user` VALUES ('12', '薛之谦', '20', '0', '123456', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '', '0');
-INSERT INTO `user` VALUES ('13', '周杰伦', '20', '0', '54321', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '', '0');
-INSERT INTO `user` VALUES ('15', 'pangyong', null, null, 'CC0BB4CA97F13BAB70C333E87BA67678', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '2016-10-07 20:38:14', null);
+INSERT INTO `user` VALUES ('31', 'py', '庞勇', '22', null, '5D23494D3D93A7EF5BDA2FCE1091C7A4', '2', null, '0', '1', '13', '2', '5', null, null, '372321199999999999', '3', '山东省滨州市', '山东汇佳', null, null, '呵呵呵呵呵', '2016-10-08 16:05:55', null);
 
 -- ----------------------------
 -- Table structure for `zzmm`

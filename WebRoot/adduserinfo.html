@@ -190,7 +190,7 @@
 							<div class="seven wide column">地区：</div>
 							<div class="seven wide column">
 
-								<select class="ui search dropdown">
+								<select class="ui search dropdown" name="user.area_id">
 								<#list area as x>
 									<option value="${x.area_id}">${x.area_name}</option>
 								</#list>
@@ -200,7 +200,7 @@
 							<div class="seven wide column">申报类型：</div>
 							<div class="seven wide column">
 
-								<select class="ui search dropdown">
+								<select class="ui search dropdown" name="user.dec_id">
 									<#list decList as x>
 									<option value="${x.dec_id}">${x.decname}</option>
 								</#list>
@@ -282,15 +282,12 @@
         </div>
         <div class="seven wide column">
           <h4 class="ui inverted header">友情链接</h4>
-          
         </div>
       </div>
       <div class="ui inverted section divider"></div>
-     
       <div class="ui horizontal inverted small divided link list">
         <a class="item" href="#">system.copyright</a>
         <a class="item" href="#">system.record</a>
-
       </div>
     </div>
   </div>
