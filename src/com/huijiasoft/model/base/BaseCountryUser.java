@@ -41,12 +41,12 @@ public abstract class BaseCountryUser<M extends BaseCountryUser<M>> extends Mode
 		return get("area_id");
 	}
 
-	public void setType(java.lang.String type) {
-		set("type", type);
+	public void setAuth(java.lang.Integer auth) {
+		set("auth", auth);
 	}
 
-	public java.lang.String getType() {
-		return get("type");
+	public java.lang.Integer getAuth() {
+		return get("auth");
 	}
 
 }
