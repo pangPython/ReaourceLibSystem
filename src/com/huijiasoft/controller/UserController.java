@@ -28,17 +28,13 @@ public class UserController extends Controller {
 		
 			setAttr("user", user);
 			
-			if(user.getAge()==null || user.getArtType()==null || user.getCard()==null){
+			if(user.getAge()==null || user.getDecId()==null || user.getCard()==null){
 				redirect("/adduserinfopage");
 				
 			}else{
 				
 				render("/user.html");
 			}
-			
-			
-		
-		
 	}
 	
 	//用户中心方法
@@ -70,7 +66,7 @@ User user = (User) getSession().getAttribute(getCookie("cuser"));
 	@ActionKey("/adduserinfo")
 	public void adduserinfo(){
 		User user = (User) getSession().getAttribute(getCookie("cuser"));
-		getModel(User.class).set("id", user.getId()).update();
+		getModel(User.class).set("id", user.getId()).set("status", 0).update();
 		setAttr("user", user);
 		render("/sbmtsucc.html");
 	}

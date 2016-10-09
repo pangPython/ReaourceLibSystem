@@ -25,20 +25,20 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("uname");
 	}
 
+	public void setTrueName(java.lang.String trueName) {
+		set("true_name", trueName);
+	}
+
+	public java.lang.String getTrueName() {
+		return get("true_name");
+	}
+
 	public void setAge(java.lang.Integer age) {
 		set("age", age);
 	}
 
 	public java.lang.Integer getAge() {
 		return get("age");
-	}
-
-	public void setArtType(java.lang.Integer artType) {
-		set("art_type", artType);
-	}
-
-	public java.lang.Integer getArtType() {
-		return get("art_type");
 	}
 
 	public void setPwd(java.lang.String pwd) {

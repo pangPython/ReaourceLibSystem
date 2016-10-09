@@ -134,6 +134,13 @@ public class AdminController extends Controller {
 		render("user-check.html");
 	}
 	
+	
+	//通过审核
+	public void examine(){
+		getModel(User.class).set("id", getPara("id")).set("status", 1).update();
+		renderText("审核成功！");
+	}
+	
 	//打印
 	public void printer(){
 		

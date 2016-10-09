@@ -33,4 +33,12 @@ public abstract class BaseAdmin<M extends BaseAdmin<M>> extends Model<M> impleme
 		return get("adminpassword");
 	}
 
+	public void setType(java.lang.Integer type) {
+		set("type", type);
+	}
+
+	public java.lang.Integer getType() {
+		return get("type");
+	}
+
 }
