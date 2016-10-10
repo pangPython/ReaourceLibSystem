@@ -90,14 +90,11 @@ public class IndexContrlller extends Controller {
 		
 		String uname = getPara("user.uname");
 		User user = this.getModel(User.class);
+		//如果用户名已经被注册，提示错误信息
 		if(user.find("select * from user where uname = ?",uname)!=null){
 			setAttr("unameMsg", "该用户名已被注册");
 			render("regist.html");
 		}else{
-			
-		
-		
-		
 		//使用工具包把当前时间转换成unix时间戳再转换成string类型
 		//注册时间，并作为用户密码md5加密的salt
 		String reg_date = DateUtils.unixTimestampToDate(DateUtils.dateToUnixTimestamp(DateUtils.getNowTime()));
@@ -112,6 +109,7 @@ public class IndexContrlller extends Controller {
 		
 		user.setRegDate(reg_date);
 		user.setPwd(pwd);
+		user.setStatus(0);
 		user.save();
 		
 		//生成唯一标识
