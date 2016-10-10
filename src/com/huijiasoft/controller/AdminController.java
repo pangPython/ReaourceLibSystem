@@ -44,7 +44,7 @@ public class AdminController extends Controller {
 		
 		String admin_name = getPara("admin.name");
 		String admin_pwd = getPara("admin.pwd");
-		String sql = "select * from admin where adminname = ? and adminpassword = ? limit 1";
+		String sql = "select * from admin where name = ? and pwd = ? limit 1";
 		
 		Admin admin = Admin.dao.findFirst(sql,admin_name,admin_pwd);
 		if(admin != null){
@@ -73,11 +73,23 @@ public class AdminController extends Controller {
 		render("article-list.html");
 	}
 	
-	//申报类型管理
+	//申报类型列表页面
 	public void declare(){
 		setAttr("declareList",DeclareType.dao.getAllDecType());
 		render("declare.html");
 	}
+	
+	//申报类型编辑页面
+	public void declareedit(){
+		setAttr("declare", DeclareType.dao.findById(getPara("id")));
+		render("decedit.html");
+	}
+	//申报类型保存
+	public void decupdate(){
+		getModel(DeclareType.class).dao.set("dec_id",getPara("dec_id")).set("decname", getPara("decname")).update();
+		renderText("更新成功！");
+	}
+	
 	
 	//民族分类管理
 	
@@ -155,11 +167,15 @@ public class AdminController extends Controller {
 		renderFile(new File(fileName));
 		
 	}
-	
+	//超级管理员列表
 	public void adminList(){
 		render("admin-list.html");
 	}
 	
+	//县区市管理员列表
+	public void countryadminList(){
+		render("countryadminlist.html");
+	}
 	
 	
 	
