@@ -25,6 +25,14 @@ public abstract class BaseCountryAdmin<M extends BaseCountryAdmin<M>> extends Mo
 		return get("name");
 	}
 
+	public void setPwd(java.lang.String pwd) {
+		set("pwd", pwd);
+	}
+
+	public java.lang.String getPwd() {
+		return get("pwd");
+	}
+
 	public void setEmail(java.lang.String email) {
 		set("email", email);
 	}
@@ -33,12 +41,12 @@ public abstract class BaseCountryAdmin<M extends BaseCountryAdmin<M>> extends Mo
 		return get("email");
 	}
 
-	public void setPwd(java.lang.String pwd) {
-		set("pwd", pwd);
+	public void setTelephone(java.lang.String telephone) {
+		set("telephone", telephone);
 	}
 
-	public java.lang.String getPwd() {
-		return get("pwd");
+	public java.lang.String getTelephone() {
+		return get("telephone");
 	}
 
 	public void setAreaId(java.lang.Integer areaId) {

@@ -173,6 +173,11 @@ public class AdminController extends Controller {
 		render("admin-list.html");
 	}
 	
+	public void addAdmin(){
+		render("admin-add.html");
+	}
+	
+	
 	//县区市管理员列表
 	public void countryadminList(){
 		setAttr("caList", getModel(CountryAdmin.class).dao.getAllCountryAdmin());
