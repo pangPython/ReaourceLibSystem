@@ -57,4 +57,12 @@ public abstract class BaseAdmin<M extends BaseAdmin<M>> extends Model<M> impleme
 		return get("type");
 	}
 
+	public void setStatus(java.lang.Integer status) {
+		set("status", status);
+	}
+
+	public java.lang.Integer getStatus() {
+		return get("status");
+	}
+
 }

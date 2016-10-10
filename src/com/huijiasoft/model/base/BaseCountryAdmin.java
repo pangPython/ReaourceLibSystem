@@ -25,6 +25,14 @@ public abstract class BaseCountryAdmin<M extends BaseCountryAdmin<M>> extends Mo
 		return get("name");
 	}
 
+	public void setEmail(java.lang.String email) {
+		set("email", email);
+	}
+
+	public java.lang.String getEmail() {
+		return get("email");
+	}
+
 	public void setPwd(java.lang.String pwd) {
 		set("pwd", pwd);
 	}
@@ -47,6 +55,22 @@ public abstract class BaseCountryAdmin<M extends BaseCountryAdmin<M>> extends Mo
 
 	public java.lang.Integer getAuth() {
 		return get("auth");
+	}
+
+	public void setCreateTime(java.lang.String createTime) {
+		set("create_time", createTime);
+	}
+
+	public java.lang.String getCreateTime() {
+		return get("create_time");
+	}
+
+	public void setStatus(java.lang.Integer status) {
+		set("status", status);
+	}
+
+	public java.lang.Integer getStatus() {
+		return get("status");
 	}
 
 }

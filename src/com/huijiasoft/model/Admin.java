@@ -1,5 +1,7 @@
 package com.huijiasoft.model;
 
+import java.util.List;
+
 import com.huijiasoft.model.base.BaseAdmin;
 
 /**
@@ -8,4 +10,10 @@ import com.huijiasoft.model.base.BaseAdmin;
 @SuppressWarnings("serial")
 public class Admin extends BaseAdmin<Admin> {
 	public static final Admin dao = new Admin();
+	
+	//获取所有admin
+	public List<Admin> getAllAdmin(){
+		return dao.find("select * from admin order by id desc");
+	}
+	
 }

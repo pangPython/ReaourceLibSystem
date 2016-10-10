@@ -6,6 +6,7 @@ import java.io.IOException;
 import com.huijiasoft.interceptor.AdminAuthInterceptor;
 import com.huijiasoft.model.Admin;
 import com.huijiasoft.model.Area;
+import com.huijiasoft.model.CountryAdmin;
 import com.huijiasoft.model.DeclareType;
 import com.huijiasoft.model.Degree;
 import com.huijiasoft.model.Edu;
@@ -165,15 +166,16 @@ public class AdminController extends Controller {
 			e.printStackTrace();
 		}
 		renderFile(new File(fileName));
-		
 	}
 	//超级管理员列表
 	public void adminList(){
+		setAttr("adminList", getModel(Admin.class).dao.getAllAdmin());
 		render("admin-list.html");
 	}
 	
 	//县区市管理员列表
 	public void countryadminList(){
+		setAttr("caList", getModel(CountryAdmin.class).dao.getAllCountryAdmin());
 		render("countryadminlist.html");
 	}
 	

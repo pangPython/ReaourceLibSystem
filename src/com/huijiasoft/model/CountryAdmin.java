@@ -1,5 +1,7 @@
 package com.huijiasoft.model;
 
+import java.util.List;
+
 import com.huijiasoft.model.base.BaseCountryAdmin;
 
 /**
@@ -8,4 +10,9 @@ import com.huijiasoft.model.base.BaseCountryAdmin;
 @SuppressWarnings("serial")
 public class CountryAdmin extends BaseCountryAdmin<CountryAdmin> {
 	public static final CountryAdmin dao = new CountryAdmin();
+	
+	//获取所有县区管理员
+	public List<CountryAdmin> getAllCountryAdmin(){
+		return dao.find("select * from country_admin order by id desc");
+	}
 }
