@@ -87,6 +87,17 @@ public class IndexContrlller extends Controller {
 	@ActionKey("regist")
 	@Before(RegistValidator.class)
 	public void regist(){
+		
+		String uname = getPara("user.uname");
+		User user = this.getModel(User.class);
+		if(user.find("select * from user where uname = ?",uname)!=null){
+			setAttr("unameMsg", "该用户名已被注册");
+			render("regist.html");
+		}else{
+			
+		
+		
+		
 		//使用工具包把当前时间转换成unix时间戳再转换成string类型
 		//注册时间，并作为用户密码md5加密的salt
 		String reg_date = DateUtils.unixTimestampToDate(DateUtils.dateToUnixTimestamp(DateUtils.getNowTime()));
@@ -97,7 +108,7 @@ public class IndexContrlller extends Controller {
 		
 		System.out.println(pwd+"md5 密码：！");
 		
-		User user = this.getModel(User.class);
+		
 		
 		user.setRegDate(reg_date);
 		user.setPwd(pwd);
@@ -113,7 +124,7 @@ public class IndexContrlller extends Controller {
 		setAttr("user", user);
 		//getModel(User.class).save();
 		render("/adduserinfo.html");
-		
+		}
 	}
 	
 	

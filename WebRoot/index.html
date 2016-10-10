@@ -10,26 +10,14 @@
   <!-- Site Properties -->
   <title>${system.title!}</title>
 
-  <link rel="stylesheet" type="text/css" href="static/components/reset.css">
-  <link rel="stylesheet" type="text/css" href="static/components/site.css">
+  <link rel="stylesheet" type="text/css" href="static/css/semantic.min.css">
 
-  <link rel="stylesheet" type="text/css" href="static/components/container.css">
-  <link rel="stylesheet" type="text/css" href="static/components/grid.css">
-  <link rel="stylesheet" type="text/css" href="static/components/header.css">
-  <link rel="stylesheet" type="text/css" href="static/components/image.css">
-  <link rel="stylesheet" type="text/css" href="static/components/menu.css">
-
-  <link rel="stylesheet" type="text/css" href="static/components/divider.css">
-  <link rel="stylesheet" type="text/css" href="static/components/list.css">
-  <link rel="stylesheet" type="text/css" href="static/components/segment.css">
-  <link rel="stylesheet" type="text/css" href="static/components/dropdown.css">
-  <link rel="stylesheet" type="text/css" href="static/components/icon.css">
-  <link rel="stylesheet" type="text/css" href="static/components/transition.css">
 
   <script src="static/js/jquery.min.js"></script>
   <script src="static/components/transition.js"></script>
   <script src="static/components/dropdown.js"></script>
   <script src="static/components/visibility.js"></script>
+  <script src="static/js/semantic.min.js"></script>
   <script>
   $(document)
     .ready(function() {
@@ -54,6 +42,18 @@
       $('.main.menu  .ui.dropdown').dropdown({
         on: 'hover'
       });
+      
+      $('.special.card .image').dimmer({
+          on: 'hover'
+        });
+        $('.star.rating')
+          .rating()
+        ;
+        $('.card .dimmer')
+          .dimmer({
+            on: 'hover'
+          })
+        ;
     })
   ;
   </script>
@@ -147,6 +147,138 @@
 <div class="ui center">
 	<img src="http://img.hb.aicdn.com/ea0925b1f040111da24ce0779326420287f58acc3ac43-Mn1nvk_fw658" width="1350px">
 </div>
+
+
+
+  
+  <div class="ui three cards container">
+  <div class="ui card">
+    <div class="image">
+      <div class="ui blurring inverted dimmer">
+        <div class="content">
+          <div class="center">
+            <div class="ui teal button">Add Friend</div>
+          </div>
+        </div>
+      </div>
+      <img src="static/images/p1.jpg">
+    </div>
+    <div class="content">
+      <div class="header">文化艺术</div>
+      <div class="meta">
+        <a class="group">人才</a>
+      </div>
+      <div class="description">东营市社会文艺人才信息资源库</div>
+    </div>
+  </div>
+  
+    <div class="ui card">
+    <div class="image">
+      <div class="ui blurring inverted dimmer">
+        <div class="content">
+          <div class="center">
+            <div class="ui teal button">Add Friend</div>
+          </div>
+        </div>
+      </div>
+      <img src="static/images/p1.jpg">
+    </div>
+    <div class="content">
+      <div class="header">文化艺术</div>
+      <div class="meta">
+        <a class="group">人才</a>
+      </div>
+      <div class="description">东营市社会文艺人才信息资源库</div>
+    </div>
+  </div>
+  
+    <div class="ui card">
+    <div class="image">
+      <div class="ui blurring inverted dimmer">
+        <div class="content">
+          <div class="center">
+            <div class="ui teal button">Add Friend</div>
+          </div>
+        </div>
+      </div>
+      <img src="static/images/p1.jpg">
+    </div>
+    <div class="content">
+      <div class="header">文化艺术</div>
+      <div class="meta">
+        <a class="group">人才</a>
+      </div>
+      <div class="description">东营市社会文艺人才信息资源库</div>
+    </div>
+  </div>
+  
+</div>
+<div class="ui grid container">
+  
+    <div class="row">
+    <div class="column">
+      <h1 class="ui header">新闻动态</h1>
+      <div class="ui divider"></div>
+      <div class="ui three column grid">
+     
+        <div class="column">
+          <div class="ui fluid vertical menu">
+         
+            <a class="item">
+              <h1 class="ui medium header">List group item heading</h1>
+              <p>Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            </a>
+            <a class="item">
+              <h1 class="ui medium header">List group item heading</h1>
+              <p>Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            </a>
+            <a class="item">
+              <h1 class="ui medium header">List group item heading</h1>
+              <p>Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            </a>
+          </div>
+        </div>
+        
+                <div class="column">
+          <div class="ui fluid vertical menu">
+         
+            <a class="item">
+              <h1 class="ui medium header">List group item heading</h1>
+              <p>Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            </a>
+            <a class="item">
+              <h1 class="ui medium header">List group item heading</h1>
+              <p>Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            </a>
+            <a class="item">
+              <h1 class="ui medium header">List group item heading</h1>
+              <p>Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            </a>
+          </div>
+        </div>
+        
+        
+          <div class="ui card">
+    <div class="ui slide right reveal image">
+      <div class="visible content">
+        <img class="ui fluid image" src="static/images/avatar/nan.jpg">
+      </div>
+      <div class="hidden content">
+        <img class="ui fluid image" src="static/images/avatar/tom.jpg">
+      </div>
+    </div>
+    <div class="content">
+      <img src="static/images/wireframe/paragraph.png" class="ui wireframe image">
+    </div>
+  </div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+
 
   <div class="ui inverted vertical footer segment">
     <div class="ui center aligned container">
