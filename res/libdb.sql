@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50547
 File Encoding         : 65001
 
-Date: 2016-10-08 17:27:13
+Date: 2016-10-11 09:10:49
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,18 +20,22 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `adminname` varchar(20) NOT NULL,
-  `adminpassword` varchar(20) NOT NULL,
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `pwd` varchar(255) NOT NULL,
+  `create_time` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `type` int(10) NOT NULL DEFAULT '1',
+  `status` int(10) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of admin
 -- ----------------------------
-INSERT INTO `admin` VALUES ('1', 'admin', '123456');
-INSERT INTO `admin` VALUES ('2', 'py', '123456789');
-INSERT INTO `admin` VALUES ('3', '庞勇', '123456');
+INSERT INTO `admin` VALUES ('1', 'admin', '123456', '', 'admin@qq.com', '0', '0');
+INSERT INTO `admin` VALUES ('2', 'py', '123456789', '', 'admin@huijiasoft.com', '1', '0');
+INSERT INTO `admin` VALUES ('3', '庞勇', '123456', '', 'admin@163.com', '1', '0');
 
 -- ----------------------------
 -- Table structure for `area`
@@ -55,22 +59,26 @@ INSERT INTO `area` VALUES ('5', ' 垦利县', '1');
 INSERT INTO `area` VALUES ('6', '利津县', '1');
 
 -- ----------------------------
--- Table structure for `country_user`
+-- Table structure for `country_admin`
 -- ----------------------------
-DROP TABLE IF EXISTS `country_user`;
-CREATE TABLE `country_user` (
+DROP TABLE IF EXISTS `country_admin`;
+CREATE TABLE `country_admin` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
   `pwd` varchar(20) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `telephone` varchar(255) NOT NULL,
   `area_id` int(10) NOT NULL,
-  `type` varchar(10) NOT NULL,
+  `auth` int(10) NOT NULL,
+  `create_time` varchar(255) NOT NULL,
+  `status` int(10) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of country_user
+-- Records of country_admin
 -- ----------------------------
-INSERT INTO `country_user` VALUES ('1', '王长官', '123456', '1', '县/区');
+INSERT INTO `country_admin` VALUES ('1', '王长官', '123456', '111@qq.com', '15762182153', '1', '0', '', '0');
 
 -- ----------------------------
 -- Table structure for `declare_type`
@@ -252,7 +260,6 @@ CREATE TABLE `user` (
   `uname` varchar(20) NOT NULL,
   `true_name` varchar(255) DEFAULT NULL,
   `age` int(255) DEFAULT NULL,
-  `art_type` int(255) DEFAULT NULL,
   `pwd` varchar(255) DEFAULT NULL,
   `dec_id` int(11) DEFAULT NULL,
   `sbdate` varchar(30) DEFAULT NULL,
@@ -273,12 +280,14 @@ CREATE TABLE `user` (
   `reg_date` varchar(255) NOT NULL,
   `status` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('31', 'py', '庞勇', '22', null, '5D23494D3D93A7EF5BDA2FCE1091C7A4', '2', null, '0', '1', '13', '2', '5', null, null, '372321199999999999', '3', '山东省滨州市', '山东汇佳', null, null, '呵呵呵呵呵', '2016-10-08 16:05:55', null);
+INSERT INTO `user` VALUES ('31', 'py', '庞勇', '22', '5D23494D3D93A7EF5BDA2FCE1091C7A4', '1', null, '1', '18', '1', '1', '0', null, null, '372321199999999999', '1', '山东省滨州市', '山东汇佳', null, null, '呵呵呵呵呵', '2016-10-08 16:05:55', '1');
+INSERT INTO `user` VALUES ('33', 'pangyong', null, null, '7B7047748C146671550A41036E2333EC', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '2016-10-11 08:24:51', '0');
+INSERT INTO `user` VALUES ('35', '汇佳软件', '庞勇', '22', '9A42B2FDE562AD64942EE3058498251D', '1', null, '1', '1', '1', '1', '0', null, null, '372321199999999999', '1', '山东省滨州市', '山东汇佳', null, null, '艺术简介艺术简介', '2016-10-11 08:29:21', '0');
 
 -- ----------------------------
 -- Table structure for `zzmm`

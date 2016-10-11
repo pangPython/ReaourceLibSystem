@@ -91,7 +91,7 @@ public class IndexContrlller extends Controller {
 		String uname = getPara("user.uname");
 		User user = this.getModel(User.class);
 		//如果用户名已经被注册，提示错误信息
-		if(user.find("select * from user where uname = ?",uname)!=null){
+		if(user.findFirst("select * from user where uname = ?",uname)!=null){
 			setAttr("unameMsg", "该用户名已被注册");
 			render("regist.html");
 		}else{
@@ -102,9 +102,6 @@ public class IndexContrlller extends Controller {
 		//使用jfinal标识生成工具生成随机数作为密码的盐
 		
 		String pwd = MD5.GetMD5Code(getPara("user.pwd")+reg_date);
-		
-		System.out.println(pwd+"md5 密码：！");
-		
 		
 		
 		user.setRegDate(reg_date);
@@ -121,7 +118,7 @@ public class IndexContrlller extends Controller {
 		
 		setAttr("user", user);
 		//getModel(User.class).save();
-		render("/adduserinfo.html");
+		redirect("/adduserinfopage");
 		}
 	}
 	
