@@ -13,6 +13,7 @@ import com.huijiasoft.model.Mz;
 import com.huijiasoft.model.System;
 import com.huijiasoft.model.User;
 import com.huijiasoft.model.Zzmm;
+import com.huijiasoft.utils.DateUtils;
 import com.huijiasoft.utils.WriteToDocx;
 import com.huijiasoft.validate.AdminValidator;
 import com.jfinal.aop.Before;
@@ -48,6 +49,13 @@ public class AdminController extends Controller {
 		
 		Admin admin = Admin.dao.findFirst(sql,admin_name,admin_pwd);
 		if(admin != null){
+			
+			if(admin.getStatus() == 0){
+				setAttr("LoginNameMsg", "该管理员账号已禁用！");
+				render("login.html");
+				return;
+			}
+			
 			if(admin.getType() == 0){
 				this.setSessionAttr("Admin", admin);
 				redirect("index");
@@ -242,7 +250,10 @@ public class AdminController extends Controller {
 	
 	//添加管理员方法
 	public void adminadd(){
-		renderText("添加管理员成功！");
+		//设置注册时间和默认注册状态
+		String reg_date = DateUtils.unixTimestampToDate(DateUtils.dateToUnixTimestamp(DateUtils.getNowTime()));
+		getModel(Admin.class).set("create_time",reg_date).set("status", 1).save();
+		renderText("添加管理员成功！"+getPara("admin.name"));
 	}
 	
 	

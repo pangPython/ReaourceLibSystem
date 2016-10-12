@@ -26,9 +26,8 @@
 <![endif]-->
 <!--/meta 作为公共模版分离出去-->
 
-<title>添加管理员 - 管理员管理 - H-ui.admin v2.4</title>
-<meta name="keywords" content="H-ui.admin v2.3,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
-<meta name="description" content="H-ui.admin v2.3，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+<title>添加管理员 - 管理员管理 </title>
+
 </head>
 <body>
 <div class="container">
@@ -36,7 +35,7 @@
 	<div class="row cl">
 		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理员登录名：</label>
 		<div class="formControls col-xs-8 col-sm-9">
-			<input type="text" class="input-text" placeholder="" id="admin.name" name="admin.name">
+			<input type="text" class="input-text" id="admin.name" name="admin.name">
 		</div>
 	</div>
 	<div class="row cl">
@@ -67,7 +66,7 @@
 	<div class="row cl">
 		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>角色：</label>
 		<div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:150px;">
-			<select class="select" name="admin.type" id="admin.type" size="1">
+			<select class="select" name="admin.type" id="type" size="1">
 				<option value="0">超级管理员</option>
 				<option value="0">县区管理员</option>
 			</select>
@@ -124,46 +123,7 @@ $(function(){
 		radioClass: 'iradio-blue',
 		increaseArea: '20%'
 	});
-	
-	$("#form-admin-add").validate({
-		rules:{
-			adminName:{
-				required:true,
-				minlength:4,
-				maxlength:16
-			},
-			password:{
-				required:true,
-			},
-			password2:{
-				required:true,
-				equalTo: "#password"
-			},
-			sex:{
-				required:true,
-			},
-			phone:{
-				required:true,
-				isPhone:true,
-			},
-			email:{
-				required:true,
-				email:true,
-			},
-			adminRole:{
-				required:true,
-			},
-		},
-		onkeyup:false,
-		focusCleanup:true,
-		success:"valid",
-		submitHandler:function(form){
-			$(form).ajaxSubmit();
-			var index = parent.layer.getFrameIndex(window.name);
-			parent.$('.btn-refresh').click();
-			parent.layer.close(index);
-		}
-	});
+
 });
 </script> 
 <!--/请在上方写此页面业务相关的脚本-->
