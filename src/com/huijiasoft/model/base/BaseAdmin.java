@@ -33,14 +33,6 @@ public abstract class BaseAdmin<M extends BaseAdmin<M>> extends Model<M> impleme
 		return get("pwd");
 	}
 
-	public void setCreateTime(java.lang.String createTime) {
-		set("create_time", createTime);
-	}
-
-	public java.lang.String getCreateTime() {
-		return get("create_time");
-	}
-
 	public void setEmail(java.lang.String email) {
 		set("email", email);
 	}
@@ -57,12 +49,44 @@ public abstract class BaseAdmin<M extends BaseAdmin<M>> extends Model<M> impleme
 		return get("type");
 	}
 
+	public void setTelephone(java.lang.String telephone) {
+		set("telephone", telephone);
+	}
+
+	public java.lang.String getTelephone() {
+		return get("telephone");
+	}
+
+	public void setCreateTime(java.lang.String createTime) {
+		set("create_time", createTime);
+	}
+
+	public java.lang.String getCreateTime() {
+		return get("create_time");
+	}
+
 	public void setStatus(java.lang.Integer status) {
 		set("status", status);
 	}
 
 	public java.lang.Integer getStatus() {
 		return get("status");
+	}
+
+	public void setAreaId(java.lang.Integer areaId) {
+		set("area_id", areaId);
+	}
+
+	public java.lang.Integer getAreaId() {
+		return get("area_id");
+	}
+
+	public void setAuth(java.lang.Integer auth) {
+		set("auth", auth);
+	}
+
+	public java.lang.Integer getAuth() {
+		return get("auth");
 	}
 
 }

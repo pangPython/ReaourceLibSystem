@@ -16,4 +16,9 @@ public class Admin extends BaseAdmin<Admin> {
 		return dao.find("select * from admin order by id desc");
 	}
 	
+	//获取所有县区管理员
+		public List<Admin> getAllCountryAdmin(){
+			return dao.find("select * from admin where type = ?",1);
+		}
+	
 }

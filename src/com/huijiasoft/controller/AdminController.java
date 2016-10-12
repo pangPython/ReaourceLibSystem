@@ -6,7 +6,6 @@ import java.io.IOException;
 import com.huijiasoft.interceptor.AdminAuthInterceptor;
 import com.huijiasoft.model.Admin;
 import com.huijiasoft.model.Area;
-import com.huijiasoft.model.CountryAdmin;
 import com.huijiasoft.model.DeclareType;
 import com.huijiasoft.model.Degree;
 import com.huijiasoft.model.Edu;
@@ -49,8 +48,12 @@ public class AdminController extends Controller {
 		
 		Admin admin = Admin.dao.findFirst(sql,admin_name,admin_pwd);
 		if(admin != null){
-			this.setSessionAttr("Admin", admin);
-			redirect("index");
+			if(admin.getType() == 0){
+				this.setSessionAttr("Admin", admin);
+				redirect("index");
+			}else{
+				renderText("县区管理员！");
+			}
 		}else{
 			render("login.html");
 		}
@@ -232,15 +235,21 @@ public class AdminController extends Controller {
 		render("admin-list.html");
 	}
 	
+	//渲染添加管理员页面
 	public void addAdmin(){
 		render("admin-add.html");
+	}
+	
+	//添加管理员方法
+	public void adminadd(){
+		renderText("添加管理员成功！");
 	}
 	
 	
 	//县区市管理员列表
 	@SuppressWarnings("static-access")
 	public void countryadminList(){
-		setAttr("caList", getModel(CountryAdmin.class).dao.getAllCountryAdmin());
+		setAttr("caList", getModel(Admin.class).dao.getAllCountryAdmin());
 		render("countryadminlist.html");
 	}
 	
