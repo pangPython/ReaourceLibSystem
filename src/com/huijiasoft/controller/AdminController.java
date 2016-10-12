@@ -86,17 +86,30 @@ public class AdminController extends Controller {
 		render("decedit.html");
 	}
 	//申报类型保存
+	@SuppressWarnings("static-access")
 	public void decupdate(){
 		getModel(DeclareType.class).dao.set("dec_id",getPara("dec_id")).set("decname", getPara("decname")).update();
-		renderText("更新成功！");
+		renderText("申报类型更新成功！");
 	}
-	
 	
 	//民族分类管理
 	
 	public void nation(){
 		setAttr("nationList", Mz.dao.getAllMz());
 		render("nation.html");
+	}
+	
+	//民族编辑页面
+	public void nationedit(){
+		setAttr("nation", Mz.dao.findById(getPara("id")));
+		render("mzedit.html");
+	}
+	
+	//民族字段更新
+	@SuppressWarnings("static-access")
+	public void nationupdate(){
+		getModel(Mz.class).dao.set("mz_id", getPara("mz_id")).set("mzname", getPara("mzname")).update();
+		renderText("民族信息更新成功！");
 	}
 	
 	
@@ -106,6 +119,18 @@ public class AdminController extends Controller {
 		render("zzmm.html");
 	}
 	
+	//政治面貌编辑页面
+	public void zzmmedit(){
+		setAttr("zzmm", Zzmm.dao.findById(getPara("id")));
+		render("zzmmedit.html");
+	}
+	//政治面貌更新方法
+	public void zzmmupdate(){
+		getModel(Zzmm.class).dao.set("zzmm_id", getPara("zzmm_id")).set("zzmmname", getPara("zzmmname")).update();
+		renderText("政治面貌更新成功！");
+	}
+	
+	
 	//学历信息管理
 	public void education(){
 		
@@ -113,6 +138,18 @@ public class AdminController extends Controller {
 		render("education.html");
 		
 	}
+	//学历信息编辑
+	public void eduedit(){
+		setAttr("edu", Edu.dao.findById(getPara("id")));
+		render("eduedit.html");
+	}
+	//学历信息更新
+	public void eduupdate(){
+		getModel(Edu.class).dao.set("edu_id", getPara("edu_id")).set("eduname", getPara("eduname")).update();
+		renderText("学历信息更新成功！");
+	}
+	
+	
 	
 	//学位信息管理
 	
@@ -162,12 +199,12 @@ public class AdminController extends Controller {
 		try {
 			fileName = WriteToDocx.write(id);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		renderFile(new File(fileName));
 	}
 	//超级管理员列表
+	@SuppressWarnings("static-access")
 	public void adminList(){
 		setAttr("adminList", getModel(Admin.class).dao.getAllAdmin());
 		render("admin-list.html");
@@ -179,6 +216,7 @@ public class AdminController extends Controller {
 	
 	
 	//县区市管理员列表
+	@SuppressWarnings("static-access")
 	public void countryadminList(){
 		setAttr("caList", getModel(CountryAdmin.class).dao.getAllCountryAdmin());
 		render("countryadminlist.html");

@@ -21,7 +21,6 @@ public class RegistValidator extends Validator {
 
 	@Override
 	protected void handleError(Controller c) {
-		// TODO Auto-generated method stub
 
 	}
 

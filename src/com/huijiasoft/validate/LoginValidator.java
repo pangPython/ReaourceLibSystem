@@ -12,7 +12,6 @@ public class LoginValidator extends Validator {
 
 	@Override
 	protected void handleError(Controller arg0) {
-		// TODO Auto-generated method stub
 		
 	}
 
