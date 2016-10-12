@@ -24,7 +24,7 @@ import com.jfinal.core.Controller;
 
 /**
  * @author pangPython
- *
+ *	后台控制器
  */
 @Before(AdminAuthInterceptor.class)
 public class AdminController extends Controller {
@@ -149,13 +149,22 @@ public class AdminController extends Controller {
 		renderText("学历信息更新成功！");
 	}
 	
-	
-	
 	//学位信息管理
-	
 	public void degree(){
 		setAttr("degreeList", Degree.dao.getAllDegree());
 		render("degree.html");
+	}
+	
+	//学位信息编辑页面
+	public void degreeedit(){
+		setAttr("degree", Degree.dao.findById(getPara("id")));
+		render("degreeedit.html");
+	}
+	//学位信息更新
+	@SuppressWarnings("static-access")
+	public void degreeupdate(){
+		getModel(Degree.class).dao.set("degree_id", getPara("degree_id")).set("degreename", getPara("degreename")).update();
+		renderText("学位信息更新成功！");
 	}
 	
 	//地区管理
@@ -163,6 +172,19 @@ public class AdminController extends Controller {
 		setAttr("areaList", Area.dao.getAllArea());
 		render("area.html");
 	}
+	
+	//地区信息编辑页面
+	public void areaedit(){
+		setAttr("area", Area.dao.findById(getPara("id")));
+		render("areaedit.html");
+		
+	}
+	//地区信息更新
+	public void areaupdate(){
+		getModel(Area.class).dao.set("area_id", getPara("area_id")).set("area_name", getPara("areaname")).update();
+		renderText("地区信息更新成功！");
+	}
+	
 	
 	//系统参数配置
 	public void system(){
