@@ -22,7 +22,7 @@ import com.jfinal.upload.UploadFile;
 @Before(UserAuthInterceptor.class)
 public class UserController extends Controller {
 	
-	 private final int MAXSize = 50 * 1024; // 5M
+	 private final int MAXSize = 50 * 1024 * 1024; // 5M
 	
 	public void index() {
 		//使用客户端请求中的cookie中的user的唯一标识作为key
