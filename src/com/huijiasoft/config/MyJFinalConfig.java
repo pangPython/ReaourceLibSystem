@@ -11,6 +11,7 @@ import com.jfinal.config.JFinalConfig;
 import com.jfinal.config.Plugins;
 import com.jfinal.config.Routes;
 import com.jfinal.core.JFinal;
+import com.jfinal.kit.PathKit;
 import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
@@ -34,7 +35,7 @@ public class MyJFinalConfig extends JFinalConfig {
 		me.setDevMode(PropKit.getBoolean("devMode", false));
 		me.setError404View("/404.html");
 		me.setBaseDownloadPath("WebRoot/");
-
+		me.setBaseUploadPath(PathKit.getWebRootPath()+"/upload/");
 	}
 	
 	

@@ -9,12 +9,20 @@ import com.jfinal.plugin.activerecord.IBean;
 @SuppressWarnings("serial")
 public abstract class BaseUploads<M extends BaseUploads<M>> extends Model<M> implements IBean {
 
-	public void setUploadId(java.lang.Integer uploadId) {
-		set("upload_id", uploadId);
+	public void setId(java.lang.Integer id) {
+		set("id", id);
 	}
 
-	public java.lang.Integer getUploadId() {
-		return get("upload_id");
+	public java.lang.Integer getId() {
+		return get("id");
+	}
+
+	public void setUserId(java.lang.Integer userId) {
+		set("user_id", userId);
+	}
+
+	public java.lang.Integer getUserId() {
+		return get("user_id");
 	}
 
 	public void setType(java.lang.String type) {
@@ -25,12 +33,12 @@ public abstract class BaseUploads<M extends BaseUploads<M>> extends Model<M> imp
 		return get("type");
 	}
 
-	public void setAdd(java.lang.String add) {
-		set("add", add);
+	public void setPath(java.lang.String path) {
+		set("path", path);
 	}
 
-	public java.lang.String getAdd() {
-		return get("add");
+	public java.lang.String getPath() {
+		return get("path");
 	}
 
 }

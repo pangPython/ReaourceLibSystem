@@ -22,6 +22,10 @@ import com.jfinal.upload.UploadFile;
 @Before(UserAuthInterceptor.class)
 public class UserController extends Controller {
 	
+	 private final int MAXSize = 50 * 1024 * 1024; // 50M
+	 private String filedir="";//指定用户训练视频文件上传路径
+	
+	
 	public void index() {
 		//使用客户端请求中的cookie中的user的唯一标识作为key
 		//取服务器端的session
@@ -94,10 +98,15 @@ User user = (User) getSession().getAttribute(getCookie("cuser"));
 	}
 	
 	
-	//用户上传媒体文件
-	public void upload(){
-		UploadFile uf =  getFile();
-		renderText("上传0成功！");
+	// 用户上传媒体文件
+	public void upload() {
+		// 批量上传文件
+		List<UploadFile> upFiles = getFiles("./", MAXSize, "utf-8");
+		// 写入数据库
+		
+		// upFiles.
+		// 显示图片
+		render("/showmedia.html");
 	}
 	
 	
