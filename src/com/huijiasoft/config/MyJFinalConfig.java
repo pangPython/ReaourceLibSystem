@@ -32,7 +32,7 @@ public class MyJFinalConfig extends JFinalConfig {
 	public void configConstant(Constants me) {
 		PropKit.use("myconfig.txt");
 		me.setDevMode(PropKit.getBoolean("devMode", false));
-		me.setError404View("admin/404.html");
+		me.setError404View("/404.html");
 		me.setBaseDownloadPath("WebRoot/");
 
 	}

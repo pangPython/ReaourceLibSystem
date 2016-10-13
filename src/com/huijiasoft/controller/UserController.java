@@ -13,6 +13,7 @@ import com.huijiasoft.model.Zzmm;
 import com.jfinal.aop.Before;
 import com.jfinal.core.ActionKey;
 import com.jfinal.core.Controller;
+import com.jfinal.upload.UploadFile;
 
 /**
  * @author pangPython
@@ -91,5 +92,16 @@ User user = (User) getSession().getAttribute(getCookie("cuser"));
 		setAttr("decList", decList);
 		render("/adduserinfo.html");
 	}
+	
+	
+	//用户上传媒体文件
+	public void upload(){
+		UploadFile uf =  getFile();
+		renderText("上传0成功！");
+	}
+	
+	
+	
+	
 
 }
