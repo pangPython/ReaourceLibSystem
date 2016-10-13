@@ -145,6 +145,14 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("address");
 	}
 
+	public void setEdu_fullTime(java.lang.Integer edu_fullTime) {
+		set("edu__full_time", edu_fullTime);
+	}
+
+	public java.lang.Integer getEdu_fullTime() {
+		return get("edu__full_time");
+	}
+
 	public void setCompany(java.lang.String company) {
 		set("company", company);
 	}
@@ -153,12 +161,12 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("company");
 	}
 
-	public void setTc(java.lang.String tc) {
-		set("tc", tc);
+	public void setSpecialty(java.lang.String specialty) {
+		set("specialty", specialty);
 	}
 
-	public java.lang.String getTc() {
-		return get("tc");
+	public java.lang.String getSpecialty() {
+		return get("specialty");
 	}
 
 	public void setZywork(java.lang.String zywork) {
@@ -177,6 +185,14 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("ysjj");
 	}
 
+	public void setHealth(java.lang.String health) {
+		set("health", health);
+	}
+
+	public java.lang.String getHealth() {
+		return get("health");
+	}
+
 	public void setRegDate(java.lang.String regDate) {
 		set("reg_date", regDate);
 	}
@@ -191,6 +207,54 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 
 	public java.lang.Integer getStatus() {
 		return get("status");
+	}
+
+	public void setBirth(java.lang.String birth) {
+		set("birth", birth);
+	}
+
+	public java.lang.String getBirth() {
+		return get("birth");
+	}
+
+	public void setPhotoPath(java.lang.String photoPath) {
+		set("photo_path", photoPath);
+	}
+
+	public java.lang.String getPhotoPath() {
+		return get("photo_path");
+	}
+
+	public void setTechnicalPosition(java.lang.String technicalPosition) {
+		set("technical_position", technicalPosition);
+	}
+
+	public java.lang.String getTechnicalPosition() {
+		return get("technical_position");
+	}
+
+	public void setDegreeFullTime(java.lang.Integer degreeFullTime) {
+		set("degree_full_time", degreeFullTime);
+	}
+
+	public java.lang.Integer getDegreeFullTime() {
+		return get("degree_full_time");
+	}
+
+	public void setCompanyTel(java.lang.String companyTel) {
+		set("company_tel", companyTel);
+	}
+
+	public java.lang.String getCompanyTel() {
+		return get("company_tel");
+	}
+
+	public void setSocioPartTime(java.lang.String socioPartTime) {
+		set("socio_part_time", socioPartTime);
+	}
+
+	public java.lang.String getSocioPartTime() {
+		return get("socio_part_time");
 	}
 
 }

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50547
 File Encoding         : 65001
 
-Date: 2016-10-12 17:24:33
+Date: 2016-10-13 21:26:56
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -31,14 +31,15 @@ CREATE TABLE `admin` (
   `area_id` int(255) NOT NULL,
   `auth` int(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of admin
 -- ----------------------------
-INSERT INTO `admin` VALUES ('1', 'admin', '123456', 'admin@qq.com', '0', '', '', '0', '0', '0');
+INSERT INTO `admin` VALUES ('1', 'admin', '123456', 'admin@qq.com', '0', '', '', '1', '0', '0');
 INSERT INTO `admin` VALUES ('2', 'py', '123456789', 'admin@huijiasoft.com', '1', '', '', '0', '0', '0');
 INSERT INTO `admin` VALUES ('3', '庞勇', '123456', 'admin@163.com', '1', '', '', '0', '0', '0');
+INSERT INTO `admin` VALUES ('4', 'test', '123456', '123973173@qq.com', '0', '15757575757', '2016-10-12 19:56:07', '0', '0', '1');
 
 -- ----------------------------
 -- Table structure for `area`
@@ -221,16 +222,17 @@ INSERT INTO `system` VALUES ('1', '东营市社会文艺人才信息资源库', 
 -- ----------------------------
 DROP TABLE IF EXISTS `uploads`;
 CREATE TABLE `uploads` (
-  `upload_id` int(11) NOT NULL AUTO_INCREMENT,
-  `type` varchar(20) NOT NULL,
-  `add` varchar(30) NOT NULL,
-  PRIMARY KEY (`upload_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `user_id` int(255) NOT NULL,
+  `type` varchar(100) NOT NULL,
+  `path` varchar(255) NOT NULL,
+  `create_time` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of uploads
 -- ----------------------------
-INSERT INTO `uploads` VALUES ('1', '视频', 'D:\\1汇佳');
 
 -- ----------------------------
 -- Table structure for `user`
@@ -254,23 +256,31 @@ CREATE TABLE `user` (
   `card` varchar(255) DEFAULT NULL,
   `area_id` varchar(20) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
-  `company` varchar(20) DEFAULT NULL,
-  `tc` varchar(20) DEFAULT NULL,
+  `edu__full_time` int(10) DEFAULT NULL,
+  `company` varchar(255) DEFAULT NULL,
+  `specialty` varchar(255) DEFAULT NULL,
   `zywork` varchar(20) DEFAULT NULL,
-  `ysjj` varchar(50) DEFAULT NULL,
+  `ysjj` varchar(255) DEFAULT NULL,
+  `health` varchar(255) DEFAULT NULL,
   `reg_date` varchar(255) NOT NULL,
   `status` int(10) DEFAULT NULL,
+  `birth` varchar(255) DEFAULT NULL,
+  `photo_path` varchar(255) DEFAULT NULL,
+  `technical_position` varchar(255) DEFAULT NULL,
+  `degree_full_time` int(10) DEFAULT NULL,
+  `company_tel` varchar(255) DEFAULT NULL,
+  `socio_part_time` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('31', 'py', '庞勇', '22', '5D23494D3D93A7EF5BDA2FCE1091C7A4', '1', null, '1', '18', '1', '1', '0', null, null, '372321199999999999', '1', '山东省滨州市', '山东汇佳', null, null, '呵呵呵呵呵', '2016-10-08 16:05:55', '1');
-INSERT INTO `user` VALUES ('33', 'pangyong', null, null, '7B7047748C146671550A41036E2333EC', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '2016-10-11 08:24:51', '0');
-INSERT INTO `user` VALUES ('35', '汇佳软件', '庞勇', '22', '9A42B2FDE562AD64942EE3058498251D', '1', null, '1', '1', '1', '1', '0', null, null, '372321199999999999', '1', '山东省滨州市', '山东汇佳', null, null, '艺术简介艺术简介', '2016-10-11 08:29:21', '1');
-INSERT INTO `user` VALUES ('36', '山东汇佳软件', '李毅', '22', '3501B4E771BA5C7A744E8B6E8CEF916E', '1', null, '1', '1', '1', '1', '0', null, null, '372321199999999999', '1', '山东省滨州市', '山东汇佳', null, null, '艺术简介艺术简介', '2016-10-11 15:45:06', '1');
-INSERT INTO `user` VALUES ('37', 'huijia', '庞勇', '22', '4501195721962DCDADBFC33F8C0DD6E3', '1', null, '1', '1', '1', '1', '0', null, null, '372321199999999999', '1', '山东省滨州市', '山东汇佳', null, null, '呵呵呵呵呵', '2016-10-12 15:13:12', '0');
+INSERT INTO `user` VALUES ('31', 'py', '庞勇', '22', '5D23494D3D93A7EF5BDA2FCE1091C7A4', '1', null, '1', '18', '1', '1', '0', null, null, '372321199999999999', '1', '山东省滨州市', null, '山东汇佳', null, null, '呵呵呵呵呵', null, '2016-10-08 16:05:55', '1', null, null, null, null, null, null);
+INSERT INTO `user` VALUES ('33', 'pangyong', null, null, '7B7047748C146671550A41036E2333EC', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '2016-10-11 08:24:51', '0', null, null, null, null, null, null);
+INSERT INTO `user` VALUES ('35', '汇佳软件', '庞勇', '22', '9A42B2FDE562AD64942EE3058498251D', '1', null, '1', '1', '1', '1', '0', null, null, '372321199999999999', '1', '山东省滨州市', null, '山东汇佳', null, null, '艺术简介艺术简介', null, '2016-10-11 08:29:21', '1', null, null, null, null, null, null);
+INSERT INTO `user` VALUES ('36', '山东汇佳软件', '李毅', '22', '3501B4E771BA5C7A744E8B6E8CEF916E', '1', null, '1', '1', '1', '1', '0', null, null, '372321199999999999', '1', '山东省滨州市', null, '山东汇佳', null, null, '艺术简介艺术简介', null, '2016-10-11 15:45:06', '1', null, null, null, null, null, null);
+INSERT INTO `user` VALUES ('37', 'huijia', '庞勇', '22', '4501195721962DCDADBFC33F8C0DD6E3', '1', null, '1', '1', '1', '1', '0', null, null, '372321199999999999', '1', '山东省滨州市', null, '山东汇佳', null, null, '呵呵呵呵呵', null, '2016-10-12 15:13:12', '0', null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `zzmm`

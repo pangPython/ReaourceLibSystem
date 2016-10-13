@@ -41,4 +41,12 @@ public abstract class BaseUploads<M extends BaseUploads<M>> extends Model<M> imp
 		return get("path");
 	}
 
+	public void setCreateTime(java.lang.String createTime) {
+		set("create_time", createTime);
+	}
+
+	public java.lang.String getCreateTime() {
+		return get("create_time");
+	}
+
 }

@@ -17,14 +17,12 @@ import com.jfinal.upload.UploadFile;
 
 /**
  * @author pangPython
- *
+ *		用户控制器
  */
 @Before(UserAuthInterceptor.class)
 public class UserController extends Controller {
 	
-	 private final int MAXSize = 50 * 1024 * 1024; // 50M
-	 private String filedir="";//指定用户训练视频文件上传路径
-	
+	 private final int MAXSize = 50 * 1024; // 5M
 	
 	public void index() {
 		//使用客户端请求中的cookie中的user的唯一标识作为key
@@ -103,12 +101,23 @@ User user = (User) getSession().getAttribute(getCookie("cuser"));
 		// 批量上传文件
 		List<UploadFile> upFiles = getFiles("./", MAXSize, "utf-8");
 		// 写入数据库
+		User user = getSessionAttr(getCookie("cuser"));
 		
+		int user_id = user.getId();
+		
+		//遍历文件list
+		for (UploadFile uploadFile : upFiles) {
+			uploadFile.getOriginalFileName();
+		}
 		// upFiles.
 		// 显示图片
 		render("/showmedia.html");
 	}
 	
+	
+	public void baomingbiao(){
+		render("/baomingbiao.html");
+	}
 	
 	
 	
