@@ -20,5 +20,7 @@ public class Mz extends BaseMz<Mz> {
 		return dao.find("select * from mz order by mz_id asc");
 	}
 	
+
+	
 	
 }

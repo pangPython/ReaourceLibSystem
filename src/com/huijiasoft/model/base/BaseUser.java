@@ -257,4 +257,28 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("socio_part_time");
 	}
 
+	public void setTelephone(java.lang.String telephone) {
+		set("telephone", telephone);
+	}
+
+	public java.lang.String getTelephone() {
+		return get("telephone");
+	}
+
+	public void setAwards(java.lang.String awards) {
+		set("awards", awards);
+	}
+
+	public java.lang.String getAwards() {
+		return get("awards");
+	}
+
+	public void setOpinion(java.lang.String opinion) {
+		set("opinion", opinion);
+	}
+
+	public java.lang.String getOpinion() {
+		return get("opinion");
+	}
+
 }

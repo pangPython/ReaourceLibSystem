@@ -24,6 +24,16 @@ public class User extends BaseUser<User> {
 		String sql = "select u.*,d.decname,m.mzname,z.zzmmname from (((user u join declare_type d on u.dec_id = d.dec_id) join mz m on u.mz_id = m.mz_id) join zzmm z on u.zzmm_id = z.zzmm_id)";
 		return  usermodel.find(sql);
 	}
+	
+	
+	//获取某个用户管理表
+	public User findById_Relation(int id){
+		String sql = "select u.*,d.decname,m.mzname,z.zzmmname from (((user u join declare_type d on u.dec_id = d.dec_id) join mz m on u.mz_id = m.mz_id) join zzmm z on u.zzmm_id = z.zzmm_id) where u.id = ?";
+		return usermodel.findFirst(sql,id);
+	}
+	
+	
+
 
 	
 	

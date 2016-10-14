@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50547
 File Encoding         : 65001
 
-Date: 2016-10-13 21:26:56
+Date: 2016-10-14 14:50:11
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -30,8 +30,9 @@ CREATE TABLE `admin` (
   `status` int(10) NOT NULL,
   `area_id` int(255) NOT NULL,
   `auth` int(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `adminname` (`name`) USING HASH
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of admin
@@ -40,6 +41,7 @@ INSERT INTO `admin` VALUES ('1', 'admin', '123456', 'admin@qq.com', '0', '', '',
 INSERT INTO `admin` VALUES ('2', 'py', '123456789', 'admin@huijiasoft.com', '1', '', '', '0', '0', '0');
 INSERT INTO `admin` VALUES ('3', '庞勇', '123456', 'admin@163.com', '1', '', '', '0', '0', '0');
 INSERT INTO `admin` VALUES ('4', 'test', '123456', '123973173@qq.com', '0', '15757575757', '2016-10-12 19:56:07', '0', '0', '1');
+INSERT INTO `admin` VALUES ('5', '庞勇2', '4D396C0185E0065DF89C096DA3F04EB6', '123973173@qq.com', '0', '15762182153', '2016-10-14 10:26:13', '1', '0', '1');
 
 -- ----------------------------
 -- Table structure for `area`
@@ -228,11 +230,15 @@ CREATE TABLE `uploads` (
   `path` varchar(255) NOT NULL,
   `create_time` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of uploads
 -- ----------------------------
+INSERT INTO `uploads` VALUES ('5', '37', '1', '20160822020450_20788.png', '2016-10-14 14:43:51');
+INSERT INTO `uploads` VALUES ('6', '37', '1', '20160822020450_207881.png', '2016-10-14 14:45:13');
+INSERT INTO `uploads` VALUES ('7', '37', '1', '20160822020450_207882.png', '2016-10-14 14:47:22');
+INSERT INTO `uploads` VALUES ('8', '37', '1', '20160822020450_207883.png', '2016-10-14 14:48:30');
 
 -- ----------------------------
 -- Table structure for `user`
@@ -270,17 +276,24 @@ CREATE TABLE `user` (
   `degree_full_time` int(10) DEFAULT NULL,
   `company_tel` varchar(255) DEFAULT NULL,
   `socio_part_time` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
+  `telephone` varchar(100) DEFAULT NULL,
+  `awards` varchar(255) DEFAULT NULL,
+  `opinion` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`uname`) USING HASH
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('31', 'py', '庞勇', '22', '5D23494D3D93A7EF5BDA2FCE1091C7A4', '1', null, '1', '18', '1', '1', '0', null, null, '372321199999999999', '1', '山东省滨州市', null, '山东汇佳', null, null, '呵呵呵呵呵', null, '2016-10-08 16:05:55', '1', null, null, null, null, null, null);
-INSERT INTO `user` VALUES ('33', 'pangyong', null, null, '7B7047748C146671550A41036E2333EC', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '2016-10-11 08:24:51', '0', null, null, null, null, null, null);
-INSERT INTO `user` VALUES ('35', '汇佳软件', '庞勇', '22', '9A42B2FDE562AD64942EE3058498251D', '1', null, '1', '1', '1', '1', '0', null, null, '372321199999999999', '1', '山东省滨州市', null, '山东汇佳', null, null, '艺术简介艺术简介', null, '2016-10-11 08:29:21', '1', null, null, null, null, null, null);
-INSERT INTO `user` VALUES ('36', '山东汇佳软件', '李毅', '22', '3501B4E771BA5C7A744E8B6E8CEF916E', '1', null, '1', '1', '1', '1', '0', null, null, '372321199999999999', '1', '山东省滨州市', null, '山东汇佳', null, null, '艺术简介艺术简介', null, '2016-10-11 15:45:06', '1', null, null, null, null, null, null);
-INSERT INTO `user` VALUES ('37', 'huijia', '庞勇', '22', '4501195721962DCDADBFC33F8C0DD6E3', '1', null, '1', '1', '1', '1', '0', null, null, '372321199999999999', '1', '山东省滨州市', null, '山东汇佳', null, null, '呵呵呵呵呵', null, '2016-10-12 15:13:12', '0', null, null, null, null, null, null);
+INSERT INTO `user` VALUES ('31', 'py', '张三', '22', '5D23494D3D93A7EF5BDA2FCE1091C7A4', '1', '111', '1', '18', '1', '1', '0', '122', null, '372321199999999999', '1', '山东省东营市', null, '山东汇佳', null, null, '呵呵呵呵呵', '健康', '2016-10-08 16:05:55', '1', '11111', null, '青年志愿者', null, '8086998', null, '15762188888', '表演一等奖', '希望申请通过');
+INSERT INTO `user` VALUES ('33', 'pangyong', '张三2', '22', '7B7047748C146671550A41036E2333EC', '2', '111', '0', '6', '4', '3', '0', '111', null, null, null, '山东省东营市', null, null, null, null, '中央戏剧表演', '健康', '2016-10-11 08:24:51', '0', '1111', null, '红年志愿者', null, '8086998', null, '15762188888', ' 表演二等奖', '希望申请通过');
+INSERT INTO `user` VALUES ('35', '汇佳软件', '张三3', '22', '9A42B2FDE562AD64942EE3058498251D', '1', '111', '1', '1', '1', '1', '0', '232', null, '372321199999999999', '1', '山东省东营市', null, '山东汇佳', null, null, '艺术简介艺术简介', '健康', '2016-10-11 08:29:21', '1', '1111', null, '中年志愿者', null, '8086998', null, '15762188888', '表演三等奖', '希望申请通过');
+INSERT INTO `user` VALUES ('36', '山东汇佳软件', '张三4', '22', '3501B4E771BA5C7A744E8B6E8CEF916E', '1', '111', '1', '1', '1', '1', '0', '33', null, '372321199999999999', '1', '山东省东营市', null, '山东汇佳', null, null, '艺术简介艺术简介', '健康', '2016-10-11 15:45:06', '1', '1111', null, '老年志愿者', null, '8086998', null, '15762188888', ' 表演四等奖', '希望申请通过');
+INSERT INTO `user` VALUES ('37', 'huijia', '张三5', '22', '4501195721962DCDADBFC33F8C0DD6E3', '1', '111', '1', '1', '1', '1', '0', '44', null, '372321199999999999', '1', '山东省东营市', null, '山东汇佳', null, null, '呵呵呵呵呵', '健康', '2016-10-12 15:13:12', '0', '1111', null, '青年志愿', null, '8086998', null, '15762188888', ' 表演五等奖', '希望申请通过');
+INSERT INTO `user` VALUES ('38', '庞勇', '张三6', '22', '9D46A6083C6EBDDCFB898DAB58EAFD7F', '1', '111', '1', '1', '1', '1', '0', '55', null, '372321199999999999', '1', '山东省东营市', null, '山东汇佳', null, null, '艺术简介艺术简介', '健康', '2016-10-13 22:47:39', '0', '1111', null, '青年者远着', null, '8086998', null, '15762188888', ' 表演特等奖', '希望申请通过');
+INSERT INTO `user` VALUES ('39', 'admin', '张三7', '22', '6E0F084E2078D7E28093027420CDD776', '1', '111', '0', '6', '4', '2', '0', '66', null, null, null, '山东省东营市', null, null, null, null, ' 中国表演大学', '健康', '2016-10-14 09:49:17', '0', '1111', null, '志愿者', null, '8086998', null, '15762188888', ' 表演奖', '希望申请通过');
+INSERT INTO `user` VALUES ('40', '庞永', '张三8', '22', 'DD015661785A22BDED41F84D206AF94E', '3', '111', '0', '6', '4', '3', '0', '77', null, null, null, '山东省东营市', null, null, null, null, '中央戏剧学院', '健康', '2016-10-14 09:49:59', '0', '1111', null, ' 山区只教', null, '8086998', null, '15762188888', ' 参与奖', '希望申请通过');
 
 -- ----------------------------
 -- Table structure for `zzmm`

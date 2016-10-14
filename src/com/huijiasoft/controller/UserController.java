@@ -8,8 +8,10 @@ import com.huijiasoft.model.DeclareType;
 import com.huijiasoft.model.Degree;
 import com.huijiasoft.model.Edu;
 import com.huijiasoft.model.Mz;
+import com.huijiasoft.model.Uploads;
 import com.huijiasoft.model.User;
 import com.huijiasoft.model.Zzmm;
+import com.huijiasoft.utils.DateUtils;
 import com.jfinal.aop.Before;
 import com.jfinal.core.ActionKey;
 import com.jfinal.core.Controller;
@@ -104,20 +106,42 @@ User user = (User) getSession().getAttribute(getCookie("cuser"));
 		List<UploadFile> upFiles = getFiles("./", MAXSize, "utf-8");
 		// 写入数据库
 		User user = getSessionAttr(getCookie("cuser"));
-		
 		int user_id = user.getId();
 		
+		
 		//遍历文件list
-		for (UploadFile uploadFile : upFiles) {
-			uploadFile.getOriginalFileName();
+		Uploads uploads = getModel(Uploads.class);
+		for (int i = 0; i < upFiles.size(); i++) {
+			uploads.setUserId(user_id);
+			uploads.setPath(upFiles.get(i).getFileName());
+			uploads.setType("1");
+			uploads.setCreateTime(DateUtils.getNowTime());
+			uploads.save();
+			
 		}
-		// upFiles.
+	
 		// 显示图片
+		setAttr("user", user);
+		redirect("showmedia?id="+user.getId());
+	}
+	
+	//个人媒体资料展示页面
+	public void showmedia(){
+		User user = getSessionAttr(getCookie("cuser"));
+		setAttr("user", user);
+		setAttr("mediaList", Uploads.dao.getAllMediaById(getPara("id")));
+		
 		render("/showmedia.html");
 	}
 	
 	
 	public void baomingbiao(){
+		int uid = getParaToInt("id");
+		User user = User.usermodel.findById_Relation(uid);
+		String mzname = user.getStr("mzname");
+		setAttr("user", user);
+		setAttr("mz", mzname);
+		setAttr("zzmm", user.getStr("zzmmname"));
 		render("/baomingbiao.html");
 	}
 	
