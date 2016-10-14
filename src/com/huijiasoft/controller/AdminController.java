@@ -57,17 +57,34 @@ public class AdminController extends Controller {
 				return;
 			}
 			
+			this.setSessionAttr("Admin", admin);
 			if(admin.getType() == 0){
-				this.setSessionAttr("Admin", admin);
 				redirect("index");
 			}else{
-				renderText("县区管理员！");
+				redirect("xqadmin");
 			}
 		}else{
 			render("login.html");
 		}
 		
 	}
+	
+	
+	//县区管理员主页
+	public void xqadmin(){
+		
+		render("countryadmin.html");
+	}
+	
+	
+	//县区管理员搜索
+	public void xqsearch(){
+		Admin admin = getSessionAttr("Admin");
+		setAttr("userList", User.usermodel.getUserByAreaId(admin.getAreaId()));
+		render("xqsearch.html");
+	}
+	
+	
 	
 	//退出方法
 	public void logout(){
@@ -214,7 +231,12 @@ public class AdminController extends Controller {
 	
 	//查看某个用户
 	public void checkUser(){
-		setAttr("user", User.usermodel.findById(getPara("id")));
+		int uid = getParaToInt("id");
+		User user = User.usermodel.findById_Relation(uid);
+		String mzname = user.getStr("mzname");
+		setAttr("user", user);
+		setAttr("mz", mzname);
+		setAttr("zzmm", user.getStr("zzmmname"));
 		render("user-check.html");
 	}
 	

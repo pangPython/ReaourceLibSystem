@@ -281,4 +281,12 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("opinion");
 	}
 
+	public void setBusinessAchievement(java.lang.String businessAchievement) {
+		set("business_achievement", businessAchievement);
+	}
+
+	public java.lang.String getBusinessAchievement() {
+		return get("business_achievement");
+	}
+
 }

@@ -32,7 +32,10 @@ public class User extends BaseUser<User> {
 		return usermodel.findFirst(sql,id);
 	}
 	
-	
+	public List<User> getUserByAreaId(int area_id){
+		String sql = "select u.*,d.decname,m.mzname,z.zzmmname from (((user u join declare_type d on u.dec_id = d.dec_id) join mz m on u.mz_id = m.mz_id) join zzmm z on u.zzmm_id = z.zzmm_id) where area_id = ?";
+		return usermodel.find(sql,area_id);
+	}
 
 
 	

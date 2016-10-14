@@ -115,7 +115,7 @@
         <a class="ui button" href="/user/edit">点击修改个人信息</a>
       </div>
       <div class="item">
-        <a class="ui button" href="/user/edit">视音频资料</a>
+        <a class="ui button" href="/user/mediainfo">视音频资料</a>
       </div>
       <div class="item">
         <a class="ui primary button" href="logout">退出</a>
@@ -133,7 +133,8 @@
 						<h1 class="ui dividing header">已经上传的媒体资料</h1>
 						<div class="kv-main">
 							<#list mediaList as x>
-								${x.user_id}
+								<img class="ui small image" src="/upload/${x.path}">
+								
 							</#list>
 						</div>
 					</div>
