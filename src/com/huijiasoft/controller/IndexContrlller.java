@@ -87,6 +87,14 @@ public class IndexContrlller extends Controller {
 	@ActionKey("regist")
 	@Before(RegistValidator.class)
 	public void regist(){
+		String mima = getPara("user.pwd");
+		String confirm = getPara("reg.confirmpwd");
+		
+		if(!confirm.equals(mima)){
+			setAttr("confirmMsg", "请再次输入正确密码！");
+			return;
+		}
+		
 		
 		String uname = getPara("user.uname");
 		User user = this.getModel(User.class);

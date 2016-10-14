@@ -56,6 +56,8 @@ User user = (User) getSession().getAttribute(getCookie("cuser"));
 	
 	//个人音频视频资料
 	public void mediainfo(){
+		User user = (User) getSession().getAttribute(getCookie("cuser"));
+		setAttr("user", user);
 		render("/mediainfo.html");
 	}
 	
