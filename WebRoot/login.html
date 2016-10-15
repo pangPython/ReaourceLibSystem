@@ -6,7 +6,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-<title>登录-${system.title}</title>
+<title>登录-${system.title!}</title>
 
 <link rel="stylesheet" type="text/css"
 	href="/static/css/semantic.min.css">
@@ -20,9 +20,6 @@ body {
 	background-image: url(/static/images/loginbg.jpg);
 	background-size:cover;
 }
-
-
-
 .column {
 	max-width: 450px;
 }
@@ -33,7 +30,7 @@ body {
       $('.ui.form')
         .form({
           fields: {
-            email: {
+            uname: {
               identifier  : 'uname',
               rules: [
                 {
@@ -50,6 +47,15 @@ body {
                   prompt : '请输入密码！'
                 }
               ]
+            },
+            verifycode: {
+            	identifier : 'verifycode',
+            	rules:[
+            		{
+            			type: 'empty',
+            			prompt: '请输入验证码！'
+            		}
+            	]
             }
           }
         })
@@ -61,24 +67,24 @@ body {
 <body>
 	
 	<div class="ui container center aligned grid">
-	
 		<div class="column">
 	<br><br><br><br><br><br><br><br>
 			<div class="ui stacked segment raised">
 				<h2 class="ui teal header">${system.title!}</h2>
-				<br><br>
 				<form class="ui large form" method="POST" action="login">
 					<div class="field">
 						<div class="ui left icon input">
 							<i class="user icon"></i> 
 							<input type="text" name="uname" placeholder="用户名">
 						</div>
+						<br>${UnameErrMsg!}
 					</div>
 					<div class="field">
 						<div class="ui left icon input">
 							<i class="lock icon"></i> 
 							<input type="password" name="password" placeholder="密码">
 						</div>
+						<br>${PwdErrMsg!}
 					</div>
 					<div class="field">
 						<div class="ui left icon input">
@@ -86,6 +92,7 @@ body {
 								<input type="text" name="verifycode" id="verifycode" placeholder="验证码"></input>
 							<img class="ui medium  floated" src="verifycode">
 						</div>
+						<br>${yzmErrMsg!}
 					</div>
 					<br><br>
 					<button class="ui button blue">登录</button>

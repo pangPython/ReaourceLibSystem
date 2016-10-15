@@ -17,7 +17,9 @@ public class LoginValidator extends Validator {
 
 	@Override
 	protected void validate(Controller ctlr) {
-		validateRequiredString("login.name", "errMsg", "请输入用户名！");
+		validateRequiredString("login.name", "UnameErrMsg", "请输入用户名！");
+		validateRequiredString("login.password", "PwdErrMsg", "请输入密码！");
+		validateRequiredString("login.verifycode", "yzmErrMsg", "请输入验证码！");
 		
 	}
 

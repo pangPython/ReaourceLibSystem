@@ -45,17 +45,25 @@ public class AdminController extends Controller {
 	public void login(){
 		
 		String admin_name = getPara("admin.name");
-		String admin_pwd = getPara("admin.pwd");
-		String sql = "select * from admin where name = ? and pwd = ? limit 1";
+		String sql = "select * from admin where name = ? limit 1";
 		
-		Admin admin = Admin.dao.findFirst(sql,admin_name,admin_pwd);
+		Admin admin = Admin.dao.findFirst(sql,admin_name);
 		if(admin != null){
+			String admin_pwd = MD5.GetMD5Code(getPara("admin.pwd")+admin.getCreateTime());
 			
 			if(admin.getStatus() == 0){
-				setAttr("LoginNameMsg", "该管理员账号已禁用！");
+				//setAttr("LoginNameMsg", "该管理员账号已禁用！");
+				setAttr("LoginNameMsg","用户名或密码错误！");
 				render("login.html");
 				return;
 			}
+
+			if(!admin.getPwd().equals(admin_pwd)){
+				setAttr("LoginNameMsg","用户名或密码错误！");
+				render("login.html");
+				return;
+			}
+			
 			
 			this.setSessionAttr("Admin", admin);
 			if(admin.getType() == 0){
@@ -115,9 +123,8 @@ public class AdminController extends Controller {
 		render("decedit.html");
 	}
 	//申报类型保存
-	@SuppressWarnings("static-access")
 	public void decupdate(){
-		getModel(DeclareType.class).dao.set("dec_id",getPara("dec_id")).set("decname", getPara("decname")).update();
+		DeclareType.dao.set("dec_id",getPara("dec_id")).set("decname", getPara("decname")).update();
 		renderText("申报类型更新成功！");
 	}
 	
@@ -155,7 +162,7 @@ public class AdminController extends Controller {
 	}
 	//政治面貌更新方法
 	public void zzmmupdate(){
-		getModel(Zzmm.class).dao.set("zzmm_id", getPara("zzmm_id")).set("zzmmname", getPara("zzmmname")).update();
+		Zzmm.dao.set("zzmm_id", getPara("zzmm_id")).set("zzmmname", getPara("zzmmname")).update();
 		renderText("政治面貌更新成功！");
 	}
 	
@@ -174,7 +181,7 @@ public class AdminController extends Controller {
 	}
 	//学历信息更新
 	public void eduupdate(){
-		getModel(Edu.class).dao.set("edu_id", getPara("edu_id")).set("eduname", getPara("eduname")).update();
+		Edu.dao.set("edu_id", getPara("edu_id")).set("eduname", getPara("eduname")).update();
 		renderText("学历信息更新成功！");
 	}
 	
@@ -190,9 +197,8 @@ public class AdminController extends Controller {
 		render("degreeedit.html");
 	}
 	//学位信息更新
-	@SuppressWarnings("static-access")
 	public void degreeupdate(){
-		getModel(Degree.class).dao.set("degree_id", getPara("degree_id")).set("degreename", getPara("degreename")).update();
+		Degree.dao.set("degree_id", getPara("degree_id")).set("degreename", getPara("degreename")).update();
 		renderText("学位信息更新成功！");
 	}
 	
@@ -210,7 +216,7 @@ public class AdminController extends Controller {
 	}
 	//地区信息更新
 	public void areaupdate(){
-		getModel(Area.class).dao.set("area_id", getPara("area_id")).set("area_name", getPara("areaname")).update();
+		Area.dao.set("area_id", getPara("area_id")).set("area_name", getPara("areaname")).update();
 		renderText("地区信息更新成功！");
 	}
 	
