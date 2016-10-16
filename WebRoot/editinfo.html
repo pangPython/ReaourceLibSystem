@@ -106,17 +106,19 @@
  
       </div>
       <a href="/" class="item">首页</a>
-      <a href="#" class="item">Articles</a>
 
       <div class="right menu">
       <div class="item">
-        <a class="ui button" href="/user/center">${user.uname}</a>
+        <a class="ui button" href="/user">${user.uname}</a>
       </div>
       <div class="item">
         <a class="ui button" href="/user/edit">点击修改个人信息</a>
       </div>
       <div class="item">
         <a class="ui button" href="/user/mediainfo">视音频资料</a>
+      </div>
+      <div class="item">
+        <a class="ui button" href="/user/center">修改密码</a>
       </div>
       <div class="item">
         <a class="ui primary button" href="logout">退出</a>
@@ -194,13 +196,13 @@
 									<input type="text" name="user.name" value="${user.address!}">
 								</div>
 							</div>
-							<div class="seven wide column">所在公司：</div>
+							<div class="seven wide column">工作单位：</div>
 							<div class="seven wide column">
 								<div class="ui left input">
 									<input type="text" name="user.name" value="${user.company!}">
 								</div>
 							</div>
-								<div class="seven wide column">公司电话：</div>
+								<div class="seven wide column">单位电话：</div>
 							<div class="seven wide column">
 								<div class="ui left input">
 									<input type="text" name="" value="${user.company_tel!}">

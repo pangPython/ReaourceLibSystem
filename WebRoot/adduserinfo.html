@@ -103,17 +103,19 @@
  
       </div>
       <a href="/" class="item">首页</a>
-      <a href="#" class="item">Articles</a>
 
       <div class="right menu">
       <div class="item">
-        <a class="ui button" href="/user/center">${user.uname!}</a>
+        <a class="ui button" href="/user/">${user.uname!}</a>
       </div>
       <div class="item">
         <a class="ui button" href="/user/edit">点击修改个人信息</a>
       </div>
       <div class="item">
         <a class="ui button" href="/user/mediainfo">视音频资料</a>
+      </div>
+      <div class="item">
+        <a class="ui button" href="/user/center">修改密码</a>
       </div>
       <div class="item">
         <a class="ui primary button" href="logout">退出</a>
@@ -147,6 +149,13 @@
 								<div class="ui left input">
 									<input type="text" name="user.age" >
 								</div>
+							</div>
+							<div class="seven wide column">性别：</div>
+							<div class="seven wide column">
+								<select class="ui search dropdown" name="user.usersex">
+									<option value="1">男</option>
+									<option value="0">女</option>
+								</select>
 							</div>
 							<div class="seven wide column">民族：</div>
 							<div class="seven wide column">
@@ -205,35 +214,82 @@
 								</#list>
 								</select>
 							</div>
-							<div class="seven wide column">性别：</div>
-							<div class="seven wide column">
-								<select class="ui search dropdown" name="user.usersex">
-									<option value="1">男</option>
-									<option value="0">女</option>
-								</select>
-							</div>
 							<div class="seven wide column">身份证号：</div>
 							<div class="seven wide column">
 								<div class="ui left input">
 									<input type="text" name="user.card" >
 								</div>
 							</div>
-							<div class="seven wide column">详细地址：</div>
+							<div class="seven wide column">健康：</div>
+							<div class="seven wide column">
+								<div class="ui left input">
+									<input type="text" name="user.health" >
+								</div>
+							</div>
+							<div class="seven wide column">专业技术职务：</div>
+							<div class="seven wide column">
+								<div class="ui left input">
+									<input type="text" name="user.technical_position" >
+								</div>
+							</div>
+							<div class="seven wide column">熟悉专业有何特长：</div>
+							<div class="seven wide column">
+								<div class="ui left input">
+									<input type="text" name="user.specialty" >
+								</div>
+							</div>
+							<div class="seven wide column">手机号：</div>
+							<div class="seven wide column">
+								<div class="ui left input">
+									<input type="text" name="user.telephone" >
+								</div>
+							</div>
+							<div class="seven wide column">家庭住址：</div>
 							<div class="seven wide column">
 								<div class="ui left input">
 									<input type="text" name="user.address">
 								</div>
 							</div>
-							<div class="seven wide column">所在公司：</div>
+							<div class="seven wide column">所在单位：</div>
 							<div class="seven wide column">
 								<div class="ui left input">
 									<input type="text" name="user.company" >
+								</div>
+							</div>
+							<div class="seven wide column">单位电话：</div>
+							<div class="seven wide column">
+								<div class="ui left input">
+									<input type="text" name="user.company_tel" >
+								</div>
+							</div>
+							<div class="seven wide column">重要社会兼职：</div>
+							<div class="seven wide column">
+								<div class="ui left input">
+									<input type="text" name="user.socio_part_time" >
 								</div>
 							</div>
 							<div class="seven wide column">艺术简介：</div>
 							<div class="seven wide column">
 								<div class="ui left input">
 									<input type="text" name="user.ysjj" >
+								</div>
+							</div>
+							<div class="seven wide column">主要业务成就：</div>
+							<div class="seven wide column">
+								<div class="ui left input">
+									<input type="text" name="user.business_achievement" >
+								</div>
+							</div>
+							<div class="seven wide column">获奖情况：</div>
+							<div class="seven wide column">
+								<div class="ui left input">
+									<input type="text" name="user.awards" >
+								</div>
+							</div>
+							<div class="seven wide column">本人申请意见：</div>
+							<div class="seven wide column">
+								<div class="ui left input">
+									<input type="text" name="user.opinion" >
 								</div>
 							</div>
 						</div>

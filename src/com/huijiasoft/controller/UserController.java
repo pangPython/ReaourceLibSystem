@@ -32,12 +32,13 @@ public class UserController extends Controller {
 		User user = (User) getSession().getAttribute(getCookie("cuser"));
 		
 			setAttr("user", user);
-			
-			if(user.getAge()==null || user.getDecId()==null || user.getCard()==null){
+			//如果资料不完整就跳转完善信息
+			if(user.getSpecialty()==null || user.getDecId()==null || 
+					user.getCard()==null || user.getAwards()==null || 
+					user.getYsjj()==null || user.getTechnicalPosition()==null ||
+					user.getSocioPartTime()==null || user.getBusinessAchievement()==null){
 				redirect("/adduserinfopage");
-				
 			}else{
-				
 				render("/user.html");
 			}
 	}
@@ -60,6 +61,7 @@ User user = (User) getSession().getAttribute(getCookie("cuser"));
 	public void mediainfo(){
 		User user = (User) getSession().getAttribute(getCookie("cuser"));
 		setAttr("user", user);
+		setAttr("mediaList", Uploads.dao.getAllMediaById(user.getId().toString()));
 		render("/mediainfo.html");
 	}
 	
@@ -124,6 +126,24 @@ User user = (User) getSession().getAttribute(getCookie("cuser"));
 		setAttr("user", user);
 		redirect("showmedia?id="+user.getId());
 	}
+	
+	//上传一寸半身照
+	public void uploadphoto(){
+		UploadFile file = getFile();
+		
+		if(file == null){
+			render("sbmtsucc.html");
+		}
+		//保存照片路径
+		User user = getSessionAttr(getCookie("cuser"));
+		user.setPhotoPath(file.getFileName());
+		user.update();
+		
+		
+		redirect("showmedia");
+		
+	}
+	
 	
 	//个人媒体资料展示页面
 	public void showmedia(){
