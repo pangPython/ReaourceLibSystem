@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50547
 File Encoding         : 65001
 
-Date: 2016-10-16 18:02:22
+Date: 2016-10-16 23:14:19
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,12 +32,14 @@ CREATE TABLE `admin` (
   `auth` int(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `adminname` (`name`) USING HASH
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of admin
 -- ----------------------------
 INSERT INTO `admin` VALUES ('1', 'admin', '4501195721962DCDADBFC33F8C0DD6E3', 'admin@qq.com', '0', '', '2016-10-12 15:13:12', '1', '0', '0');
+INSERT INTO `admin` VALUES ('2', 'test', 'AA410543E9D4E202A4F7389FEDA883BE', '123973173@qq.com', '1', '15757575757', '2016-10-16 20:31:35', '1', '0', '1');
+INSERT INTO `admin` VALUES ('3', 'test2', 'F040A579C756C49FCF84588246A9D102', '123973173@qq.com', '0', '15757575757', '2016-10-16 20:33:10', '1', '0', '0');
 
 -- ----------------------------
 -- Table structure for `area`
@@ -122,6 +124,29 @@ INSERT INTO `edu` VALUES ('4', ' 专科');
 INSERT INTO `edu` VALUES ('5', ' 本科');
 INSERT INTO `edu` VALUES ('6', ' 硕士研究生');
 INSERT INTO `edu` VALUES ('7', ' 博士研究生');
+
+-- ----------------------------
+-- Table structure for `log`
+-- ----------------------------
+DROP TABLE IF EXISTS `log`;
+CREATE TABLE `log` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `ip` varchar(255) NOT NULL,
+  `uname` varchar(255) NOT NULL,
+  `date` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of log
+-- ----------------------------
+INSERT INTO `log` VALUES ('1', '0:0:0:0:0:0:0:1', 'admin', '2016-10-16 20:29:23');
+INSERT INTO `log` VALUES ('2', '127.0.0.1', 'admin', '2016-10-16 20:30:23');
+INSERT INTO `log` VALUES ('3', '192.168.1.100', 'admin', '2016-10-16 20:31:01');
+INSERT INTO `log` VALUES ('4', '192.168.1.100', 'admin', '2016-10-16 20:32:46');
+INSERT INTO `log` VALUES ('5', '192.168.1.100', 'admin', '2016-10-16 20:36:04');
+INSERT INTO `log` VALUES ('6', '192.168.1.100', 'admin', '2016-10-16 22:24:11');
+INSERT INTO `log` VALUES ('7', '192.168.1.100', 'admin', '2016-10-16 22:54:25');
 
 -- ----------------------------
 -- Table structure for `mz`

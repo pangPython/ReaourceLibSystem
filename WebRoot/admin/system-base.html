@@ -33,7 +33,7 @@
 <div class="page-container">
 	<form class="form form-horizontal" id="form-article-add" action="systemINIupdate" method="POST">
 		<div id="tab-system" class="HuiTab">
-			<div class="tabBar cl"><span>基本设置</span><span>安全设置</span><span>邮件设置</span><span>其他设置</span></div>
+			<div class="tabBar cl"><span>基本设置</span></div>
 			<div class="tabCon">
 			<input type="hidden" value="${system.id!}" name="system.id" />
 				<div class="row cl">
@@ -84,58 +84,8 @@
 				
 			
 			</div>
-			<div class="tabCon">
-				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">允许访问后台的IP列表：</label>
-					<div class="formControls col-xs-8 col-sm-9">
-						<textarea class="textarea" name="" id=""></textarea>
-					</div>
-				</div>
-				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">后台登录失败最大次数：</label>
-					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="5" id="" name="" >
-					</div>
-				</div>
-			</div>
-			<div class="tabCon">
-				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">邮件发送模式：</label>
-					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text"  class="input-text" value="" id="" name="">
-					</div>
-				</div>
-				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">SMTP服务器：</label>
-					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" id="" value="" class="input-text">
-					</div>
-				</div>
-				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">SMTP 端口：</label>
-					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="25" id="" name="" >
-					</div>
-				</div>
-				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">邮箱帐号：</label>
-					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="5" id="emailName" >
-					</div>
-				</div>
-				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">邮箱密码：</label>
-					<div class="formControls col-xs-8 col-sm-9">
-						<input type="password" id="email-password" value="" class="input-text">
-					</div>
-				</div>
-				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">收件邮箱地址：</label>
-					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" id="email-address" value="" class="input-text">
-					</div>
-				</div>
-			</div>
+
+
 			<div class="tabCon">
 				
 			</div>

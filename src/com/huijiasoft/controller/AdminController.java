@@ -9,11 +9,13 @@ import com.huijiasoft.model.Area;
 import com.huijiasoft.model.DeclareType;
 import com.huijiasoft.model.Degree;
 import com.huijiasoft.model.Edu;
+import com.huijiasoft.model.Log;
 import com.huijiasoft.model.Mz;
 import com.huijiasoft.model.System;
 import com.huijiasoft.model.User;
 import com.huijiasoft.model.Zzmm;
 import com.huijiasoft.utils.DateUtils;
+import com.huijiasoft.utils.JavaMysqlUtil;
 import com.huijiasoft.utils.MD5;
 import com.huijiasoft.utils.WriteToDocx;
 import com.huijiasoft.validate.AdminValidator;
@@ -66,13 +68,32 @@ public class AdminController extends Controller {
 			
 			
 			this.setSessionAttr("Admin", admin);
+			//登录之后先记录日志
+			
+			String ip = this.getRequest().getRemoteAddr();
+			String uname = admin.getName();
+			String date = DateUtils.getNowTime();
+			
+			Log log = getModel(Log.class);
+			
+			log.setIp(ip);
+			log.setUname(uname);
+			log.setDate(date);
+			log.save();
+
 			if(admin.getType() == 0){
+				
 				redirect("index");
+				
 			}else{
 				redirect("xqadmin");
 			}
+			
+			
 		}else{
+			
 			render("login.html");
+			
 		}
 		
 	}
@@ -266,9 +287,8 @@ public class AdminController extends Controller {
 		renderFile(new File(fileName));
 	}
 	//超级管理员列表
-	@SuppressWarnings("static-access")
 	public void adminList(){
-		setAttr("adminList", getModel(Admin.class).dao.getAllAdmin());
+		setAttr("adminList", Admin.dao.getAllAdmin());
 		render("admin-list.html");
 	}
 	
@@ -289,10 +309,25 @@ public class AdminController extends Controller {
 	
 	
 	//县区市管理员列表
-	@SuppressWarnings("static-access")
 	public void countryadminList(){
-		setAttr("caList", getModel(Admin.class).dao.getAllCountryAdmin());
+		setAttr("caList", Admin.dao.getAllCountryAdmin());
 		render("countryadminlist.html");
+	}
+	
+	//数据库备份
+	public void dbbackup(){
+		render("system-data.html");
+	}
+	
+	public void backupalldb(){
+		String file_name = DateUtils.getNowTime("yymmdd");
+		JavaMysqlUtil.backup("1.sql");
+		renderFile("E:\\1.sql");
+	}
+	
+	public void log(){
+		setAttr("logList", Log.dao.getAllLog());
+		render("system-log.html");
 	}
 	
 	
