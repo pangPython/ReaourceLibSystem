@@ -117,7 +117,7 @@ public class IndexContrlller extends Controller {
 		}else{
 		//使用工具包把当前时间转换成unix时间戳再转换成string类型
 		//注册时间，并作为用户密码md5加密的salt
-		String reg_date = DateUtils.unixTimestampToDate(DateUtils.dateToUnixTimestamp(DateUtils.getNowTime()));
+		String reg_date = DateUtils.getNowTime();
 		
 		//使用jfinal标识生成工具生成随机数作为密码的盐
 		

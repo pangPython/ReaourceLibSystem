@@ -59,7 +59,10 @@ public class AdminController extends Controller {
 				render("login.html");
 				return;
 			}
-
+			
+			//debug
+		
+			
 			if(!admin.getPwd().equals(admin_pwd)){
 				setAttr("LoginNameMsg","用户名或密码错误！");
 				render("login.html");
@@ -301,8 +304,10 @@ public class AdminController extends Controller {
 	public void adminadd(){
 		//设置注册时间和默认注册状态
 		//添加管理员注册名称不能重复
-		String reg_date = DateUtils.unixTimestampToDate(DateUtils.dateToUnixTimestamp(DateUtils.getNowTime()));
-		String pwd = MD5.GetMD5Code(getPara("user.pwd")+reg_date);
+		String reg_date = DateUtils.getNowTime();
+		String pwd = MD5.GetMD5Code(getPara("admin.pwd")+reg_date);
+		
+		
 		getModel(Admin.class).set("pwd", pwd).set("create_time",reg_date).set("status", 1).save();
 		renderText("添加管理员成功！"+getPara("admin.name"));
 	}

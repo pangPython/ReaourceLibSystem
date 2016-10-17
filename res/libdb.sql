@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50547
 File Encoding         : 65001
 
-Date: 2016-10-16 23:14:19
+Date: 2016-10-17 08:32:38
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,7 +32,7 @@ CREATE TABLE `admin` (
   `auth` int(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `adminname` (`name`) USING HASH
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of admin
@@ -40,6 +40,8 @@ CREATE TABLE `admin` (
 INSERT INTO `admin` VALUES ('1', 'admin', '4501195721962DCDADBFC33F8C0DD6E3', 'admin@qq.com', '0', '', '2016-10-12 15:13:12', '1', '0', '0');
 INSERT INTO `admin` VALUES ('2', 'test', 'AA410543E9D4E202A4F7389FEDA883BE', '123973173@qq.com', '1', '15757575757', '2016-10-16 20:31:35', '1', '0', '1');
 INSERT INTO `admin` VALUES ('3', 'test2', 'F040A579C756C49FCF84588246A9D102', '123973173@qq.com', '0', '15757575757', '2016-10-16 20:33:10', '1', '0', '0');
+INSERT INTO `admin` VALUES ('4', 'test3', '7C7F0CAC0FC15349D7E4211935EB555C', '1111@qq.com', '0', '15761211111', '2016-10-17 08:12:26', '1', '0', '1');
+INSERT INTO `admin` VALUES ('5', 'test11', '33E59BE11652DE5FF2DFA83FEF7AA0C0', '123973173@qq.com', '0', '15757575757', '2016-10-17 08:31:54', '1', '0', '1');
 
 -- ----------------------------
 -- Table structure for `area`
@@ -135,7 +137,7 @@ CREATE TABLE `log` (
   `uname` varchar(255) NOT NULL,
   `date` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of log
@@ -147,6 +149,10 @@ INSERT INTO `log` VALUES ('4', '192.168.1.100', 'admin', '2016-10-16 20:32:46');
 INSERT INTO `log` VALUES ('5', '192.168.1.100', 'admin', '2016-10-16 20:36:04');
 INSERT INTO `log` VALUES ('6', '192.168.1.100', 'admin', '2016-10-16 22:24:11');
 INSERT INTO `log` VALUES ('7', '192.168.1.100', 'admin', '2016-10-16 22:54:25');
+INSERT INTO `log` VALUES ('8', '192.168.1.100', 'admin', '2016-10-16 23:19:42');
+INSERT INTO `log` VALUES ('9', '0:0:0:0:0:0:0:1', 'admin', '2016-10-17 08:11:49');
+INSERT INTO `log` VALUES ('10', '0:0:0:0:0:0:0:1', 'admin', '2016-10-17 08:31:29');
+INSERT INTO `log` VALUES ('11', '0:0:0:0:0:0:0:1', 'test11', '2016-10-17 08:32:09');
 
 -- ----------------------------
 -- Table structure for `mz`
@@ -301,7 +307,7 @@ CREATE TABLE `user` (
   `business_achievement` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`uname`) USING HASH
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
