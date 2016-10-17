@@ -2,6 +2,7 @@ package com.huijiasoft.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import com.huijiasoft.interceptor.AdminAuthInterceptor;
 import com.huijiasoft.model.Admin;
@@ -14,6 +15,7 @@ import com.huijiasoft.model.Mz;
 import com.huijiasoft.model.System;
 import com.huijiasoft.model.User;
 import com.huijiasoft.model.Zzmm;
+import com.huijiasoft.test.ReportExcel;
 import com.huijiasoft.utils.DateUtils;
 import com.huijiasoft.utils.JavaMysqlUtil;
 import com.huijiasoft.utils.MD5;
@@ -307,7 +309,6 @@ public class AdminController extends Controller {
 		String reg_date = DateUtils.getNowTime();
 		String pwd = MD5.GetMD5Code(getPara("admin.pwd")+reg_date);
 		
-		
 		getModel(Admin.class).set("pwd", pwd).set("create_time",reg_date).set("status", 1).save();
 		renderText("添加管理员成功！"+getPara("admin.name"));
 	}
@@ -319,20 +320,39 @@ public class AdminController extends Controller {
 		render("countryadminlist.html");
 	}
 	
-	//数据库备份
+	//数据库备份页面
 	public void dbbackup(){
 		render("system-data.html");
 	}
 	
+	//备份处理方法
 	public void backupalldb(){
 		String file_name = DateUtils.getNowTime("yymmdd");
 		JavaMysqlUtil.backup("1.sql");
 		renderFile("E:\\1.sql");
 	}
 	
+	//获取所有管理员登录日志
 	public void log(){
 		setAttr("logList", Log.dao.getAllLog());
 		render("system-log.html");
+	}
+	
+	public void reportpage(){
+		render("report.html");
+	}
+	
+	//报表
+	public void excelall(){
+		List<User> userlist = User.usermodel.getAllUser();
+		String filename = "";
+		try {
+			filename = ReportExcel.report(userlist);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		renderFile(new File(filename));
 	}
 	
 	

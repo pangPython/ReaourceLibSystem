@@ -113,14 +113,6 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("gzdate");
 	}
 
-	public void setPerson(java.lang.String person) {
-		set("person", person);
-	}
-
-	public java.lang.String getPerson() {
-		return get("person");
-	}
-
 	public void setCard(java.lang.String card) {
 		set("card", card);
 	}
