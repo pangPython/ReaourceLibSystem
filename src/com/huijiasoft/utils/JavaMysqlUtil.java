@@ -17,23 +17,26 @@ public class JavaMysqlUtil {
      * 
      */
     //备份数据库
-    public static void backup(String sql) {
+    public static String backup(String sql) {
     
-    	PropKit.use("prop.properties");
-    
+    	Properties pros = getPprVue("prop.properties");
      // 这里是读取的属性文件，也可以直接使用
     
-     String username = PropKit.get("username");
+     String username = pros.getProperty("username");
     
-     String password = PropKit.get("password");
+     String password = pros.getProperty("password");
     
      // 得到MYSQL的用户名密码后调用 mysql 的 cmd:
-    
-     String mysqlpaths = PropKit.get("mysqlpath");
-     String databaseName = PropKit.get("databaseName");
-     String address = PropKit.get("address");
-     String sqlpath = PropKit.get("sql");
+     
+     String mysqlpaths = pros.getProperty("mysqlpath");
+     //String mysqlpaths = "D:\\phpStudy\\MySQL\\bin\\";
+     String databaseName = pros.getProperty("databaseName");
+     String address = pros.getProperty("address");
+     String sqlpath = pros.getProperty("sql");
+     
+     
      File backupath = new File(sqlpath);
+     
      if (!backupath.exists()) {
       backupath.mkdir();
      }
@@ -41,7 +44,7 @@ public class JavaMysqlUtil {
      StringBuffer sb = new StringBuffer();
     
      sb.append(mysqlpaths);
-           sb.append("mysqldump ");
+     sb.append("mysqldump ");
      sb.append("--opt ");
      sb.append("-h ");
      sb.append(address);
@@ -65,7 +68,9 @@ public class JavaMysqlUtil {
      } catch (IOException e) {
       e.printStackTrace();
      }
-    
+     	System.out.println(sqlpath+sql+"   file path name ");
+     return sqlpath+sql;
+     
     }
     
     // 读取属性值

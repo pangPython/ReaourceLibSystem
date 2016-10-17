@@ -1,4 +1,4 @@
-package com.huijiasoft.test;
+package com.huijiasoft.utils;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -12,7 +12,6 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
 import com.huijiasoft.model.User;
-import com.huijiasoft.utils.DateUtils;
 
 /**
  * @author pangPython
@@ -76,7 +75,8 @@ public class ReportExcel {
 		    }
 		    
 		    String filename = DateUtils.dateToUnixTimestamp(DateUtils.getNowTime())+".xls";
-		    FileOutputStream fileOut = new FileOutputStream(filename);
+		    String path = "WebRoot\\download\\report\\"+filename;
+		    FileOutputStream fileOut = new FileOutputStream(path);
 	
 		    try {
 		    	
@@ -87,6 +87,8 @@ public class ReportExcel {
 				e.printStackTrace();
 			}
 		    
-		    return filename;
+		    System.out.println(path+"  Excel path");
+		    
+		    return path;
 	}
 }

@@ -15,16 +15,17 @@ import com.huijiasoft.model.Mz;
 import com.huijiasoft.model.System;
 import com.huijiasoft.model.User;
 import com.huijiasoft.model.Zzmm;
-import com.huijiasoft.test.ReportExcel;
 import com.huijiasoft.utils.DateUtils;
 import com.huijiasoft.utils.JavaMysqlUtil;
 import com.huijiasoft.utils.MD5;
+import com.huijiasoft.utils.ReportExcel;
 import com.huijiasoft.utils.WriteToDocx;
 import com.huijiasoft.validate.AdminValidator;
 import com.jfinal.aop.Before;
 import com.jfinal.aop.Clear;
 import com.jfinal.core.ActionKey;
 import com.jfinal.core.Controller;
+import com.jfinal.kit.PathKit;
 
 
 /**
@@ -168,9 +169,8 @@ public class AdminController extends Controller {
 	}
 	
 	//民族字段更新
-	@SuppressWarnings("static-access")
 	public void nationupdate(){
-		getModel(Mz.class).dao.set("mz_id", getPara("mz_id")).set("mzname", getPara("mzname")).update();
+		Mz.dao.set("mz_id", getPara("mz_id")).set("mzname", getPara("mzname")).update();
 		renderText("民族信息更新成功！");
 	}
 	
@@ -289,6 +289,7 @@ public class AdminController extends Controller {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 		renderFile(new File(fileName));
 	}
 	//超级管理员列表
@@ -327,9 +328,9 @@ public class AdminController extends Controller {
 	
 	//备份处理方法
 	public void backupalldb(){
-		String file_name = DateUtils.getNowTime("yymmdd");
-		JavaMysqlUtil.backup("1.sql");
-		renderFile("E:\\1.sql");
+		String file_name = DateUtils.dateToUnixTimestamp(DateUtils.getNowTime())+".sql";
+		String path = JavaMysqlUtil.backup(file_name);
+		renderFile(new File(path));
 	}
 	
 	//获取所有管理员登录日志
@@ -349,7 +350,6 @@ public class AdminController extends Controller {
 		try {
 			filename = ReportExcel.report(userlist);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		renderFile(new File(filename));

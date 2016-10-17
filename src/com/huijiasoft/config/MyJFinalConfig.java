@@ -34,7 +34,7 @@ public class MyJFinalConfig extends JFinalConfig {
 		PropKit.use("myconfig.txt");
 		me.setDevMode(PropKit.getBoolean("devMode", false));
 		me.setError404View("/404.html");
-		me.setBaseDownloadPath("WebRoot/");
+		me.setBaseDownloadPath("WebRoot/download/");
 		me.setBaseUploadPath(PathKit.getWebRootPath()+"/upload/");
 	}
 	
