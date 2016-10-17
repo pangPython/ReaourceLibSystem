@@ -27,25 +27,22 @@ public class UserController extends Controller {
 	 private final int MAXSize = 50 * 1024 * 1024; // 5M
 	
 	public void index() {
-		//使用客户端请求中的cookie中的user的唯一标识作为key
-		//取服务器端的session
-		User user = (User) getSession().getAttribute(getCookie("cuser"));
-		
-			setAttr("user", user);
-			//如果资料不完整就跳转完善信息
-			if(user.getSpecialty()==null || user.getDecId()==null || 
-					user.getCard()==null || user.getAwards()==null || 
-					user.getYsjj()==null || user.getTechnicalPosition()==null ||
-					user.getSocioPartTime()==null || user.getBusinessAchievement()==null){
-				redirect("/adduserinfopage");
-			}else{
-				render("/user.html");
-			}
+		User user = getSessionAttr(getCookie("cuser"));
+		setAttr("user",user);
+		render("index.html");
 	}
+	
+	//中心
+	public void welcome(){
+		User user = getSessionAttr(getCookie("cuser"));
+		setAttr("user", user);
+		render("welcome.html");
+	}
+	
 	
 	//用户中心方法
 	public void center() {
-User user = (User) getSession().getAttribute(getCookie("cuser"));
+		User user = (User) getSession().getAttribute(getCookie("cuser"));
 		
 		setAttr("user", user);
 		render("/center.html");

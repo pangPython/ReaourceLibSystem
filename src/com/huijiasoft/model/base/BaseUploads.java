@@ -49,4 +49,12 @@ public abstract class BaseUploads<M extends BaseUploads<M>> extends Model<M> imp
 		return get("create_time");
 	}
 
+	public void setRemarks(java.lang.String remarks) {
+		set("remarks", remarks);
+	}
+
+	public java.lang.String getRemarks() {
+		return get("remarks");
+	}
+
 }

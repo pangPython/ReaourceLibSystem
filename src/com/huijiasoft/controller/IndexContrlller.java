@@ -23,13 +23,11 @@ public class IndexContrlller extends Controller {
 	
 	@ActionKey("/")
 	public void index(){
-			setAttr("system", IndexService.getSysConfig());
-			render("index.html");
+		redirect("loginpage");
 	}
 	
 	
 	public void loginpage(){
-		
 		String cuser = getCookie("cuser");
 		if(cuser!=null){
 			redirect("user");
@@ -43,9 +41,10 @@ public class IndexContrlller extends Controller {
 	public void login(){
 		//如果请求参数cookie中获取当前登录用户
 		String cuser = getCookie("cuser");
+		User u = getSessionAttr(cuser);
 		
-		if(cuser!=null){
-			redirect("user");
+		if(u!=null){
+			redirect("/user");
 		}
 		
 		
