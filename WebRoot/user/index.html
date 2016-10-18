@@ -52,68 +52,43 @@
 	<input runat="server" id="divScrollValue" type="hidden" value="" />
 	<div class="menu_dropdown bk_2">
 		<dl id="menu-article">
-			<dt><i class="Hui-iconfont">&#xe616;</i> 搜索<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dt><i class="Hui-iconfont">&#xe62d;</i> 我的基本信息<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a _href="search" data-title="人才搜索" href="javascript:void(0)">人才搜索</a></li>
+					<li><a _href="/user/info" data-title="信息查看" href="javascript:void(0)">信息查看</a></li>
+					<li><a _href="/user/edit" data-title="信息查看" href="javascript:void(0)">信息修改</a></li>
+					<li><a _href="/user/media_upload" data-title="信息查看" href="javascript:void(0)">媒体资料上传</a></li>
 				</ul>
 			</dd>
 		</dl>
 		<dl id="menu-picture">
-			<dt><i class="Hui-iconfont">&#xe613;</i> 用户媒体资料管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dt><i class="Hui-iconfont">&#xe613;</i>我的媒体资料<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a _href="picture-list.html" data-title="图片管理" href="javascript:void(0)">图片管理</a></li>
-					<li><a _href="picture-list.html" data-title="图片管理" href="javascript:void(0)">音频管理</a></li>
-					<li><a _href="picture-list.html" data-title="图片管理" href="javascript:void(0)">视频管理</a></li>
+					<li><a _href="/user/media_pic" data-title="图片管理" href="javascript:void(0)">图片</a></li>
+					<li><a _href="/user/media_audio" data-title="音频管理" href="javascript:void(0)">音频</a></li>
+					<li><a _href="/user/media_video" data-title="视频管理" href="javascript:void(0)">视频</a></li>
 				</ul>
 			</dd>
 		</dl>
 		<dl id="menu-product">
-			<dt><i class="Hui-iconfont">&#xe620;</i> 字段管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dt><i class="Hui-iconfont">&#xe620;</i> 报名表下载<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a _href="declare" data-title="申报类别" href="javascript:void(0)">申报类别</a></li>
-					<li><a _href="nation" data-title="民族" href="javascript:void(0)">民族</a></li>
-					<li><a _href="zzmm" data-title="政治面貌" href="javascript:void(0)">政治面貌</a></li>
-					<li><a _href="education" data-title="学历" href="javascript:void(0)">学历</a></li>
-					<li><a _href="degree" data-title="学位" href="javascript:void(0)">学位</a></li>
-					<li><a _href="area" data-title="地区管理" href="javascript:void(0)">地区管理</a></li>
+					<li><a _href="/user/application_std" data-title="标准报名表" href="javascript:void(0)">标准报名表</a></li>
+					<li><a _href="/user/application_my" data-title="我的报名表" href="javascript:void(0)">我的报名表</a></li>
 				</ul>
 			</dd>
 		</dl>
 
 
-		<dl id="menu-admin">
-			<dt><i class="Hui-iconfont">&#xe62d;</i> 管理员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a _href="adminList" data-title="超级管理员列表" href="javascript:void(0)">超级管理员列表</a></li>
-					<li><a _href="countryadminList" data-title="县区市管理员列表" href="javascript:void(0)">县区市管理员列表</a></li>
-				</ul>
-			</dd>
-		</dl>
-		<dl id="menu-tongji">
-			<dt><i class="Hui-iconfont">&#xe61a;</i> 系统报表<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a _href="reportpage" data-title="人才信息导出" href="javascript:void(0)">全部人才信息Excel导出</a></li>
-					<li><a _href="charts-2.html" data-title="时间轴折线图" href="javascript:void(0)">时间轴折线图</a></li>
-					<li><a _href="charts-3.html" data-title="区域图" href="javascript:void(0)">区域图</a></li>
-					<li><a _href="charts-4.html" data-title="柱状图" href="javascript:void(0)">柱状图</a></li>
-					<li><a _href="charts-5.html" data-title="饼状图" href="javascript:void(0)">饼状图</a></li>
-					<li><a _href="charts-6.html" data-title="3D柱状图" href="javascript:void(0)">3D柱状图</a></li>
-					<li><a _href="charts-7.html" data-title="3D饼状图" href="javascript:void(0)">3D饼状图</a></li>
-				</ul>
-			</dd>
-		</dl>
+
+
 		<dl id="menu-system">
-			<dt><i class="Hui-iconfont">&#xe62e;</i> 系统管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dt><i class="Hui-iconfont">&#xe62e;</i> 个人设置<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a _href="system" data-title="系统设置" href="javascript:void(0)">系统设置</a></li>
-					<li><a _href="dbbackup" data-title="数据库备份" href="javascript:void(0)">数据库备份</a></li>
-					<li><a _href="log" data-title="系统日志" href="javascript:void(0)">系统日志</a></li>
+					<li><a _href="/user/change_pwd" data-title="修改密码" href="javascript:void(0)">修改密码</a></li>
 				</ul>
 			</dd>
 		</dl>

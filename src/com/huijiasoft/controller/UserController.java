@@ -40,12 +40,12 @@ public class UserController extends Controller {
 	}
 	
 	
-	//用户中心方法
-	public void center() {
+	//用户信息查看
+	public void info() {
 		User user = (User) getSession().getAttribute(getCookie("cuser"));
 		
 		setAttr("user", user);
-		render("/center.html");
+		render("info.html");
 	}
 	//已经登录用户的退出操作
 	public void logout(){
@@ -66,7 +66,7 @@ public class UserController extends Controller {
 	public void edit(){
 		User user = (User) getSession().getAttribute(getCookie("cuser"));
 		setAttr("user", user);
-		render("/editinfo.html");
+		render("edit.html");
 	}
 	
 	@ActionKey("/adduserinfo")
@@ -99,9 +99,14 @@ public class UserController extends Controller {
 	}
 	
 	
+	public void media_upload(){
+		
+	}
+	
+	
 	// 用户上传媒体文件
 	public void upload() {
-		// 批量上传文件
+		/*// 批量上传文件
 		List<UploadFile> upFiles = getFiles("./", MAXSize, "utf-8");
 		// 写入数据库
 		User user = getSessionAttr(getCookie("cuser"));
@@ -121,7 +126,19 @@ public class UserController extends Controller {
 	
 		// 显示图片
 		setAttr("user", user);
-		redirect("showmedia?id="+user.getId());
+		redirect("showmedia?id="+user.getId());*/
+	}
+	
+	public void media_pic(){
+		
+	}
+	
+	public void media_audio(){
+		
+	}
+	
+	public void media_video(){
+		
 	}
 	
 	//上传一寸半身照
@@ -152,6 +169,13 @@ public class UserController extends Controller {
 	}
 	
 	
+	public void application_std(){}
+	public void application_my(){
+		
+	}
+	
+	
+	
 	public void baomingbiao(){
 		int uid = getParaToInt("id");
 		User user = User.usermodel.findById_Relation(uid);
@@ -160,6 +184,10 @@ public class UserController extends Controller {
 		setAttr("mz", mzname);
 		setAttr("zzmm", user.getStr("zzmmname"));
 		render("/baomingbiao.html");
+	}
+	
+	public void change_pwd(){
+		
 	}
 	
 	

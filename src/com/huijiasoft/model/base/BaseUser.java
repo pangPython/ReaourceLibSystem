@@ -57,12 +57,12 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("dec_id");
 	}
 
-	public void setSbdate(java.lang.String sbdate) {
-		set("sbdate", sbdate);
+	public void setJoinWork(java.lang.String joinWork) {
+		set("join_work", joinWork);
 	}
 
-	public java.lang.String getSbdate() {
-		return get("sbdate");
+	public java.lang.String getJoinWork() {
+		return get("join_work");
 	}
 
 	public void setUsersex(java.lang.Integer usersex) {

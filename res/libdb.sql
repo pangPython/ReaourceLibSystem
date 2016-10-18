@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50547
 File Encoding         : 65001
 
-Date: 2016-10-17 11:35:06
+Date: 2016-10-18 10:37:55
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -137,7 +137,7 @@ CREATE TABLE `log` (
   `uname` varchar(255) NOT NULL,
   `date` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of log
@@ -160,6 +160,13 @@ INSERT INTO `log` VALUES ('15', '0:0:0:0:0:0:0:1', 'admin', '2016-10-17 09:57:43
 INSERT INTO `log` VALUES ('16', '0:0:0:0:0:0:0:1', 'admin', '2016-10-17 10:21:57');
 INSERT INTO `log` VALUES ('17', '0:0:0:0:0:0:0:1', 'test11', '2016-10-17 10:23:25');
 INSERT INTO `log` VALUES ('18', '0:0:0:0:0:0:0:1', 'admin', '2016-10-17 11:23:03');
+INSERT INTO `log` VALUES ('19', '0:0:0:0:0:0:0:1', 'admin', '2016-10-17 13:46:26');
+INSERT INTO `log` VALUES ('20', '0:0:0:0:0:0:0:1', 'admin', '2016-10-17 14:08:42');
+INSERT INTO `log` VALUES ('21', '0:0:0:0:0:0:0:1', 'admin', '2016-10-17 14:49:19');
+INSERT INTO `log` VALUES ('22', '0:0:0:0:0:0:0:1', 'admin', '2016-10-17 15:32:49');
+INSERT INTO `log` VALUES ('23', '0:0:0:0:0:0:0:1', 'admin', '2016-10-17 15:44:54');
+INSERT INTO `log` VALUES ('24', '0:0:0:0:0:0:0:1', 'admin', '2016-10-17 16:17:13');
+INSERT INTO `log` VALUES ('25', '0:0:0:0:0:0:0:1', 'admin', '2016-10-17 16:32:29');
 
 -- ----------------------------
 -- Table structure for `mz`
@@ -263,14 +270,17 @@ CREATE TABLE `uploads` (
   `type` varchar(100) NOT NULL,
   `path` varchar(255) NOT NULL,
   `create_time` varchar(255) NOT NULL,
+  `remarks` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of uploads
 -- ----------------------------
-INSERT INTO `uploads` VALUES ('1', '37', '1', '20160822020450_207881.png', '2016-10-16 12:37:05');
-INSERT INTO `uploads` VALUES ('2', '37', '1', '20160822020450_207882.png', '2016-10-16 13:36:51');
+INSERT INTO `uploads` VALUES ('1', '37', '1', '20160822020450_207881.png', '2016-10-16 12:37:05', null);
+INSERT INTO `uploads` VALUES ('2', '37', '1', '20160822020450_207882.png', '2016-10-16 13:36:51', null);
+INSERT INTO `uploads` VALUES ('3', '37', '1', '20160822020450_207884.png', '2016-10-17 13:47:06', null);
+INSERT INTO `uploads` VALUES ('4', '37', '1', '20160822020450_207885.png', '2016-10-17 16:37:35', null);
 
 -- ----------------------------
 -- Table structure for `user`
@@ -283,7 +293,7 @@ CREATE TABLE `user` (
   `age` int(255) DEFAULT NULL,
   `pwd` varchar(255) DEFAULT NULL,
   `dec_id` int(11) DEFAULT NULL,
-  `sbdate` varchar(30) DEFAULT NULL,
+  `join_work` varchar(30) DEFAULT NULL,
   `usersex` int(11) DEFAULT NULL,
   `mz_id` int(10) DEFAULT NULL,
   `zzmm_id` int(10) DEFAULT NULL,
