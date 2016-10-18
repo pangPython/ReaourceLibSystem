@@ -12,7 +12,7 @@ public class Log extends BaseLog<Log> {
 	public static final Log dao = new Log();
 	
 	public List<Log> getAllLog(){
-		String sql = "select * from log";
+		String sql = "select * from log order by id desc";
 		return dao.find(sql);
 	}
 }

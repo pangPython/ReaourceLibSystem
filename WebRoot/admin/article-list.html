@@ -34,11 +34,11 @@
 			<thead>
 				<tr class="text-c">
 					<th width="25"><input type="checkbox" name="" value=""></th>
-					<th width="25">ID</th>
 					<th width="20">姓名</th>
 					<th width="20">性别</th>
 					<th width="20">年龄</th>
 					<th width="20">民族</th>
+					<th width="20">地区</th>
 					<th width="30">政治面貌</th>
 					<th width="30">艺术类别</th>
 					<th width="30">身份证号</th>
@@ -51,7 +51,6 @@
 			<#list userList as x>
 			<tr class="text-c">
 				<td><input type="checkbox" value="" name=""></td>
-				<td>${x.id}</td>
 				<td class="text-l">
 				<a style="cursor:pointer" class="text-primary" href="checkUser?id=${x.id!}" title="查看">${x.uname}</a></td>
 				<td>
@@ -63,6 +62,7 @@
 				</td>
 				<td>${x.age}</td>
 				<td>${x.mzname}</td>
+				<td>${x.area_name?if_exists}</td>
 				<td>${x.zzmmname}</td>
 				<td>${x.decname}</td>
 				<td>${x.card}</td>
