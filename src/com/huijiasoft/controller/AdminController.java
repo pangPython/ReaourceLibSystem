@@ -25,6 +25,7 @@ import com.jfinal.aop.Before;
 import com.jfinal.aop.Clear;
 import com.jfinal.core.ActionKey;
 import com.jfinal.core.Controller;
+import com.jfinal.ext.kit.SessionIdKit;
 import com.jfinal.kit.PathKit;
 
 
@@ -72,8 +73,14 @@ public class AdminController extends Controller {
 				return;
 			}
 			
+			//生成唯一标识 会话控制
+			String sessionId = SessionIdKit.me().generate(getRequest());
+			//设置服务器端session
+			setSessionAttr(sessionId, admin);
+			//设置用户端cookie
+			setCookie("cadmin", sessionId, 600);
 			
-			this.setSessionAttr("Admin", admin);
+			
 			//登录之后先记录日志
 			
 			String ip = this.getRequest().getRemoteAddr();
@@ -114,7 +121,7 @@ public class AdminController extends Controller {
 	
 	//县区管理员搜索
 	public void xqsearch(){
-		Admin admin = getSessionAttr("Admin");
+		Admin admin = getSessionAttr(getCookie("cadmin"));
 		setAttr("userList", User.usermodel.getUserByAreaId(admin.getAreaId()));
 		render("xqsearch.html");
 	}
@@ -123,7 +130,7 @@ public class AdminController extends Controller {
 	
 	//退出方法
 	public void logout(){
-		removeSessionAttr("Admin");
+		removeSessionAttr(getCookie("cadmin"));
 		redirect("index");
 	}
 	

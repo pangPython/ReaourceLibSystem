@@ -47,8 +47,6 @@ public class IndexContrlller extends Controller {
 			redirect("/user");
 		}
 		
-		
-		
 		//验证码结果
 		boolean result = validateCaptcha("verifycode");
 		if(!result){
