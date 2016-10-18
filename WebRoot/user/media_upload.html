@@ -36,7 +36,7 @@
 	<br>
 	<div class="container">
 	<h2>个人一寸照上传</h2>
-		<form action="upload" enctype="multipart/form-data" method="POST">
+		<form  enctype="multipart/form-data" method="POST" action="upload_person_photo">
 			<input id="person-photo" name="file" class="file" type="file" multiple
 				data-min-file-count="1" data-max-file-count="1"> <br>
 			<button type="submit" class="btn btn-primary">上传</button>
@@ -49,13 +49,8 @@
 <script>
 $('#person-photo').fileinput({
     language: 'zh',
-    uploadUrl: '/user/upload',
     allowedFileExtensions : ['jpg', 'png','gif'],
 });
-$('#photos').fileinput({
-    language: 'zh',
-    uploadUrl: '/user/upload',
-    allowedFileExtensions : ['jpg', 'png','gif'],
-});
+
 </script>
 </html>

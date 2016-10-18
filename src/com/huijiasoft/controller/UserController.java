@@ -129,12 +129,42 @@ public class UserController extends Controller {
 		redirect("showmedia?id="+user.getId());*/
 	}
 	
+	//上传一寸照片
+	public void upload_person_photo(){
+		User user =  getSessionAttr(getCookie("cuser"));
+		user.setPhotoPath(getFile().getFileName());
+		user.update();
+		renderText("上传成功！");
+		
+	}
+	
 	public void media_pic(){
 		
 	}
 	
-public void media_pic_upload(){
+	//显示页面
+	public void media_pic_upload(){}
+	
+	//多图片上传
+	public void upload_pic(){
+		// 批量上传文件
+		List<UploadFile> upFiles = getFiles("./", MAXSize, "utf-8");
+		// 写入数据库
+		User user = getSessionAttr(getCookie("cuser"));
+		int user_id = user.getId();
 		
+		
+		//遍历文件list
+		Uploads uploads = getModel(Uploads.class);
+		for (int i = 0; i < upFiles.size(); i++) {
+			uploads.setUserId(user_id);
+			uploads.setPath(upFiles.get(i).getFileName());
+			uploads.setType("1");
+			uploads.setCreateTime(DateUtils.getNowTime());
+			uploads.save();
+			
+		}
+	
 	}
 	
 	public void media_audio(){

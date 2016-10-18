@@ -38,8 +38,9 @@
 
 		<h2>个人音频资料上传</h2>
 		<form action="upload" enctype="multipart/form-data" method="POST">
-			<input id="photos" name="file" class="file" type="file" multiple
+			<input id="audio" name="file" class="file" type="file" multiple
 				data-min-file-count="1" data-max-file-count="1"> <br>
+				备注：<input name="remark" type="text" class="form-control" placeholder="请使用-分割每个音频文件的备注"><br><br>
 			<button type="submit" class="btn btn-primary">上传</button>
 			<button type="reset" class="btn btn-default">重置</button>
 		</form>
@@ -49,15 +50,10 @@
 	</div>
 </body>
 <script>
-$('#person-photo').fileinput({
+$('#audio').fileinput({
     language: 'zh',
-    uploadUrl: '/user/upload',
     allowedFileExtensions : ['jpg', 'png','gif'],
 });
-$('#photos').fileinput({
-    language: 'zh',
-    uploadUrl: '/user/upload',
-    allowedFileExtensions : ['jpg', 'png','gif'],
-});
+
 </script>
 </html>
