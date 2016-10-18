@@ -334,10 +334,11 @@ public class AdminController extends Controller {
 	}
 	
 	//备份处理方法
+	@ActionKey("/admin/backupalldb")
 	public void backupalldb(){
 		String file_name = DateUtils.dateToUnixTimestamp(DateUtils.getNowTime())+".sql";
-		String path = JavaMysqlUtil.backup(file_name);
-		renderFile(new File(path));
+		JavaMysqlUtil.backup(file_name);
+		renderFile(new File("WebRoot\\download\\dbbackup\\"+file_name));
 	}
 	
 	//获取所有管理员登录日志

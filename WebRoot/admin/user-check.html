@@ -641,7 +641,7 @@ div.WordSection1
   height:38.1pt'>
   <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
-  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${user.uname}</span></b></span><b><span
+  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${user.uname?if_exists}</span></b></span><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
   仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'><o:p></o:p></span></b></p>
   </td>
@@ -680,7 +680,7 @@ div.WordSection1
   height:38.1pt'>
   <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
-  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${user.birth}</span></b></span><b><span
+  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${user.birth?if_exists}</span></b></span><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
   仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'><o:p></o:p></span></b></p>
   </td>
@@ -714,7 +714,7 @@ div.WordSection1
    style='width:77.25pt;height:115.5pt;visibility:visible;mso-wrap-style:square'>
    <v:imagedata src="bbb.files/image001.jpg" o:title=""/>
   </v:shape><![endif]--><![if !vml]><img width=103 height=154
-  src="/upload/${user.photo_path}" v:shapes="图片_x0020_1"><![endif]></span></b><b><span
+  src="/upload/${user.photo_path?if_exists}" v:shapes="图片_x0020_1"><![endif]></span></b><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
   仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'><o:p></o:p></span></b></p>
   </td>
@@ -733,7 +733,7 @@ div.WordSection1
   0cm 5.4pt 0cm 5.4pt;height:33.65pt'>
   <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
-  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${mz}</span></b></span><b><span
+  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${mz?if_exists}</span></b></span><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
   仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'><o:p></o:p></span></b></p>
   </td>
@@ -754,7 +754,7 @@ div.WordSection1
   padding:0cm 5.4pt 0cm 5.4pt;height:33.65pt'>
   <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
-  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${zzmm}</span></b></span><b><span
+  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${zzmm?if_exists}</span></b></span><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
   仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'><o:p></o:p></span></b></p>
   </td>
@@ -775,7 +775,7 @@ div.WordSection1
   padding:0cm 5.4pt 0cm 5.4pt;height:33.65pt'>
   <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
-  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${user.sbdate}</span></b></span><b><span
+  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${user.join_work?if_exists}</span></b></span><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
   仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'><o:p></o:p></span></b></p>
   </td>
@@ -797,7 +797,7 @@ div.WordSection1
   padding:0cm 5.4pt 0cm 5.4pt;height:37.65pt'>
   <p class=MsoNormal align=center style='text-align:center'><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
-  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${user.card}<o:p></o:p></span></b></p>
+  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${user.card?if_exists}<o:p></o:p></span></b></p>
   </td>
   <td width=115 colspan=2 style='width:86.25pt;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -813,7 +813,7 @@ div.WordSection1
   padding:0cm 5.4pt 0cm 5.4pt;height:37.65pt'>
   <p class=MsoNormal align=center style='text-align:center'><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
-  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${user.health}<o:p></o:p></span></b></p>
+  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${user.health?if_exists}<o:p></o:p></span></b></p>
   </td>
  </tr>
  <tr style='mso-yfti-irow:3;height:40.5pt'>
@@ -835,7 +835,7 @@ div.WordSection1
   padding:0cm 5.4pt 0cm 5.4pt;height:40.5pt'>
   <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
-  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${user.technical_position}</span></b></span><b><span
+  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${user.technical_position?if_exists}</span></b></span><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
   仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'><o:p></o:p></span></b></p>
   <p class=MsoNormal align=center style='text-align:center'><b><span
@@ -859,7 +859,7 @@ div.WordSection1
   padding:0cm 5.4pt 0cm 5.4pt;height:40.5pt'>
   <p class=MsoNormal align=center style='text-align:center'><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
-  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${user.specialty}<o:p></o:p></span></b></p>
+  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${user.specialty?if_exists}<o:p></o:p></span></b></p>
   </td>
  </tr>
  <tr style='mso-yfti-irow:4;height:39.95pt'>
@@ -892,7 +892,7 @@ div.WordSection1
   padding:0cm 5.4pt 0cm 5.4pt;height:39.95pt'>
   <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
-  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>Qrzxl</span></b></span><b><span
+  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>Qrzxl?if_exists</span></b></span><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
   仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'><o:p></o:p></span></b></p>
   </td>
@@ -913,7 +913,7 @@ div.WordSection1
   padding:0cm 5.4pt 0cm 5.4pt;height:39.95pt'>
   <p class=MsoNormal align=center style='text-align:center'><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
-  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>Byyx1<o:p></o:p></span></b></p>
+  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>Byyx1?if_exists<o:p></o:p></span></b></p>
   </td>
  </tr>
  <tr style='mso-yfti-irow:5;height:40.5pt'>
@@ -935,7 +935,7 @@ div.WordSection1
   padding:0cm 5.4pt 0cm 5.4pt;height:40.5pt'>
   <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
-  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>Qrzxw</span></b></span><b><span
+  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>Qrzxw?if_exists</span></b></span><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
   仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'><o:p></o:p></span></b></p>
   </td>
@@ -956,7 +956,7 @@ div.WordSection1
   padding:0cm 5.4pt 0cm 5.4pt;height:40.5pt'>
   <p class=MsoNormal align=center style='text-align:center'><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
-  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>Byyx2<o:p></o:p></span></b></p>
+  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>Byyx2?if_exists<o:p></o:p></span></b></p>
   </td>
  </tr>
  <tr style='mso-yfti-irow:6;height:38.0pt'>
@@ -978,7 +978,7 @@ div.WordSection1
   padding:0cm 5.4pt 0cm 5.4pt;height:38.0pt'>
   <p class=MsoNormal align=center style='text-align:center'><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
-  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${user.company}<o:p></o:p></span></b></p>
+  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${user.company?if_exists}<o:p></o:p></span></b></p>
   </td>
   <td width=115 colspan=2 style='width:86.25pt;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -995,7 +995,7 @@ div.WordSection1
   padding:0cm 5.4pt 0cm 5.4pt;height:38.0pt'>
   <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
-  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${user.company_tel}</span></b></span><b><span
+  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${user.company_tel?if_exists}</span></b></span><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
   仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'><o:p></o:p></span></b></p>
   </td>
@@ -1015,7 +1015,7 @@ div.WordSection1
   padding:0cm 5.4pt 0cm 5.4pt;height:40.0pt'>
   <p class=MsoNormal align=center style='text-align:center'><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
-  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${user.address}<o:p></o:p></span></b></p>
+  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${user.address?if_exists}<o:p></o:p></span></b></p>
   </td>
   <td width=115 colspan=2 style='width:86.25pt;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -1032,7 +1032,7 @@ div.WordSection1
   padding:0cm 5.4pt 0cm 5.4pt;height:40.0pt'>
   <p class=MsoNormal align=center style='text-align:center'><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
-  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${user.telephone}<o:p></o:p></span></b></p>
+  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${user.telephone?if_exists}<o:p></o:p></span></b></p>
   </td>
  </tr>
  <tr style='mso-yfti-irow:8;height:84.85pt'>
@@ -1059,7 +1059,7 @@ div.WordSection1
   仿宋_GB2312;mso-hansi-font-family:仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'><o:p>&nbsp;</o:p></span></b></p>
   <p class=MsoNormal><span class=SpellE><b><span lang=EN-US style='font-size:
   12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:仿宋_GB2312;mso-bidi-font-family:
-  仿宋_GB2312'>${user.technical_position}</span></b></span><b><span lang=EN-US style='font-size:12.0pt;
+  仿宋_GB2312'>${user.technical_position?if_exists}</span></b></span><b><span lang=EN-US style='font-size:12.0pt;
   font-family:仿宋_GB2312;mso-hansi-font-family:仿宋_GB2312;mso-bidi-font-family:
   仿宋_GB2312'><o:p></o:p></span></b></p>
   <p class=MsoNormal><b><span lang=EN-US style='font-size:12.0pt;font-family:
@@ -1096,7 +1096,7 @@ div.WordSection1
   padding:0cm 5.4pt 0cm 5.4pt;height:234.1pt'>
   <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
-  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${user.ysjj}</span></b></span><b><span
+  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${user.ysjj?if_exists}</span></b></span><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
   仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'><o:p></o:p></span></b></p>
   </td>
@@ -1121,7 +1121,7 @@ div.WordSection1
   padding:0cm 5.4pt 0cm 5.4pt;height:648.0pt'>
   <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
-  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${user.business_achievement}</span></b></span><b><span
+  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${user.business_achievement?if_exists}</span></b></span><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
   仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'><o:p></o:p></span></b></p>
   </td>
@@ -1143,7 +1143,7 @@ div.WordSection1
   padding:0cm 5.4pt 0cm 5.4pt;height:363.5pt'>
   <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
-  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${user.awards}</span></b></span><b><span
+  仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>${user.awards?if_exists}</span></b></span><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
   仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'><o:p></o:p></span></b></p>
   </td>
@@ -1190,7 +1190,7 @@ div.WordSection1
   mso-bidi-font-family:仿宋_GB2312'><o:p>&nbsp;</o:p></span></b></p>
   <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
   style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:仿宋_GB2312;
-  mso-bidi-font-family:仿宋_GB2312'>${user.opinion}<o:p></o:p></span></b></p>
+  mso-bidi-font-family:仿宋_GB2312'>${user.opinion?if_exists}<o:p></o:p></span></b></p>
   <p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
   style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:仿宋_GB2312;
   mso-bidi-font-family:仿宋_GB2312'><o:p>&nbsp;</o:p></span></b></p>
@@ -1226,7 +1226,7 @@ div.WordSection1
 </table>
 
 </div>
-
+<a>打印</a>
 <p class=MsoNormal><span lang=EN-US><o:p>&nbsp;</o:p></span></p>
 
 </div>

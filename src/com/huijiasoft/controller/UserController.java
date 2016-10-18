@@ -1,5 +1,6 @@
 package com.huijiasoft.controller;
 
+import java.io.File;
 import java.util.List;
 
 import com.huijiasoft.interceptor.UserAuthInterceptor;
@@ -212,7 +213,15 @@ public void media_video_upload(){
 	
 	
 	public void application_std(){}
-	public void application_my(){
+	public void application_my(){}
+	
+	//下载标准报名表
+	@ActionKey("/user/download_std")
+	public void download_std(){
+		renderFile(new File("WebRoot\\download\\application\\东营市文化艺术人才信息登记表.doc"));
+	}
+	
+	public void download_my(){
 		
 	}
 	

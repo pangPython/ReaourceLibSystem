@@ -14,7 +14,7 @@ public class AdminAuthInterceptor implements Interceptor {
 	public void intercept(Invocation inv) {
 		Controller controller = inv.getController();
 		
-		Admin admin = controller.getSessionAttr("Admin");
+		Admin admin = controller.getSessionAttr(controller.getCookie("cadmin"));
 		
 		if (admin == null || inv.getMethodName().equals("login")) {
 			controller.render("login.html");
