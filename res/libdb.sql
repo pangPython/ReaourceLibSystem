@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50547
 File Encoding         : 65001
 
-Date: 2016-10-18 10:37:55
+Date: 2016-10-18 15:24:46
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -281,6 +281,57 @@ INSERT INTO `uploads` VALUES ('1', '37', '1', '20160822020450_207881.png', '2016
 INSERT INTO `uploads` VALUES ('2', '37', '1', '20160822020450_207882.png', '2016-10-16 13:36:51', null);
 INSERT INTO `uploads` VALUES ('3', '37', '1', '20160822020450_207884.png', '2016-10-17 13:47:06', null);
 INSERT INTO `uploads` VALUES ('4', '37', '1', '20160822020450_207885.png', '2016-10-17 16:37:35', null);
+
+-- ----------------------------
+-- Table structure for `upload_audio`
+-- ----------------------------
+DROP TABLE IF EXISTS `upload_audio`;
+CREATE TABLE `upload_audio` (
+  `id` int(255) NOT NULL,
+  `user_id` int(255) NOT NULL,
+  `path` varchar(255) NOT NULL,
+  `create_time` varchar(255) NOT NULL,
+  `remarks` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of upload_audio
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `upload_photo`
+-- ----------------------------
+DROP TABLE IF EXISTS `upload_photo`;
+CREATE TABLE `upload_photo` (
+  `id` int(255) NOT NULL,
+  `user_id` int(255) NOT NULL,
+  `path` varchar(255) NOT NULL,
+  `create_time` varchar(255) NOT NULL,
+  `remarks` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of upload_photo
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `upload_video`
+-- ----------------------------
+DROP TABLE IF EXISTS `upload_video`;
+CREATE TABLE `upload_video` (
+  `id` int(255) NOT NULL,
+  `user_id` int(255) NOT NULL,
+  `path` varchar(255) NOT NULL,
+  `create_time` varchar(255) NOT NULL,
+  `remarks` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of upload_video
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `user`

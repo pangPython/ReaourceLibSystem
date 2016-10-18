@@ -24,6 +24,9 @@ public class _MappingKit {
 		arp.addMapping("log", "id", Log.class);
 		arp.addMapping("mz", "mz_id", Mz.class);
 		arp.addMapping("system", "id", System.class);
+		arp.addMapping("upload_audio", "id", UploadAudio.class);
+		arp.addMapping("upload_photo", "id", UploadPhoto.class);
+		arp.addMapping("upload_video", "id", UploadVideo.class);
 		arp.addMapping("uploads", "id", Uploads.class);
 		arp.addMapping("user", "id", User.class);
 		arp.addMapping("zzmm", "zzmm_id", Zzmm.class);

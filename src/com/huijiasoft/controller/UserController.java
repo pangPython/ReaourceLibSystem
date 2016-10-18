@@ -133,7 +133,15 @@ public class UserController extends Controller {
 		
 	}
 	
+public void media_pic_upload(){
+		
+	}
+	
 	public void media_audio(){
+		
+	}
+	
+public void media_audio_upload(){
 		
 	}
 	
@@ -141,6 +149,10 @@ public class UserController extends Controller {
 		
 	}
 	
+	
+public void media_video_upload(){
+		
+	}
 	//上传一寸半身照
 	public void uploadphoto(){
 		UploadFile file = getFile();
