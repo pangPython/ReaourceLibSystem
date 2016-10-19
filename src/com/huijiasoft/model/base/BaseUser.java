@@ -33,11 +33,11 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("true_name");
 	}
 
-	public void setAge(java.lang.Integer age) {
-		set("age", age);
+	public void setAge(int i) {
+		set("age", i);
 	}
 
-	public java.lang.Integer getAge() {
+	public java.lang.Long getAge() {
 		return get("age");
 	}
 
@@ -49,11 +49,11 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("pwd");
 	}
 
-	public void setDecId(java.lang.Integer decId) {
+	public void setDecId(java.lang.Long decId) {
 		set("dec_id", decId);
 	}
 
-	public java.lang.Integer getDecId() {
+	public java.lang.Long getDecId() {
 		return get("dec_id");
 	}
 
@@ -65,52 +65,44 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("join_work");
 	}
 
-	public void setUsersex(java.lang.Integer usersex) {
-		set("usersex", usersex);
+	public void setUsersex(int i) {
+		set("usersex", i);
 	}
 
-	public java.lang.Integer getUsersex() {
+	public java.lang.Long getUsersex() {
 		return get("usersex");
 	}
 
-	public void setMzId(java.lang.Integer mzId) {
+	public void setMzId(java.lang.Long mzId) {
 		set("mz_id", mzId);
 	}
 
-	public java.lang.Integer getMzId() {
+	public java.lang.Long getMzId() {
 		return get("mz_id");
 	}
 
-	public void setZzmmId(java.lang.Integer zzmmId) {
+	public void setZzmmId(java.lang.Long zzmmId) {
 		set("zzmm_id", zzmmId);
 	}
 
-	public java.lang.Integer getZzmmId() {
+	public java.lang.Long getZzmmId() {
 		return get("zzmm_id");
 	}
 
-	public void setDegreeId(java.lang.Integer degreeId) {
+	public void setDegreeId(java.lang.Long degreeId) {
 		set("degree_id", degreeId);
 	}
 
-	public java.lang.Integer getDegreeId() {
+	public java.lang.Long getDegreeId() {
 		return get("degree_id");
 	}
 
-	public void setEduId(java.lang.Integer eduId) {
+	public void setEduId(java.lang.Long eduId) {
 		set("edu_id", eduId);
 	}
 
-	public java.lang.Integer getEduId() {
+	public java.lang.Long getEduId() {
 		return get("edu_id");
-	}
-
-	public void setGzdate(java.lang.String gzdate) {
-		set("gzdate", gzdate);
-	}
-
-	public java.lang.String getGzdate() {
-		return get("gzdate");
 	}
 
 	public void setCard(java.lang.String card) {
@@ -225,11 +217,11 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("technical_position");
 	}
 
-	public void setDegreeFullTime(java.lang.Integer degreeFullTime) {
+	public void setDegreeFullTime(java.lang.Long degreeFullTime) {
 		set("degree_full_time", degreeFullTime);
 	}
 
-	public java.lang.Integer getDegreeFullTime() {
+	public java.lang.Long getDegreeFullTime() {
 		return get("degree_full_time");
 	}
 

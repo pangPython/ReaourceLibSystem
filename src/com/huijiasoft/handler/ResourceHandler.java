@@ -16,7 +16,7 @@ public class ResourceHandler extends Handler {
 	
 	@Override
 	public void handle(String target, HttpServletRequest request, HttpServletResponse response, boolean[] isHandled) {
-		System.out.println("target: "+target);
+		//System.out.println("target: "+target);
 		if(isDisableAccess(target)){
 			HandlerKit.renderError404(request, response, isHandled);
 		}

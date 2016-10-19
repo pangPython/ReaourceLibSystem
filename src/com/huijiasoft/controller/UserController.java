@@ -71,6 +71,13 @@ public class UserController extends Controller {
 		render("edit.html");
 	}
 	
+	
+	public void updateinfo(){
+		User user = (User) getSession().getAttribute(getCookie("cuser"));
+		getModel(User.class).set("id", user.getId()).update();
+		renderText("修改成功！");
+	}
+	
 	@ActionKey("/adduserinfo")
 	public void adduserinfo(){
 		User user = (User) getSession().getAttribute(getCookie("cuser"));
@@ -224,6 +231,12 @@ public void media_video_upload(){
 	
 	public void download_my(){
 		User user = getSessionAttr(getCookie("cuser"));
+		
+		if(user.getTrueName()==null){
+			renderText("请先完善信息！");
+			return;
+		}
+		
 		String file_name = RenderDocxTemplate.creatWord(user);
 		renderFile(new File(file_name));	
 	}

@@ -121,7 +121,8 @@ public class IndexContrlller extends Controller {
 		
 		String pwd = MD5.GetMD5Code(getPara("user.pwd")+reg_date);
 		
-		
+		user.setAge(20);
+		user.setUsersex(1);
 		user.setRegDate(reg_date);
 		user.setPwd(pwd);
 		user.setStatus(0);
