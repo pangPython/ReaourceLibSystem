@@ -13,6 +13,7 @@ import com.huijiasoft.model.Uploads;
 import com.huijiasoft.model.User;
 import com.huijiasoft.model.Zzmm;
 import com.huijiasoft.utils.DateUtils;
+import com.huijiasoft.utils.RenderDocxTemplate;
 import com.jfinal.aop.Before;
 import com.jfinal.core.ActionKey;
 import com.jfinal.core.Controller;
@@ -222,7 +223,9 @@ public void media_video_upload(){
 	}
 	
 	public void download_my(){
-		
+		User user = getSessionAttr(getCookie("cuser"));
+		String file_name = RenderDocxTemplate.creatWord(user);
+		renderFile(new File(file_name));	
 	}
 	
 	

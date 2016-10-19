@@ -51,6 +51,7 @@ public class IndexContrlller extends Controller {
 		boolean result = validateCaptcha("verifycode");
 		if(!result){
 			setAttr("yzmErrMsg", "ÑéÖ¤Âë´íÎó£¡");
+			setAttr("system", IndexService.getSysConfig());
 			render("login.html");
 			return;
 		}
@@ -134,8 +135,7 @@ public class IndexContrlller extends Controller {
 		setCookie("cuser", sessionId, 600);
 		
 		setAttr("user", user);
-		//getModel(User.class).save();
-		redirect("/adduserinfopage");
+		redirect("/user");
 		}
 	}
 	

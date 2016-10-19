@@ -6,7 +6,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-<title>登录-${system.title!}</title>
+<title>登录-${system.title?if_exists}</title>
 
 <link rel="stylesheet" type="text/css"
 	href="/static/css/semantic.min.css">
@@ -70,7 +70,7 @@ body {
 		<div class="column">
 	<br><br><br><br><br><br><br><br>
 			<div class="ui stacked segment raised">
-				<h2 class="ui teal header">${system.title!}</h2>
+				<h2 class="ui teal header">${system.title?if_exists}</h2>
 				<form class="ui large form" method="POST" action="login">
 					<div class="field">
 						<div class="ui left icon input">

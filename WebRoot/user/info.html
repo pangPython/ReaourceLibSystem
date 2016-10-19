@@ -31,15 +31,13 @@
 	<table class="table table-border table-bordered table-bg mt-20">
 		<thead>
 			<tr>
-				<th colspan="2" scope="col">我的报名信息</th>
+				<th colspan="6" scope="col">我的报名信息</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
 				<th width="30%">姓名:</th>
 				<td><span id="lbServerName">${user.true_name?if_exists}</span></td>
-			</tr>
-			<tr>
 				<td>性别:</td>
 				<td>
 				 <#if user.usersex == 1>
@@ -48,74 +46,67 @@
   					女
  				</#if>
 				</td>
-			</tr>
-			<tr>
 				<td>出生日期:</td>
 				<td>${user.birth?if_exists}</td>
 			</tr>
 			<tr>
 				<td>所属地区: </td>
 				<td>${area?if_exists}</td>
-			</tr>
-			<tr>
+			
 				<td>民族 </td>
 				<td>${mz?if_exists}</td>
-			</tr>
-			<tr>
+		
 				<td>政治面貌 </td>
 				<td>${zzmm?if_exists}</td>
 			</tr>
 			<tr>
 				<td>参加工作时间 </td>
 				<td>${user.join_work?if_exists}</td>
-			</tr>
-			<tr>
+			
 				<td>身份证号 </td>
 				<td>${user.card?if_exists}</td>
-			</tr>
-			<tr>
+			
 				<td>健康状况 </td>
 				<td>${user.health?if_exists}</td>
 			</tr>
 			<tr>
 				<td>学历 </td>
 				<td>${edu?if_exists}</td>
-			</tr>
-			<tr>
+			
 				<td>学位 </td>
 				<td>${degree?if_exists}</td>
-			</tr>
-			<tr>
+			
 				<td>工作单位 </td>
 				<td>${user.company?if_exists}</td>
 			</tr>
 			<tr>
 				<td>家庭住址 </td>
 				<td>${user.address?if_exists}</td>
-			</tr>
-			<tr>
+			
 				<td>移动电话 </td>
 				<td>${user.telephone?if_exists}</td>
+				<td></td>
+				<td></td>
 			</tr>
 			<tr>
-				<td>重要社会兼职 </td>
-				<td>${user.socio_part_time?if_exists}</td>
+				<td >重要社会兼职 </td>
+				<td colspan="5" scope="col">${user.socio_part_time?if_exists}</td>
 			</tr>
 			<tr>
 				<td>主要工作及艺术简历 </td>
-				<td>${user.yyjj?if_exists}</td>
+				<td colspan="5" scope="col">${user.yyjj?if_exists}</td>
 			</tr>
 			<tr>
 				<td>主要业务成就 </td>
-				<td>${user.business_achievement?if_exists}</td>
+				<td colspan="5" scope="col">${user.business_achievement?if_exists}</td>
 			</tr>
 			<tr>
 				<td>获奖情况 </td>
-				<td>${user.awards?if_exists}</td>
+				<td colspan="5" scope="col">${user.awards?if_exists}</td>
 			</tr>
 			<tr>
 				<td>本人申请意见 </td>
-				<td>${user.opinion?if_exists}</td>
+				<td colspan="5" scope="col">${user.opinion?if_exists}</td>
 			</tr>
 			
 		</tbody>
