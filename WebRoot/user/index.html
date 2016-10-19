@@ -29,11 +29,11 @@
 <body>
 <header class="navbar-wrapper">
 	<div class="navbar navbar-fixed-top">
-		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="#">用户中心</a>  <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
+		<div class="container-fluid cl titlebar"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="#"><img alt="用户中心" src="/static/images/title.png"></a>  <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
 			<nav class="nav navbar-nav">
 
 			</nav>
-			<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
+			<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs ">
 				<ul class="cl">
 					<li>欢迎,</li>
 					<li class="dropDown dropDown_hover">${user.uname!}<a href="#" class="dropDown_A"> <i class="Hui-iconfont">&#xe6d5;</i></a>
@@ -48,11 +48,11 @@
 		</div>
 	</div>
 </header>
-<aside class="Hui-aside">
+<aside class="Hui-aside leftbar">
 	<input runat="server" id="divScrollValue" type="hidden" value="" />
 	<div class="menu_dropdown bk_2">
 		<dl id="menu-article">
-			<dt><i class="Hui-iconfont">&#xe62d;</i> 我的基本信息<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dt class="adminitembg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="Hui-iconfont">&#xe62d;</i> 我的基本信息<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
 					<li><a _href="/user/info" data-title="信息查看" href="javascript:void(0)">信息查看</a></li>
@@ -65,7 +65,7 @@
 			</dd>
 		</dl>
 		<dl id="menu-picture">
-			<dt><i class="Hui-iconfont">&#xe613;</i> 我的媒体资料<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dt class="adminitembg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="Hui-iconfont">&#xe613;</i> 我的媒体资料<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
 					<li><a _href="/user/media_pic" data-title="图片管理" href="javascript:void(0)">图片</a></li>
@@ -75,7 +75,7 @@
 			</dd>
 		</dl>
 		<dl id="menu-product">
-			<dt><i class="Hui-iconfont">&#xe620;</i> 报名表下载<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dt class="adminitembg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="Hui-iconfont">&#xe620;</i> 报名表下载<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
 					<li><a _href="/user/application_std" data-title="标准报名表" href="javascript:void(0)">标准报名表</a></li>
@@ -88,13 +88,15 @@
 
 
 		<dl id="menu-system">
-			<dt><i class="Hui-iconfont">&#xe62e;</i> 个人设置<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dt class="adminitembg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="Hui-iconfont">&#xe62e;</i> 个人设置<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
 					<li><a _href="/user/change_pwd" data-title="修改密码" href="javascript:void(0)">修改密码</a></li>
 				</ul>
 			</dd>
 		</dl>
+		<div class="btmblank">
+		</div>
 	</div>
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>

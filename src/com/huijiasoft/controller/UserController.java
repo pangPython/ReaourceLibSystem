@@ -45,7 +45,7 @@ public class UserController extends Controller {
 	
 	//用户信息查看
 	public void info() {
-		User user = (User) getSession().getAttribute(getCookie("cuser"));
+		User user = (User) getSessionAttr(getCookie("cuser"));
 		
 		setAttr("user", user);
 		render("info.html");
@@ -76,6 +76,8 @@ public class UserController extends Controller {
 	public void updateinfo(){
 		User user = (User) getSession().getAttribute(getCookie("cuser"));
 		getModel(User.class).set("id", user.getId()).update();
+		user = User.usermodel.findById(user.getId());
+		setSessionAttr(getCookie("cuser"),user);
 		renderText("修改成功！");
 	}
 	
@@ -159,24 +161,27 @@ public class UserController extends Controller {
 	public void media_pic_upload(){}
 	
 	//多图片上传
+	@ActionKey("/user/upload_pic")
 	public void upload_pic(){
 		// 批量上传文件
-		List<UploadFile> upFiles = getFiles("./", MAXSize, "utf-8");
+		List<UploadFile> photoList = getFiles("./", MAXSize, "utf-8");
 		// 写入数据库
 		User user = getSessionAttr(getCookie("cuser"));
 		int user_id = user.getId();
 		
-		
+		System.out.println(photoList.size());
 		//遍历文件list
-		Uploads uploads = getModel(Uploads.class);
-		for (int i = 0; i < upFiles.size(); i++) {
-			uploads.setUserId(user_id);
-			uploads.setPath(upFiles.get(i).getFileName());
-			uploads.setType("1");
-			uploads.setCreateTime(DateUtils.getNowTime());
-			uploads.save();
-			
+		
+		for (int i = 0; i < photoList.size(); i++) {
+			UploadPhoto photo = getModel(UploadPhoto.class);
+			photo.setUserId(user_id);
+			photo.setPath(photoList.get(i).getFileName());
+			photo.setCreateTime(DateUtils.getNowTime());
+			photo.setRemarks(user.getTrueName());
+			photo.save();
 		}
+		
+		renderText("上传成功！");
 	
 	}
 	

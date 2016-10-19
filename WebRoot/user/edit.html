@@ -27,7 +27,7 @@
 <div class="page-container">
 	<p class="f-20 text-success">>正在编辑我的报名信息</p>
 
-	<form action="/user/updateinfo">
+	<form action="/user/updateinfo" method="post">
 	<table class="table table-border table-bordered table-bg mt-20">
 		<thead>
 			<tr>
@@ -38,7 +38,7 @@
 			<tr>
 				<th width="15%">姓名:</th>
 				<td>
-				<input type="text" class="input-text" value="${user.true_name?if_exists}" id="user.uname" name="user.uname">
+				<input type="text" class="input-text" value="${user.true_name?if_exists}" id="user.true_name" name="user.true_name">
 				</td>
 			
 				<td>性别:</td>

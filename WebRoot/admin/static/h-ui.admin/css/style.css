@@ -1,3 +1,30 @@
 @charset "utf-8";
 /* 你自己的样式 */
 
+.titlebar{
+	background-image: url(/static/images/top.jpg);
+}
+
+.leftbar{
+	background-image: url(/static/images/topbg.jpg);
+}
+
+.btmblank{
+	background-image: url(/static/images/buiding.png);
+}
+
+.admintitlebar{
+	background-image: url(/static/images/top02.jpg);
+}
+
+.adminleftbar{
+	background-image: url(/static/images/bg02.jpg);
+}
+
+.adminbtmblank{
+	background-image: url(/static/images/buiding.png);
+}
+
+.adminitembg{
+	background-image: url(/static/images/lists.png);
+}

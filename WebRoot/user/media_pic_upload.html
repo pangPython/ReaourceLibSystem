@@ -39,10 +39,9 @@
 		<br>
 		<hr>
 		<h2>个人照片上传</h2>
-		<form action="upload" enctype="multipart/form-data" method="POST">
+		<form action="/user/upload_pic" enctype="multipart/form-data" method="POST">
 			<input id="photos" name="file" class="file" type="file" multiple
 				data-min-file-count="1"> <br>
-				备注：<input name="remark" type="text" class="form-control" placeholder="请使用-分割每张图片的备注"><br><br>
 			<button type="submit" class="btn btn-primary">上传</button>
 			<button type="reset" class="btn btn-default">重置</button>
 		</form>
