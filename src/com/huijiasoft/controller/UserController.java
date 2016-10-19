@@ -9,6 +9,7 @@ import com.huijiasoft.model.DeclareType;
 import com.huijiasoft.model.Degree;
 import com.huijiasoft.model.Edu;
 import com.huijiasoft.model.Mz;
+import com.huijiasoft.model.UploadPhoto;
 import com.huijiasoft.model.Uploads;
 import com.huijiasoft.model.User;
 import com.huijiasoft.model.Zzmm;
@@ -148,7 +149,10 @@ public class UserController extends Controller {
 	}
 	
 	public void media_pic(){
-		
+		User user = getSessionAttr(getCookie("cuser"));
+		int user_id = user.getId();
+		setAttr("picList", UploadPhoto.dao.getPhotoListByUserId(user_id));
+		render("media_pic.html");
 	}
 	
 	//œ‘ æ“≥√Ê
