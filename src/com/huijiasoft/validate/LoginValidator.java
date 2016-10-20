@@ -1,5 +1,6 @@
 package com.huijiasoft.validate;
 
+import com.huijiasoft.model.User;
 import com.jfinal.core.Controller;
 import com.jfinal.validate.Validator;;
 
@@ -11,8 +12,8 @@ import com.jfinal.validate.Validator;;
 public class LoginValidator extends Validator {
 
 	@Override
-	protected void handleError(Controller arg0) {
-		
+	protected void handleError(Controller controller) {
+		controller.keepModel(User.class);
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package com.huijiasoft.validate;
 
+import com.huijiasoft.model.Admin;
 import com.jfinal.core.Controller;
 import com.jfinal.validate.Validator;
 
@@ -10,8 +11,8 @@ import com.jfinal.validate.Validator;
 public class AdminValidator extends Validator{
 
 	@Override
-	protected void handleError(Controller arg0) {
-		// 
+	protected void handleError(Controller controller) {
+		controller.keepModel(Admin.class);
 		
 	}
 

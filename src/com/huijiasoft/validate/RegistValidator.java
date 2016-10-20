@@ -1,5 +1,6 @@
 package com.huijiasoft.validate;
 
+import com.huijiasoft.model.User;
 import com.jfinal.core.Controller;
 import com.jfinal.validate.Validator;
 
@@ -21,7 +22,7 @@ public class RegistValidator extends Validator {
 
 	@Override
 	protected void handleError(Controller c) {
-
+			c.keepModel(User.class);
 	}
 
 }

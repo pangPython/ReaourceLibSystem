@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="utf-8">
@@ -21,24 +21,37 @@
 <script type="text/javascript" src="/admin/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
-<title>编辑报名信息</title>
+<title>添加人才信息</title>
 </head>
 <body onbeforeunload="return '当前页面还有未保存的数据，确定不保存就离开了吗？';">
 <div class="page-container">
-	<p class="f-20 text-success">>正在编辑我的报名信息</p>
+	<p class="f-20 text-success">>正在添加人才信息</p>
 
-	<form action="/user/updateinfo" method="post">
+	<form action="adduser" method="post">
 	<table class="table table-border table-bordered table-bg mt-20">
 		<thead>
 			<tr>
-				<th colspan="6" scope="col">编辑报名信息</th>
+				<th colspan="6" scope="col">编辑人才信息</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<th width="15%">姓名:</th>
+				<td>前台登录用户名:</td>
 				<td>
-				<input type="text" class="input-text" value="${user.true_name?if_exists}" id="user.true_name" name="user.true_name">
+				<input type="text" class="input-text" id="user.uname" name="user.uname">
+				</td>
+				<td>密码:</td>
+				<td>
+				<input type="text" class="input-text" id="user.pwd" name="user.pwd">
+				</td>
+				<td>一寸照</td>
+				<td>照片</td>
+				
+			</tr>
+			<tr>
+				<td width="15%">真实姓名:</td>
+				<td>
+				<input type="text" class="input-text" value="" id="user.true_name" name="user.true_name">
 				</td>
 			
 				<td>性别:</td>
@@ -51,7 +64,7 @@
 		
 				<td>出生日期:</td>
 				<td>
-				<input type="text" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})" id="datemin" class="input-text Wdate" style="width:200px;">
+				<input id="d11" type="text" class="input-text Wdate" name="user.birth" onClick="WdatePicker()"/>
 				</td>
 			</tr>
 			<tr>
@@ -84,17 +97,17 @@
 			<tr>
 				<td>参加工作时间 </td>
 				<td>
-				<input type="text" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})" id="datemin" class="input-text Wdate" style="width:200px;">
+				<input id="d12" type="text" class="input-text Wdate" name="user.join_work" onClick="WdatePicker()"/>
 				</td>
 		
 				<td>身份证号 </td>
 				<td>
-				<input type="text" class="input-text" value="${user.card?if_exists}" id="user.card" name="user.card">
+				<input type="text" class="input-text"  id="user.card" name="user.card">
 				</td>
 		
 				<td>健康状况 </td>
 				<td>
-				<input type="text" class="input-text" value="${user.health?if_exists}" id="user.health" name="user.health">
+				<input type="text" class="input-text"  id="user.health" name="user.health">
 				</td>
 			</tr>
 			<tr>
@@ -111,12 +124,12 @@
 		
 				<td>工作单位 </td>
 				<td>
-				<input type="text" class="input-text" value="${user.company?if_exists}" id="user.company" name="user.company">
+				<input type="text" class="input-text"  id="user.company" name="user.company">
 				</td>
 				
 				<td>单位电话 </td>
 				<td>
-				<input type="text" class="input-text" value="${user.com_tel?if_exists}" id="user.com_tel" name="user.com_tel">
+				<input type="text" class="input-text"  id="user.company_tel" name="user.company_tel">
 				</td>
 			</tr>
 			<tr>
@@ -130,42 +143,42 @@
 				</td>
 				<td>家庭住址 </td>
 				<td>
-				<input type="text" class="input-text" value="${user.address?if_exists}" id="user.address" name="user.address">
+				<input type="text" class="input-text"  id="user.address" name="user.address">
 				</td>
 		
 				<td>移动电话 </td>
 				<td>
-				<input type="text" class="input-text" value="${user.telephone?if_exists}" id="user.telephone" name="user.telephone">
+				<input type="text" class="input-text"  id="user.telephone" name="user.telephone">
 				</td>
 			</tr>
 			<tr>
 				<td>重要社会兼职 </td>
 				<td colspan="5" scope="col">
-				<textarea class="textarea" id="socio_part_time" name="socio_part_time">${user.socio_part_time?if_exists}</textarea>
+				<textarea class="textarea" id="user.socio_part_time" name="user.socio_part_time"></textarea>
 				</td>
 			</tr>
 			<tr>
 				<td>主要工作及艺术简历 </td>
 				<td colspan="5" scope="col">
-				<textarea class="textarea" id="user.ysjj" name="user.ysjj">${user.ysjj?if_exists}</textarea>
+				<textarea class="textarea" id="user.ysjj" name="user.ysjj"></textarea>
 				</td>
 			</tr>
 			<tr>
 				<td>主要业务成就 </td>
 				<td colspan="5" scope="col">
-				<textarea class="textarea"  id="user.business_achievement" name="user.business_achievement">${user.business_achievement?if_exists}</textarea>
+				<textarea class="textarea"  id="user.business_achievement" name="user.business_achievement"></textarea>
 				</td>
 			</tr>
 			<tr>
 				<td>获奖情况 </td>
 				<td colspan="5" scope="col">
-				<textarea class="textarea" id="user.awards" name="user.awards">${user.awards?if_exists}</textarea>
+				<textarea class="textarea" id="user.awards" name="user.awards"></textarea>
 				</td>
 			</tr>
 			<tr>
 				<td>本人申请意见 </td>
 				<td colspan="5" scope="col">
-				<textarea class="textarea" id="user.opinion" name="user.opinion"> ${user.opinion?if_exists}</textarea>
+				<textarea class="textarea" id="user.opinion" name="user.opinion"></textarea>
 				</td>
 			</tr>
 			

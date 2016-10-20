@@ -13,12 +13,12 @@
 <script type="text/javascript" src="lib/respond.min.js"></script>
 <script type="text/javascript" src="lib/PIE_IE678.js"></script>
 <![endif]-->
-<link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
-<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
-<link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.7/iconfont.css" />
-<link rel="stylesheet" type="text/css" href="lib/icheck/icheck.css" />
-<link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/blue/skin.css" id="skin" />
-<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/admin/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="/admin/static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="/admin/lib/Hui-iconfont/1.0.7/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="/admin/lib/icheck/icheck.css" />
+<link rel="stylesheet" type="text/css" href="/admin/static/h-ui.admin/skin/blue/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="/admin/static/h-ui.admin/css/style.css" />
 <!--[if IE 6]>
 <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
@@ -52,20 +52,21 @@
 	<input runat="server" id="divScrollValue" type="hidden" value="" />
 	<div class="menu_dropdown bk_2">
 		<dl id="menu-article">
-			<dt class="adminitembg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="Hui-iconfont">  &#xe616;</i> 搜索<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dt class="adminitembg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="Hui-iconfont">  &#xe616;</i> 人才管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a _href="search" data-title="人才搜索" href="javascript:void(0)">人才搜索</a></li>
+					<li><a _href="search" data-title="全部人才" href="javascript:void(0)">全部人才</a></li>
+					<li><a _href="useraddpage" data-title="添加人才" href="javascript:void(0)">添加人才</a></li>
+					<li><a _href="search" data-title="人才检索" href="javascript:void(0)">人才检索</a></li>
 				</ul>
 			</dd>
 		</dl>
 		<dl id="menu-picture">
-			<dt class="adminitembg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="Hui-iconfont">&#xe613;</i> 媒体资料管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dt class="adminitembg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="Hui-iconfont">&#xe613;</i> 参数设置<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a _href="picture-list.html" data-title="图片管理" href="javascript:void(0)">图片管理</a></li>
-					<li><a _href="picture-list.html" data-title="图片管理" href="javascript:void(0)">音频管理</a></li>
-					<li><a _href="picture-list.html" data-title="图片管理" href="javascript:void(0)">视频管理</a></li>
+					<li><a _href="picture-list.html" data-title="图片管理" href="javascript:void(0)">审核管理</a></li>
+					<li><a _href="picture-list.html" data-title="图片管理" href="javascript:void(0)">附件管理</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -102,7 +103,7 @@
 			</dd>
 		</dl>
 		<dl id="menu-system">
-			<dt class="adminitembg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="Hui-iconfont">&#xe62e;</i> 系统管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dt class="adminitembg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="Hui-iconfont">&#xe62e;</i> 系统配置<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
 					<li><a _href="system" data-title="系统设置" href="javascript:void(0)">系统设置</a></li>
@@ -130,10 +131,11 @@
 		</div>
 	</div>
 </section>
-<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
-<script type="text/javascript" src="lib/layer/2.1/layer.js"></script> 
-<script type="text/javascript" src="static/h-ui/js/H-ui.js"></script> 
-<script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"></script> 
+<script type="text/javascript" src="/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="/admin/lib/layer/2.1/layer.js"></script> 
+<script type="text/javascript" src="/admin/lib/My97DatePicker/WdatePicker.js"></script> 
+<script type="text/javascript" src="/admin/static/h-ui/js/H-ui.js"></script> 
+<script type="text/javascript" src="/admin/static/h-ui.admin/js/H-ui.admin.js"></script> 
 <script type="text/javascript">
 /*资讯-添加*/
 function article_add(title,url){

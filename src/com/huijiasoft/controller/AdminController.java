@@ -145,6 +145,24 @@ public class AdminController extends Controller {
 		render("article-list.html");
 	}
 	
+	public void useraddpage(){
+		setAttr("areaList", Area.dao.getAllArea());
+		setAttr("nationList", Mz.dao.getAllMz());
+		setAttr("zzmmList", Zzmm.dao.getAllZzmm());
+		setAttr("eduList", Edu.dao.getAllEdu());
+		setAttr("degreeList", Degree.dao.getAllDegree());
+		render("user-add.html");
+	}
+	
+	public void adduser(){
+		User user = getModel(User.class);
+		String reg_time = DateUtils.dateToUnixTimestamp(DateUtils.getNowTime())+"";
+		user.setRegDate(reg_time);
+		user.save();
+		renderText("添加成功！");
+	}
+	
+	
 	//申报类型列表页面
 	public void declare(){
 		setAttr("declareList",DeclareType.dao.getAllDecType());
