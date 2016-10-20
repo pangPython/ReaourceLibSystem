@@ -68,7 +68,14 @@ public class UserController extends Controller {
 	
 	public void edit(){
 		User user = (User) getSession().getAttribute(getCookie("cuser"));
+		
 		setAttr("user", user);
+		setAttr("areaList", Area.dao.getAllArea());
+		setAttr("nationList", Mz.dao.getAllMz());
+		setAttr("zzmmList", Zzmm.dao.getAllZzmm());
+		setAttr("eduList", Edu.dao.getAllEdu());
+		setAttr("degreeList", Degree.dao.getAllDegree());
+		
 		render("edit.html");
 	}
 	

@@ -97,6 +97,9 @@ public class IndexContrlller extends Controller {
 	@ActionKey("regist")
 	@Before(RegistValidator.class)
 	public void regist(){
+		
+		//验证码校验
+		
 		String mima = getPara("user.pwd");
 		String confirm = getPara("reg.confirmpwd");
 		
