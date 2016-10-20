@@ -162,6 +162,16 @@ public class AdminController extends Controller {
 		renderText("添加成功！");
 	}
 	
+	//审核参数设置
+	public void examineset(){
+		render("set-examine.html");
+	}
+	
+	//附件参数设置
+	public void attachmentset(){
+		render("set-attachment.html");
+	}
+	
 	
 	//申报类型列表页面
 	public void declare(){
