@@ -78,7 +78,7 @@ public class AdminController extends Controller {
 			//设置服务器端session
 			setSessionAttr(sessionId, admin);
 			//设置用户端cookie
-			setCookie("cadmin", sessionId, 600);
+			setCookie("cadmin", sessionId, 60000);
 			
 			
 			//登录之后先记录日志
@@ -136,6 +136,8 @@ public class AdminController extends Controller {
 	
 	//后台服务器信息总览页面
 	public void welcome() {
+		Admin admin = getSessionAttr(getCookie("cadmin"));
+		setAttr("admin", admin);
 		render("welcome.html");
 	}
 	
@@ -193,7 +195,11 @@ public class AdminController extends Controller {
 	//民族分类管理
 	
 	public void nation(){
-		setAttr("nationList", Mz.dao.getAllMz());
+		
+		List<Mz> nationList = Mz.dao.getAllMz();
+		String listsize = nationList.size()+"";
+		setAttr("nationList", nationList);
+		setAttr("listsize", listsize);
 		render("nation.html");
 	}
 	

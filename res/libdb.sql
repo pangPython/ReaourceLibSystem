@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50547
 File Encoding         : 65001
 
-Date: 2016-10-20 21:17:31
+Date: 2016-10-21 11:03:23
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -137,7 +137,7 @@ CREATE TABLE `log` (
   `uname` varchar(255) NOT NULL,
   `date` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=63 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=73 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of log
@@ -204,6 +204,16 @@ INSERT INTO `log` VALUES ('59', '0:0:0:0:0:0:0:1', 'admin', '2016-10-20 20:40:01
 INSERT INTO `log` VALUES ('60', '0:0:0:0:0:0:0:1', 'admin', '2016-10-20 20:50:33');
 INSERT INTO `log` VALUES ('61', '0:0:0:0:0:0:0:1', 'admin', '2016-10-20 21:00:57');
 INSERT INTO `log` VALUES ('62', '0:0:0:0:0:0:0:1', 'admin', '2016-10-20 21:16:06');
+INSERT INTO `log` VALUES ('63', '0:0:0:0:0:0:0:1', 'admin', '2016-10-20 21:24:59');
+INSERT INTO `log` VALUES ('64', '0:0:0:0:0:0:0:1', 'admin', '2016-10-21 08:22:03');
+INSERT INTO `log` VALUES ('65', '0:0:0:0:0:0:0:1', 'admin', '2016-10-21 08:35:42');
+INSERT INTO `log` VALUES ('66', '0:0:0:0:0:0:0:1', 'admin', '2016-10-21 09:13:04');
+INSERT INTO `log` VALUES ('67', '0:0:0:0:0:0:0:1', 'admin', '2016-10-21 09:35:17');
+INSERT INTO `log` VALUES ('68', '0:0:0:0:0:0:0:1', 'admin', '2016-10-21 09:52:56');
+INSERT INTO `log` VALUES ('69', '0:0:0:0:0:0:0:1', 'admin', '2016-10-21 10:03:12');
+INSERT INTO `log` VALUES ('70', '0:0:0:0:0:0:0:1', 'admin', '2016-10-21 10:13:58');
+INSERT INTO `log` VALUES ('71', '0:0:0:0:0:0:0:1', 'admin', '2016-10-21 10:36:37');
+INSERT INTO `log` VALUES ('72', '0:0:0:0:0:0:0:1', 'admin', '2016-10-21 11:00:26');
 
 -- ----------------------------
 -- Table structure for `mz`
