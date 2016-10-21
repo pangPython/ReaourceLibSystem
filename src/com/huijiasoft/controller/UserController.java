@@ -30,8 +30,10 @@ public class UserController extends Controller {
 	 private final int MAXSize = 50 * 1024 * 1024; // 5M
 	
 	public void index() {
+		
 		User user = getSessionAttr(getCookie("cuser"));
 		setAttr("user",user);
+		
 		render("index.html");
 	}
 	

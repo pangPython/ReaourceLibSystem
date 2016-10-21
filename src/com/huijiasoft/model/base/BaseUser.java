@@ -33,14 +33,6 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("true_name");
 	}
 
-	public void setAge(int i) {
-		set("age", i);
-	}
-
-	public java.lang.Long getAge() {
-		return get("age");
-	}
-
 	public void setPwd(java.lang.String pwd) {
 		set("pwd", pwd);
 	}
@@ -65,11 +57,11 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("join_work");
 	}
 
-	public void setUsersex(int i) {
-		set("usersex", i);
+	public void setUsersex(java.lang.String usersex) {
+		set("usersex", usersex);
 	}
 
-	public java.lang.Long getUsersex() {
+	public java.lang.String getUsersex() {
 		return get("usersex");
 	}
 

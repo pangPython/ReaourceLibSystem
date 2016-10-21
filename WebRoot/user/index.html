@@ -20,7 +20,11 @@
 <link rel="stylesheet" type="text/css" href="admin/static/h-ui.admin/skin/blue/skin.css" id="skin" />
 <link rel="stylesheet" type="text/css" href="admin/static/h-ui.admin/css/style.css" />
 
-
+<style>
+.label-nopass{
+	background-color:#006699;
+}
+</style>
 
 <!--[if IE 6]>
 <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
@@ -38,7 +42,13 @@
 			</nav>
 			<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs ">
 				<ul class="cl">
-					<li id="Hui-msg"> <a href="/admin/message" title="系统消息"><span class="label label-success radius">审核通过</span></a> </li>
+					<li id="Hui-msg"> <a _href="/admin/message" href="javascript:void(0)" title="系统消息">
+					<#if user.status == 1>
+					<span class="label label-succss radius">审核通过</span>
+					<#elseif user.status == 0>
+					<span class="label label-nopass radius">审核未通过</span>
+					</#if>
+					</a> </li>
 					<li>欢迎,</li>
 					<li class="dropDown dropDown_hover">${user.uname!}<a href="#" class="dropDown_A"> <i class="Hui-iconfont">&#xe6d5;</i></a>
 						<ul class="dropDown-menu menu radius box-shadow">

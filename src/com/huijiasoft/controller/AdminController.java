@@ -38,11 +38,13 @@ import com.jfinal.kit.PathKit;
 public class AdminController extends Controller {
 	
 	public void index(){
+		
 		render("index.html");
 	}
 	
 	@ActionKey("/admin/")
 	public void root(){
+		
 		render("index.html");
 	}
 	
@@ -413,6 +415,11 @@ public class AdminController extends Controller {
 	//管理员查看用户音频资料
 	public void uservideo(){
 		render("u-video.html");
+	}
+	
+	//用户审核是否通过的消息
+	public void message(){
+		render("message.html");
 	}
 	
 	
