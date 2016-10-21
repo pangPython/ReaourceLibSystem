@@ -15,6 +15,7 @@ import com.huijiasoft.model.Mz;
 import com.huijiasoft.model.System;
 import com.huijiasoft.model.User;
 import com.huijiasoft.model.Zzmm;
+import com.huijiasoft.service.IndexService;
 import com.huijiasoft.utils.DateUtils;
 import com.huijiasoft.utils.JavaMysqlUtil;
 import com.huijiasoft.utils.MD5;
@@ -104,7 +105,7 @@ public class AdminController extends Controller {
 			
 			
 		}else{
-			
+			setAttr("system", IndexService.getSysConfig());
 			render("login.html");
 			
 		}

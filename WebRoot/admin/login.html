@@ -19,7 +19,7 @@
 <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
-<title>后台登录 - 东营市</title>
+<title>后台登录 -${system.title?if_exists}</title>
 
 </head>
 <body>
@@ -62,7 +62,7 @@
     </form>
   </div>
 </div>
-<div class="footer">Copyright 东营市文化局 by 山东汇佳软件科技有限公司</div>
+<div class="footer">${system.copyright?if_exists}</div>
 <script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
 <script type="text/javascript" src="static/h-ui/js/H-ui.js"></script> 
 

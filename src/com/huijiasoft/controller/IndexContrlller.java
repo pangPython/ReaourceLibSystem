@@ -2,6 +2,7 @@ package com.huijiasoft.controller;
 
 
 
+import com.huijiasoft.model.System;
 import com.huijiasoft.model.User;
 import com.huijiasoft.service.IndexService;
 import com.huijiasoft.utils.DateUtils;
@@ -32,7 +33,7 @@ public class IndexContrlller extends Controller {
 		if(cuser!=null){
 			redirect("user");
 		}
-		
+			
 			setAttr("system", IndexService.getSysConfig());
 			render("login.html");
 	}
@@ -90,6 +91,7 @@ public class IndexContrlller extends Controller {
 	//зЂВс
 	
 	public void register(){
+		setAttr("system", IndexService.getSysConfig());
 		render("regist.html");
 	}
 	

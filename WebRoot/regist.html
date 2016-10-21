@@ -6,14 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <!-- Site Properties -->
-  <title>注册</title>
+  <title>注册-${system.title?if_exists}</title>
   <link rel="stylesheet" type="text/css" href="static/css/semantic.min.css">
   <link rel="stylesheet" type="text/css" href="static/components/icon.css">
   <script src="static/js/jquery.min.js"></script>
   <script src="static/js/semantic.min.js"></script>
 <style>
     body {
-      background-image: url(/static/images/registbg.jpg);
+      background-image: url(/static/images/bg-01.jpg);
       background-size:cover; 
     }
     .column {
@@ -31,7 +31,7 @@
   <div class="column">
     <form class="ui large form" method="POST" action="regist">
       <div class="ui stacked segment raised">
-      <h2 class="ui center aligned icon header"><i class="circular users icon"></i>  用户注册</h2>
+      <h2 class="ui center aligned icon header"><i class="circular users icon"></i>  注册-${system.title?if_exists}</h2>
         <div class="field">
           <div class="ui left icon input">
             <i class="user icon"></i>
