@@ -397,6 +397,19 @@ public class AdminController extends Controller {
 		renderFile(new File(filename));
 	}
 	
+	//管理员查看用户图片资料
+	public void userphoto(){
+		renderText(getPara(0));
+	}
+	
+	//管理员查看用户音频资料
+	public void useraudio(){
+		renderText(getPara(0));
+	}
+	//管理员查看用户音频资料
+	public void uservideo(){
+		renderText(getPara(0));
+	}
 	
 	
 }
