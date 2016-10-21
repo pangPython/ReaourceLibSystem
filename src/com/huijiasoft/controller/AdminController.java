@@ -61,6 +61,7 @@ public class AdminController extends Controller {
 			if(admin.getStatus() == 0){
 				//setAttr("LoginNameMsg", "该管理员账号已禁用！");
 				setAttr("LoginNameMsg","用户名或密码错误！");
+				setAttr("system", IndexService.getSysConfig());
 				render("login.html");
 				return;
 			}
@@ -70,6 +71,7 @@ public class AdminController extends Controller {
 			
 			if(!admin.getPwd().equals(admin_pwd)){
 				setAttr("LoginNameMsg","用户名或密码错误！");
+				setAttr("system", IndexService.getSysConfig());
 				render("login.html");
 				return;
 			}
@@ -400,16 +402,17 @@ public class AdminController extends Controller {
 	
 	//管理员查看用户图片资料
 	public void userphoto(){
-		renderText(getPara(0));
+		
+		render("u-photo.html");
 	}
 	
 	//管理员查看用户音频资料
 	public void useraudio(){
-		renderText(getPara(0));
+		render("u-audio.html");
 	}
 	//管理员查看用户音频资料
 	public void uservideo(){
-		renderText(getPara(0));
+		render("u-video.html");
 	}
 	
 	

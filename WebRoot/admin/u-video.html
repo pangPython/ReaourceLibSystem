@@ -21,57 +21,36 @@
 <script type="text/javascript" src="/admin/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
-<title>修改密码</title>
+<title>视频资料</title>
 </head>
 <body>
 <div class="page-container">
-	<p class="f-20 text-success">>正在修改我的密码</p>
+	<p class="f-20 text-success">>正在查看我的视频资料</p>
 
-	<form action="/user/updateinfo">
+	
 	<table class="table table-border table-bordered table-bg mt-20">
 		<thead>
 			<tr>
-				<th colspan="3" scope="col">修改密码</th>
+				<th colspan="3" scope="col">我的音频资料</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td width="25%">原密码:</td>
-				<td width="20%">
-				<input type="text" class="input-text" value="" id="user.uname" name="user.uname">
-				</td>
-				<td></td>
-			</tr>
-
-			<tr>
-				<td>新密码:</td>
-				<td>
-				<input type="text" class="input-text" value="" id="user.uname" name="user.uname">
-				</td>
-				<td></td>
+				<th width="30%">文件名</th>
+				<td>播放</td>
+				<td>备注</td>
 			</tr>
 			<tr>
-				<td>确认新密码: </td>
-				<td>
-				<input type="text" class="input-text" value="" id="user.uname" name="user.uname">
-				</td>
-				<td></td>
+				<th>1.mp4</th>
+					<th>
+					<video src="/upload/video/1.mp4" controls="controls" width="400px"><a>您的浏览器不支持 视频播放请更换浏览器</a></video>
+					</th>
+				<th>123444</th>
 			</tr>
-			<tr>
-				<td>验证码 </td>
-				<td>
-				<input type="text" class="input-text" value="" id="user.uname" name="user.uname">
-				</td>
-				<td></td>
-			</tr>
-			
 			
 		</tbody>
-	</table><br>
-	<div class="va-m">
-	<button class="btn btn-secondary radius" type="submit">保存</button>
-	</div>
-	</form>
+	</table>
+	
 	
 </div>
 <footer class="footer mt-20">

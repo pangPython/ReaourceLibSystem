@@ -2,7 +2,6 @@ package com.huijiasoft.controller;
 
 
 
-import com.huijiasoft.model.System;
 import com.huijiasoft.model.User;
 import com.huijiasoft.service.IndexService;
 import com.huijiasoft.utils.DateUtils;
@@ -71,7 +70,7 @@ public class IndexContrlller extends Controller {
 				//设置服务器端session
 				setSessionAttr(sessionId, user);
 				//设置用户端cookie
-				setCookie("cuser", sessionId, 600);
+				setCookie("cuser", sessionId, 60000);
 				redirect("/user");
 				
 			}else{
@@ -116,6 +115,7 @@ public class IndexContrlller extends Controller {
 		//如果用户名已经被注册，提示错误信息
 		if(user.findFirst("select * from user where uname = ?",uname)!=null){
 			setAttr("unameMsg", "该用户名已被注册");
+			setAttr("system", IndexService.getSysConfig());
 			render("regist.html");
 		}else{
 		//使用工具包把当前时间转换成unix时间戳再转换成string类型

@@ -2,19 +2,19 @@
 /* 你自己的样式 */
 
 .titlebar{
-	background-image: url(/static/images/top.jpg);
+	background-image: url(/static/images/top02.jpg);
 }
 
 .leftbar{
-	background-image: url(/static/images/topbg.jpg);
+	background-image: url(/static/images/bg.jpg);
 }
 
 .btmblank{
-	background-image: url(/static/images/buiding.png);
+	background-image: url(/static/images/buiding01.png);
 }
 
 .admintitlebar{
-	background-image: url(/static/images/top02.jpg);
+	background-image: url(/static/images/top.jpg);
 }
 
 .adminleftbar{
@@ -22,7 +22,7 @@
 }
 
 .adminbtmblank{
-	background-image: url(/static/images/buiding.png);
+	background-image: url(/static/images/buiding01.png);
 }
 
 .adminitembg{
