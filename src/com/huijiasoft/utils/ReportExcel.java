@@ -2,6 +2,9 @@ package com.huijiasoft.utils;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -18,7 +21,7 @@ import com.huijiasoft.model.User;
  *		后台报表
  */
 public class ReportExcel {
-	public static String report(List<User> userlist) throws IOException{
+	public static String report(List<User> userlist) throws IOException, ParseException{
 		 Workbook wb = new HSSFWorkbook();
 		    //Workbook wb = new XSSFWorkbook();
 		    CreationHelper createHelper = wb.getCreationHelper();
@@ -49,12 +52,18 @@ public class ReportExcel {
 		    row.createCell(18).setCellValue(createHelper.createRichTextString("获奖情况"));
 		    row.createCell(19).setCellValue(createHelper.createRichTextString("本人申请意见"));
 		    
+		    int user_age = 20;
+		    
+		    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		    
 		    for(int i=0;i<userlist.size();i++){
 		    	 Row data = sheet.createRow((short)i+1);
 		    	 User user = userlist.get(i);
 		    	 data.createCell(0).setCellValue(user.getTrueName());
 		    	 data.createCell(1).setCellValue(user.getUsersex());
-		    	 data.createCell(2).setCellValue(user.getAge());
+		    	 Date birth = sdf.parse(user.getBirth());
+		    	 user_age = DateUtils.compareDateWithNow(birth);
+		    	 data.createCell(2).setCellValue(user_age);
 		    	 data.createCell(3).setCellValue(user.getMzId());
 		    	 data.createCell(4).setCellValue(user.getZzmmId());
 		    	 data.createCell(5).setCellValue(user.getDecId());

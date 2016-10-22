@@ -13,6 +13,7 @@ import com.huijiasoft.model.UploadPhoto;
 import com.huijiasoft.model.Uploads;
 import com.huijiasoft.model.User;
 import com.huijiasoft.model.Zzmm;
+import com.huijiasoft.utils.DBUtils;
 import com.huijiasoft.utils.DateUtils;
 import com.huijiasoft.utils.RenderDocxTemplate;
 import com.jfinal.aop.Before;
@@ -250,8 +251,8 @@ public void media_video_upload(){
 	public void download_my(){
 		User user = getSessionAttr(getCookie("cuser"));
 		
-		if(user.getTrueName()==null){
-			renderText("请先完善信息！");
+		if(DBUtils.RecordAttrHasNull(user)){
+			renderText("你的报名信息不完整,请先完善信息！");
 			return;
 		}
 		

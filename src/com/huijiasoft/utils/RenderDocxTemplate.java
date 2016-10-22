@@ -45,7 +45,7 @@ public class RenderDocxTemplate {
 			
 			root.put("true_name", user.getTrueName());
 			String sex = "ÄÐ";
-			if(user.getUsersex()==0){
+			if("0".equals(user.getUsersex())){
 				sex = "Å®";
 			}
 			root.put("sex", sex);

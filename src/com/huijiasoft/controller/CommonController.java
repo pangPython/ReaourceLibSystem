@@ -19,4 +19,5 @@ public class CommonController extends Controller {
 		render(new CaptchaRender());
 	}
 	
+
 }

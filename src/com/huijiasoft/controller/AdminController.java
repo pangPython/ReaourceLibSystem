@@ -2,6 +2,7 @@ package com.huijiasoft.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.List;
 
 import com.huijiasoft.interceptor.AdminAuthInterceptor;
@@ -20,14 +21,12 @@ import com.huijiasoft.utils.DateUtils;
 import com.huijiasoft.utils.JavaMysqlUtil;
 import com.huijiasoft.utils.MD5;
 import com.huijiasoft.utils.ReportExcel;
-import com.huijiasoft.utils.WriteToDocx;
 import com.huijiasoft.validate.AdminValidator;
 import com.jfinal.aop.Before;
 import com.jfinal.aop.Clear;
 import com.jfinal.core.ActionKey;
 import com.jfinal.core.Controller;
 import com.jfinal.ext.kit.SessionIdKit;
-import com.jfinal.kit.PathKit;
 
 
 /**
@@ -326,7 +325,7 @@ public class AdminController extends Controller {
 	}
 	
 	//打印
-	public void printer(){
+/*	public void printer(){
 		
 		String fileName = "";
 		int id = getParaToInt("id");
@@ -338,6 +337,8 @@ public class AdminController extends Controller {
 		
 		renderFile(new File(fileName));
 	}
+	*/
+	
 	//超级管理员列表
 	public void adminList(){
 		setAttr("adminList", Admin.dao.getAllAdmin());
@@ -397,6 +398,9 @@ public class AdminController extends Controller {
 		try {
 			filename = ReportExcel.report(userlist);
 		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		renderFile(new File(filename));
