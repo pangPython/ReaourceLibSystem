@@ -176,6 +176,8 @@ public class UserController extends Controller {
 	//多图片上传
 	@ActionKey("/user/upload_pic")
 	public void upload_pic(){
+		
+		//只写入数据库一条
 		// 批量上传文件
 		List<UploadFile> photoList = getFiles("./", MAXSize, "utf-8");
 		// 写入数据库
@@ -185,14 +187,12 @@ public class UserController extends Controller {
 		System.out.println(photoList.size());
 		//遍历文件list
 		
-		for (int i = 0; i < photoList.size(); i++) {
 			UploadPhoto photo = getModel(UploadPhoto.class);
 			photo.setUserId(user_id);
 			photo.setPath(photoList.get(i).getFileName());
 			photo.setCreateTime(DateUtils.getNowTime());
 			photo.setRemarks(user.getTrueName());
 			photo.save();
-		}
 		
 		renderText("上传成功！");
 	

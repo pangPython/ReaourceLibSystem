@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50547
 File Encoding         : 65001
 
-Date: 2016-10-24 00:23:32
+Date: 2016-10-24 01:02:43
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -390,7 +390,7 @@ CREATE TABLE `upload_photo` (
   `remarks` varchar(255) DEFAULT NULL,
   `size` int(255) NOT NULL DEFAULT '100',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of upload_photo
@@ -399,6 +399,7 @@ INSERT INTO `upload_photo` VALUES ('2', '47', '1111111', '11111', '11111', '100'
 INSERT INTO `upload_photo` VALUES ('1', '47', '22222', '22222', '22222', '100');
 INSERT INTO `upload_photo` VALUES ('3', '47', '201302011702405145293.jpg', '2016-10-19 12:26:15', '庞勇', '100');
 INSERT INTO `upload_photo` VALUES ('4', '47', '649830154.jpg', '2016-10-19 12:28:00', '庞勇', '100');
+INSERT INTO `upload_photo` VALUES ('5', '47', '60-130220143607.jpg', '2016-10-24 00:33:34', '庞勇', '100');
 
 -- ----------------------------
 -- Table structure for `upload_video`

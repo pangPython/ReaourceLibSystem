@@ -40,9 +40,9 @@
 				<td><span id="lbServerName">${user.true_name?if_exists}</span></td>
 				<td>性别:</td>
 				<td>
-				 <#if user.usersex == 1>
+				 <#if user.usersex == "1">
  					 男
-  				<#elseif user.usersex == 0>
+  				<#elseif user.usersex == "0">
   					女
  				</#if>
 				</td>
