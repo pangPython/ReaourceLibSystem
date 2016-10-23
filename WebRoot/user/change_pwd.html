@@ -27,7 +27,7 @@
 <div class="page-container">
 	<p class="f-20 text-success">>正在修改我的密码</p>
 
-	<form action="/user/updateinfo">
+	<form action="/user/updatepwd" method="post">
 	<table class="table table-border table-bordered table-bg mt-20">
 		<thead>
 			<tr>
@@ -38,7 +38,7 @@
 			<tr>
 				<td width="25%">原密码:</td>
 				<td width="20%">
-				<input type="text" class="input-text" value="" id="user.uname" name="user.uname">
+				<input type="text" class="input-text" value="" id="oldpwd" name="oldpwd">
 				</td>
 				<td></td>
 			</tr>
@@ -46,23 +46,25 @@
 			<tr>
 				<td>新密码:</td>
 				<td>
-				<input type="text" class="input-text" value="" id="user.uname" name="user.uname">
+				<input type="text" class="input-text" value="" id="newpwd" name="newpwd">
 				</td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>确认新密码: </td>
 				<td>
-				<input type="text" class="input-text" value="" id="user.uname" name="user.uname">
+				<input type="text" class="input-text" value="" id="confirmnewpwd" name="confirmnewpwd">
 				</td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>验证码 </td>
 				<td>
-				<input type="text" class="input-text" value="" id="user.uname" name="user.uname">
+				<input type="text" class="input-text" value="" id="yzm" name="yzm">
 				</td>
-				<td></td>
+				<td>
+				<img alt="验证码" src="/verifycode">
+				</td>
 			</tr>
 			
 			

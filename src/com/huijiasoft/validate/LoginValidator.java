@@ -21,7 +21,7 @@ public class LoginValidator extends Validator {
 		validateRequiredString("login.name", "UnameErrMsg", "请输入用户名！");
 		validateRequiredString("login.password", "PwdErrMsg", "请输入密码！");
 		validateRequiredString("login.verifycode", "yzmErrMsg", "请输入验证码！");
-		
+		validateCaptcha("login.verifycode", "yzmErrMsg", "请正确输入验证码！");
 	}
 
 }

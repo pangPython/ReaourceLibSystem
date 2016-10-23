@@ -82,7 +82,7 @@ public class UserController extends Controller {
 		render("edit.html");
 	}
 	
-	
+	//修改个人信息
 	public void updateinfo(){
 		User user = (User) getSession().getAttribute(getCookie("cuser"));
 		getModel(User.class).set("id", user.getId()).update();
@@ -90,6 +90,7 @@ public class UserController extends Controller {
 		setSessionAttr(getCookie("cuser"),user);
 		renderText("修改成功！");
 	}
+	
 	
 	@ActionKey("/adduserinfo")
 	public void adduserinfo(){
@@ -272,9 +273,28 @@ public void media_video_upload(){
 		render("/baomingbiao.html");
 	}
 	
-	public void change_pwd(){
+	//显示修改密码页面
+	public void change_pwd(){}
+	
+	//修改密码
+	//TODO
+	public void updatepwd(){
+		boolean yzm = this.validateCaptcha("yzm");
+		if(!yzm){
+			renderText("请正确输入验证码！");
+		}
+		
+		//验证原密码
+		String old_pwd = getPara("oldpwd");
+		
+		String new_pwd = getPara("newpwd");
+		String confirm_new_pwd = getPara("confirmnewpwd");
+		
+		//比对确认密码
 		
 	}
+	
+	
 	
 	
 	
