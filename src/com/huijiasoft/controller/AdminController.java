@@ -18,10 +18,12 @@ import com.huijiasoft.model.System;
 import com.huijiasoft.model.User;
 import com.huijiasoft.model.Zzmm;
 import com.huijiasoft.service.IndexService;
+import com.huijiasoft.utils.DBUtils;
 import com.huijiasoft.utils.DateUtils;
 import com.huijiasoft.utils.JavaMysqlUtil;
 import com.huijiasoft.utils.MD5;
 import com.huijiasoft.utils.PassWordUtils;
+import com.huijiasoft.utils.RenderDocxTemplate;
 import com.huijiasoft.utils.ReportExcel;
 import com.huijiasoft.validate.AdminValidator;
 import com.jfinal.aop.Before;
@@ -428,6 +430,17 @@ public class AdminController extends Controller {
 	//管理员查看用户音频资料
 	public void uservideo(){
 		render("u-video.html");
+	}
+	
+	//打印某个人才信息
+	public void userinfoprint(){
+		User user = User.usermodel.findById(getParaToInt(0));
+		if(DBUtils.RecordAttrHasNull(user)){
+			renderText("改人才的报名信息不完整,请先完善信息！");
+			return;
+		}
+		String file_name = RenderDocxTemplate.creatWord(user);
+		renderFile(new File(file_name));
 	}
 	
 	//用户审核是否通过的消息

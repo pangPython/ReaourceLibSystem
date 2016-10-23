@@ -658,9 +658,9 @@ div.WordSection1
   <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><b><span
   lang=EN-US style='font-size:12.0pt;font-family:仿宋_GB2312;mso-hansi-font-family:
   仿宋_GB2312;mso-bidi-font-family:仿宋_GB2312'>
-  <#if user.usersex == 1>
+  <#if user.usersex == "1">
   男
-  <#elseif user.usersex == 0>
+  <#elseif user.usersex == "0">
   女
   </#if>
   </span></b></span><b><span
@@ -1226,7 +1226,7 @@ div.WordSection1
 </table>
 
 </div>
-<a href="">打印</a>
+<a href="/admin/userinfoprint/${user.id}">打印</a>
 <a href="/admin/userphoto/${user.id}">查看当前用户的图片资料</a>
 <a href="/admin/useraudio/${user.id}">查看当前用户的音频资料</a>
 <a href="/admin/uservideo/${user.id}">查看当前用户的视频资料</a>
