@@ -13,6 +13,7 @@ import com.huijiasoft.model.UploadPhoto;
 import com.huijiasoft.model.Uploads;
 import com.huijiasoft.model.User;
 import com.huijiasoft.model.Zzmm;
+import com.huijiasoft.utils.ControllerUtils;
 import com.huijiasoft.utils.DBUtils;
 import com.huijiasoft.utils.DateUtils;
 import com.huijiasoft.utils.RenderDocxTemplate;
@@ -274,18 +275,30 @@ public void media_video_upload(){
 	}
 	
 	//显示修改密码页面
-	public void change_pwd(){}
+	public void change_pwd(){
+		User user = (User) ControllerUtils.getMFromSbyIdinC(this, "cuser");
+		setAttr("user", user);
+		render("change_pwd.html");
+	}
 	
 	//修改密码
 	//TODO
 	public void updatepwd(){
+		
+		
 		boolean yzm = this.validateCaptcha("yzm");
 		if(!yzm){
-			renderText("请正确输入验证码！");
+			User user = (User) ControllerUtils.getMFromSbyIdinC(this, "cuser");
+			setAttr("user", user);
+			setAttr("yzmErrMsg", "请正确输入验证码！");
+			render("change_pwd.html");
+			return;
 		}
 		
 		//验证原密码
 		String old_pwd = getPara("oldpwd");
+		
+		
 		
 		String new_pwd = getPara("newpwd");
 		String confirm_new_pwd = getPara("confirmnewpwd");

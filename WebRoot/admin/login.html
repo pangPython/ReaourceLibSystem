@@ -32,14 +32,14 @@
         <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60d;</i></label>
         <div class="formControls col-xs-8">
           <input id="admin.name" name="admin.name" type="text" placeholder="账户" class="input-text size-L">
-          <br><p>${LoginNameMsg!}</p>
+          <br><p><span class="c-red">${LoginNameMsg!}</span></p>
         </div>
       </div>
       <div class="row cl">
         <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60e;</i></label>
         <div class="formControls col-xs-8">
           <input id="admin.pwd" name="admin.pwd" type="password" placeholder="密码" class="input-text size-L">
-        <br><p>${LoginPwdMsg!}</p>
+        <br><p><span class="c-red">${LoginPwdMsg!}</span></p>
         </div>
       </div>
       <div class="row cl">
@@ -47,7 +47,7 @@
         <div class="formControls col-xs-8">
           <input class="input-text size-L" type="text" placeholder="验证码" name="verifycode" id="verifycode" style="width:150px;">
           <img src="/verifycode"> <a id="kanbuq" href="/admin/">看不清，换一张</a>
-          <br><p>${codeMsg!}</p>
+          <br><p><span class="c-red">${codeMsg!}</span></p>
            </div>
           	
       </div>

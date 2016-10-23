@@ -27,7 +27,7 @@
 <div class="page-container">
 	<p class="f-20 text-success">>正在修改我的密码</p>
 
-	<form action="/user/updatepwd" method="post">
+	<form action="/user/updatepwd/${user.id}" method="post">
 	<table class="table table-border table-bordered table-bg mt-20">
 		<thead>
 			<tr>
@@ -63,7 +63,7 @@
 				<input type="text" class="input-text" value="" id="yzm" name="yzm">
 				</td>
 				<td>
-				<img alt="验证码" src="/verifycode">
+				<img alt="验证码" src="/verifycode"><span class="c-red">${yzmErrMsg?if_exists}</span>
 				</td>
 			</tr>
 			
