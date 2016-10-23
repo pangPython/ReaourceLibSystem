@@ -38,29 +38,29 @@
 			<tr>
 				<td width="25%">原密码:</td>
 				<td width="20%">
-				<input type="text" class="input-text" value="" id="oldpwd" name="oldpwd">
+				<input type="password" class="input-text"  id="oldpwd" name="oldpwd">
 				</td>
-				<td></td>
+				<td><span class="c-red">${oldpwdErrMsg?if_exists}</span></td>
 			</tr>
 
 			<tr>
 				<td>新密码:</td>
 				<td>
-				<input type="text" class="input-text" value="" id="newpwd" name="newpwd">
+				<input type="password" class="input-text"  id="newpwd" name="newpwd">
 				</td>
-				<td></td>
+				<td><span class="c-red">${newpwdErrMsg?if_exists}</span></td>
 			</tr>
 			<tr>
 				<td>确认新密码: </td>
 				<td>
-				<input type="text" class="input-text" value="" id="confirmnewpwd" name="confirmnewpwd">
+				<input type="password" class="input-text"  id="confirmnewpwd" name="confirmnewpwd">
 				</td>
-				<td></td>
+				<td><span class="c-red">${confirmpwdErrMsg?if_exists}</span></td>
 			</tr>
 			<tr>
 				<td>验证码 </td>
 				<td>
-				<input type="text" class="input-text" value="" id="yzm" name="yzm">
+				<input type="text" class="input-text"  id="yzm" name="yzm">
 				</td>
 				<td>
 				<img alt="验证码" src="/verifycode"><span class="c-red">${yzmErrMsg?if_exists}</span>

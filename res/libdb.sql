@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50547
 File Encoding         : 65001
 
-Date: 2016-10-23 11:03:03
+Date: 2016-10-23 20:08:02
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -153,7 +153,7 @@ CREATE TABLE `log` (
   `uname` varchar(255) NOT NULL,
   `date` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=77 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=78 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of log
@@ -234,6 +234,7 @@ INSERT INTO `log` VALUES ('73', '0:0:0:0:0:0:0:1', 'admin', '2016-10-21 11:32:23
 INSERT INTO `log` VALUES ('74', '0:0:0:0:0:0:0:1', 'admin', '2016-10-21 14:09:23');
 INSERT INTO `log` VALUES ('75', '0:0:0:0:0:0:0:1', 'admin', '2016-10-21 14:46:24');
 INSERT INTO `log` VALUES ('76', '0:0:0:0:0:0:0:1', 'admin', '2016-10-23 09:24:59');
+INSERT INTO `log` VALUES ('77', '0:0:0:0:0:0:0:1', 'admin', '2016-10-23 15:56:26');
 
 -- ----------------------------
 -- Table structure for `mz`
@@ -462,7 +463,7 @@ INSERT INTO `user` VALUES ('40', '庞永', '张三8', 'DD015661785A22BDED41F84D2
 INSERT INTO `user` VALUES ('41', 'hjsoft', '李毅', 'D3D8CB79B6CF54CB37B49E9A33D64F7B', '00000000001', '111', '', '0000000001', '0000000001', '00000000001', '00000000000', '372321199999999999', '1', '山东省滨州市', null, '山东汇佳', '1111', null, '呵呵呵呵呵', '111', '2016-10-16 09:24:42', '0', '1111', 'defaultheadpic.jpg', '11111', null, '8086998', '社会兼职', null, null, null, null);
 INSERT INTO `user` VALUES ('42', 'py1', '李毅', 'C8CDCB4D499B4586FD0204CAF0F02550', '00000000001', '111', '', '0000000001', '0000000001', '00000000001', '00000000000', '372321199999999999', '1', '山东省滨州市', null, '山东汇佳', null, null, '艺术简介', null, '2016-10-16 13:55:02', '0', null, null, null, null, '8088098', '兼职', '15762182222', '获奖情况', '申请意见', '业务成就');
 INSERT INTO `user` VALUES ('43', 'py2', '庞勇', '2CEAF68A3D72AC13E036C18334B0EFE6', '00000000001', '1111', '', '0000000001', '0000000001', '00000000001', '00000000000', '372321199999999999', '1', '山东省滨州市', null, '山东汇佳', '开发', null, '呵呵呵呵呵', '健康', '2016-10-16 15:13:52', '0', '1111', '20160822020450_207883.png', '计算机', null, '8088098', '兼职', '15762182222', '获奖情况', '申请意见', '业务成就');
-INSERT INTO `user` VALUES ('47', 'huijia1', '庞勇', '87EA6E762AE0A8C9D325E6A006AE98B2', null, null, '', null, null, null, null, null, null, null, null, null, null, null, null, null, '2016-10-19 09:55:21', '0', null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `user` VALUES ('47', 'huijia1', '庞勇', '3F88F8754440E99D904120FD9D706EB3', null, null, '', null, null, null, null, null, null, null, null, null, null, null, null, null, '2016-10-19 09:55:21', '0', null, null, null, null, null, null, null, null, null, null);
 INSERT INTO `user` VALUES ('48', 'huijia3', null, 'E2F866EC03D4BE035CED93CABC4CB1B3', null, null, '', null, null, null, null, null, null, null, null, null, null, null, null, null, '2016-10-19 10:22:20', '0', null, '21.png', null, null, null, null, null, null, null, null);
 INSERT INTO `user` VALUES ('49', 'huijiaruanjian', '李毅', '61821777D6C4DCCFE12B17537B4CD67A', null, null, '', null, null, null, null, null, null, null, null, null, null, null, null, null, '2016-10-19 13:54:05', '0', null, '1.jpg', null, null, null, null, null, null, null, null);
 INSERT INTO `user` VALUES ('50', 'pangyong11', '庞勇', '123456', null, '2016-10-04', '', null, null, null, null, '372321199999999999', null, '山东省滨州市', null, '山东汇佳', null, null, '11111', '健康', '1476969405000', null, '2016-09-26', null, null, null, '8088098', '11111', '15762182222', '11111', '11111', '11111');

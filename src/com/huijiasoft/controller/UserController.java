@@ -16,6 +16,7 @@ import com.huijiasoft.model.Zzmm;
 import com.huijiasoft.utils.ControllerUtils;
 import com.huijiasoft.utils.DBUtils;
 import com.huijiasoft.utils.DateUtils;
+import com.huijiasoft.utils.MD5;
 import com.huijiasoft.utils.RenderDocxTemplate;
 import com.jfinal.aop.Before;
 import com.jfinal.core.ActionKey;
@@ -285,25 +286,54 @@ public void media_video_upload(){
 	//TODO
 	public void updatepwd(){
 		
-		
+		User user = (User) ControllerUtils.getMFromSbyIdinC(this, "cuser");
+		//验证码
 		boolean yzm = this.validateCaptcha("yzm");
 		if(!yzm){
-			User user = (User) ControllerUtils.getMFromSbyIdinC(this, "cuser");
+			
 			setAttr("user", user);
 			setAttr("yzmErrMsg", "请正确输入验证码！");
 			render("change_pwd.html");
 			return;
 		}
 		
+		String reg_time = user.getRegDate();
+		
 		//验证原密码
-		String old_pwd = getPara("oldpwd");
+		String old_pwd = MD5.GetMD5Code(getPara("oldpwd")+reg_time);
+		if(!user.getPwd().equals(old_pwd)){
+			setAttr("user", user);
+			setAttr("oldpwdErrMsg", "请正确输入原密码！");
+			render("change_pwd.html");
+			return;
+		}
 		
-		
-		
+		//比对确认密码		
 		String new_pwd = getPara("newpwd");
 		String confirm_new_pwd = getPara("confirmnewpwd");
 		
-		//比对确认密码
+		
+		if(!new_pwd.equals(confirm_new_pwd)){
+			setAttr("user", user);
+			setAttr("confirmpwdErrMsg", "请正确输入新密码！");
+			render("change_pwd.html");
+			return;
+		}
+		
+		//新旧密码是否相同
+		new_pwd = MD5.GetMD5Code(new_pwd+reg_time);
+		
+		if(new_pwd.equals(old_pwd)){
+			setAttr("user", user);
+			setAttr("newpwdErrMsg", "旧密码与新密码相同！");
+			render("change_pwd.html");
+			return;
+		}
+		
+		//修改密码
+		user.setPwd(new_pwd);
+		user.update();
+		renderText("密码更改成功！");
 		
 	}
 	
