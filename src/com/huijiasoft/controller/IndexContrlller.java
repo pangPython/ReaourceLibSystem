@@ -67,13 +67,17 @@ public class IndexContrlller extends Controller {
 
 			} else {
 				// 密码不正确
-				redirect("loginpage");
-
+				setAttr("UnameErrMsg", "用户名或密码不正确！");
+				setAttr("system", IndexService.getSysConfig());
+				render("login.html");
+				//renderText(pwd+"   "+user.getPwd());
 			}
 
 		} else {
 			// 用户名不存在
-			redirect("loginpage");
+			setAttr("UnameErrMsg", "用户名不存在！");
+			setAttr("system", IndexService.getSysConfig());
+			render("login.html");
 		}
 
 	}

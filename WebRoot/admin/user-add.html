@@ -27,7 +27,7 @@
 <div class="page-container">
 	<p class="f-20 text-success">>正在添加人才信息</p>
 
-	<form action="adduser" method="post">
+	<form action="/admin/adduser" method="post" enctype="multipart/form-data">
 	<table class="table table-border table-bordered table-bg mt-20">
 		<thead>
 			<tr>
@@ -42,7 +42,7 @@
 				</td>
 				<td>密码:</td>
 				<td>
-				<input type="text" class="input-text" id="user.pwd" name="user.pwd">
+				<input type="password" class="input-text" value="" id="password" name="password">
 				</td>
 				<td>一寸照</td>
 				<td>
