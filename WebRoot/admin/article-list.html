@@ -55,9 +55,9 @@
 				<a style="cursor:pointer" class="text-primary" href="checkUser?id=${x.id!}" title="查看">${x.uname?if_exists}</a></td>
 				<td>
 				
-				<#if x.usersex == 1>
+				<#if x.usersex == "1">
 				男
-				<#elseif x.usersex == 0>
+				<#elseif x.usersex == "0">
 				女
 				</#if>
 				

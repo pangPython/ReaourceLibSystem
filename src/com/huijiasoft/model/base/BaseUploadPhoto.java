@@ -49,4 +49,12 @@ public abstract class BaseUploadPhoto<M extends BaseUploadPhoto<M>> extends Mode
 		return get("remarks");
 	}
 
+	public void setSize(java.lang.Integer size) {
+		set("size", size);
+	}
+
+	public java.lang.Integer getSize() {
+		return get("size");
+	}
+
 }
