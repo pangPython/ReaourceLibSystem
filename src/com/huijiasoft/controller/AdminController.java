@@ -54,6 +54,16 @@ public class AdminController extends Controller {
 	@Before(AdminValidator.class)
 	public void login(){
 		
+		//验证码验证
+				boolean result = validateCaptcha("verifycode");
+				if(!result){
+					setAttr("codeMsg","验证码错误！");
+					setAttr("system", IndexService.getSysConfig());
+					render("login.html");
+					return;
+				}
+		
+		
 		String admin_name = getPara("admin.name");
 		String sql = "select * from admin where name = ? limit 1";
 		
