@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50547
 File Encoding         : 65001
 
-Date: 2016-10-24 01:02:43
+Date: 2016-10-24 09:28:39
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -153,7 +153,7 @@ CREATE TABLE `log` (
   `uname` varchar(255) NOT NULL,
   `date` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=85 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=86 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of log
@@ -242,6 +242,7 @@ INSERT INTO `log` VALUES ('81', '0:0:0:0:0:0:0:1', 'admin', '2016-10-23 22:17:54
 INSERT INTO `log` VALUES ('82', '0:0:0:0:0:0:0:1', 'admin', '2016-10-23 22:32:18');
 INSERT INTO `log` VALUES ('83', '0:0:0:0:0:0:0:1', 'admin', '2016-10-23 23:32:01');
 INSERT INTO `log` VALUES ('84', '0:0:0:0:0:0:0:1', 'admin', '2016-10-24 00:13:27');
+INSERT INTO `log` VALUES ('85', '0:0:0:0:0:0:0:1', 'admin', '2016-10-24 08:48:19');
 
 -- ----------------------------
 -- Table structure for `mz`
@@ -390,7 +391,7 @@ CREATE TABLE `upload_photo` (
   `remarks` varchar(255) DEFAULT NULL,
   `size` int(255) NOT NULL DEFAULT '100',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of upload_photo
@@ -400,6 +401,7 @@ INSERT INTO `upload_photo` VALUES ('1', '47', '22222', '22222', '22222', '100');
 INSERT INTO `upload_photo` VALUES ('3', '47', '201302011702405145293.jpg', '2016-10-19 12:26:15', '庞勇', '100');
 INSERT INTO `upload_photo` VALUES ('4', '47', '649830154.jpg', '2016-10-19 12:28:00', '庞勇', '100');
 INSERT INTO `upload_photo` VALUES ('5', '47', '60-130220143607.jpg', '2016-10-24 00:33:34', '庞勇', '100');
+INSERT INTO `upload_photo` VALUES ('6', '47', '60-1302201436072.jpg', '2016-10-24 09:11:13', '庞勇', '100');
 
 -- ----------------------------
 -- Table structure for `upload_video`
@@ -457,7 +459,7 @@ CREATE TABLE `user` (
   `business_achievement` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`uname`) USING HASH
-) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
@@ -480,6 +482,7 @@ INSERT INTO `user` VALUES ('51', '汇佳软件123', null, 'D3934F91D32DB7D015251
 INSERT INTO `user` VALUES ('56', 'test111', null, '6BE59AE979C90B444984AD796D30EEDF', null, null, '1', null, null, null, null, null, null, null, '0', null, null, null, null, '2016-10-23 21:59:55', null, null, 'test7.jpg', null, '0000000001', null, null, null, null, null, null);
 INSERT INTO `user` VALUES ('57', 'test121', null, '12B406E2D13873E684EAD9E7B4832DC0', null, null, '1', null, null, null, null, null, null, null, null, null, null, null, null, '2016-10-23 22:08:24', null, null, 'test8.jpg', null, '0000000001', null, null, null, null, null, null);
 INSERT INTO `user` VALUES ('58', 'test122', null, 'AE938DA2B3434577647CB4985A7FBCAA', null, null, '1', null, null, null, null, null, null, null, '0', null, null, null, null, '2016-10-23 22:15:06', null, null, 'test9.jpg', null, '0000000001', null, null, null, null, null, null);
+INSERT INTO `user` VALUES ('60', 'test222', '庞勇', '6B5ED554EBFF2FC7A0BAB042F4894D6C', null, '2016-10-20', '0', null, null, null, null, '372321199999999999', null, '山东省滨州市', null, '山东汇佳', null, '1111111111111', '健康', '2016-10-24 09:27:38', '1', '2016-10-04', 'test11.jpg', null, null, '8088098', '1111111111111', '15762182222', '1111111111111', '1111111111111', '1111111111111');
 
 -- ----------------------------
 -- Table structure for `zzmm`

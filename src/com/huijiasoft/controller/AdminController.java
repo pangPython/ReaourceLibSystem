@@ -1,6 +1,5 @@
 package com.huijiasoft.controller;
 
-import java.io.Console;
 import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
@@ -22,7 +21,6 @@ import com.huijiasoft.utils.DBUtils;
 import com.huijiasoft.utils.DateUtils;
 import com.huijiasoft.utils.JavaMysqlUtil;
 import com.huijiasoft.utils.MD5;
-import com.huijiasoft.utils.PassWordUtils;
 import com.huijiasoft.utils.RenderDocxTemplate;
 import com.huijiasoft.utils.ReportExcel;
 import com.huijiasoft.validate.AdminValidator;
@@ -165,16 +163,16 @@ public class AdminController extends Controller {
 	}
 	//管理员添加用户
 	public void adduser(){
+		String user_photo_name = getFile().getFileName();
 		User user = getModel(User.class);
 		String reg_time = DateUtils.getNowTime();
 		String pwd = this.getPara("password");
-		//renderText(getPara("password"));
-		//pwd = PassWordUtils.MD5withSalt(pwd,reg_time);
 		pwd = MD5.GetMD5Code(pwd+reg_time);
 		user.setRegDate(reg_time);
 		user.setPwd(pwd);
-		user.setPhotoPath(getFile().getFileName());
+		user.setPhotoPath(user_photo_name);
 		user.setUname(getPara("user.uname"));
+		user.setStatus(1);
 		user.save();
 		renderText("添加成功！");
 	}

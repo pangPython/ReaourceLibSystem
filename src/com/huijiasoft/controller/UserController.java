@@ -184,15 +184,19 @@ public class UserController extends Controller {
 		User user = getSessionAttr(getCookie("cuser"));
 		int user_id = user.getId();
 		
-		System.out.println(photoList.size());
-		//遍历文件list
-		
+		for(UploadFile fileItem:photoList){
+			
 			UploadPhoto photo = getModel(UploadPhoto.class);
 			photo.setUserId(user_id);
-			photo.setPath(photoList.get(i).getFileName());
+			photo.setPath(fileItem.getFileName());
 			photo.setCreateTime(DateUtils.getNowTime());
 			photo.setRemarks(user.getTrueName());
 			photo.save();
+		}
+		
+		System.out.println(photoList.size()+"文件大小");
+		//遍历文件list
+		
 		
 		renderText("上传成功！");
 	
