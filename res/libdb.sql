@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50547
 File Encoding         : 65001
 
-Date: 2016-10-24 09:28:39
+Date: 2016-10-24 11:30:57
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -391,7 +391,7 @@ CREATE TABLE `upload_photo` (
   `remarks` varchar(255) DEFAULT NULL,
   `size` int(255) NOT NULL DEFAULT '100',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of upload_photo
@@ -402,6 +402,11 @@ INSERT INTO `upload_photo` VALUES ('3', '47', '201302011702405145293.jpg', '2016
 INSERT INTO `upload_photo` VALUES ('4', '47', '649830154.jpg', '2016-10-19 12:28:00', '庞勇', '100');
 INSERT INTO `upload_photo` VALUES ('5', '47', '60-130220143607.jpg', '2016-10-24 00:33:34', '庞勇', '100');
 INSERT INTO `upload_photo` VALUES ('6', '47', '60-1302201436072.jpg', '2016-10-24 09:11:13', '庞勇', '100');
+INSERT INTO `upload_photo` VALUES ('7', '47', 'file', '2016-10-24 10:53:30', '庞勇', '100');
+INSERT INTO `upload_photo` VALUES ('8', '47', '60-130220143607.jpg', '2016-10-24 11:08:19', '庞勇', '100');
+INSERT INTO `upload_photo` VALUES ('9', '47', '60-130220143607.jpg', '2016-10-24 11:09:05', '庞勇', '100');
+INSERT INTO `upload_photo` VALUES ('10', '47', 'jbg.jpg', '2016-10-24 11:12:13', '庞勇', '100');
+INSERT INTO `upload_photo` VALUES ('11', '47', 'ec8d5256bc06f18449980ed7cca921f6.png', '2016-10-24 11:30:14', '庞勇', '100');
 
 -- ----------------------------
 -- Table structure for `upload_video`

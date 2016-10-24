@@ -1,6 +1,8 @@
 package com.huijiasoft.controller;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.Enumeration;
 import java.util.List;
 
 import com.huijiasoft.interceptor.UserAuthInterceptor;
@@ -21,7 +23,9 @@ import com.huijiasoft.utils.RenderDocxTemplate;
 import com.jfinal.aop.Before;
 import com.jfinal.core.ActionKey;
 import com.jfinal.core.Controller;
+import com.jfinal.kit.PathKit;
 import com.jfinal.upload.UploadFile;
+import com.oreilly.servlet.MultipartRequest;
 
 /**
  * @author pangPython
@@ -175,9 +179,33 @@ public class UserController extends Controller {
 	
 	//多图片上传
 	@ActionKey("/user/upload_pic")
-	public void upload_pic(){
+	public void upload_pic() throws IOException{
 		
-		//只写入数据库一条
+		MultipartRequest multipartrequest = new MultipartRequest(getRequest(), PathKit.getWebRootPath()+"\\upload\\photo\\",MAXSize,"UTF-8");
+		
+		Enumeration<String> file = multipartrequest.getFileNames();
+		
+		
+		
+		User user = getSessionAttr(getCookie("cuser"));
+		int user_id = user.getId();
+		String filedName =  null;
+		UploadPhoto photo = getModel(UploadPhoto.class);
+		
+		while(file.hasMoreElements()){
+			
+			filedName = file.nextElement();
+			File uploadefile = multipartrequest.getFile(filedName);
+			
+			photo.setUserId(user_id);
+			photo.setPath(uploadefile.getName());
+			photo.setCreateTime(DateUtils.getNowTime());
+			photo.setRemarks(user.getTrueName());
+			photo.save();
+		}
+		
+		
+/*		//只写入数据库一条
 		// 批量上传文件
 		List<UploadFile> photoList = getFiles("./", MAXSize, "utf-8");
 		// 写入数据库
@@ -194,7 +222,7 @@ public class UserController extends Controller {
 			photo.save();
 		}
 		
-		System.out.println(photoList.size()+"文件大小");
+		System.out.println(photoList.size()+"文件大小");*/
 		//遍历文件list
 		
 		
