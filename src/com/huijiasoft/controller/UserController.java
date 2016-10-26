@@ -172,7 +172,14 @@ public class UserController extends Controller {
 	
 	//显示用户审核是否通过的管理员消息
 	public void msg(){
-		render("msg.html");
+		User user = getSessionAttr(getCookie("cuser"));
+		if(user.getStatus()==1){
+			render("msg-success.html");
+			return;
+		}else{
+			render("msg-failed.html");
+			return;
+		}
 	}
 	
 	

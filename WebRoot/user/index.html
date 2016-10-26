@@ -46,7 +46,7 @@
 					<#if user.status == 1>
 					<span class="label label-success radius" onclick="msg('审核消息','/user/msg',500,200);">审核通过</span>
 					<#elseif user.status == 0>
-					<span class="label label-nopass radius">审核未通过</span>
+					<span class="label label-nopass radius" onclick="msg('审核消息','/user/msg',500,400);">审核未通过</span>
 					</#if>
 					</a> </li>
 					<li>欢迎,</li>
