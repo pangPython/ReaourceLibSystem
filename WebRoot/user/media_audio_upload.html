@@ -37,7 +37,7 @@
 	<div class="container">
 
 		<h2>个人音频资料上传</h2>
-		<form action="upload" enctype="multipart/form-data" method="POST">
+		<form action="/user/upload_audio" enctype="multipart/form-data" method="POST">
 			<input id="audio" name="file" class="file" type="file" multiple
 				data-min-file-count="1" data-max-file-count="1"> <br>
 			<button type="submit" class="btn btn-primary">上传</button>
@@ -51,7 +51,7 @@
 <script>
 $('#audio').fileinput({
     language: 'zh',
-    allowedFileExtensions : ['jpg', 'png','gif'],
+    allowedFileExtensions : ['mp3', 'wav'],
 });
 
 </script>
