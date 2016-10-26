@@ -145,14 +145,6 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("specialty");
 	}
 
-	public void setZywork(java.lang.String zywork) {
-		set("zywork", zywork);
-	}
-
-	public java.lang.String getZywork() {
-		return get("zywork");
-	}
-
 	public void setYsjj(java.lang.String ysjj) {
 		set("ysjj", ysjj);
 	}

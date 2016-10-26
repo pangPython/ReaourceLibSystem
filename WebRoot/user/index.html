@@ -44,7 +44,7 @@
 				<ul class="cl">
 					<li id="Hui-msg"> <a _href="/admin/message" href="javascript:void(0)" title="系统消息">
 					<#if user.status == 1>
-					<span class="label label-success radius">审核通过</span>
+					<span class="label label-success radius" onclick="msg('审核消息','/user/msg',500,200);">审核通过</span>
 					<#elseif user.status == 0>
 					<span class="label label-nopass radius">审核未通过</span>
 					</#if>
@@ -133,6 +133,10 @@
 <script type="text/javascript" src="admin/static/h-ui/js/H-ui.js"></script> 
 <script type="text/javascript" src="admin/static/h-ui.admin/js/H-ui.admin.js"></script> 
 <script type="text/javascript">
+/*审核消息*/
+ function msg(title,url,w,h){
+	layer_show(title,url,w,h);
+}
 /*资讯-添加*/
 function article_add(title,url){
 	var index = layer.open({

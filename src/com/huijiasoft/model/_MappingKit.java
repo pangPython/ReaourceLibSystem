@@ -23,6 +23,7 @@ public class _MappingKit {
 		arp.addMapping("degree", "degree_id", Degree.class);
 		arp.addMapping("edu", "edu_id", Edu.class);
 		arp.addMapping("log", "id", Log.class);
+		arp.addMapping("msg", "id", Msg.class);
 		arp.addMapping("mz", "mz_id", Mz.class);
 		arp.addMapping("system", "id", System.class);
 		arp.addMapping("upload_audio", "id", UploadAudio.class);

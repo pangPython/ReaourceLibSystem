@@ -170,6 +170,12 @@ public class UserController extends Controller {
 	
 	}
 	
+	//显示用户审核是否通过的管理员消息
+	public void msg(){
+		render("msg.html");
+	}
+	
+	
 	public void media_audio(){
 		
 	}
