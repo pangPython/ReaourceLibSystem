@@ -163,6 +163,11 @@ public class AdminController extends Controller {
 		render("article-list.html");
 	}
 	
+	//Ìõ¼þ²éÑ¯
+	public void searchuser(){
+		render("search-user.html");
+	}
+	
 	public void useraddpage(){
 		setAttr("areaList", Area.dao.getAllArea());
 		setAttr("nationList", Mz.dao.getAllMz());
