@@ -113,7 +113,8 @@ public class UserController extends Controller {
 		renderText("上传成功！");
 
 	}
-
+	
+	//显示用户上传的图片文件
 	public void media_pic() {
 		User user = getSessionAttr(getCookie("cuser"));
 		// int user_id = user.getId();
@@ -175,8 +176,16 @@ public class UserController extends Controller {
 		}
 	}
 
+	//显示用户上传的音频文件
 	public void media_audio() {
+		User user = getSessionAttr(getCookie("cuser"));
+		// int user_id = user.getId();
+		String path = PathKit.getWebRootPath() + "\\upload\\audio\\" + user.getMediaPath() + "\\";
+		List<String> list = PathUtils.getAllFilePath(path);
 
+		setAttr("audioList", list);
+		setAttr("user", user);
+		render("media_audio.html");
 	}
 
 	public void media_audio_upload() {
@@ -202,6 +211,14 @@ public class UserController extends Controller {
 	}
 
 	public void media_video() {
+		User user = getSessionAttr(getCookie("cuser"));
+		// int user_id = user.getId();
+		String path = PathKit.getWebRootPath() + "\\upload\\video\\" + user.getMediaPath() + "\\";
+		List<String> list = PathUtils.getAllFilePath(path);
+
+		setAttr("videoList", list);
+		setAttr("user", user);
+		render("media_video.html");
 
 	}
 
