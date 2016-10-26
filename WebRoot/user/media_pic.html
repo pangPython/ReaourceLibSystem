@@ -1,113 +1,57 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title></title>
-<link rel=stylesheet type=text/css href="/static/css/lrtk.css">
-<script type=text/javascript src="/static/js/jquery.min.js"></script>
-<script type=text/javascript src="/static/js/slide.js"></script>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="/admin/lib/html5.js"></script>
+<script type="text/javascript" src="/admin/lib/respond.min.js"></script>
+<script type="text/javascript" src="/admin/lib/PIE_IE678.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="/admin/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="/admin/static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="/admin/lib/Hui-iconfont/1.0.7/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="/admin/lib/icheck/icheck.css" />
+<link rel="stylesheet" type="text/css" href="/admin/static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="/admin/static/h-ui.admin/css/style.css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<link href="/admin/lib/lightbox2/2.8.1/css/lightbox.css" rel="stylesheet" type="text/css" >
+<title>图片展示</title>
 </head>
-
-<body style="text-align: center">
-<#list picList as x>
-${x.path}
-</#list>
-	<div style="height: 560px; padding-top: 20px" class="wrap picshow">
-		<!--大图轮换区-->
-		<div id=picarea>
-			<div
-				style="margin: 0px auto; width: 774px; height: 436px; overflow: hidden">
-				<div
-					style="margin: 0px auto; width: 774px; height: 436px; overflow: hidden"
-					id=bigpicarea>
-					<p class=bigbtnPrev>
-						<span id=big_play_prev></span>
-					</p>
-					<div id=image_xixi-01 class=image>
-						<a   target=_blank><img alt=""
-							src="/static/images/zcr.jpg" width=772 height=434></a>
-						<div class=word>
-							<h3>主持人</h3>
-						</div>
-					</div>
-					<div id=image_xixi-02 class=image>
-						<a   target=_blank><img alt=""
-							src="/static/images/hc.jpg" width=772 height=434></a>
-						<div class=word>
-							<h3>合唱</h3>
-						</div>
-					</div>
-					<div id=image_xixi-03 class=image>
-						<a   target=_blank><img alt=""
-							src="/static/images/jbg.jpg" width=772 height=434></a>
-						<div class=word>
-							<h3>基本功</h3>
-						</div>
-					</div>
-					<div id=image_xixi-04 class=image>
-						<a   target=_blank><img alt=""
-							src="/static/images/zcr2.jpg" width=772 height=434></a>
-						<div class=word>
-							<h3>主持人</h3>
-						</div>
-					</div>
-					<div id=image_xixi-05 class=image>
-						<a   target=_blank><img alt=""
-							src="/static/images/xs.jpg" width=772 height=434></a>
-						<div class=word>
-							<h3>相声</h3>
-						</div>
-					</div>
-					<div id=image_xixi-06 class=image>
-						<a   target=_blank><img alt=""
-							src="/static/images/wd.jpg" width=772 height=434></a>
-						<div class=word>
-							<h3>舞蹈</h3>
-						</div>
-					</div>
-					<div id=image_xixi-07 class=image>
-						<a   target=_blank><img alt=""
-							src="/static/images/gc.jpg" width=772 height=434></a>
-						<div class=word>
-							<h3>歌唱</h3>
-						</div>
-					</div>
-					<P class=bigbtnNext>
-						<span id=big_play_next></span>
-					</P>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 图片管理 <span class="c-gray en">&gt;</span> 图片展示 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="page-container">
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"> <a href="javascript:;" onclick="edit()" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe6df;</i> 编辑</a> <a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> </span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
+	<div class="portfolio-content">
+		<ul class="cl portfolio-area">
+		<#list picList as x>
+			<li class="item">
+				<div class="portfoliobox">
+					<input class="checkbox" name="" type="checkbox" value="">
+					<div class="picbox"><a href="/upload/photo/${x.path}" data-lightbox="gallery" data-title="客厅1"><img src="/upload/photo/${x.path}"></a></div>
+					<div class="textbox">客厅 </div>
 				</div>
-			</div>
-			<div id=smallpicarea>
-				<div id=thumbs>
-					<ui>
-						<li class="first btnPrev"><img id=play_prev
-							src="/static/images/left.png"></li>
-						<li class=slideshowItem><a id=thumb_xixi-01 href="#"><img
-								src="/static/images/zcr.jpg" width=90 height=60></a></li>
-						<li class=slideshowItem><a id=thumb_xixi-02 href="#"><img
-								src="/static/images/hc.jpg" width=90 height=60></a></li>
-						<li class=slideshowItem><a id=thumb_xixi-03 href="#"><img
-								src="/static/images/jbg.jpg" width=90 height=60></a></li>
-						<li class=slideshowItem><a id=thumb_xixi-04 href="#"><img
-								src="/static/images/zcr2.jpg" width=90 height=60></a></li>
-						<li class=slideshowItem><a id=thumb_xixi-05 href="#"><img
-								src="/static/images/xs.jpg" width=90 height=60></a></li>
-						<li class=slideshowItem><a id=thumb_xixi-06 href="#"><img
-								src="/static/images/wd.jpg" width=90 height=60></a></li>
-						<li class="last_img slideshowItem"><a id=thumb_xixi-07
-							href="#"><img src="/static/images/gc.jpg" width=90
-								height=60></a></li>
-						<li class="last btnNext"><img id=play_next
-							src="/static/images/right.png"></li>
-					</ui>
-				</div>
-			</div>
-		</div>
-		<script>
-var target = ["xixi-01","xixi-02","xixi-03","xixi-04","xixi-05","xixi-06","xixi-07"];
-</script>
+			</li>
+		</#list>
+			
+		</ul>
 	</div>
-
-
+</div>
+<script type="text/javascript" src="/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="/admin/lib/layer/2.1/layer.js"></script> 
+<script type="text/javascript" src="/admin/lib/lightbox2/2.8.1/js/lightbox-plus-jquery.min.js"></script> 
+<script type="text/javascript" src="/admin/static/h-ui/js/H-ui.js"></script> 
+<script type="text/javascript" src="/admin/static/h-ui.admin/js/H-ui.admin.js"></script> 
+<script type="text/javascript">
+$(function(){
+	$.Huihover(".portfolio-area li");
+});
+</script>
 </body>
 </html>

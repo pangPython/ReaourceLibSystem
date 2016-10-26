@@ -199,22 +199,7 @@ public void media_audio_upload(){
 public void media_video_upload(){
 		
 	}
-	//上传一寸半身照
-	public void uploadphoto(){
-		UploadFile file = getFile();
-		
-		if(file == null){
-			render("sbmtsucc.html");
-		}
-		//保存照片路径
-		User user = getSessionAttr(getCookie("cuser"));
-		user.setPhotoPath(file.getFileName());
-		user.update();
-		
-		
-		redirect("showmedia");
-		
-	}
+
 	
 
 	
