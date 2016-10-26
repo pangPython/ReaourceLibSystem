@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50547
 File Encoding         : 65001
 
-Date: 2016-10-24 11:30:57
+Date: 2016-10-26 08:38:07
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -153,7 +153,7 @@ CREATE TABLE `log` (
   `uname` varchar(255) NOT NULL,
   `date` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=86 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=88 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of log
@@ -243,6 +243,8 @@ INSERT INTO `log` VALUES ('82', '0:0:0:0:0:0:0:1', 'admin', '2016-10-23 22:32:18
 INSERT INTO `log` VALUES ('83', '0:0:0:0:0:0:0:1', 'admin', '2016-10-23 23:32:01');
 INSERT INTO `log` VALUES ('84', '0:0:0:0:0:0:0:1', 'admin', '2016-10-24 00:13:27');
 INSERT INTO `log` VALUES ('85', '0:0:0:0:0:0:0:1', 'admin', '2016-10-24 08:48:19');
+INSERT INTO `log` VALUES ('86', '127.0.0.1', 'admin', '2016-10-24 14:17:48');
+INSERT INTO `log` VALUES ('87', '0:0:0:0:0:0:0:1', 'admin', '2016-10-24 16:30:14');
 
 -- ----------------------------
 -- Table structure for `mz`

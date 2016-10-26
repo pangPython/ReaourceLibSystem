@@ -3,11 +3,9 @@ package com.huijiasoft.controller;
 import java.io.File;
 import java.io.IOException;
 import java.util.Enumeration;
-import java.util.List;
 
 import com.huijiasoft.interceptor.UserAuthInterceptor;
 import com.huijiasoft.model.Area;
-import com.huijiasoft.model.DeclareType;
 import com.huijiasoft.model.Degree;
 import com.huijiasoft.model.Edu;
 import com.huijiasoft.model.Mz;
@@ -91,40 +89,10 @@ public class UserController extends Controller {
 	//修改个人信息
 	public void updateinfo(){
 		User user = (User) getSession().getAttribute(getCookie("cuser"));
-		getModel(User.class).set("id", user.getId()).update();
+		getModel(User.class).set("id", user.getId()).set("status",0).update();
 		user = User.usermodel.findById(user.getId());
 		setSessionAttr(getCookie("cuser"),user);
 		renderText("修改成功！");
-	}
-	
-	
-	@ActionKey("/adduserinfo")
-	public void adduserinfo(){
-		User user = (User) getSession().getAttribute(getCookie("cuser"));
-		getModel(User.class).set("id", user.getId()).set("status", 0).update();
-		setAttr("user", user);
-		render("/sbmtsucc.html");
-	}
-	
-	@ActionKey("/adduserinfopage")
-	public void adduserinfopage(){
-		User user = (User) getSession().getAttribute(getCookie("cuser"));
-		
-		setAttr("user", user);
-		List<Area> area = Area.dao.getAllArea();
-		List<Mz> minzu = Mz.dao.getAllMz();
-		List<Zzmm> zzmmList = Zzmm.dao.getAllZzmm();
-		List<Edu> eduList = Edu.dao.getAllEdu();
-		List<Degree> degreeList = Degree.dao.getAllDegree();
-		List<DeclareType> decList = DeclareType.dao.getAllDecType();
-		
-		setAttr("area", area);
-		setAttr("minzuList",minzu);
-		setAttr("zzmmList", zzmmList);
-		setAttr("eduList", eduList);
-		setAttr("degreeList",degreeList);
-		setAttr("decList", decList);
-		render("/adduserinfo.html");
 	}
 	
 	
@@ -134,29 +102,7 @@ public class UserController extends Controller {
 	
 	
 	// 用户上传媒体文件
-	public void upload() {
-		/*// 批量上传文件
-		List<UploadFile> upFiles = getFiles("./", MAXSize, "utf-8");
-		// 写入数据库
-		User user = getSessionAttr(getCookie("cuser"));
-		int user_id = user.getId();
-		
-		
-		//遍历文件list
-		Uploads uploads = getModel(Uploads.class);
-		for (int i = 0; i < upFiles.size(); i++) {
-			uploads.setUserId(user_id);
-			uploads.setPath(upFiles.get(i).getFileName());
-			uploads.setType("1");
-			uploads.setCreateTime(DateUtils.getNowTime());
-			uploads.save();
-			
-		}
-	
-		// 显示图片
-		setAttr("user", user);
-		redirect("showmedia?id="+user.getId());*/
-	}
+	public void upload() {}
 	
 	//上传一寸照片
 	public void upload_person_photo(){
@@ -180,18 +126,12 @@ public class UserController extends Controller {
 	//多图片上传
 	@ActionKey("/user/upload_pic")
 	public void upload_pic() throws IOException{
-		
 		MultipartRequest multipartrequest = new MultipartRequest(getRequest(), PathKit.getWebRootPath()+"\\upload\\photo\\",MAXSize,"UTF-8");
-		
 		Enumeration<String> file = multipartrequest.getFileNames();
-		
-		
-		
 		User user = getSessionAttr(getCookie("cuser"));
 		int user_id = user.getId();
 		String filedName =  null;
 		UploadPhoto photo = getModel(UploadPhoto.class);
-		
 		while(file.hasMoreElements()){
 			
 			filedName = file.nextElement();
@@ -263,15 +203,7 @@ public void media_video_upload(){
 		
 	}
 	
-	
-	//个人媒体资料展示页面
-	public void showmedia(){
-		User user = getSessionAttr(getCookie("cuser"));
-		setAttr("user", user);
-		setAttr("mediaList", Uploads.dao.getAllMediaById(getPara("id")));
-		
-		render("/showmedia.html");
-	}
+
 	
 	
 	public void application_std(){}
@@ -297,15 +229,7 @@ public void media_video_upload(){
 	
 	
 	
-	public void baomingbiao(){
-		int uid = getParaToInt("id");
-		User user = User.usermodel.findById_Relation(uid);
-		String mzname = user.getStr("mzname");
-		setAttr("user", user);
-		setAttr("mz", mzname);
-		setAttr("zzmm", user.getStr("zzmmname"));
-		render("/baomingbiao.html");
-	}
+
 	
 	//显示修改密码页面
 	public void change_pwd(){
