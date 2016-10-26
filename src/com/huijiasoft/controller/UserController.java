@@ -3,6 +3,8 @@ package com.huijiasoft.controller;
 import java.io.File;
 import java.io.IOException;
 import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.List;
 
 import com.huijiasoft.interceptor.UserAuthInterceptor;
 import com.huijiasoft.model.Area;
@@ -17,10 +19,12 @@ import com.huijiasoft.utils.ControllerUtils;
 import com.huijiasoft.utils.DBUtils;
 import com.huijiasoft.utils.DateUtils;
 import com.huijiasoft.utils.MD5;
+import com.huijiasoft.utils.PathUtils;
 import com.huijiasoft.utils.RenderDocxTemplate;
 import com.jfinal.aop.Before;
 import com.jfinal.core.ActionKey;
 import com.jfinal.core.Controller;
+import com.jfinal.ext.kit.SessionIdKit;
 import com.jfinal.kit.PathKit;
 import com.jfinal.upload.UploadFile;
 import com.oreilly.servlet.MultipartRequest;
@@ -101,6 +105,7 @@ public class UserController extends Controller {
 	}
 	
 	
+	
 	// 用户上传媒体文件
 	public void upload() {}
 	
@@ -115,9 +120,32 @@ public class UserController extends Controller {
 	
 	public void media_pic(){
 		User user = getSessionAttr(getCookie("cuser"));
-		int user_id = user.getId();
-		setAttr("picList", UploadPhoto.dao.getPhotoListByUserId(user_id));
+		//int user_id = user.getId();
+		String path = PathKit.getWebRootPath()+"\\upload\\photo\\"+user.getMediaPath()+"\\";
+		List<String> list = PathUtils.getAllFilePath(path);
+		
+		setAttr("picList", list);
+		setAttr("user", user);
 		render("media_pic.html");
+	}
+	//测试
+	public void ttt(){
+		User user = getSessionAttr(getCookie("cuser"));
+		String path = PathKit.getWebRootPath()+"\\upload\\photo\\"+user.getMediaPath()+"\\";
+		List<String> list = PathUtils.getAllFilePath(path);
+		String str = "";
+		
+		for (int i = 0; i < list.size(); i++) {
+			str += list.get(i);
+		}
+//		Iterator<String> it = list.iterator();
+//		
+//		String str = "";
+//		while(it.hasNext()){
+//			System.out.println(it.next());
+//		}
+		
+		renderText(str);
 	}
 	
 	//显示页面
@@ -126,45 +154,18 @@ public class UserController extends Controller {
 	//多图片上传
 	@ActionKey("/user/upload_pic")
 	public void upload_pic() throws IOException{
-		MultipartRequest multipartrequest = new MultipartRequest(getRequest(), PathKit.getWebRootPath()+"\\upload\\photo\\",MAXSize,"UTF-8");
-		Enumeration<String> file = multipartrequest.getFileNames();
 		User user = getSessionAttr(getCookie("cuser"));
-		int user_id = user.getId();
-		String filedName =  null;
-		UploadPhoto photo = getModel(UploadPhoto.class);
-		while(file.hasMoreElements()){
-			
-			filedName = file.nextElement();
-			File uploadefile = multipartrequest.getFile(filedName);
-			
-			photo.setUserId(user_id);
-			photo.setPath(uploadefile.getName());
-			photo.setCreateTime(DateUtils.getNowTime());
-			photo.setRemarks(user.getTrueName());
-			photo.save();
+
+		String picture_upload_path = user.getMediaPath();
+		
+		//处理上传路径
+		if(!PathUtils.createNotExist(PathKit.getWebRootPath()+"\\upload\\photo\\"+picture_upload_path)){
+			renderText("上传路径出错!");
+			return;
 		}
 		
-		
-/*		//只写入数据库一条
-		// 批量上传文件
-		List<UploadFile> photoList = getFiles("./", MAXSize, "utf-8");
-		// 写入数据库
-		User user = getSessionAttr(getCookie("cuser"));
-		int user_id = user.getId();
-		
-		for(UploadFile fileItem:photoList){
-			
-			UploadPhoto photo = getModel(UploadPhoto.class);
-			photo.setUserId(user_id);
-			photo.setPath(fileItem.getFileName());
-			photo.setCreateTime(DateUtils.getNowTime());
-			photo.setRemarks(user.getTrueName());
-			photo.save();
-		}
-		
-		System.out.println(photoList.size()+"文件大小");*/
-		//遍历文件list
-		
+		//处理多文件上传
+		getFiles("\\photo\\"+picture_upload_path, MAXSize, "utf-8");
 		
 		renderText("上传成功！");
 	

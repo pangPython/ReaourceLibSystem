@@ -49,6 +49,14 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("dec_id");
 	}
 
+	public void setMediaPath(java.lang.String mediaPath) {
+		set("media_path", mediaPath);
+	}
+
+	public java.lang.String getMediaPath() {
+		return get("media_path");
+	}
+
 	public void setJoinWork(java.lang.String joinWork) {
 		set("join_work", joinWork);
 	}

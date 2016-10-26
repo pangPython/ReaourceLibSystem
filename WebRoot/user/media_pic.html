@@ -34,8 +34,8 @@
 			<li class="item">
 				<div class="portfoliobox">
 					<input class="checkbox" name="" type="checkbox" value="">
-					<div class="picbox"><a href="/upload/photo/${x.path}" data-lightbox="gallery" data-title="客厅1"><img src="/upload/photo/${x.path}"></a></div>
-					<div class="textbox">客厅 </div>
+					<div class="picbox"><a href="/upload/photo/${user.media_path}/${x}" data-lightbox="gallery" data-title="${user.true_name?if_exists}"><img src="/upload/photo/${user.media_path?if_exists}/${x?if_exists}"></a></div>
+					<div class="textbox">${user.true_name?if_exists}</div>
 				</div>
 			</li>
 		</#list>

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50547
 File Encoding         : 65001
 
-Date: 2016-10-26 08:38:07
+Date: 2016-10-26 21:08:59
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -37,7 +37,7 @@ CREATE TABLE `admin` (
 -- ----------------------------
 -- Records of admin
 -- ----------------------------
-INSERT INTO `admin` VALUES ('1', 'admin', '4501195721962DCDADBFC33F8C0DD6E3', 'admin@qq.com', '0', '', '2016-10-12 15:13:12', '1', '0', '0');
+INSERT INTO `admin` VALUES ('1', 'whg_admin', '4501195721962DCDADBFC33F8C0DD6E3', 'admin@qq.com', '0', '', '2016-10-12 15:13:12', '1', '0', '0');
 INSERT INTO `admin` VALUES ('2', 'test', 'AA410543E9D4E202A4F7389FEDA883BE', '123973173@qq.com', '1', '15757575757', '2016-10-16 20:31:35', '1', '0', '1');
 INSERT INTO `admin` VALUES ('3', 'test2', 'F040A579C756C49FCF84588246A9D102', '123973173@qq.com', '0', '15757575757', '2016-10-16 20:33:10', '1', '0', '0');
 INSERT INTO `admin` VALUES ('4', 'test3', '7C7F0CAC0FC15349D7E4211935EB555C', '1111@qq.com', '0', '15761211111', '2016-10-17 08:12:26', '1', '0', '1');
@@ -153,7 +153,7 @@ CREATE TABLE `log` (
   `uname` varchar(255) NOT NULL,
   `date` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=88 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=90 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of log
@@ -245,6 +245,26 @@ INSERT INTO `log` VALUES ('84', '0:0:0:0:0:0:0:1', 'admin', '2016-10-24 00:13:27
 INSERT INTO `log` VALUES ('85', '0:0:0:0:0:0:0:1', 'admin', '2016-10-24 08:48:19');
 INSERT INTO `log` VALUES ('86', '127.0.0.1', 'admin', '2016-10-24 14:17:48');
 INSERT INTO `log` VALUES ('87', '0:0:0:0:0:0:0:1', 'admin', '2016-10-24 16:30:14');
+INSERT INTO `log` VALUES ('88', '0:0:0:0:0:0:0:1', 'whg_admin', '2016-10-26 09:57:47');
+INSERT INTO `log` VALUES ('89', '0:0:0:0:0:0:0:1', 'whg_admin', '2016-10-26 10:56:29');
+
+-- ----------------------------
+-- Table structure for `msg`
+-- ----------------------------
+DROP TABLE IF EXISTS `msg`;
+CREATE TABLE `msg` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `user_id` int(255) NOT NULL,
+  `content` varchar(255) NOT NULL,
+  `admin_id` int(255) NOT NULL,
+  `admin_name` varchar(255) NOT NULL,
+  `date` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of msg
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `mz`
@@ -438,6 +458,7 @@ CREATE TABLE `user` (
   `true_name` varchar(255) DEFAULT NULL,
   `pwd` varchar(255) DEFAULT NULL,
   `dec_id` int(11) unsigned zerofill DEFAULT NULL,
+  `media_path` varchar(255) DEFAULT NULL,
   `join_work` varchar(30) DEFAULT NULL,
   `usersex` enum('1','0') DEFAULT '1',
   `mz_id` int(10) unsigned zerofill DEFAULT NULL,
@@ -466,30 +487,31 @@ CREATE TABLE `user` (
   `business_achievement` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`uname`) USING HASH
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('31', 'py', '张三', '5D23494D3D93A7EF5BDA2FCE1091C7A4', '00000000001', '111', '1', '0000000018', '0000000001', '00000000001', '00000000000', '372321199999999999', '1', '山东省东营市', '0', '山东汇佳', '唱歌舞蹈', '呵呵呵呵呵', '健康', '2016-10-08 16:05:55', '1', '11111', 'defaultheadpic.jpg', '青年志愿者', '0000000001', '8086998', '社会兼职', '15762188888', '表演一等奖', '希望申请通过', '销售实习');
-INSERT INTO `user` VALUES ('33', 'pangyong', '张三', '7B7047748C146671550A41036E2333EC', '00000000002', '111', '0', '0000000006', '0000000004', '00000000003', '00000000000', '372321199999999999', '0', '山东省东营市', '0', '山东汇佳', '唱歌舞蹈', '中央戏剧表演', '健康', '2016-10-11 08:24:51', '1', '1111', 'defaultheadpic.jpg', '红年志愿者', '0000000001', '8086998', '社会兼职', '15762188888', ' 表演二等奖', '希望申请通过', '销售实习');
-INSERT INTO `user` VALUES ('35', '汇佳软件', '张三3', '9A42B2FDE562AD64942EE3058498251D', '00000000001', '111', '0', '0000000001', '0000000001', '00000000001', '00000000000', '372321199999999999', '1', '山东省东营市', '0', '山东汇佳', '唱歌舞蹈', '艺术简介艺术简介', '健康', '2016-10-11 08:29:21', '1', '1111', 'defaultheadpic.jpg', '中年志愿者', '0000000001', '8086998', '社会兼职', '15762188888', '表演三等奖', '希望申请通过', '销售实习');
-INSERT INTO `user` VALUES ('36', '山东汇佳软件', '张三4', '3501B4E771BA5C7A744E8B6E8CEF916E', '00000000001', '111', '1', '0000000001', '0000000001', '00000000001', '00000000000', '372321199999999999', '1', '山东省东营市', '0', '山东汇佳', '唱歌舞蹈', '艺术简介艺术简介', '健康', '2016-10-11 15:45:06', '1', '1111', 'defaultheadpic.jpg', '老年志愿者', '0000000001', '8086998', '社会兼职', '15762188888', ' 表演四等奖', '希望申请通过', '销售实习');
-INSERT INTO `user` VALUES ('37', '张三5', '张三5', '4501195721962DCDADBFC33F8C0DD6E3', '00000000001', '111', '1', '0000000001', '0000000001', '00000000001', '00000000000', '372321199999999999', '1', '山东省东营市', '0', '山东汇佳', '唱歌舞蹈', '呵呵呵呵呵', '健康', '2016-10-12 15:13:12', '0', '1111', 'c908593ded2e3450cd6656e64b95526c.png', '青年志愿', '0000000001', '8086998', '社会兼职', '15762188888', ' 表演五等奖', '希望申请通过', '销售实习');
-INSERT INTO `user` VALUES ('38', '庞勇', '张三6', '9D46A6083C6EBDDCFB898DAB58EAFD7F', '00000000001', '111', '0', '0000000001', '0000000001', '00000000001', '00000000000', '372321199999999999', '1', '山东省东营市', '0', '山东汇佳', '唱歌舞蹈', '艺术简介艺术简介', '健康', '2016-10-13 22:47:39', '0', '1111', 'defaultheadpic.jpg', '青年者远着', '0000000001', '8086998', '社会兼职', '15762188888', ' 表演特等奖', '希望申请通过', '销售实习');
-INSERT INTO `user` VALUES ('39', 'admin', '张三7', '6E0F084E2078D7E28093027420CDD776', '00000000001', '111', '1', '0000000006', '0000000004', '00000000002', '00000000000', '372321199999999999', '0', '山东省东营市', '0', '山东汇佳', '唱歌舞蹈', ' 中国表演大学', '健康', '2016-10-14 09:49:17', '1', '1111', 'defaultheadpic.jpg', '志愿者', '0000000001', '8086998', '社会兼职', '15762188888', ' 表演奖', '希望申请通过', '销售实习');
-INSERT INTO `user` VALUES ('40', '庞永', '张三8', 'DD015661785A22BDED41F84D206AF94E', '00000000003', '111', '0', '0000000006', '0000000004', '00000000003', '00000000000', '372321199999999999', '0', '山东省东营市', '0', '山东汇佳', '唱歌舞蹈', '中央戏剧学院', '健康', '2016-10-14 09:49:59', '1', '1111', 'defaultheadpic.jpg', ' 山区只教1111', '0000000001', '8086998', '社会兼职', '15762188888', ' 参与奖', '希望申请通过', '销售实习');
-INSERT INTO `user` VALUES ('41', 'hjsoft', '李毅', 'D3D8CB79B6CF54CB37B49E9A33D64F7B', '00000000001', '111', '1', '0000000001', '0000000001', '00000000001', '00000000000', '372321199999999999', '1', '山东省滨州市', '0', '山东汇佳', '1111', '呵呵呵呵呵', '111', '2016-10-16 09:24:42', '0', '1111', 'defaultheadpic.jpg', '11111', '0000000001', '8086998', '社会兼职', '15762188888', ' 参与奖', '希望申请通过', '销售实习');
-INSERT INTO `user` VALUES ('42', 'py1', '李毅', 'C8CDCB4D499B4586FD0204CAF0F02550', '00000000001', '111', '0', '0000000001', '0000000001', '00000000001', '00000000000', '372321199999999999', '1', '山东省滨州市', '0', '山东汇佳', null, '艺术简介', null, '2016-10-16 13:55:02', '0', null, null, null, '0000000001', '8088098', '兼职', '15762182222', '获奖情况', '申请意见', '业务成就');
-INSERT INTO `user` VALUES ('43', 'py2', '庞勇', '2CEAF68A3D72AC13E036C18334B0EFE6', '00000000001', '1111', '1', '0000000001', '0000000001', '00000000001', '00000000000', '372321199999999999', '1', '山东省滨州市', '0', '山东汇佳', '开发', '呵呵呵呵呵', '健康', '2016-10-16 15:13:52', '0', '1111', '20160822020450_207883.png', '计算机', '0000000001', '8088098', '兼职', '15762182222', '获奖情况', '申请意见', '业务成就');
-INSERT INTO `user` VALUES ('47', 'huijia1', '庞勇', '3F88F8754440E99D904120FD9D706EB3', null, null, '1', null, null, null, null, null, null, null, '0', null, null, null, null, '2016-10-19 09:55:21', '0', null, null, null, '0000000001', null, null, null, null, null, null);
-INSERT INTO `user` VALUES ('48', 'huijia3', null, 'E2F866EC03D4BE035CED93CABC4CB1B3', null, null, '1', null, null, null, null, null, null, null, '0', null, null, null, null, '2016-10-19 10:22:20', '0', null, '21.png', null, '0000000001', null, null, null, null, null, null);
-INSERT INTO `user` VALUES ('49', 'huijiaruanjian', '李毅', '61821777D6C4DCCFE12B17537B4CD67A', null, null, '1', null, null, null, null, null, null, null, '0', null, null, null, null, '2016-10-19 13:54:05', '0', null, '1.jpg', null, '0000000001', null, null, null, null, null, null);
-INSERT INTO `user` VALUES ('51', '汇佳软件123', null, 'D3934F91D32DB7D01525110DAA700B02', null, null, '1', null, null, null, null, null, null, null, '0', null, null, null, null, '2016-10-21 14:19:14', '0', null, null, null, '0000000001', null, null, null, null, null, null);
-INSERT INTO `user` VALUES ('56', 'test111', null, '6BE59AE979C90B444984AD796D30EEDF', null, null, '1', null, null, null, null, null, null, null, '0', null, null, null, null, '2016-10-23 21:59:55', null, null, 'test7.jpg', null, '0000000001', null, null, null, null, null, null);
-INSERT INTO `user` VALUES ('57', 'test121', null, '12B406E2D13873E684EAD9E7B4832DC0', null, null, '1', null, null, null, null, null, null, null, null, null, null, null, null, '2016-10-23 22:08:24', null, null, 'test8.jpg', null, '0000000001', null, null, null, null, null, null);
-INSERT INTO `user` VALUES ('58', 'test122', null, 'AE938DA2B3434577647CB4985A7FBCAA', null, null, '1', null, null, null, null, null, null, null, '0', null, null, null, null, '2016-10-23 22:15:06', null, null, 'test9.jpg', null, '0000000001', null, null, null, null, null, null);
-INSERT INTO `user` VALUES ('60', 'test222', '庞勇', '6B5ED554EBFF2FC7A0BAB042F4894D6C', null, '2016-10-20', '0', null, null, null, null, '372321199999999999', null, '山东省滨州市', null, '山东汇佳', null, '1111111111111', '健康', '2016-10-24 09:27:38', '1', '2016-10-04', 'test11.jpg', null, null, '8088098', '1111111111111', '15762182222', '1111111111111', '1111111111111', '1111111111111');
+INSERT INTO `user` VALUES ('31', 'py', '张三', '5D23494D3D93A7EF5BDA2FCE1091C7A4', '00000000001', null, '111', '1', '0000000018', '0000000001', '00000000001', '00000000000', '372321199999999999', '1', '山东省东营市', '0', '山东汇佳', '唱歌舞蹈', '呵呵呵呵呵', '健康', '2016-10-08 16:05:55', '1', '11111', 'defaultheadpic.jpg', '青年志愿者', '0000000001', '8086998', '社会兼职', '15762188888', '表演一等奖', '希望申请通过', '销售实习');
+INSERT INTO `user` VALUES ('33', 'pangyong', '张三', '7B7047748C146671550A41036E2333EC', '00000000002', null, '111', '0', '0000000006', '0000000004', '00000000003', '00000000000', '372321199999999999', '0', '山东省东营市', '0', '山东汇佳', '唱歌舞蹈', '中央戏剧表演', '健康', '2016-10-11 08:24:51', '1', '1111', 'defaultheadpic.jpg', '红年志愿者', '0000000001', '8086998', '社会兼职', '15762188888', ' 表演二等奖', '希望申请通过', '销售实习');
+INSERT INTO `user` VALUES ('35', '汇佳软件', '张三3', '9A42B2FDE562AD64942EE3058498251D', '00000000001', null, '111', '0', '0000000001', '0000000001', '00000000001', '00000000000', '372321199999999999', '1', '山东省东营市', '0', '山东汇佳', '唱歌舞蹈', '艺术简介艺术简介', '健康', '2016-10-11 08:29:21', '1', '1111', 'defaultheadpic.jpg', '中年志愿者', '0000000001', '8086998', '社会兼职', '15762188888', '表演三等奖', '希望申请通过', '销售实习');
+INSERT INTO `user` VALUES ('36', '山东汇佳软件', '张三4', '3501B4E771BA5C7A744E8B6E8CEF916E', '00000000001', null, '111', '1', '0000000001', '0000000001', '00000000001', '00000000000', '372321199999999999', '1', '山东省东营市', '0', '山东汇佳', '唱歌舞蹈', '艺术简介艺术简介', '健康', '2016-10-11 15:45:06', '1', '1111', 'defaultheadpic.jpg', '老年志愿者', '0000000001', '8086998', '社会兼职', '15762188888', ' 表演四等奖', '希望申请通过', '销售实习');
+INSERT INTO `user` VALUES ('37', '张三5', '张三5', '4501195721962DCDADBFC33F8C0DD6E3', '00000000001', null, '111', '1', '0000000001', '0000000001', '00000000001', '00000000000', '372321199999999999', '1', '山东省东营市', '0', '山东汇佳', '唱歌舞蹈', '呵呵呵呵呵', '健康', '2016-10-12 15:13:12', '0', '1111', 'c908593ded2e3450cd6656e64b95526c.png', '青年志愿', '0000000001', '8086998', '社会兼职', '15762188888', ' 表演五等奖', '希望申请通过', '销售实习');
+INSERT INTO `user` VALUES ('38', '庞勇', '张三6', '9D46A6083C6EBDDCFB898DAB58EAFD7F', '00000000001', null, '111', '0', '0000000001', '0000000001', '00000000001', '00000000000', '372321199999999999', '1', '山东省东营市', '0', '山东汇佳', '唱歌舞蹈', '艺术简介艺术简介', '健康', '2016-10-13 22:47:39', '0', '1111', 'defaultheadpic.jpg', '青年者远着', '0000000001', '8086998', '社会兼职', '15762188888', ' 表演特等奖', '希望申请通过', '销售实习');
+INSERT INTO `user` VALUES ('39', 'admin', '张三7', '6E0F084E2078D7E28093027420CDD776', '00000000001', null, '111', '1', '0000000006', '0000000004', '00000000002', '00000000000', '372321199999999999', '0', '山东省东营市', '0', '山东汇佳', '唱歌舞蹈', ' 中国表演大学', '健康', '2016-10-14 09:49:17', '1', '1111', 'defaultheadpic.jpg', '志愿者', '0000000001', '8086998', '社会兼职', '15762188888', ' 表演奖', '希望申请通过', '销售实习');
+INSERT INTO `user` VALUES ('40', '庞永', '张三8', 'DD015661785A22BDED41F84D206AF94E', '00000000003', null, '111', '0', '0000000006', '0000000004', '00000000003', '00000000000', '372321199999999999', '0', '山东省东营市', '0', '山东汇佳', '唱歌舞蹈', '中央戏剧学院', '健康', '2016-10-14 09:49:59', '1', '1111', 'defaultheadpic.jpg', ' 山区只教1111', '0000000001', '8086998', '社会兼职', '15762188888', ' 参与奖', '希望申请通过', '销售实习');
+INSERT INTO `user` VALUES ('41', 'hjsoft', '李毅', 'D3D8CB79B6CF54CB37B49E9A33D64F7B', '00000000001', null, '111', '1', '0000000001', '0000000001', '00000000001', '00000000000', '372321199999999999', '1', '山东省滨州市', '0', '山东汇佳', '1111', '呵呵呵呵呵', '111', '2016-10-16 09:24:42', '0', '1111', 'defaultheadpic.jpg', '11111', '0000000001', '8086998', '社会兼职', '15762188888', ' 参与奖', '希望申请通过', '销售实习');
+INSERT INTO `user` VALUES ('42', 'py1', '李毅', 'C8CDCB4D499B4586FD0204CAF0F02550', '00000000001', null, '111', '0', '0000000001', '0000000001', '00000000001', '00000000000', '372321199999999999', '1', '山东省滨州市', '0', '山东汇佳', null, '艺术简介', null, '2016-10-16 13:55:02', '0', null, null, null, '0000000001', '8088098', '兼职', '15762182222', '获奖情况', '申请意见', '业务成就');
+INSERT INTO `user` VALUES ('43', 'py2', '庞勇', '2CEAF68A3D72AC13E036C18334B0EFE6', '00000000001', null, '1111', '1', '0000000001', '0000000001', '00000000001', '00000000000', '372321199999999999', '1', '山东省滨州市', '0', '山东汇佳', '开发', '呵呵呵呵呵', '健康', '2016-10-16 15:13:52', '0', '1111', '20160822020450_207883.png', '计算机', '0000000001', '8088098', '兼职', '15762182222', '获奖情况', '申请意见', '业务成就');
+INSERT INTO `user` VALUES ('47', 'huijia1', '庞勇', '3F88F8754440E99D904120FD9D706EB3', null, null, null, '1', null, null, null, null, null, null, null, '0', null, null, null, null, '2016-10-19 09:55:21', '0', null, '2.png', null, '0000000001', null, null, null, null, null, null);
+INSERT INTO `user` VALUES ('48', 'huijia3', null, 'E2F866EC03D4BE035CED93CABC4CB1B3', null, null, null, '1', null, null, null, null, null, null, null, '0', null, null, null, null, '2016-10-19 10:22:20', '0', null, '21.png', null, '0000000001', null, null, null, null, null, null);
+INSERT INTO `user` VALUES ('49', 'huijiaruanjian', '李毅', '61821777D6C4DCCFE12B17537B4CD67A', null, null, null, '1', null, null, null, null, null, null, null, '0', null, null, null, null, '2016-10-19 13:54:05', '0', null, '1.jpg', null, '0000000001', null, null, null, null, null, null);
+INSERT INTO `user` VALUES ('51', '汇佳软件123', null, 'D3934F91D32DB7D01525110DAA700B02', null, null, null, '1', null, null, null, null, null, null, null, '0', null, null, null, null, '2016-10-21 14:19:14', '0', null, null, null, '0000000001', null, null, null, null, null, null);
+INSERT INTO `user` VALUES ('56', 'test111', null, '6BE59AE979C90B444984AD796D30EEDF', null, null, null, '1', null, null, null, null, null, null, null, '0', null, null, null, null, '2016-10-23 21:59:55', null, null, 'test7.jpg', null, '0000000001', null, null, null, null, null, null);
+INSERT INTO `user` VALUES ('57', 'test121', null, '12B406E2D13873E684EAD9E7B4832DC0', null, null, null, '1', null, null, null, null, null, null, null, null, null, null, null, null, '2016-10-23 22:08:24', null, null, 'test8.jpg', null, '0000000001', null, null, null, null, null, null);
+INSERT INTO `user` VALUES ('58', 'test122', null, 'AE938DA2B3434577647CB4985A7FBCAA', null, null, null, '1', null, null, null, null, null, null, null, '0', null, null, null, null, '2016-10-23 22:15:06', null, null, 'test9.jpg', null, '0000000001', null, null, null, null, null, null);
+INSERT INTO `user` VALUES ('60', 'test222', '庞勇', '6B5ED554EBFF2FC7A0BAB042F4894D6C', null, null, '2016-10-20', '0', null, null, null, null, '372321199999999999', null, '山东省滨州市', null, '山东汇佳', null, '1111111111111', '健康', '2016-10-24 09:27:38', '1', '2016-10-04', 'test11.jpg', null, null, '8088098', '1111111111111', '15762182222', '1111111111111', '1111111111111', '1111111111111');
+INSERT INTO `user` VALUES ('61', 'pypy', null, '5FBF7E601A5322D2B079DB989B735135', null, '1busn9y9ac92y1ap9j4khzaej8', null, '1', null, null, null, null, null, null, null, null, null, null, null, null, '2016-10-26 17:27:55', '0', null, null, null, null, null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `zzmm`

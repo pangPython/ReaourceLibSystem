@@ -116,13 +116,15 @@ public class IndexContrlller extends Controller {
 			String reg_date = DateUtils.getNowTime();
 
 			// 使用jfinal标识生成工具生成随机数作为密码的盐
-
 			String pwd = MD5.GetMD5Code(getPara("user.pwd") + reg_date);
-
+			//使用session id生成工具生成用户媒体文件夹名称
+			String media_path = SessionIdKit.me().generate(getRequest());
 			user.setUsersex("1");
 			user.setRegDate(reg_date);
 			user.setPwd(pwd);
 			user.setStatus(0);
+			//用户媒体文件夹名称
+			user.setMediaPath(media_path);
 			user.save();
 
 			// 生成唯一标识
