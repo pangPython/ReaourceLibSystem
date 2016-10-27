@@ -55,17 +55,17 @@
 				<td class="text-l">
 				<a style="cursor:pointer" class="text-primary" href="checkUser?id=${x.id!}" title="查看">${x.uname}</a></td>
 				<td>
-				<#if x.usersex == 1>
+				<#if x.usersex == "1">
 				男
-				<#elseif x.usersex == 0>
+				<#elseif x.usersex == "0">
 				女
 				</#if>
 				</td>
-				<td>${x.age}</td>
-				<td>${x.mzname}</td>
-				<td>${x.zzmmname}</td>
-				<td>${x.decname}</td>
-				<td>${x.card}</td>
+				<td>${x.age?if_exists}</td>
+				<td>${x.mzname?if_exists}</td>
+				<td>${x.zzmmname?if_exists}</td>
+				<td>${x.decname?if_exists}</td>
+				<td>${x.card?if_exists}</td>
 				<td class="td-status">
 				<#if x.status == 1>
 				<span class="label label-success radius">已审核</span>

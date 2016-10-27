@@ -29,7 +29,7 @@
 <body>
 <header class="navbar-wrapper">
 	<div class="navbar navbar-fixed-top">
-		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="#">后台管理</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml">H-ui</a>  <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
+		<div class="container-fluid cl admintitlebar"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/admin/index"><img alt="用户中心" src="/static/images/title02.png"></a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml">H-ui</a>  <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
 			<nav class="nav navbar-nav">
 
 			</nav>
@@ -48,7 +48,7 @@
 		</div>
 	</div>
 </header>
-<aside class="Hui-aside">
+<aside class="Hui-aside adminleftbar">
 	<input runat="server" id="divScrollValue" type="hidden" value="" />
 	<div class="menu_dropdown bk_2">
 		<dl id="menu-article">
@@ -59,22 +59,14 @@
 				</ul>
 			</dd>
 		</dl>
-		<dl id="menu-picture">
-			<dt><i class="Hui-iconfont">&#xe613;</i> 媒体文件管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a _href="picture-list.html" data-title="图片管理" href="javascript:void(0)">图片管理</a></li>
-				</ul>
-			</dd>
-		</dl>
+
 
 
 		<dl id="menu-tongji">
-			<dt><i class="Hui-iconfont">&#xe61a;</i> 系统报表<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dt><i class="Hui-iconfont">&#xe61a;</i> 人才报表<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a _href="charts-1.html" data-title="折线图" href="javascript:void(0)">全部人才信息</a></li>
-					<li><a _href="charts-2.html" data-title="时间轴折线图" href="javascript:void(0)">单个人才信息</a></li>
+					<li><a _href="xqsearchuser" data-title="条件查询" href="javascript:void(0)">条件查询</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -94,7 +86,7 @@
 	<div id="iframe_box" class="Hui-article">
 		<div class="show_iframe">
 			<div style="display:none" class="loading"></div>
-			<iframe scrolling="yes" frameborder="0" src="welcome"></iframe>
+			<iframe scrolling="yes" frameborder="0" src="xqwelcome"></iframe>
 		</div>
 	</div>
 </section>

@@ -39,7 +39,7 @@ import com.jfinal.ext.kit.SessionIdKit;
 public class AdminController extends Controller {
 	
 	public void index(){
-		
+		setAttr("admin", getSessionAttr(getCookie("cadmin")));
 		render("index.html");
 	}
 	
@@ -157,6 +157,14 @@ public class AdminController extends Controller {
 		render("welcome.html");
 	}
 	
+	//县区管理员welcome页面
+	public void xqwelcome(){
+		Admin admin = getSessionAttr(getCookie("cadmin"));
+		setAttr("xqadmin", admin);
+		render("xq-welcome.html");
+		
+	}
+	
 	//后台搜索页面
 	public void search(){
 		setAttr("userList", User.usermodel.getAllUser());
@@ -167,6 +175,12 @@ public class AdminController extends Controller {
 	public void searchuser(){
 		render("search-user.html");
 	}
+	
+	//县区管理员进行条件查询
+	public void xqsearchuser(){
+		render("xq-search-user.html");
+	}
+	
 	
 	public void useraddpage(){
 		setAttr("areaList", Area.dao.getAllArea());
@@ -274,6 +288,10 @@ public class AdminController extends Controller {
 		setAttr("edu", Edu.dao.findById(getPara("id")));
 		render("eduedit.html");
 	}
+	
+	
+	
+	
 	//学历信息更新
 	public void eduupdate(){
 		Edu.dao.set("edu_id", getPara("edu_id")).set("eduname", getPara("eduname")).update();
@@ -372,6 +390,31 @@ public class AdminController extends Controller {
 	//渲染添加管理员页面
 	public void addAdmin(){
 		render("admin-add.html");
+	}
+	
+	
+	//编辑管理员信息
+	public void editadmin(){
+		Admin admin = Admin.dao.findById(getParaToInt(0));
+		setAttr("admin", admin);
+		render("admin-edit.html");
+	}
+	
+	//管理员信息更新
+	public void admininfoupdate(){
+		Admin admin = Admin.dao.findById(getParaToInt(0));
+		String create_time = admin.getCreateTime();
+		
+		String pwd = MD5.GetMD5Code(getPara("admin.pwd")+create_time);
+		getModel(Admin.class)
+		.set("id", admin.getId())
+		.set("telephone", getPara("admin.telephone"))
+		.set("email", getPara("admin.email"))
+		.set("pwd", pwd)
+		.update();
+		admin = Admin.dao.findById(admin.getId());
+		setSessionAttr(getCookie("cadmin"), admin);
+		renderText("修改成功！");
 	}
 	
 	//添加管理员方法
