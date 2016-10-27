@@ -3,8 +3,10 @@ package com.huijiasoft.model;
 
 
 import java.util.List;
+import java.util.Map;
 
 import com.huijiasoft.model.base.BaseUser;
+import com.huijiasoft.utils.SQLUtils;
 import com.jfinal.plugin.activerecord.Page;
 
 @SuppressWarnings("serial")
@@ -35,6 +37,12 @@ public class User extends BaseUser<User> {
 	public List<User> getUserByAreaId(int area_id){
 		String sql = "select u.*,d.decname,m.mzname,z.zzmmname from (((user u join declare_type d on u.dec_id = d.dec_id) join mz m on u.mz_id = m.mz_id) join zzmm z on u.zzmm_id = z.zzmm_id) where area_id = ?";
 		return usermodel.find(sql,area_id);
+	}
+	
+	//条件查询用户列表
+	public List<User> getUserListByCondition(Map<String,Object> map){
+		String sql = "select u.*,d.decname,m.mzname,z.zzmmname,a.area_name from ((((user u join declare_type d on u.dec_id = d.dec_id) join mz m on u.mz_id = m.mz_id) join zzmm z on u.zzmm_id = z.zzmm_id) join area a on u.area_id = a.area_id) "+SQLUtils.DynamicSQL(map);
+		return usermodel.find(sql);
 	}
 	
 

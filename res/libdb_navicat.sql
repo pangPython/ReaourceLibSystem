@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50547
 File Encoding         : 65001
 
-Date: 2016-10-27 09:50:08
+Date: 2016-10-27 21:12:08
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -153,7 +153,7 @@ CREATE TABLE `log` (
   `uname` varchar(255) NOT NULL,
   `date` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=99 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of log
@@ -256,6 +256,8 @@ INSERT INTO `log` VALUES ('95', '0:0:0:0:0:0:0:1', 'test3', '2016-10-27 09:31:52
 INSERT INTO `log` VALUES ('96', '0:0:0:0:0:0:0:1', 'whg_admin', '2016-10-27 09:34:17');
 INSERT INTO `log` VALUES ('97', '0:0:0:0:0:0:0:1', 'whg_admin', '2016-10-27 09:35:05');
 INSERT INTO `log` VALUES ('98', '0:0:0:0:0:0:0:1', 'hjadmintest', '2016-10-27 09:38:49');
+INSERT INTO `log` VALUES ('99', '0:0:0:0:0:0:0:1', 'whg_admin', '2016-10-27 15:22:22');
+INSERT INTO `log` VALUES ('100', '0:0:0:0:0:0:0:1', 'whg_admin', '2016-10-27 20:54:42');
 
 -- ----------------------------
 -- Table structure for `msg`
@@ -496,7 +498,7 @@ CREATE TABLE `user` (
   `business_achievement` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`uname`) USING HASH
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
@@ -520,7 +522,8 @@ INSERT INTO `user` VALUES ('56', 'test111', '王五', '6BE59AE979C90B444984AD796
 INSERT INTO `user` VALUES ('57', 'test121', '李四', '12B406E2D13873E684EAD9E7B4832DC01', '00000000004', null, null, '1', '0000000007', '0000000003', '00000000001', '00000000001', '372321199999999999', '3', '山东省东营市', null, null, null, null, null, '2016-10-23 22:08:24', null, null, 'test8.jpg', null, '0000000001', null, null, null, null, null, null);
 INSERT INTO `user` VALUES ('58', 'test122', '张三', 'AE938DA2B3434577647CB4985A7FBCAA1', '00000000005', null, null, '1', '0000000011', '0000000003', '00000000001', '00000000001', '372321199999999999', '4', '山东省东营市', '0', null, null, null, null, '2016-10-23 22:15:06', null, null, 'test9.jpg', null, '0000000001', null, null, null, null, null, null);
 INSERT INTO `user` VALUES ('60', 'test222', '庞庞', '6B5ED554EBFF2FC7A0BAB042F4894D6C1', '00000000006', null, '2016-10-20', '0', '0000000016', '0000000001', '00000000001', '00000000001', '372321199999999999', '2', '山东省滨州市', null, '山东汇佳', null, '1111111111111', '健康', '2016-10-24 09:27:38', '1', '2016-10-04', 'test11.jpg', null, null, '8088098', '1111111111111', '15762182222', '1111111111111', '1111111111111', '1111111111111');
-INSERT INTO `user` VALUES ('61', 'whg_u_test', '冯晓', '541D8E7669A0D6433CB656564A9CABCA', '00000000008', '1busn9y9ac92y1ap9j4khzaej8', null, '1', '0000000055', '0000000002', '00000000001', '00000000001', '372321199999999999', '2', '山东省东营市', null, null, null, null, null, '2016-10-26 17:27:55', '0', null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `user` VALUES ('61', 'whg_u_test', '冯晓', '541D8E7669A0D6433CB656564A9CABCA', '00000000008', '1busn9y9ac92y1ap9j4khzaej8', '2016-10-20', '0', '0000000001', '0000000001', '00000000001', '00000000001', '372321199999999999', '1', '山东省东营市', null, '山东汇佳', null, '测试数据', '健康', '2016-10-26 17:27:55', '0', '2016-10-04', null, null, null, '8088098', '测试数据', '15762182222', '测试数据', '测试数据  ', '测试数据');
+INSERT INTO `user` VALUES ('64', 'pytest', null, 'C736A8DF053397048AC28B7E4BDBD973', null, '287ssrv804griql9x79wcvyw', null, '1', null, null, null, null, null, null, null, null, null, null, null, null, '2016-10-27 15:06:39', '0', null, null, null, null, null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `zzmm`

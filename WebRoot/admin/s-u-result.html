@@ -21,74 +21,71 @@
 <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
-<title>查询</title>
+<title>搜索结果</title>
 </head>
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 人才管理 <span class="c-gray en">&gt;</span> 人才搜索 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
-<form method="post" action="/admin/uschbycondition">
-<div class="row cl">
-  <div class="text-c"> 
-    性别: <span class="select-box inline">
-    <select class="select" id="user.sex" name="user.sex">
-    <option value="">*</option>
-      <option value="1">男</option>
-      <option value="2">女</option>
-    </select>
-    </span>
-<br><br>
-    民族： <span class="select-box inline">
-    <select class="select" id="user.mz_id" name="user.mz_id">
-    <option value="">*</option>
-	<#list nationList as x>
-    <option value="${x.mz_id?if_exists}">${x.mzname?if_exists}</option>
-    </#list>
-    </select>
-    </span> 
-<br> <br>
-    地区：<span class="select-box inline">
-    <select class="select" id="user.area_id" name="user.area_id">
-    <option value="">*</option>
-<#list areaList as x>
-    <option value="${x.area_id?if_exists}">${x.area_name?if_exists}</option>
-</#list>
-    </select>
-    </span> <br><br>
-  </div>
-</div>
-<div class="row cl">
 
-  <div class="text-c">  
-    政治面貌： <span class="select-box inline">
-    <select class="select" id="user.zzmm_id" name="user.zzmm_id">
+  <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-success radius"><i class="Hui-iconfont">&#xe6e2;</i> 打印</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
+  <div class="mt-20">
+    <table class="table table-border table-bordered table-bg table-hover table-sort">
+    <thead>
+     		<tr class="text-c">
+					<th width="25"><input type="checkbox" name="" value=""></th>
+					<th width="20">姓名</th>
+					<th width="20">性别</th>
+					<th width="20">出生年月</th>
+					<th width="20">民族</th>
+					<th width="20">地区</th>
+					<th width="30">政治面貌</th>
+					<th width="30">艺术类别</th>
+					<th width="30">身份证号</th>
+					<th width="30">审核状态</th>
+					
+				</tr>
+    </thead>
+    <tbody>
+
     
-    <option value="">*</option>
-    <#list zzmmList as x>
-    <option value="${x.zzmm_id?if_exists}">${x.zzmmname?if_exists}</option>
-    </#list>
-    </select>
-    </span> 
-<br><br>
-    艺术类别： <span class="select-box inline">
-    <select class="select" id="user.dec_id" name="user.dec_id">
-    <option value="">*</option>
-    <#list decList as x>
-      <option value="${x.dec_id?if_exists}">${x.decname?if_exists}</option>
-    </#list>
-    </select>
-    </span><br><br>
-  </div>
-</div>
-<div class="row cl">
- <div class="text-c">
- <div class="Huialert Huialert-danger"><i class="icon-remove"></i>如果为*，则该条件下全满足</div>
-  <button type="submit" class="btn btn-primary radius" > 检索</button>
- </div>
-  </div>
-  </form>
-</div>
-  
+    			<#list userList as x>
+			<tr class="text-c">
+				<td><input type="checkbox" value="" name=""></td>
+				<td class="text-l">
+				<a style="cursor:pointer" class="text-primary" href="checkUser?id=${x.id!}" title="查看">${x.uname?if_exists}</a></td>
+				<td>
+				
+				<#if x.usersex == "1">
+				男
+				<#elseif x.usersex == "0">
+				女
+				</#if>
+				
+				
+				</td>
+				<td>${x.birth?if_exists}</td>
+				<td>${x.mzname?if_exists}</td>
+				<td>${x.area_name?if_exists}</td>
+				<td>${x.zzmmname?if_exists}</td>
+				<td>${x.decname?if_exists}</td>
+				<td>${x.card?if_exists}</td>
+				<td class="td-status">
+				<#if x.status?if_exists == 1>
+				<span class="label label-success radius">已审核</span>
+				<#elseif x.status?if_exists == 0>
+				<span class="label label-danger radius">未审核通过</span>
+				</#if>
+				
+				
+				</td>
+					
+			</tr>
+			</#list>
 
+    </tbody>
+  </table>
+</div>
+</div>
 <script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
 <script type="text/javascript" src="lib/Validform/5.3.2/Validform.min.js"></script>  
 <script type="text/javascript" src="lib/layer/2.1/layer.js"></script>

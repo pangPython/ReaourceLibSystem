@@ -3,7 +3,9 @@ package com.huijiasoft.controller;
 import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.huijiasoft.interceptor.AdminAuthInterceptor;
 import com.huijiasoft.model.Admin;
@@ -173,8 +175,33 @@ public class AdminController extends Controller {
 	
 	//条件查询
 	public void searchuser(){
+		
+		setAttr("areaList", Area.dao.getAllArea());
+		setAttr("nationList", Mz.dao.getAllMz());
+		setAttr("zzmmList", Zzmm.dao.getAllZzmm());
+		setAttr("eduList", Edu.dao.getAllEdu());
+		setAttr("degreeList", Degree.dao.getAllDegree());
+		setAttr("decList", DeclareType.dao.getAllDecType());
+		
 		render("search-user.html");
 	}
+	
+	//执行查询
+	public void uschbycondition(){
+		Map<String,Object> map = new HashMap<String, Object>();
+		map.put("user.usersex", getPara("user.usersex"));
+		map.put("user.mz_id", getPara("user.mz_id"));
+		map.put("user.area_id", getPara("user.area_id"));
+		map.put("user.zzmm_id", getPara("user.zzmm_id"));
+		map.put("user.dec_id", getPara("user.dec_id"));
+		
+		List<User> userList = User.usermodel.getUserListByCondition(map);
+		
+		setAttr("userList", userList);
+		
+		render("s-u-result.html");
+	}
+	
 	
 	//县区管理员进行条件查询
 	public void xqsearchuser(){

@@ -28,7 +28,10 @@ public class PathUtils {
 		
 		File root = new File(path);
 		File[] files = root.listFiles();
-		System.out.println(path);
+
+		if(files==null){
+			return null;
+		}
 		
 		for(File file:files){
 			if(file.isDirectory()){

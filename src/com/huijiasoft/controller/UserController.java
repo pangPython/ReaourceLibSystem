@@ -21,6 +21,7 @@ import com.huijiasoft.utils.DateUtils;
 import com.huijiasoft.utils.MD5;
 import com.huijiasoft.utils.PathUtils;
 import com.huijiasoft.utils.RenderDocxTemplate;
+import com.huijiasoft.validate.UserUpdateValidator;
 import com.jfinal.aop.Before;
 import com.jfinal.core.ActionKey;
 import com.jfinal.core.Controller;
@@ -75,6 +76,9 @@ public class UserController extends Controller {
 		render("/mediainfo.html");
 	}
 
+	
+	//用户更新信息
+	
 	public void edit() {
 		User user = (User) getSession().getAttribute(getCookie("cuser"));
 
@@ -89,6 +93,8 @@ public class UserController extends Controller {
 	}
 
 	// 修改个人信息
+	@Before(UserUpdateValidator.class)
+	@ActionKey("/user/updateinfo")
 	public void updateinfo() {
 		User user = (User) getSession().getAttribute(getCookie("cuser"));
 		getModel(User.class).set("id", user.getId()).set("status", 0).update();
@@ -183,6 +189,11 @@ public class UserController extends Controller {
 		String path = PathKit.getWebRootPath() + "\\upload\\audio\\" + user.getMediaPath() + "\\";
 		List<String> list = PathUtils.getAllFilePath(path);
 
+		if(list==null){
+			renderText("您未上传音频资料!");
+			return;
+		}
+		
 		setAttr("audioList", list);
 		setAttr("user", user);
 		render("media_audio.html");
@@ -215,7 +226,13 @@ public class UserController extends Controller {
 		// int user_id = user.getId();
 		String path = PathKit.getWebRootPath() + "\\upload\\video\\" + user.getMediaPath() + "\\";
 		List<String> list = PathUtils.getAllFilePath(path);
-
+		
+		//如果文件夹为空
+		if(list==null){
+			renderText("您未上传视频文件！");
+			return;
+		}
+		
 		setAttr("videoList", list);
 		setAttr("user", user);
 		render("media_video.html");
