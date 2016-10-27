@@ -28,15 +28,19 @@ public class SQLUtils {
 		}
 		
 
-		System.out.println(sql+" ---------拼装的SQL---------");
+		//System.out.println(sql+" ---------拼装的SQL---------");
 		
 		if(sql.trim().endsWith("and")){
 			sql = sql.substring(0, sql.lastIndexOf("and"));
 		}
 		
+		if(sql.equals(" where ")){
+			return "";
+		}
+		
 		sql = sql.replaceAll("user", "u");
 		
-		System.out.println(sql+" ---------拼装的SQL---------");
+		//System.out.println(sql+" ---------拼装的SQL---------");
 		//剩下的组装成sql
 		return sql;
 	}

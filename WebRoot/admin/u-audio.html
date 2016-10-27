@@ -40,15 +40,18 @@
 				<td>播放</td>
 				<td>备注</td>
 			</tr>
+			<#list audioList as x>
+			
 			<tr>
-				<th>1233333</th>
+				<th>${x}</th>
 				<th>
-					<audio src="/upload/audio/1.mp3" controls="controls">
+					<audio src="/upload/audio/${user.media_path?if_exists}/${x}" controls="controls">
 						<a>你的浏览器不支持HTML5播放音频,请更换浏览器</a>
 					</audio>
 					</th>
-				<th>123444</th>
+				<th>暂无</th>
 			</tr>
+			</#list>
 			
 		</tbody>
 	</table>

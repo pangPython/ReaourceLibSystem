@@ -40,13 +40,15 @@
 				<td>播放</td>
 				<td>备注</td>
 			</tr>
+			<#list videoList as x>
 			<tr>
-				<th>1.mp4</th>
+				<th>${x}</th>
 					<th>
-					<video src="/upload/video/1.mp4" controls="controls" width="400px"><a>您的浏览器不支持 视频播放请更换浏览器</a></video>
+					<video src="/upload/video/${user.media_path}/${x}" controls="controls" width="400px"><a>您的浏览器不支持 视频播放请更换浏览器</a></video>
 					</th>
-				<th>123444</th>
+				<th>暂无</th>
 			</tr>
+			</#list>
 			
 		</tbody>
 	</table>

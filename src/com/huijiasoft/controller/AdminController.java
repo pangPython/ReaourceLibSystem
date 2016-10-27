@@ -23,6 +23,7 @@ import com.huijiasoft.utils.DBUtils;
 import com.huijiasoft.utils.DateUtils;
 import com.huijiasoft.utils.JavaMysqlUtil;
 import com.huijiasoft.utils.MD5;
+import com.huijiasoft.utils.PathUtils;
 import com.huijiasoft.utils.RenderDocxTemplate;
 import com.huijiasoft.utils.ReportExcel;
 import com.huijiasoft.validate.AdminValidator;
@@ -31,6 +32,8 @@ import com.jfinal.aop.Clear;
 import com.jfinal.core.ActionKey;
 import com.jfinal.core.Controller;
 import com.jfinal.ext.kit.SessionIdKit;
+import com.jfinal.kit.PathKit;
+import com.jfinal.upload.UploadFile;
 
 
 /**
@@ -186,16 +189,51 @@ public class AdminController extends Controller {
 		render("search-user.html");
 	}
 	
+
+	
+	
 	//执行查询
 	public void uschbycondition(){
 		Map<String,Object> map = new HashMap<String, Object>();
-		map.put("user.usersex", getPara("user.usersex"));
-		map.put("user.mz_id", getPara("user.mz_id"));
-		map.put("user.area_id", getPara("user.area_id"));
-		map.put("user.zzmm_id", getPara("user.zzmm_id"));
-		map.put("user.dec_id", getPara("user.dec_id"));
+		String sex = getPara("user.usersex");
+		String mz_id = getPara("user.mz_id");
+		String area_id = getPara("user.area_id");
+		String zzmm_id = getPara("user.zzmm_id");
+		String dec_id = getPara("user.dec_id");
+		if(sex!=null && !sex.equals("")){
+			map.put("user.usersex", sex);
+		}
+		if(mz_id!=null && !mz_id.equals("")){
+			map.put("user.mz_id", mz_id);
+		}
+		if(area_id!=null && !area_id.equals("")){
+			map.put("user.area_id", area_id);
+		}
+		if(zzmm_id!=null && !zzmm_id.equals("")){
+			map.put("user.zzmm_id", zzmm_id);
+		}
+		if(dec_id!=null && !dec_id.equals("")){
+			map.put("user.dec_id", dec_id);
+		}	
 		
 		List<User> userList = User.usermodel.getUserListByCondition(map);
+		
+		String filename = "";
+		try {
+			filename = ReportExcel.report(userList);
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+		File file =		new File(filename);
+		String file_name = "";
+		if(file!=null){
+			file_name = file.getName();
+		}
+		
+		setAttr("file", file_name);
 		
 		setAttr("userList", userList);
 		
@@ -217,9 +255,17 @@ public class AdminController extends Controller {
 		setAttr("degreeList", Degree.dao.getAllDegree());
 		render("user-add.html");
 	}
+	
 	//管理员添加用户
 	public void adduser(){
-		String user_photo_name = getFile().getFileName();
+		UploadFile upfile = getFile();
+		
+		if(upfile==null){
+			renderText("请上传一寸照片！");
+			return;
+		}
+		
+		String user_photo_name = upfile.getFileName();
 		User user = getModel(User.class);
 		String reg_time = DateUtils.getNowTime();
 		String pwd = this.getPara("password");
@@ -503,15 +549,54 @@ public class AdminController extends Controller {
 	//管理员查看用户图片资料
 	public void userphoto(){
 		
+		User user = User.usermodel.findById(getPara(0));
+		String path = PathKit.getWebRootPath() + "\\upload\\photo\\" + user.getMediaPath() + "\\";
+		List<String> list = PathUtils.getAllFilePath(path);
+
+		if(list==null){
+			renderText("该用户未上传图片资料!");
+			return;
+		}
+		
+		setAttr("picList", list);
+		setAttr("user", user);
 		render("u-photo.html");
 	}
 	
 	//管理员查看用户音频资料
 	public void useraudio(){
+		
+		User user = User.usermodel.findById(getPara(0));
+		// int user_id = user.getId();
+		String path = PathKit.getWebRootPath() + "\\upload\\audio\\" + user.getMediaPath() + "\\";
+		List<String> list = PathUtils.getAllFilePath(path);
+
+		if(list==null){
+			renderText("该用户未未上传音频资料!");
+			return;
+		}
+		
+		setAttr("audioList", list);
+		setAttr("user", user);
+		
 		render("u-audio.html");
 	}
 	//管理员查看用户音频资料
 	public void uservideo(){
+		
+		User user = User.usermodel.findById(getPara(0));
+		String path = PathKit.getWebRootPath() + "\\upload\\video\\" + user.getMediaPath() + "\\";
+		List<String> list = PathUtils.getAllFilePath(path);
+		
+		//如果文件夹为空
+		if(list==null){
+			renderText("该用户未上传视频文件！");
+			return;
+		}
+		
+		setAttr("videoList", list);
+		setAttr("user", user);
+		
 		render("u-video.html");
 	}
 	
@@ -519,7 +604,7 @@ public class AdminController extends Controller {
 	public void userinfoprint(){
 		User user = User.usermodel.findById(getParaToInt(0));
 		if(DBUtils.RecordAttrHasNull(user)){
-			renderText("改人才的报名信息不完整,请先完善信息！");
+			renderText("该人才的报名信息不完整,请先完善信息！");
 			return;
 		}
 		String file_name = RenderDocxTemplate.creatWord(user);

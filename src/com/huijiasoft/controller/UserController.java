@@ -123,28 +123,20 @@ public class UserController extends Controller {
 	//显示用户上传的图片文件
 	public void media_pic() {
 		User user = getSessionAttr(getCookie("cuser"));
-		// int user_id = user.getId();
 		String path = PathKit.getWebRootPath() + "\\upload\\photo\\" + user.getMediaPath() + "\\";
 		List<String> list = PathUtils.getAllFilePath(path);
 
+		if(list==null){
+			renderText("您未上传图片资料!");
+			return;
+		}
+		
 		setAttr("picList", list);
 		setAttr("user", user);
 		render("media_pic.html");
 	}
 
-	// 测试
-	public void ttt() {
-		User user = getSessionAttr(getCookie("cuser"));
-		String path = PathKit.getWebRootPath() + "\\upload\\photo\\" + user.getMediaPath() + "\\";
-		List<String> list = PathUtils.getAllFilePath(path);
-		String str = "";
 
-		for (int i = 0; i < list.size(); i++) {
-			str += list.get(i);
-		}
-
-		renderText(str);
-	}
 
 	// 显示页面
 	public void media_pic_upload() {
