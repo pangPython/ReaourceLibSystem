@@ -243,8 +243,65 @@ public class AdminController extends Controller {
 	
 	//县区管理员进行条件查询
 	public void xqsearchuser(){
+
+		setAttr("areaList", Area.dao.getAllArea());
+		setAttr("nationList", Mz.dao.getAllMz());
+		setAttr("zzmmList", Zzmm.dao.getAllZzmm());
+		setAttr("eduList", Edu.dao.getAllEdu());
+		setAttr("degreeList", Degree.dao.getAllDegree());
+		setAttr("decList", DeclareType.dao.getAllDecType());
 		render("xq-search-user.html");
 	}
+	
+	
+	//执行查询
+		public void xquschbycondition(){
+			Map<String,Object> map = new HashMap<String, Object>();
+			String sex = getPara("user.usersex");
+			String mz_id = getPara("user.mz_id");
+			Admin admin = getSessionAttr(getCookie("cadmin"));
+			String area_id = admin.getAreaId()+"";
+			String zzmm_id = getPara("user.zzmm_id");
+			String dec_id = getPara("user.dec_id");
+			if(sex!=null && !sex.equals("")){
+				map.put("user.usersex", sex);
+			}
+			if(mz_id!=null && !mz_id.equals("")){
+				map.put("user.mz_id", mz_id);
+			}
+			if(area_id!=null && !area_id.equals("")){
+				map.put("user.area_id", area_id);
+			}
+			if(zzmm_id!=null && !zzmm_id.equals("")){
+				map.put("user.zzmm_id", zzmm_id);
+			}
+			if(dec_id!=null && !dec_id.equals("")){
+				map.put("user.dec_id", dec_id);
+			}	
+			
+			List<User> userList = User.usermodel.getUserListByCondition(map);
+			
+			String filename = "";
+			try {
+				filename = ReportExcel.report(userList);
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+			
+			File file =		new File(filename);
+			String file_name = "";
+			if(file!=null){
+				file_name = file.getName();
+			}
+			
+			setAttr("file", file_name);
+			
+			setAttr("userList", userList);
+			
+			render("s-u-result.html");
+		}
 	
 	
 	public void useraddpage(){
@@ -560,7 +617,7 @@ public class AdminController extends Controller {
 	
 	//通过审核
 	public void examine(){
-		getModel(User.class).set("id", getPara("id")).set("status", 1).update();
+		getModel(User.class).set("id", getParaToInt(0)).set("status", 1).update();
 		renderText("审核成功！");
 	}
 	
