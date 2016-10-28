@@ -33,7 +33,7 @@ public class ReportExcel {
 		    Cell cell = row.createCell(0);
 		    cell.setCellValue(createHelper.createRichTextString("姓名"));
 		    row.createCell(1).setCellValue(createHelper.createRichTextString("性别"));
-		    row.createCell(2).setCellValue(createHelper.createRichTextString("年龄"));
+		    row.createCell(2).setCellValue(createHelper.createRichTextString("出生年月"));
 		    row.createCell(3).setCellValue(createHelper.createRichTextString("民族"));
 		    row.createCell(4).setCellValue(createHelper.createRichTextString("政治面貌"));
 		    row.createCell(5).setCellValue(createHelper.createRichTextString("申报类别"));
@@ -59,13 +59,37 @@ public class ReportExcel {
 		    for(int i=0;i<userlist.size();i++){
 		    	 Row data = sheet.createRow((short)i+1);
 		    	 User user = userlist.get(i);
-		    	 data.createCell(0).setCellValue(user.getTrueName());
-		    	 data.createCell(1).setCellValue(user.getUsersex());
-		    	 Date birth = sdf.parse(user.getBirth());
-		    	 user_age = DateUtils.compareDateWithNow(birth);
-		    	 data.createCell(2).setCellValue(user_age);
-		    	 data.createCell(3).setCellValue(user.getMzId());
-		    	 data.createCell(4).setCellValue(user.getZzmmId());
+		    	 
+		    	 //DBUtils.setEmptyIfNull(user);
+		    	 String tn = user.getTrueName();
+		    	 String us = user.getUsersex();
+		    	 String birth = user.getBirth();
+		    	 Long mz = user.getMzId();
+		    	 Long zzmm = user.getZzmmId();
+		    	 if(tn==null){
+		    		 tn = "";
+		    	 }
+		    	 
+		    	 Long dec_id = user.getDecId();
+		    	 String card = user.getCard();
+		    	 
+		    	 Long degree_id = user.getDegreeId();
+		    	 
+		    	 Long edu_id = user.getEduId();
+		    	 
+		    	 String area_id = user.getAreaId();
+		    	 
+		    	 String address = user.getAddress();
+		    	 
+//		    	 String 
+		    	 
+		    	 data.createCell(0).setCellValue(tn);
+		    	 data.createCell(1).setCellValue(us);
+		    	 //Date birth = sdf.parse(user.getBirth());
+		    	// user_age = DateUtils.compareDateWithNow(birth);
+		    	 data.createCell(2).setCellValue(birth);
+		    	 data.createCell(3).setCellValue(mz);
+		    	 data.createCell(4).setCellValue(zzmm);
 		    	 data.createCell(5).setCellValue(user.getDecId());
 		    	 data.createCell(6).setCellValue(user.getCard());
 		    	 data.createCell(7).setCellValue(user.getDegreeId());

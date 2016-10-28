@@ -26,6 +26,8 @@ public class PathUtils {
 	//遍历文件夹中的所有文件
 	public static ArrayList<String> getAllFilePath(String path){
 		
+		file_path_list.clear();
+		
 		File root = new File(path);
 		File[] files = root.listFiles();
 

@@ -77,8 +77,9 @@
 				<td>所属地区: </td>
 				<td>
 				<select name="user.usersex" class="select">
-					<option value="0">女</option>
-					<option value="1">男</option>
+					<#list areaList as x>
+					<option value="${x.area_id?if_exists}">${x.area_name?if_exists}</option>
+					</#list>
 				</select>
 				</td>
 		

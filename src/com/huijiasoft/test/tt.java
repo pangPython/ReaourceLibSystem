@@ -1,10 +1,12 @@
 package com.huijiasoft.test;
 
-import com.huijiasoft.utils.DateUtils;
 
 public class tt {
 	public static void main(String[] args) {
-		System.out.println(DateUtils.dateToUnixTimestamp(DateUtils.getNowTime()));
+		String str1 = "";
+		String str2 = null;
+		System.out.println(str1);
+		System.out.println(str2);
 	
 	}
 	

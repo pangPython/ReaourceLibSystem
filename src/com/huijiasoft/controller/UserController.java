@@ -127,7 +127,8 @@ public class UserController extends Controller {
 		List<String> list = PathUtils.getAllFilePath(path);
 
 		if(list==null){
-			renderText("您未上传图片资料!");
+			setAttr("ErrMsg", "您未上传图片资料!");
+			render("error.html");
 			return;
 		}
 		
@@ -151,7 +152,8 @@ public class UserController extends Controller {
 
 		// 处理上传路径
 		if (!PathUtils.createNotExist(PathKit.getWebRootPath() + "\\upload\\photo\\" + picture_upload_path)) {
-			renderText("上传路径出错!");
+			setAttr("ErrMsg", "上传路径出错!");
+			render("error.html");
 			return;
 		}
 
@@ -182,7 +184,8 @@ public class UserController extends Controller {
 		List<String> list = PathUtils.getAllFilePath(path);
 
 		if(list==null){
-			renderText("您未上传音频资料!");
+			setAttr("ErrMsg", "您未上传音频资料!");
+			render("error.html");
 			return;
 		}
 		
@@ -202,7 +205,8 @@ public class UserController extends Controller {
 
 		// 处理上传路径
 		if (!PathUtils.createNotExist(PathKit.getWebRootPath() + "\\upload\\audio\\" + picture_upload_path)) {
-			renderText("上传路径出错!");
+			setAttr("ErrMsg", "上传路径出错!");
+			render("error.html");
 			return;
 		}
 
@@ -221,7 +225,8 @@ public class UserController extends Controller {
 		
 		//如果文件夹为空
 		if(list==null){
-			renderText("您未上传视频文件！");
+			setAttr("ErrMsg", "您未上传视频文件！");
+			render("error.html");
 			return;
 		}
 		
@@ -242,7 +247,8 @@ public class UserController extends Controller {
 
 		// 处理上传路径
 		if (!PathUtils.createNotExist(PathKit.getWebRootPath() + "\\upload\\video\\" + picture_upload_path)) {
-			renderText("上传路径出错!");
+			setAttr("ErrMsg", "上传路径出错!");
+			render("error.html");
 			return;
 		}
 
@@ -261,14 +267,17 @@ public class UserController extends Controller {
 	// 下载标准报名表
 	@ActionKey("/user/download_std")
 	public void download_std() {
-		renderFile(new File("WebRoot\\download\\application\\东营市文化艺术人才信息登记表.doc"));
+		File f = new File("WebRoot\\download\\application\\东营市文化艺术人才信息登记表.doc");
+		
+		renderFile(f.getAbsoluteFile());
 	}
 
 	public void download_my() {
 		User user = getSessionAttr(getCookie("cuser"));
 
 		if (DBUtils.RecordAttrHasNull(user)) {
-			renderText("你的报名信息不完整,请先完善信息！");
+			setAttr("ErrMsg", "你的报名信息不完整,请先完善信息！");
+			render("error.html");
 			return;
 		}
 

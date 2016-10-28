@@ -51,7 +51,7 @@ ${nameErrMsg?if_exists}				</td>
 		
 				<td>出生日期:</td>
 				<td>
-				<input type="text" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})" id="user.birth" name="user.birth" class="input-text Wdate" style="width:200px;">
+				<input id="d11" type="text" class="input-text Wdate" name="user.birth" onClick="WdatePicker()"/>
 		${birthErrMsg?if_exists}		</td>
 			</tr>
 			<tr>
@@ -85,7 +85,8 @@ ${nameErrMsg?if_exists}				</td>
 			<tr>
 				<td>参加工作时间 </td>
 				<td>
-				<input type="text" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})" id="user.join_work" name="user.join_work" class="input-text Wdate" style="width:200px;">
+				<input id="d12" type="text" class="input-text Wdate" name="user.join_work" onClick="WdatePicker()"/>
+				
 		${jwErrMsg?if_exists}		</td>
 		
 				<td>身份证号 </td>
@@ -178,19 +179,13 @@ ${nameErrMsg?if_exists}				</td>
 	</form>
 	
 </div>
-<footer class="footer mt-20">
-	<div class="container">
-		<p>本系统由<a href="http://www.huijiasoft.com/" target="_blank" title="山东汇佳软件科技股份有限公司">山东汇佳软件科技</a>提供技术支持</p>
-	</div>
-</footer>
+
 <script type="text/javascript" src="/admin/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="/admin/lib/layer/2.1/layer.js"></script> 
 <script type="text/javascript" src="/admin/lib/laypage/1.2/laypage.js"></script> 
 <script type="text/javascript" src="/admin/lib/My97DatePicker/WdatePicker.js"></script> 
 <script type="text/javascript" src="/admin/static/h-ui/js/H-ui.js"></script>
 <script type="text/javascript" src="/admin/static/h-ui.admin/js/H-ui.admin.js"></script> 
-<script type="text/javascript">
 
-</script>
 </body>
 </html>

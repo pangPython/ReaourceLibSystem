@@ -261,7 +261,8 @@ public class AdminController extends Controller {
 		UploadFile upfile = getFile();
 		
 		if(upfile==null){
-			renderText("请上传一寸照片！");
+			setAttr("ErrMsg", "请上传一寸照片！");
+			render("error.html");
 			return;
 		}
 		
@@ -301,6 +302,30 @@ public class AdminController extends Controller {
 		setAttr("declare", DeclareType.dao.findById(getPara("id")));
 		render("decedit.html");
 	}
+	
+	//增加申报类别
+	public void adddec(){
+		render("dec-add.html");
+	}
+	//添加申报类别的方法
+	public void decadd(){
+		DeclareType dec = getModel(DeclareType.class);
+		dec.set("decname", getPara("dec.name")).save();
+		renderText("添加成功！");
+				
+	}
+	//删除类别
+	public void deldec(){
+		DeclareType dec = getModel(DeclareType.class);
+		if(dec.dao.deleteById(getParaToInt(0))){
+			renderText("1");
+		}else{
+			renderText("0");
+		}
+		
+	}
+	
+	
 	//申报类型保存
 	public void decupdate(){
 		DeclareType.dao.set("dec_id",getPara("dec_id")).set("decname", getPara("decname")).update();
@@ -316,6 +341,26 @@ public class AdminController extends Controller {
 		setAttr("nationList", nationList);
 		setAttr("listsize", listsize);
 		render("nation.html");
+	}
+	
+	public void mzadd(){
+		render("mz-add.html");
+	}
+	
+	public void delmz(){
+		Mz mz = getModel(Mz.class);
+		if(mz.dao.deleteById(getParaToInt(0))){
+			renderText("1");
+		}else{
+			renderText("0");
+		}
+		
+	}
+	
+	public void addmz(){
+		Mz mz = getModel(Mz.class);
+		mz.set("mzname", getPara("mz.mzname")).save();
+		renderText("添加成功！");
 	}
 	
 	//民族编辑页面
@@ -337,6 +382,28 @@ public class AdminController extends Controller {
 		render("zzmm.html");
 	}
 	
+	public void delzzmm(){
+		Zzmm zzmm = getModel(Zzmm.class);
+		if(zzmm.dao.deleteById(getParaToInt(0))){
+			renderText("1");
+		}else{
+			renderText("0");
+		}
+		
+	}
+	
+	
+	public void zzmmadd(){
+		render("zzmm-add.html");
+	}
+	
+	public void addzzmm(){
+		Zzmm zzmm = getModel(Zzmm.class);
+		zzmm.set("zzmmname", getPara("zzmm.zzmmname")).save();
+		renderText("添加成功！");
+	}
+	
+	
 	//政治面貌编辑页面
 	public void zzmmedit(){
 		setAttr("zzmm", Zzmm.dao.findById(getPara("id")));
@@ -356,14 +423,34 @@ public class AdminController extends Controller {
 		render("education.html");
 		
 	}
+	
+	//
+	public void eduadd(){
+		render("edu-add.html");
+	}
+	
+	
+	public void deledu(){
+		Edu edu = getModel(Edu.class);
+		if(edu.dao.deleteById(getParaToInt(0))){
+			renderText("1");
+		}else{
+			renderText("0");
+		}
+	}
+	
+	public void addedu(){
+		Edu edu  = getModel(Edu.class);
+		edu.set("eduname",getPara("edu.eduname")).save();
+		renderText("添加成功！");
+	}
+	
+	
 	//学历信息编辑
 	public void eduedit(){
 		setAttr("edu", Edu.dao.findById(getPara("id")));
 		render("eduedit.html");
 	}
-	
-	
-	
 	
 	//学历信息更新
 	public void eduupdate(){
@@ -375,6 +462,25 @@ public class AdminController extends Controller {
 	public void degree(){
 		setAttr("degreeList", Degree.dao.getAllDegree());
 		render("degree.html");
+	}
+	
+	public void deldegree(){
+		Degree degree = getModel(Degree.class);
+		if(degree.dao.deleteById(getParaToInt(0))){
+			renderText("1");
+		}else{
+			renderText("0");
+		}
+	}
+	
+	
+	public void degreeadd(){
+		render("degree-add.html");
+	}
+	
+	public void adddegree(){
+		getModel(Degree.class).save();
+		renderText("增加学位信息成功！");
 	}
 	
 	//学位信息编辑页面
@@ -392,6 +498,25 @@ public class AdminController extends Controller {
 	public void area(){
 		setAttr("areaList", Area.dao.getAllArea());
 		render("area.html");
+	}
+	
+	public void delarea(){
+		Area area = getModel(Area.class);
+		if(area.dao.deleteById(getParaToInt(0))){
+			renderText("1");
+		}else{
+			renderText("0");
+		}
+	}
+	
+	
+	public void areaadd(){
+		render("area-add.html");
+	}
+	
+	public void addarea(){
+		getModel(Area.class).save();
+		renderText("增加地区信息成功！");
 	}
 	
 	//地区信息编辑页面
@@ -498,7 +623,7 @@ public class AdminController extends Controller {
 		String pwd = MD5.GetMD5Code(getPara("admin.pwd")+reg_date);
 		
 		getModel(Admin.class).set("pwd", pwd).set("create_time",reg_date).set("status", 1).save();
-		renderText("添加管理员成功！"+getPara("admin.name"));
+		renderText("添加管理员 "+getPara("admin.name")+" 成功！");
 	}
 	
 	
@@ -518,7 +643,7 @@ public class AdminController extends Controller {
 	public void backupalldb(){
 		String file_name = DateUtils.dateToUnixTimestamp(DateUtils.getNowTime())+".sql";
 		JavaMysqlUtil.backup(file_name);
-		renderFile(new File("WebRoot\\download\\dbbackup\\"+file_name));
+		renderText("备份成功！请使用FTP工具 下载。地址：WebRoot\\download\\dbbackup\\"+file_name);
 	}
 	
 	//获取所有管理员登录日志
@@ -554,7 +679,8 @@ public class AdminController extends Controller {
 		List<String> list = PathUtils.getAllFilePath(path);
 
 		if(list==null){
-			renderText("该用户未上传图片资料!");
+			setAttr("ErrMsg", "该用户未上传图片资料!");
+			render("error.html");
 			return;
 		}
 		
@@ -572,7 +698,8 @@ public class AdminController extends Controller {
 		List<String> list = PathUtils.getAllFilePath(path);
 
 		if(list==null){
-			renderText("该用户未未上传音频资料!");
+			setAttr("ErrMsg", "该用户未上传音频文件！");
+			render("error.html");
 			return;
 		}
 		
@@ -590,7 +717,8 @@ public class AdminController extends Controller {
 		
 		//如果文件夹为空
 		if(list==null){
-			renderText("该用户未上传视频文件！");
+			setAttr("ErrMsg", "该用户未上传视频文件！");
+			render("error.html");
 			return;
 		}
 		
@@ -604,7 +732,8 @@ public class AdminController extends Controller {
 	public void userinfoprint(){
 		User user = User.usermodel.findById(getParaToInt(0));
 		if(DBUtils.RecordAttrHasNull(user)){
-			renderText("该人才的报名信息不完整,请先完善信息！");
+			setAttr("ErrMsg", "该人才的报名信息不完整,请先完善信息！");
+			render("error.html");
 			return;
 		}
 		String file_name = RenderDocxTemplate.creatWord(user);

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50547
 File Encoding         : 65001
 
-Date: 2016-10-28 00:21:08
+Date: 2016-10-28 11:04:09
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -52,7 +52,7 @@ CREATE TABLE `area` (
   `area_name` varchar(50) NOT NULL,
   `area_type` int(20) NOT NULL COMMENT '使用0代表市,1代表县区',
   PRIMARY KEY (`area_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of area
@@ -88,7 +88,7 @@ CREATE TABLE `declare_type` (
   `dec_id` int(11) NOT NULL AUTO_INCREMENT,
   `decname` varchar(20) NOT NULL,
   PRIMARY KEY (`dec_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of declare_type
@@ -112,7 +112,7 @@ CREATE TABLE `degree` (
   `degree_id` int(11) NOT NULL AUTO_INCREMENT,
   `degreename` varchar(20) NOT NULL,
   PRIMARY KEY (`degree_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of degree
@@ -126,22 +126,22 @@ INSERT INTO `degree` VALUES ('3', ' 博士');
 -- ----------------------------
 DROP TABLE IF EXISTS `edu`;
 CREATE TABLE `edu` (
-  `edu_id` int(11) NOT NULL,
+  `edu_id` int(11) NOT NULL AUTO_INCREMENT,
   `eduname` varchar(20) NOT NULL,
   PRIMARY KEY (`edu_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of edu
 -- ----------------------------
-INSERT INTO `edu` VALUES ('0', ' 小学');
-INSERT INTO `edu` VALUES ('1', ' 初中');
-INSERT INTO `edu` VALUES ('2', ' 中专');
-INSERT INTO `edu` VALUES ('3', ' 高中');
-INSERT INTO `edu` VALUES ('4', ' 专科');
-INSERT INTO `edu` VALUES ('5', ' 本科');
-INSERT INTO `edu` VALUES ('6', ' 硕士研究生');
-INSERT INTO `edu` VALUES ('7', ' 博士研究生');
+INSERT INTO `edu` VALUES ('1', ' 小学');
+INSERT INTO `edu` VALUES ('2', ' 初中');
+INSERT INTO `edu` VALUES ('3', ' 中专');
+INSERT INTO `edu` VALUES ('4', ' 高中');
+INSERT INTO `edu` VALUES ('5', ' 专科');
+INSERT INTO `edu` VALUES ('6', ' 本科');
+INSERT INTO `edu` VALUES ('7', ' 硕士研究生');
+INSERT INTO `edu` VALUES ('8', ' 博士研究生');
 
 -- ----------------------------
 -- Table structure for `log`
@@ -153,7 +153,7 @@ CREATE TABLE `log` (
   `uname` varchar(255) NOT NULL,
   `date` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=103 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=105 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of log
@@ -260,6 +260,8 @@ INSERT INTO `log` VALUES ('99', '0:0:0:0:0:0:0:1', 'whg_admin', '2016-10-27 15:2
 INSERT INTO `log` VALUES ('100', '0:0:0:0:0:0:0:1', 'whg_admin', '2016-10-27 20:54:42');
 INSERT INTO `log` VALUES ('101', '0:0:0:0:0:0:0:1', 'whg_admin', '2016-10-27 21:25:50');
 INSERT INTO `log` VALUES ('102', '0:0:0:0:0:0:0:1', 'whg_admin', '2016-10-27 23:06:29');
+INSERT INTO `log` VALUES ('103', '0:0:0:0:0:0:0:1', 'whg_admin', '2016-10-28 08:10:18');
+INSERT INTO `log` VALUES ('104', '0:0:0:0:0:0:0:1', 'whg_admin', '2016-10-28 10:05:35');
 
 -- ----------------------------
 -- Table structure for `msg`
@@ -287,7 +289,7 @@ CREATE TABLE `mz` (
   `mz_id` int(11) NOT NULL AUTO_INCREMENT,
   `mzname` varchar(20) NOT NULL,
   PRIMARY KEY (`mz_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mz
@@ -500,7 +502,7 @@ CREATE TABLE `user` (
   `business_achievement` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`uname`) USING HASH
-) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
@@ -536,7 +538,7 @@ CREATE TABLE `zzmm` (
   `zzmm_id` int(11) NOT NULL AUTO_INCREMENT,
   `zzmmname` varchar(20) NOT NULL,
   PRIMARY KEY (`zzmm_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of zzmm
