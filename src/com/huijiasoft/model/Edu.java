@@ -18,6 +18,9 @@ public class Edu extends BaseEdu<Edu> {
 	
 	public List<Edu> getAllEdu() {
 		return dao.find("select * from edu order by edu_id asc");
-
+	}
+	
+	public String getEduNameById(long id){
+		return dao.findById(id).getEduname();
 	}
 }

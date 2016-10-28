@@ -22,5 +22,8 @@ public class DeclareType extends BaseDeclareType<DeclareType> {
 		return dao.find(" select * from declare_type order by dec_id asc");
 	}
 	
+	public String getDecNameById(long id){
+		return dao.findById(id).getDecname();
+	}
 	
 }

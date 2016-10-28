@@ -21,4 +21,7 @@ public class Area extends BaseArea<Area> {
 		return dao.find("select * from area order by area_id asc");
 	}
 	
+	public String getAreaNameById(String id){
+		return dao.findById(id).getAreaName();
+	}
 }

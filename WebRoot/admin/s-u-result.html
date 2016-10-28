@@ -30,12 +30,12 @@
 		<div class="cl pd-5 bg-1 bk-gray mt-20">
 			<span class="l">
 			
-			<#if file ??>
-			<input class="btn disabled radius" type="button" value="禁用">
-			
-			<#elseif>				
+			<#if file??>
 			<a href="/download/report/${file?if_exists}"
 				class="btn btn-success radius">打印</a>
+			<#elseif file!=null>				
+			<input class="btn disabled radius" type="button" value="禁用">
+			
 			</#if>
 				</span> <span class="r">共有数据：<strong>54</strong> 条
 			</span>

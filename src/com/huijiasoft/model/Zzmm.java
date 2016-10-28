@@ -19,5 +19,7 @@ public class Zzmm extends BaseZzmm<Zzmm> {
 	public List<Zzmm> getAllZzmm(){
 		return dao.find("select * from zzmm order by zzmm_id asc");
 	}
-	
+	 public String getZzmmNameById(long id){
+		 return dao.findById(id).getZzmmname();
+	 }
 }

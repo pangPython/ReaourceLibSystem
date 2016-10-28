@@ -20,4 +20,8 @@ public class Degree extends BaseDegree<Degree> {
 	public List<Degree> getAllDegree(){
 		return dao.find("select * from degree order by degree_id asc");
 	}
+	
+	public String getDegreeNameById(long id){
+		return dao.findById(id).getDegreename();
+	}
 }
