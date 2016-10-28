@@ -38,9 +38,9 @@ public class PathUtils {
 		for(File file:files){
 			if(file.isDirectory()){
 				getAllFilePath(file.getAbsolutePath());
-				System.out.println("子目录及其文件  "+file.getName());
+				//System.out.println("子目录及其文件  "+file.getName());
 			}
-			System.out.println("zimulu "+file.getName());
+			//System.out.println("zimulu "+file.getName());
 			file_path_list.add(file.getName());
 			
 		}
