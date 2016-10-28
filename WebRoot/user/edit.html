@@ -23,7 +23,7 @@
 <![endif]-->
 <title>编辑报名信息</title>
 </head>
-<body onbeforeunload="return '当前页面还有未保存的数据，确定不保存就离开了吗？';">
+<body onbeforeunload="return '当前页面可能还有未保存的数据，确定不保存就离开吗？';">
 <div class="page-container">
 	<p class="f-20 text-success">>正在编辑我的报名信息</p>
 
@@ -99,37 +99,26 @@ ${nameErrMsg?if_exists}				</td>
 				<input type="text" class="input-text" value="${user.health?if_exists}" id="user.health" name="user.health">
 			${hErrMsg?if_exists}	</td>
 			</tr>
-			<tr>
-				<td>学历 </td>
-				<td>
-				<select name="user.usersex" class="select">
-					<#list eduList as x>
-									<option value="${x.edu_id}">${x.eduname}</option>
-									</#list>
-				</select>
-				</td>
-		
-			
-		
-				<td>工作单位 </td>
-				<td>
-				${comErrMsg?if_exists}<input type="text" class="input-text" value="${user.company?if_exists}" id="user.company" name="user.company">
-				</td>
+					<tr>
+						
+
+
+
+						<td>工作单位</td>
+						<td>${comErrMsg?if_exists}<input type="text"
+							class="input-text" value="${user.company?if_exists}"
+							id="user.company" name="user.company">
+						</td>
+
+						<td>单位电话</td>
+						<td><input type="text" class="input-text"
+							value="${user.company_tel?if_exists}" id="user.company_tel"
+							name="user.company_tel"> ${comtelErrMsg?if_exists}</td>
+							<td></td>
+				<td></td>
+					</tr>
+					<tr>
 				
-				<td>单位电话 </td>
-				<td>
-				<input type="text" class="input-text" value="${user.company_tel?if_exists}" id="user.company_tel" name="user.company_tel">
-				${comtelErrMsg?if_exists}</td>
-			</tr>
-			<tr>
-				<td>学位 </td>
-				<td>
-				<select name="user.usersex" class="select">
-					<#list degreeList as x>
-									<option value="${x.degree_id}">${x.degreename}</option>
-								</#list>
-				</select>
-				</td>
 				<td>家庭住址 </td>
 				<td>
 				<input type="text" class="input-text" value="${user.address?if_exists}" id="user.address" name="user.address">
@@ -139,6 +128,47 @@ ${nameErrMsg?if_exists}				</td>
 				<td>
 				<input type="text" class="input-text" value="${user.telephone?if_exists}" id="user.telephone" name="user.telephone">
 				${telErrMsg?if_exists}</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+			<td>学历</td>
+						<td><select name="user.usersex" class="select">
+								<#list eduList as x>
+								<option value="${x.edu_id}">${x.eduname}</option> </#list>
+						</select></td>
+						
+				</td>
+				<td>学校 </td>
+				<td>
+				<input type="text" class="input-text" value="" id="" name="">
+				 </td>
+				<td>类型 </td>
+				<td>
+				<select name="" class="select">
+								<option value="0">全日制</option> 
+								<option value="1">在职</option> 
+						</select>
+				 </td>
+				
+			</tr>
+			<tr>
+			<td>学位 </td>
+				<td>
+				<select name="user.usersex" class="select">
+					<#list degreeList as x>
+									<option value="${x.degree_id}">${x.degreename}</option>
+								</#list>
+				</select></td>
+				<td>学校 </td>
+				<td>
+				<input type="text" class="input-text" value="" id="" name="">
+				 </td>
+				<td>类型 </td>
+				<td><select name="" class="select">
+								<option value="0">全日制</option> 
+								<option value="1">在职</option> 
+						</select> </td>
 			</tr>
 			<tr>
 				<td>重要社会兼职 </td>
