@@ -23,6 +23,19 @@ body {
 .column {
 	max-width: 450px;
 }
+.mylogin-form{
+	background-image:url(/static/images/05.png);
+	background-size:cover; 
+	height:400px;
+	position:absolute;
+	bottom:0px;
+	right:0px;
+	left:0px;
+	width:101%;
+	text-align:center;
+	z-index:2;
+	overflow:hidden;
+}
 </style>
 <script>
   $(document)
@@ -66,11 +79,10 @@ body {
 </head>
 <body>
 	
-	<div class="ui container center aligned grid">
-		<div class="column">
-	<br><br><br><br><br><br><br><br>
-			<div class="ui stacked segment raised">
-				<h2 class="ui teal header">${system.title?if_exists}</h2>
+	<div class="ui  center aligned grid mylogin-form">
+		<div class="column ">
+			<div class="ui stacked  ">
+			<img alt="" src="/static/images/07.png">
 				<form class="ui large form" method="POST" action="login">
 					<div class="field">
 						<div class="ui left icon input">
@@ -94,14 +106,13 @@ body {
 						</div>
 						<br>${yzmErrMsg!}
 					</div>
-					<br><br>
 					<button class="ui button blue">登录</button>
 					
 					<div class="ui error message"></div>
 				</form>
 				<div class="ui divider"></div>
 				<div class="ui ">
-					没有账户? <a href="register">注册</a>
+					没有账户? <a href="register" style="color:#CC0000 ">注册</a>
 				</div>
 			</div>
 		</div>

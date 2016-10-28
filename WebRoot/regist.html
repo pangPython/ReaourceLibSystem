@@ -13,25 +13,33 @@
   <script src="static/js/semantic.min.js"></script>
 <style>
     body {
-      background-image: url(/static/images/bg-01.jpg);
+      background-image: url(/static/images/bg-02.jpg);
       background-size:cover; 
     }
     .column {
       max-width: 450px;
     }
-    .blank{
-    	height:100px;
+
+    .myreg-form{
+    	background-image:url(/static/images/05.png);
+		background-size:cover; 
+		height:400px;
+		position:absolute;
+		bottom:0px;
+		width:101%;
+		text-align:center;
+		z-index:2;
+		overflow:hidden;
     }
 </style>
 </head>
 <body>
-<div class="blank">
-</div>
-<div class="ui container middle aligned center aligned grid">
+
+<div class="ui  middle aligned center aligned grid myreg-form">
   <div class="column">
     <form class="ui large form" method="POST" action="regist">
-      <div class="ui stacked segment raised">
-      <h2 class="ui center aligned icon header"><i class="circular users icon"></i>  注册-${system.title?if_exists}</h2>
+      <div class="ui stacked">
+      <img alt="" src="/static/images/07.png">
         <div class="field">
           <div class="ui left icon input">
             <i class="user icon"></i>
@@ -51,7 +59,6 @@
           <div class="ui left icon input">
             <i class="lock icon"></i>
             <input type="password" name="reg.confirmpwd" placeholder="确认密码">
-            
           </div>
           <br><p>${confirmMsg!}</p>
         </div>
