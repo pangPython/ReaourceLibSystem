@@ -9,6 +9,22 @@ import com.jfinal.plugin.activerecord.IBean;
 @SuppressWarnings("serial")
 public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implements IBean {
 
+	public void setDegreeSchool(java.lang.String degreeSchool) {
+		set("degree_school", degreeSchool);
+	}
+
+	public java.lang.String getDegreeSchool() {
+		return get("degree_school");
+	}
+
+	public void setEduSchool(java.lang.String eduSchool) {
+		set("edu_school", eduSchool);
+	}
+
+	public java.lang.String getEduSchool() {
+		return get("edu_school");
+	}
+
 	public void setId(java.lang.Integer id) {
 		set("id", id);
 	}
@@ -129,12 +145,12 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("address");
 	}
 
-	public void setEdu_fullTime(java.lang.Integer edu_fullTime) {
-		set("edu__full_time", edu_fullTime);
+	public void setEduFullTime(java.lang.Integer eduFullTime) {
+		set("edu_full_time", eduFullTime);
 	}
 
-	public java.lang.Integer getEdu_fullTime() {
-		return get("edu__full_time");
+	public java.lang.Integer getEduFullTime() {
+		return get("edu_full_time");
 	}
 
 	public void setCompany(java.lang.String company) {

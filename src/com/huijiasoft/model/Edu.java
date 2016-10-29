@@ -21,6 +21,15 @@ public class Edu extends BaseEdu<Edu> {
 	}
 	
 	public String getEduNameById(long id){
-		return dao.findById(id).getEduname();
+		String result = "";
+		
+		try {
+			result=dao.findById(id).getEduname();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return result;
 	}
 }

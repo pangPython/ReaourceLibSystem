@@ -56,8 +56,43 @@ public class UserController extends Controller {
 	// 用户信息查看
 	public void info() {
 		User user = (User) getSessionAttr(getCookie("cuser"));
-
+		String edu = "";
+		String degree="";
+		String es = user.getEduSchool();
+		String ds = user.getDegreeSchool();
+		int eft = user.getEduFullTime();
+		long dft = user.getDegreeFullTime();
+		Long eduid = user.getEduId();
+		Long degreeid = user.getDegreeId();
+		
+		if(es!=null){
+			edu += es;
+		}
+		if(ds!=null){
+			degree += ds;
+		}
+		if(eft==1){
+			edu += " 在职";	
+		}
+		if(eft==0){
+			edu += " 全日制";
+		}
+		if(dft==1){
+			degree += " 在职";	
+		}
+		if(dft==0){
+			degree += " 全日制";
+		}
+		if(eduid!=null){
+			edu += " "+Edu.dao.getEduNameById(eduid);
+		}
+		if(degreeid!=null){
+			degree += " "+Degree.dao.getDegreeNameById(degreeid);
+		}
+		
 		setAttr("user", user);
+		setAttr("edu", edu);
+		setAttr("degree", degree);
 		render("info.html");
 	}
 

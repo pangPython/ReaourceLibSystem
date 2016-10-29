@@ -2,6 +2,7 @@ package com.huijiasoft.model;
 
 
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -45,7 +46,55 @@ public class User extends BaseUser<User> {
 		return usermodel.find(sql);
 	}
 	
-
+	public Map<String,String> getEduDegreeSchool(User user){
+		Map<String,String> map = new HashMap<String, String>();
+		String full_time = "";
+		String part_time = "";
+		String full_time_school = "";
+		String part_time_school = "";
+		
+		int f = 0;
+		Long df ;
+		if(user.getEduFullTime() != null){
+			f = user.getEduFullTime();
+			switch (f) {
+			case 0:
+				part_time += Edu.dao.getEduNameById(f);
+				part_time_school += user.getEduSchool();
+				break;
+			case 1:
+				full_time += Edu.dao.getEduNameById(f);
+				full_time_school += user.getEduSchool();
+				break;
+				
+			default:
+				break;
+			}
+		}
+		if(user.getDegreeFullTime()!=null){
+			df = user.getDegreeFullTime();
+			switch (df.intValue()) {
+			case 0:
+				part_time += Degree.dao.getDegreeNameById(df);
+				part_time_school += user.getDegreeSchool();
+				break;
+			case 1:
+				full_time += Degree.dao.getDegreeNameById(df);
+				full_time_school += user.getDegreeSchool();
+				break;
+			default:
+				break;
+			}
+		}
+		
+		map.put("part_time", part_time);
+		map.put("full_time", full_time);
+		map.put("part_time_school", part_time_school);
+		map.put("full_time_school", full_time_school);
+		
+		
+		return map;
+	}
 
 	
 	

@@ -48,6 +48,9 @@ public class RenderDocxTemplate {
 			if("0".equals(user.getUsersex())){
 				sex = "女";
 			}
+			
+			Map<String,String> map = User.usermodel.getEduDegreeSchool(user);
+			
 			root.put("sex", sex);
 			root.put("birth", user.getBirth());
 			root.put("minzu", user.getStr("mzname"));
@@ -57,8 +60,12 @@ public class RenderDocxTemplate {
 			root.put("health", user.getHealth());
 			root.put("zyzw", user.getTechnicalPosition());
 			root.put("techang", user.getSpecialty());
-			//root.put(key, user.get);
-			//学位学历
+			
+			root.put("qrzxl", map.get("full_time"));
+			root.put("zzxl", map.get("part_time"));
+			root.put("qrzxl_school", map.get("full_time_school"));
+			root.put("zzxl_school", map.get("part_time_school"));
+			
 			root.put("company", user.getCompany());
 			root.put("com_tel", user.getCompanyTel());
 			root.put("address",user.getAddress());

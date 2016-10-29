@@ -22,6 +22,14 @@ public class Degree extends BaseDegree<Degree> {
 	}
 	
 	public String getDegreeNameById(long id){
-		return dao.findById(id).getDegreename();
+		String result= "";
+		try {
+			result = dao.findById(id).getDegreename();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	
+		return result;
 	}
 }

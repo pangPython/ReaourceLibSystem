@@ -611,6 +611,18 @@ public class AdminController extends Controller {
 		setAttr("user", user);
 		setAttr("mz", mzname);
 		setAttr("zzmm", user.getStr("zzmmname"));
+		
+		String full_time = "";
+		String part_time = "";
+		String full_time_school = "";
+		String part_time_school = "";
+		
+		Map<String,String> map = User.usermodel.getEduDegreeSchool(user);
+		
+		setAttr("qrz",map.get("full_time"));
+		setAttr("zz",map.get("part_time"));
+		setAttr("qrz_school",map.get("full_time_school"));
+		setAttr("zz_school",map.get("part_time_school"));
 		render("user-check.html");
 	}
 	
