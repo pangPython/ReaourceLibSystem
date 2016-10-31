@@ -25,7 +25,14 @@
 </head>
 <body>
 <div class="page-container">
-<div class="Huialert Huialert-info"><i class="icon-remove"></i>审核失败：</div>
+<div class="Huialert Huialert-info"><i class="icon-remove"></i><h3>审核失败：</h3>
+<br><br>
+原因：${Msg.content?if_exists}<br><br>
+审核人:${Msg.admin_name?if_exists}<br><br>
+审核时间：${Msg.date?if_exists}
+
+
+</div>
 	
 	
 	

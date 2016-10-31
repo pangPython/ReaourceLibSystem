@@ -14,6 +14,7 @@ import com.huijiasoft.model.DeclareType;
 import com.huijiasoft.model.Degree;
 import com.huijiasoft.model.Edu;
 import com.huijiasoft.model.Log;
+import com.huijiasoft.model.Msg;
 import com.huijiasoft.model.Mz;
 import com.huijiasoft.model.System;
 import com.huijiasoft.model.User;
@@ -31,6 +32,7 @@ import com.jfinal.aop.Before;
 import com.jfinal.aop.Clear;
 import com.jfinal.core.ActionKey;
 import com.jfinal.core.Controller;
+import com.jfinal.ext.kit.DateKit;
 import com.jfinal.ext.kit.SessionIdKit;
 import com.jfinal.kit.PathKit;
 import com.jfinal.upload.UploadFile;
@@ -809,11 +811,47 @@ public class AdminController extends Controller {
 	public void msg(){
 		
 		if(!User.usermodel.UserIsChecked(getParaToInt(0))){
+			setAttr("userid", getParaToInt(0));
 			render("message.html");
 			return;
 		}
 		setAttr("ErrMsg", "已经通过审核！");
 		render("error.html");
+	}
+	
+	//处理消息
+	public void sendmsg(){
+		
+		try {
+			int userId = getParaToInt("uid");
+			String content = getPara("content");
+			Admin admin = getSessionAttr(getCookie("cadmin"));
+			int adminId = admin.getId();
+			String adminName = admin.getName();
+			String date = DateUtils.getNowTime();
+			Msg msg = getModel(Msg.class);
+			Msg m = Msg.dao.findByUserId(userId);
+			msg.setUserId(userId);
+			msg.setAdminId(adminId);
+			msg.setAdminName(adminName);
+			msg.setContent(content);
+			msg.setDate(date);
+			
+			if(m!=null){
+				msg.setId(m.getId());
+				msg.update();
+				renderText("1");
+				return;
+			}
+			msg.save();
+			renderText("1");
+			return;
+		} catch (Exception e) {
+			renderText("0");
+			return;
+		}
+		
+		
 	}
 	
 	

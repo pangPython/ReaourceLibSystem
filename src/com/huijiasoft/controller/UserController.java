@@ -10,6 +10,7 @@ import com.huijiasoft.interceptor.UserAuthInterceptor;
 import com.huijiasoft.model.Area;
 import com.huijiasoft.model.Degree;
 import com.huijiasoft.model.Edu;
+import com.huijiasoft.model.Msg;
 import com.huijiasoft.model.Mz;
 import com.huijiasoft.model.UploadPhoto;
 import com.huijiasoft.model.Uploads;
@@ -227,6 +228,9 @@ public class UserController extends Controller {
 			render("msg-success.html");
 			return;
 		} else {
+			//审核未通过,要显示失败信息
+			Msg m = Msg.dao.findByUserId(user.getId());
+			setAttr("Msg", m);
 			render("msg-failed.html");
 			return;
 		}

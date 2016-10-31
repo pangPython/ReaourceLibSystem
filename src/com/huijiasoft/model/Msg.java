@@ -8,4 +8,13 @@ import com.huijiasoft.model.base.BaseMsg;
 @SuppressWarnings("serial")
 public class Msg extends BaseMsg<Msg> {
 	public static final Msg dao = new Msg();
+	
+	
+	public Msg findByUserId(int uid){
+		Msg m = dao.findFirst("select * from msg where user_id = ? limit 1", uid);
+		if(m!=null){
+			return m;
+		}
+		return null;
+	}
 }
