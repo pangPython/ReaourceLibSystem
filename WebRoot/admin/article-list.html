@@ -33,8 +33,8 @@
 		<table class="table table-border table-bordered table-bg table-hover table-sort">
 			<thead>
 				<tr class="text-c">
-					<th width="25"><input type="checkbox" name="" value=""></th>
-					<th width="20">姓名</th>
+					<th width="20">用户名</th>
+					<th width="20">真实姓名</th>
 					<th width="20">性别</th>
 					<th width="20">出生日期</th>
 					<th width="20">民族</th>
@@ -50,9 +50,11 @@
 			
 			<#list userList as x>
 			<tr class="text-c">
-				<td><input type="checkbox" value="" name=""></td>
-				<td class="text-l">
+				<td>
 				<a style="cursor:pointer" class="text-primary" href="checkUser?id=${x.id!}" title="查看">${x.uname?if_exists}</a></td>
+				</td>
+				<td class="text-l">
+				<a style="cursor:pointer" class="text-primary" href="checkUser?id=${x.id!}" title="查看">${x.true_name?if_exists}</a></td>
 				<td>
 				
 				<#if x.usersex == "1">

@@ -106,7 +106,7 @@ public class User extends BaseUser<User> {
 	
 	public boolean UserIsChecked(int user_id){
 		User user = usermodel.findById(user_id);
-		if("1".equals(user.getStatus())){
+		if(user.getStatus()==1){
 			return true;
 		}
 		return false;

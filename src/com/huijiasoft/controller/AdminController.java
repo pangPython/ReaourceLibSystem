@@ -807,12 +807,13 @@ public class AdminController extends Controller {
 	
 	//用户审核是否通过的消息
 	public void msg(){
-		if(User.usermodel.UserIsChecked(getParaToInt(0))){
-			setAttr("已经通过审核！", "ErrMsg");
-			render("error.html");
+		
+		if(!User.usermodel.UserIsChecked(getParaToInt(0))){
+			render("message.html");
 			return;
 		}
-		renderText(getParaToInt(0)+"");
+		setAttr("ErrMsg", "已经通过审核！");
+		render("error.html");
 	}
 	
 	
