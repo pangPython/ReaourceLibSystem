@@ -42,7 +42,7 @@ public class User extends BaseUser<User> {
 	
 	//条件查询用户列表
 	public List<User> getUserListByCondition(Map<String,Object> map){
-		String sql = "select u.*,d.decname,m.mzname,z.zzmmname,a.area_name from ((((user u left join declare_type d on u.dec_id = d.dec_id) left join mz m on u.mz_id = m.mz_id) left join zzmm z on u.zzmm_id = z.zzmm_id) left join area a on u.area_id = a.area_id) "+SQLUtils.DynamicSQL(map);
+		String sql = "select p.*,d.decname,m.mzname,z.zzmmname,a.area_name from ((((user p left join declare_type d on p.dec_id = d.dec_id) left join mz m on p.mz_id = m.mz_id) left join zzmm z on p.zzmm_id = z.zzmm_id) left join area a on p.area_id = a.area_id) "+SQLUtils.DynamicSQL(map);
 		return usermodel.find(sql);
 	}
 	
@@ -96,7 +96,12 @@ public class User extends BaseUser<User> {
 		return map;
 	}
 
-	
+	public boolean UnameIsExists(String uname){
+		if(usermodel.findFirst("select * from user where uname = ? limit 1", uname)!=null){
+			return true;
+		}
+		return false;
+	}
 	
 
 }

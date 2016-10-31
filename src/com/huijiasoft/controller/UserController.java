@@ -56,43 +56,65 @@ public class UserController extends Controller {
 	// 用户信息查看
 	public void info() {
 		User user = (User) getSessionAttr(getCookie("cuser"));
-		String edu = "";
-		String degree="";
-		String es = user.getEduSchool();
-		String ds = user.getDegreeSchool();
-		int eft = user.getEduFullTime();
-		long dft = user.getDegreeFullTime();
-		Long eduid = user.getEduId();
-		Long degreeid = user.getDegreeId();
+		String edu = "暂时无法显示";
+		String degree="暂时无法显示";
+		String area = "暂时无法显示";
+		String mz = "暂时无法显示";
+		String zzmm = "暂时无法显示";
 		
-		if(es!=null){
-			edu += es;
-		}
-		if(ds!=null){
-			degree += ds;
-		}
-		if(eft==1){
-			edu += " 在职";	
-		}
-		if(eft==0){
-			edu += " 全日制";
-		}
-		if(dft==1){
-			degree += " 在职";	
-		}
-		if(dft==0){
-			degree += " 全日制";
-		}
-		if(eduid!=null){
-			edu += " "+Edu.dao.getEduNameById(eduid);
-		}
-		if(degreeid!=null){
-			degree += " "+Degree.dao.getDegreeNameById(degreeid);
+		try {
+			
+			String es = user.getEduSchool();
+			String ds = user.getDegreeSchool();
+			int eft = user.getEduFullTime();
+			long dft = user.getDegreeFullTime();
+			Long eduid = user.getEduId();
+			Long degreeid = user.getDegreeId();
+			
+			if(es!=null){
+				edu += es;
+			}
+			if(ds!=null){
+				degree += ds;
+			}
+			if(eft==1){
+				edu += " 在职";	
+			}
+			if(eft==0){
+				edu += " 全日制";
+			}
+			if(dft==1){
+				degree += " 在职";	
+			}
+			if(dft==0){
+				degree += " 全日制";
+			}
+			if(eduid!=null){
+				edu += " "+Edu.dao.getEduNameById(eduid);
+			}
+			if(degreeid!=null){
+				degree += " "+Degree.dao.getDegreeNameById(degreeid);
+			}
+			
+		} catch (Exception e) {
+			
 		}
 		
 		setAttr("user", user);
 		setAttr("edu", edu);
 		setAttr("degree", degree);
+		
+		try {
+			area = Area.dao.getAreaNameById(user.getAreaId());
+			mz = Mz.dao.getMzNameById(user.getMzId());
+			zzmm = Zzmm.dao.getZzmmNameById(user.getZzmmId());
+		} catch (Exception e) {
+			
+		}
+		
+		setAttr("area", area);
+		setAttr("mz", mz);
+		setAttr("zzmm", zzmm);
 		render("info.html");
 	}
 
@@ -302,9 +324,8 @@ public class UserController extends Controller {
 	// 下载标准报名表
 	@ActionKey("/user/download_std")
 	public void download_std() {
-		File f = new File("WebRoot\\download\\application\\东营市文化艺术人才信息登记表.doc");
 		
-		renderFile(f.getAbsoluteFile());
+		renderFile(new File("WebRoot\\1.doc"));
 	}
 
 	public void download_my() {

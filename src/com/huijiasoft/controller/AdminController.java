@@ -201,19 +201,19 @@ public class AdminController extends Controller {
 		String zzmm_id = getPara("user.zzmm_id");
 		String dec_id = getPara("user.dec_id");
 		if(sex!=null && !sex.equals("")){
-			map.put("user.usersex", sex);
+			map.put("p.usersex", sex);
 		}
 		if(mz_id!=null && !mz_id.equals("")){
-			map.put("user.mz_id", mz_id);
+			map.put("p.mz_id", mz_id);
 		}
 		if(area_id!=null && !area_id.equals("")){
-			map.put("user.area_id", area_id);
+			map.put("p.area_id", area_id);
 		}
 		if(zzmm_id!=null && !zzmm_id.equals("")){
-			map.put("user.zzmm_id", zzmm_id);
+			map.put("p.zzmm_id", zzmm_id);
 		}
 		if(dec_id!=null && !dec_id.equals("")){
-			map.put("user.dec_id", dec_id);
+			map.put("p.dec_id", dec_id);
 		}	
 		
 		List<User> userList = User.usermodel.getUserListByCondition(map);
@@ -310,11 +310,21 @@ public class AdminController extends Controller {
 		setAttr("zzmmList", Zzmm.dao.getAllZzmm());
 		setAttr("eduList", Edu.dao.getAllEdu());
 		setAttr("degreeList", Degree.dao.getAllDegree());
+		setAttr("decList", DeclareType.dao.getAllDecType());
 		render("user-add.html");
 	}
 	
 	//管理员添加用户
 	public void adduser(){
+		
+		//检测用户名是否存在
+		
+		if(User.usermodel.find("select * from user where uname = ? limit 1",getPara("user.uname")) != null){
+			setAttr("ErrMsg", "前台用户名已经存在！");
+			render("error.html");
+			return;
+		}
+		
 		UploadFile upfile = getFile();
 		
 		if(upfile==null){

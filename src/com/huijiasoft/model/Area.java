@@ -22,6 +22,12 @@ public class Area extends BaseArea<Area> {
 	}
 	
 	public String getAreaNameById(String id){
-		return dao.findById(id).getAreaName();
+		String area = "暂时无法显示";
+		try {
+			area = dao.findById(id).getAreaName();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return area;
 	}
 }

@@ -27,9 +27,6 @@ public class SQLUtils {
 			
 		}
 		
-
-		//System.out.println(sql+" ---------拼装的SQL---------");
-		
 		if(sql.trim().endsWith("and")){
 			sql = sql.substring(0, sql.lastIndexOf("and"));
 		}
@@ -38,10 +35,12 @@ public class SQLUtils {
 			return "";
 		}
 		
-		sql = sql.replaceAll("user", "u");
+		//因为用到表的别名，需要替换
+//		sql = sql.replaceAll("user.usersex", "u.usersex");
+//		sql = sql.replaceAll("user.", "u.");
 		
-		//System.out.println(sql+" ---------拼装的SQL---------");
-		//剩下的组装成sql
+		//System.out.println(sql);
+		
 		return sql;
 	}
 }

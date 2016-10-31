@@ -1,376 +1,14 @@
 
-2016-10-28 15:11:17
-[WARN]-[Thread: qtp1407343478-25]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /download/report/
-
-2016-10-28 15:23:40
-[WARN]-[Thread: qtp1407343478-25]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /download/report/
-
-2016-10-28 15:24:07
-[WARN]-[Thread: qtp1407343478-36]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /download/report/
-
-2016-10-28 15:30:32
-[ERROR]-[Thread: qtp1407343478-25]-[freemarker.log._Log4JLoggerFactory$Log4JLogger.error()]: Error executing FreeMarker template
-FreeMarker template error:
-The following has evaluated to null or missing:
-==> null  [in template "admin/s-u-result.html" at line 33, column 38]
-
-Tip: If the failing expression is known to be legally null/missing, either specify a default value with myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthessis: (myOptionVar.foo)!myDefault, (myOptionVar.foo)??
-
-The failing instruction (FTL stack trace):
-----------
-==> #if file != null  [in template "admin/s-u-result.html" at line 33, column 25]
-----------
-
-Java stack trace (for programmers):
-----------
-freemarker.core.InvalidReferenceException: [... Exception message was already printed; see it above ...]
-	at freemarker.core.InvalidReferenceException.getInstance(InvalidReferenceException.java:98)
-	at freemarker.core.EvalUtil.compare(EvalUtil.java:247)
-	at freemarker.core.EvalUtil.compare(EvalUtil.java:148)
-	at freemarker.core.ComparisonExpression.evalToBoolean(ComparisonExpression.java:103)
-	at freemarker.core.IfBlock.accept(IfBlock.java:82)
-	at freemarker.core.Environment.visit(Environment.java:265)
-	at freemarker.core.MixedContent.accept(MixedContent.java:93)
-	at freemarker.core.Environment.visit(Environment.java:265)
-	at freemarker.core.Environment.process(Environment.java:243)
-	at freemarker.template.Template.process(Template.java:277)
-	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:145)
-	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:97)
-	at com.huijiasoft.handler.ResourceHandler.handle(ResourceHandler.java:23)
-	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
-	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
-	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
-	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
-	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
-	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
-	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
-	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
-	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
-	at org.eclipse.jetty.server.Server.handle(Server.java:365)
-	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
-	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
-	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
-	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
-	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
-	at java.lang.Thread.run(Unknown Source)
-
-2016-10-28 15:30:32
-[ERROR]-[Thread: qtp1407343478-25]-[com.jfinal.core.ActionHandler.handle()]: /admin/uschbycondition
-com.jfinal.render.RenderException: freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
-==> null  [in template "admin/s-u-result.html" at line 33, column 38]
-
-Tip: If the failing expression is known to be legally null/missing, either specify a default value with myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthessis: (myOptionVar.foo)!myDefault, (myOptionVar.foo)??
-
-The failing instruction:
-==> #if file != null  [in template "admin/s-u-result.html" at line 33, column 25]
-	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:147)
-	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:97)
-	at com.huijiasoft.handler.ResourceHandler.handle(ResourceHandler.java:23)
-	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
-	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
-	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
-	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
-	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
-	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
-	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
-	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
-	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
-	at org.eclipse.jetty.server.Server.handle(Server.java:365)
-	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
-	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
-	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
-	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
-	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
-==> null  [in template "admin/s-u-result.html" at line 33, column 38]
-
-Tip: If the failing expression is known to be legally null/missing, either specify a default value with myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthessis: (myOptionVar.foo)!myDefault, (myOptionVar.foo)??
-
-The failing instruction:
-==> #if file != null  [in template "admin/s-u-result.html" at line 33, column 25]
-	at freemarker.core.InvalidReferenceException.getInstance(InvalidReferenceException.java:98)
-	at freemarker.core.EvalUtil.compare(EvalUtil.java:247)
-	at freemarker.core.EvalUtil.compare(EvalUtil.java:148)
-	at freemarker.core.ComparisonExpression.evalToBoolean(ComparisonExpression.java:103)
-	at freemarker.core.IfBlock.accept(IfBlock.java:82)
-	at freemarker.core.Environment.visit(Environment.java:265)
-	at freemarker.core.MixedContent.accept(MixedContent.java:93)
-	at freemarker.core.Environment.visit(Environment.java:265)
-	at freemarker.core.Environment.process(Environment.java:243)
-	at freemarker.template.Template.process(Template.java:277)
-	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:145)
-	... 26 more
-
-2016-10-28 15:30:45
-[ERROR]-[Thread: qtp1407343478-22]-[freemarker.log._Log4JLoggerFactory$Log4JLogger.error()]: Error executing FreeMarker template
-FreeMarker template error:
-The following has evaluated to null or missing:
-==> null  [in template "admin/s-u-result.html" at line 33, column 38]
-
-Tip: If the failing expression is known to be legally null/missing, either specify a default value with myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthessis: (myOptionVar.foo)!myDefault, (myOptionVar.foo)??
-
-The failing instruction (FTL stack trace):
-----------
-==> #if file != null  [in template "admin/s-u-result.html" at line 33, column 25]
-----------
-
-Java stack trace (for programmers):
-----------
-freemarker.core.InvalidReferenceException: [... Exception message was already printed; see it above ...]
-	at freemarker.core.InvalidReferenceException.getInstance(InvalidReferenceException.java:98)
-	at freemarker.core.EvalUtil.compare(EvalUtil.java:247)
-	at freemarker.core.EvalUtil.compare(EvalUtil.java:148)
-	at freemarker.core.ComparisonExpression.evalToBoolean(ComparisonExpression.java:103)
-	at freemarker.core.IfBlock.accept(IfBlock.java:82)
-	at freemarker.core.Environment.visit(Environment.java:265)
-	at freemarker.core.MixedContent.accept(MixedContent.java:93)
-	at freemarker.core.Environment.visit(Environment.java:265)
-	at freemarker.core.Environment.process(Environment.java:243)
-	at freemarker.template.Template.process(Template.java:277)
-	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:145)
-	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:97)
-	at com.huijiasoft.handler.ResourceHandler.handle(ResourceHandler.java:23)
-	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
-	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
-	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
-	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
-	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
-	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
-	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
-	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
-	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
-	at org.eclipse.jetty.server.Server.handle(Server.java:365)
-	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
-	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
-	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
-	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
-	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
-	at java.lang.Thread.run(Unknown Source)
-
-2016-10-28 15:30:45
-[ERROR]-[Thread: qtp1407343478-22]-[com.jfinal.core.ActionHandler.handle()]: /admin/uschbycondition
-com.jfinal.render.RenderException: freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
-==> null  [in template "admin/s-u-result.html" at line 33, column 38]
-
-Tip: If the failing expression is known to be legally null/missing, either specify a default value with myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthessis: (myOptionVar.foo)!myDefault, (myOptionVar.foo)??
-
-The failing instruction:
-==> #if file != null  [in template "admin/s-u-result.html" at line 33, column 25]
-	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:147)
-	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:97)
-	at com.huijiasoft.handler.ResourceHandler.handle(ResourceHandler.java:23)
-	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
-	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
-	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
-	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
-	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
-	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
-	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
-	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
-	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
-	at org.eclipse.jetty.server.Server.handle(Server.java:365)
-	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
-	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
-	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
-	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
-	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
-==> null  [in template "admin/s-u-result.html" at line 33, column 38]
-
-Tip: If the failing expression is known to be legally null/missing, either specify a default value with myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthessis: (myOptionVar.foo)!myDefault, (myOptionVar.foo)??
-
-The failing instruction:
-==> #if file != null  [in template "admin/s-u-result.html" at line 33, column 25]
-	at freemarker.core.InvalidReferenceException.getInstance(InvalidReferenceException.java:98)
-	at freemarker.core.EvalUtil.compare(EvalUtil.java:247)
-	at freemarker.core.EvalUtil.compare(EvalUtil.java:148)
-	at freemarker.core.ComparisonExpression.evalToBoolean(ComparisonExpression.java:103)
-	at freemarker.core.IfBlock.accept(IfBlock.java:82)
-	at freemarker.core.Environment.visit(Environment.java:265)
-	at freemarker.core.MixedContent.accept(MixedContent.java:93)
-	at freemarker.core.Environment.visit(Environment.java:265)
-	at freemarker.core.Environment.process(Environment.java:243)
-	at freemarker.template.Template.process(Template.java:277)
-	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:145)
-	... 26 more
-
-2016-10-28 15:32:02
-[WARN]-[Thread: qtp1407343478-25]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /download/report/
-
-2016-10-28 15:33:07
-[ERROR]-[Thread: qtp1407343478-20]-[com.jfinal.core.ActionHandler.handle()]: /admin/uschbycondition
-com.jfinal.render.RenderException: freemarker.core.ParseException: Parsing error in template "admin/s-u-result.html" in line 36, column 26:
-Unknown directive: #elseif. Help (latest version): http://freemarker.org/docs/ref_directive_alphaidx.html; you're using FreeMarker 2.3.20.
-	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:147)
-	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:97)
-	at com.huijiasoft.handler.ResourceHandler.handle(ResourceHandler.java:23)
-	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
-	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
-	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
-	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
-	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
-	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
-	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
-	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
-	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
-	at org.eclipse.jetty.server.Server.handle(Server.java:365)
-	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
-	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
-	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
-	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
-	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: freemarker.core.ParseException: Parsing error in template "admin/s-u-result.html" in line 36, column 26:
-Unknown directive: #elseif. Help (latest version): http://freemarker.org/docs/ref_directive_alphaidx.html; you're using FreeMarker 2.3.20.
-	at freemarker.core.TokenMgrError.toParseException(TokenMgrError.java:233)
-	at freemarker.template.Template.<init>(Template.java:199)
-	at freemarker.cache.TemplateCache.loadTemplate(TemplateCache.java:419)
-	at freemarker.cache.TemplateCache.getTemplate(TemplateCache.java:330)
-	at freemarker.cache.TemplateCache.getTemplate(TemplateCache.java:205)
-	at freemarker.template.Configuration.getTemplate(Configuration.java:740)
-	at freemarker.template.Configuration.getTemplate(Configuration.java:665)
-	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:143)
-	... 26 more
-
-2016-10-28 15:33:13
-[ERROR]-[Thread: qtp1407343478-21]-[com.jfinal.core.ActionHandler.handle()]: /admin/uschbycondition
-com.jfinal.render.RenderException: freemarker.core.ParseException: Parsing error in template "admin/s-u-result.html" in line 36, column 26:
-Unknown directive: #elseif. Help (latest version): http://freemarker.org/docs/ref_directive_alphaidx.html; you're using FreeMarker 2.3.20.
-	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:147)
-	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:97)
-	at com.huijiasoft.handler.ResourceHandler.handle(ResourceHandler.java:23)
-	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
-	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
-	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
-	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
-	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
-	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
-	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
-	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
-	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
-	at org.eclipse.jetty.server.Server.handle(Server.java:365)
-	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
-	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
-	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
-	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
-	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: freemarker.core.ParseException: Parsing error in template "admin/s-u-result.html" in line 36, column 26:
-Unknown directive: #elseif. Help (latest version): http://freemarker.org/docs/ref_directive_alphaidx.html; you're using FreeMarker 2.3.20.
-	at freemarker.core.TokenMgrError.toParseException(TokenMgrError.java:233)
-	at freemarker.template.Template.<init>(Template.java:199)
-	at freemarker.cache.TemplateCache.loadTemplate(TemplateCache.java:419)
-	at freemarker.cache.TemplateCache.getTemplate(TemplateCache.java:330)
-	at freemarker.cache.TemplateCache.getTemplate(TemplateCache.java:205)
-	at freemarker.template.Configuration.getTemplate(Configuration.java:740)
-	at freemarker.template.Configuration.getTemplate(Configuration.java:665)
-	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:143)
-	... 26 more
-
-2016-10-28 15:33:21
-[ERROR]-[Thread: qtp1407343478-36]-[com.jfinal.core.ActionHandler.handle()]: /admin/uschbycondition
-com.jfinal.render.RenderException: freemarker.core.ParseException: Parsing error in template "admin/s-u-result.html" in line 36, column 26:
-Unknown directive: #elseif. Help (latest version): http://freemarker.org/docs/ref_directive_alphaidx.html; you're using FreeMarker 2.3.20.
-	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:147)
-	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:97)
-	at com.huijiasoft.handler.ResourceHandler.handle(ResourceHandler.java:23)
-	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
-	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
-	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
-	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
-	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
-	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
-	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
-	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
-	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
-	at org.eclipse.jetty.server.Server.handle(Server.java:365)
-	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
-	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
-	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
-	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
-	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: freemarker.core.ParseException: Parsing error in template "admin/s-u-result.html" in line 36, column 26:
-Unknown directive: #elseif. Help (latest version): http://freemarker.org/docs/ref_directive_alphaidx.html; you're using FreeMarker 2.3.20.
-	at freemarker.core.TokenMgrError.toParseException(TokenMgrError.java:233)
-	at freemarker.template.Template.<init>(Template.java:199)
-	at freemarker.cache.TemplateCache.loadTemplate(TemplateCache.java:419)
-	at freemarker.cache.TemplateCache.getTemplate(TemplateCache.java:330)
-	at freemarker.cache.TemplateCache.getTemplate(TemplateCache.java:205)
-	at freemarker.template.Configuration.getTemplate(Configuration.java:740)
-	at freemarker.template.Configuration.getTemplate(Configuration.java:665)
-	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:143)
-	... 26 more
-
-2016-10-28 15:34:12
-[ERROR]-[Thread: qtp1407343478-36]-[com.jfinal.core.ActionHandler.handle()]: /admin/uschbycondition
+2016-10-31 10:17:46
+[ERROR]-[Thread: qtp1407343478-24]-[com.jfinal.core.ActionHandler.handle()]: /user/info
 java.lang.NullPointerException
-	at com.huijiasoft.utils.ReportExcel.report(ReportExcel.java:70)
-	at com.huijiasoft.controller.AdminController.uschbycondition(AdminController.java:223)
+	at com.huijiasoft.controller.UserController.info(UserController.java:63)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at com.jfinal.aop.Invocation.invoke(Invocation.java:73)
-	at com.huijiasoft.interceptor.AdminAuthInterceptor.intercept(AdminAuthInterceptor.java:24)
+	at com.huijiasoft.interceptor.UserAuthInterceptor.intercept(UserAuthInterceptor.java:24)
 	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
 	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:74)
 	at com.huijiasoft.handler.ResourceHandler.handle(ResourceHandler.java:23)
@@ -388,10 +26,10 @@ java.lang.NullPointerException
 	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
 	at org.eclipse.jetty.server.Server.handle(Server.java:365)
 	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
-	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
-	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
-	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
 	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
 	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
 	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
@@ -399,445 +37,16 @@ java.lang.NullPointerException
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
 	at java.lang.Thread.run(Unknown Source)
 
-2016-10-28 21:08:02
-[ERROR]-[Thread: qtp1407343478-19]-[com.jfinal.core.ActionHandler.handle()]: /admin/uschbycondition
-java.lang.NullPointerException
-	at com.huijiasoft.model.Edu.getEduNameById(Edu.java:24)
-	at com.huijiasoft.utils.ReportExcel.report(ReportExcel.java:142)
-	at com.huijiasoft.controller.AdminController.uschbycondition(AdminController.java:223)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:73)
-	at com.huijiasoft.interceptor.AdminAuthInterceptor.intercept(AdminAuthInterceptor.java:24)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
-	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:74)
-	at com.huijiasoft.handler.ResourceHandler.handle(ResourceHandler.java:23)
-	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
-	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
-	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
-	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
-	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
-	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
-	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
-	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
-	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
-	at org.eclipse.jetty.server.Server.handle(Server.java:365)
-	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
-	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
-	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
-	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
-	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
-	at java.lang.Thread.run(Unknown Source)
-
-2016-10-28 21:09:06
-[ERROR]-[Thread: qtp1407343478-21]-[com.jfinal.core.ActionHandler.handle()]: /admin/uschbycondition
-com.jfinal.render.RenderException: freemarker.core.ParseException: Parsing error in template "admin/s-u-result.html" in line 36, column 26:
-Unknown directive: #elseif. Help (latest version): http://freemarker.org/docs/ref_directive_alphaidx.html; you're using FreeMarker 2.3.20.
-	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:147)
-	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:97)
-	at com.huijiasoft.handler.ResourceHandler.handle(ResourceHandler.java:23)
-	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
-	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
-	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
-	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
-	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
-	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
-	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
-	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
-	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
-	at org.eclipse.jetty.server.Server.handle(Server.java:365)
-	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
-	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
-	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
-	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
-	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: freemarker.core.ParseException: Parsing error in template "admin/s-u-result.html" in line 36, column 26:
-Unknown directive: #elseif. Help (latest version): http://freemarker.org/docs/ref_directive_alphaidx.html; you're using FreeMarker 2.3.20.
-	at freemarker.core.TokenMgrError.toParseException(TokenMgrError.java:233)
-	at freemarker.template.Template.<init>(Template.java:199)
-	at freemarker.cache.TemplateCache.loadTemplate(TemplateCache.java:419)
-	at freemarker.cache.TemplateCache.getTemplate(TemplateCache.java:330)
-	at freemarker.cache.TemplateCache.getTemplate(TemplateCache.java:205)
-	at freemarker.template.Configuration.getTemplate(Configuration.java:740)
-	at freemarker.template.Configuration.getTemplate(Configuration.java:665)
-	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:143)
-	... 26 more
-
-2016-10-28 21:10:17
-[ERROR]-[Thread: qtp1407343478-18]-[com.jfinal.core.ActionHandler.handle()]: /admin/uschbycondition
-java.lang.NullPointerException
-	at com.huijiasoft.model.Edu.getEduNameById(Edu.java:24)
-	at com.huijiasoft.utils.ReportExcel.report(ReportExcel.java:142)
-	at com.huijiasoft.controller.AdminController.uschbycondition(AdminController.java:223)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:73)
-	at com.huijiasoft.interceptor.AdminAuthInterceptor.intercept(AdminAuthInterceptor.java:24)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
-	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:74)
-	at com.huijiasoft.handler.ResourceHandler.handle(ResourceHandler.java:23)
-	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
-	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
-	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
-	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
-	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
-	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
-	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
-	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
-	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
-	at org.eclipse.jetty.server.Server.handle(Server.java:365)
-	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
-	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
-	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
-	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
-	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
-	at java.lang.Thread.run(Unknown Source)
-
-2016-10-28 21:10:47
-[ERROR]-[Thread: qtp1407343478-22]-[com.jfinal.core.ActionHandler.handle()]: /admin/uschbycondition
-java.lang.NullPointerException
-	at com.huijiasoft.model.Edu.getEduNameById(Edu.java:24)
-	at com.huijiasoft.utils.ReportExcel.report(ReportExcel.java:142)
-	at com.huijiasoft.controller.AdminController.uschbycondition(AdminController.java:223)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:73)
-	at com.huijiasoft.interceptor.AdminAuthInterceptor.intercept(AdminAuthInterceptor.java:24)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
-	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:74)
-	at com.huijiasoft.handler.ResourceHandler.handle(ResourceHandler.java:23)
-	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
-	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
-	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
-	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
-	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
-	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
-	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
-	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
-	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
-	at org.eclipse.jetty.server.Server.handle(Server.java:365)
-	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
-	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
-	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
-	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
-	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
-	at java.lang.Thread.run(Unknown Source)
-
-2016-10-28 21:12:02
-[ERROR]-[Thread: qtp1407343478-21]-[com.jfinal.core.ActionHandler.handle()]: /admin/uschbycondition
-java.lang.NullPointerException
-	at com.huijiasoft.model.Edu.getEduNameById(Edu.java:24)
-	at com.huijiasoft.utils.ReportExcel.report(ReportExcel.java:142)
-	at com.huijiasoft.controller.AdminController.uschbycondition(AdminController.java:223)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:73)
-	at com.huijiasoft.interceptor.AdminAuthInterceptor.intercept(AdminAuthInterceptor.java:24)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
-	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:74)
-	at com.huijiasoft.handler.ResourceHandler.handle(ResourceHandler.java:23)
-	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
-	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
-	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
-	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
-	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
-	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
-	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
-	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
-	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
-	at org.eclipse.jetty.server.Server.handle(Server.java:365)
-	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
-	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
-	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
-	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
-	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
-	at java.lang.Thread.run(Unknown Source)
-
-2016-10-28 21:14:53
-[ERROR]-[Thread: qtp1407343478-23]-[com.jfinal.core.ActionHandler.handle()]: /admin/uschbycondition
+2016-10-31 10:20:14
+[ERROR]-[Thread: qtp1407343478-24]-[com.jfinal.core.ActionHandler.handle()]: /user/info
 java.lang.NullPointerException
 	at com.huijiasoft.model.Area.getAreaNameById(Area.java:25)
-	at com.huijiasoft.utils.ReportExcel.report(ReportExcel.java:148)
-	at com.huijiasoft.controller.AdminController.uschbycondition(AdminController.java:223)
+	at com.huijiasoft.controller.UserController.info(UserController.java:106)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at com.jfinal.aop.Invocation.invoke(Invocation.java:73)
-	at com.huijiasoft.interceptor.AdminAuthInterceptor.intercept(AdminAuthInterceptor.java:24)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
-	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:74)
-	at com.huijiasoft.handler.ResourceHandler.handle(ResourceHandler.java:23)
-	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
-	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
-	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
-	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
-	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
-	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
-	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
-	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
-	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
-	at org.eclipse.jetty.server.Server.handle(Server.java:365)
-	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
-	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
-	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
-	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
-	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
-	at java.lang.Thread.run(Unknown Source)
-
-2016-10-29 06:32:29
-[ERROR]-[Thread: qtp1407343478-19]-[freemarker.log._Log4JLoggerFactory$Log4JLogger.error()]: Error executing FreeMarker template
-FreeMarker template error:
-The following has evaluated to null or missing:
-==> nationList  [in template "admin/xq-search-user.html" at line 43, column 16]
-
-Tip: If the failing expression is known to be legally null/missing, either specify a default value with myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthessis: (myOptionVar.foo)!myDefault, (myOptionVar.foo)??
-
-The failing instruction (FTL stack trace):
-----------
-==> #list nationList as x  [in template "admin/xq-search-user.html" at line 43, column 9]
-----------
-
-Java stack trace (for programmers):
-----------
-freemarker.core.InvalidReferenceException: [... Exception message was already printed; see it above ...]
-	at freemarker.core.InvalidReferenceException.getInstance(InvalidReferenceException.java:98)
-	at freemarker.core.Expression.assertNonNull(Expression.java:205)
-	at freemarker.core.IteratorBlock.accept(IteratorBlock.java:100)
-	at freemarker.core.Environment.visit(Environment.java:265)
-	at freemarker.core.MixedContent.accept(MixedContent.java:93)
-	at freemarker.core.Environment.visit(Environment.java:265)
-	at freemarker.core.Environment.process(Environment.java:243)
-	at freemarker.template.Template.process(Template.java:277)
-	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:145)
-	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:97)
-	at com.huijiasoft.handler.ResourceHandler.handle(ResourceHandler.java:23)
-	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
-	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
-	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
-	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
-	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
-	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
-	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
-	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
-	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
-	at org.eclipse.jetty.server.Server.handle(Server.java:365)
-	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
-	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
-	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
-	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
-	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
-	at java.lang.Thread.run(Unknown Source)
-
-2016-10-29 06:32:29
-[ERROR]-[Thread: qtp1407343478-19]-[com.jfinal.core.ActionHandler.handle()]: /admin/xqsearchuser
-com.jfinal.render.RenderException: freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
-==> nationList  [in template "admin/xq-search-user.html" at line 43, column 16]
-
-Tip: If the failing expression is known to be legally null/missing, either specify a default value with myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthessis: (myOptionVar.foo)!myDefault, (myOptionVar.foo)??
-
-The failing instruction:
-==> #list nationList as x  [in template "admin/xq-search-user.html" at line 43, column 9]
-	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:147)
-	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:97)
-	at com.huijiasoft.handler.ResourceHandler.handle(ResourceHandler.java:23)
-	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
-	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
-	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
-	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
-	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
-	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
-	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
-	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
-	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
-	at org.eclipse.jetty.server.Server.handle(Server.java:365)
-	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
-	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
-	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
-	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
-	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
-==> nationList  [in template "admin/xq-search-user.html" at line 43, column 16]
-
-Tip: If the failing expression is known to be legally null/missing, either specify a default value with myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthessis: (myOptionVar.foo)!myDefault, (myOptionVar.foo)??
-
-The failing instruction:
-==> #list nationList as x  [in template "admin/xq-search-user.html" at line 43, column 9]
-	at freemarker.core.InvalidReferenceException.getInstance(InvalidReferenceException.java:98)
-	at freemarker.core.Expression.assertNonNull(Expression.java:205)
-	at freemarker.core.IteratorBlock.accept(IteratorBlock.java:100)
-	at freemarker.core.Environment.visit(Environment.java:265)
-	at freemarker.core.MixedContent.accept(MixedContent.java:93)
-	at freemarker.core.Environment.visit(Environment.java:265)
-	at freemarker.core.Environment.process(Environment.java:243)
-	at freemarker.template.Template.process(Template.java:277)
-	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:145)
-	... 26 more
-
-2016-10-29 06:38:10
-[ERROR]-[Thread: qtp1407343478-23]-[com.jfinal.core.ActionHandler.handle()]: /admin/xquschbycondition
-java.lang.ClassCastException: com.huijiasoft.model.Admin cannot be cast to java.lang.String
-	at com.huijiasoft.controller.AdminController.xquschbycondition(AdminController.java:262)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:73)
-	at com.huijiasoft.interceptor.AdminAuthInterceptor.intercept(AdminAuthInterceptor.java:24)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
-	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:74)
-	at com.huijiasoft.handler.ResourceHandler.handle(ResourceHandler.java:23)
-	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
-	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
-	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
-	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
-	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
-	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
-	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
-	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
-	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
-	at org.eclipse.jetty.server.Server.handle(Server.java:365)
-	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
-	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
-	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
-	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
-	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
-	at java.lang.Thread.run(Unknown Source)
-
-2016-10-29 06:38:47
-[ERROR]-[Thread: qtp1407343478-23]-[com.jfinal.core.ActionHandler.handle()]: /admin/xquschbycondition
-java.lang.ClassCastException: com.huijiasoft.model.Admin cannot be cast to java.lang.String
-	at com.huijiasoft.controller.AdminController.xquschbycondition(AdminController.java:262)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:73)
-	at com.huijiasoft.interceptor.AdminAuthInterceptor.intercept(AdminAuthInterceptor.java:24)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
-	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:74)
-	at com.huijiasoft.handler.ResourceHandler.handle(ResourceHandler.java:23)
-	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
-	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
-	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
-	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
-	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
-	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
-	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
-	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
-	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
-	at org.eclipse.jetty.server.Server.handle(Server.java:365)
-	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
-	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
-	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
-	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
-	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
-	at java.lang.Thread.run(Unknown Source)
-
-2016-10-29 08:13:16
-[ERROR]-[Thread: qtp1407343478-21]-[com.jfinal.core.ActionHandler.handle()]: /user/updateinfo
-com.jfinal.plugin.activerecord.ActiveRecordException: The model attribute edu_full_time is not exists.
-	at com.jfinal.core.Injector.injectModel(Injector.java:123)
-	at com.jfinal.core.Injector.injectModel(Injector.java:44)
-	at com.jfinal.core.Controller.getModel(Controller.java:691)
-	at com.huijiasoft.controller.UserController.updateinfo(UserController.java:100)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:73)
-	at com.jfinal.validate.Validator.intercept(Validator.java:80)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
 	at com.huijiasoft.interceptor.UserAuthInterceptor.intercept(UserAuthInterceptor.java:24)
 	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
 	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:74)
@@ -856,10 +65,10 @@ com.jfinal.plugin.activerecord.ActiveRecordException: The model attribute edu_fu
 	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
 	at org.eclipse.jetty.server.Server.handle(Server.java:365)
 	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
-	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
-	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
-	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
 	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
 	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
 	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
@@ -867,20 +76,16 @@ com.jfinal.plugin.activerecord.ActiveRecordException: The model attribute edu_fu
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
 	at java.lang.Thread.run(Unknown Source)
 
-2016-10-29 08:14:17
-[ERROR]-[Thread: qtp1407343478-22]-[com.jfinal.core.ActionHandler.handle()]: /user/updateinfo
-com.jfinal.plugin.activerecord.ActiveRecordException: The model attribute edu_full_time is not exists.
-	at com.jfinal.core.Injector.injectModel(Injector.java:123)
-	at com.jfinal.core.Injector.injectModel(Injector.java:44)
-	at com.jfinal.core.Controller.getModel(Controller.java:691)
-	at com.huijiasoft.controller.UserController.updateinfo(UserController.java:100)
+2016-10-31 10:20:16
+[ERROR]-[Thread: qtp1407343478-20]-[com.jfinal.core.ActionHandler.handle()]: /user/info
+java.lang.NullPointerException
+	at com.huijiasoft.model.Area.getAreaNameById(Area.java:25)
+	at com.huijiasoft.controller.UserController.info(UserController.java:106)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at com.jfinal.aop.Invocation.invoke(Invocation.java:73)
-	at com.jfinal.validate.Validator.intercept(Validator.java:80)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
 	at com.huijiasoft.interceptor.UserAuthInterceptor.intercept(UserAuthInterceptor.java:24)
 	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
 	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:74)
@@ -899,10 +104,10 @@ com.jfinal.plugin.activerecord.ActiveRecordException: The model attribute edu_fu
 	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
 	at org.eclipse.jetty.server.Server.handle(Server.java:365)
 	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
-	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
-	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
-	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
 	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
 	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
 	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
@@ -910,20 +115,16 @@ com.jfinal.plugin.activerecord.ActiveRecordException: The model attribute edu_fu
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
 	at java.lang.Thread.run(Unknown Source)
 
-2016-10-29 08:15:02
-[ERROR]-[Thread: qtp1407343478-23]-[com.jfinal.core.ActionHandler.handle()]: /user/updateinfo
-com.jfinal.plugin.activerecord.ActiveRecordException: The model attribute edu_full_time is not exists.
-	at com.jfinal.core.Injector.injectModel(Injector.java:123)
-	at com.jfinal.core.Injector.injectModel(Injector.java:44)
-	at com.jfinal.core.Controller.getModel(Controller.java:691)
-	at com.huijiasoft.controller.UserController.updateinfo(UserController.java:100)
+2016-10-31 10:20:17
+[ERROR]-[Thread: qtp1407343478-21]-[com.jfinal.core.ActionHandler.handle()]: /user/info
+java.lang.NullPointerException
+	at com.huijiasoft.model.Area.getAreaNameById(Area.java:25)
+	at com.huijiasoft.controller.UserController.info(UserController.java:106)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at com.jfinal.aop.Invocation.invoke(Invocation.java:73)
-	at com.jfinal.validate.Validator.intercept(Validator.java:80)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
 	at com.huijiasoft.interceptor.UserAuthInterceptor.intercept(UserAuthInterceptor.java:24)
 	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
 	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:74)
@@ -942,10 +143,10 @@ com.jfinal.plugin.activerecord.ActiveRecordException: The model attribute edu_fu
 	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
 	at org.eclipse.jetty.server.Server.handle(Server.java:365)
 	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
-	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
-	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
-	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
 	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
 	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
 	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
@@ -953,16 +154,17 @@ com.jfinal.plugin.activerecord.ActiveRecordException: The model attribute edu_fu
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
 	at java.lang.Thread.run(Unknown Source)
 
-2016-10-29 09:01:04
-[ERROR]-[Thread: qtp1407343478-20]-[com.jfinal.core.ActionHandler.handle()]: /admin/checkUser?id=67
+2016-10-31 10:20:26
+[ERROR]-[Thread: qtp1407343478-20]-[com.jfinal.core.ActionHandler.handle()]: /user/info
 java.lang.NullPointerException
-	at com.huijiasoft.controller.AdminController.checkUser(AdminController.java:618)
+	at com.huijiasoft.model.Area.getAreaNameById(Area.java:25)
+	at com.huijiasoft.controller.UserController.info(UserController.java:106)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at com.jfinal.aop.Invocation.invoke(Invocation.java:73)
-	at com.huijiasoft.interceptor.AdminAuthInterceptor.intercept(AdminAuthInterceptor.java:24)
+	at com.huijiasoft.interceptor.UserAuthInterceptor.intercept(UserAuthInterceptor.java:24)
 	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
 	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:74)
 	at com.huijiasoft.handler.ResourceHandler.handle(ResourceHandler.java:23)
@@ -991,251 +193,16 @@ java.lang.NullPointerException
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
 	at java.lang.Thread.run(Unknown Source)
 
-2016-10-29 09:03:57
-[ERROR]-[Thread: qtp1407343478-23]-[com.jfinal.core.ActionHandler.handle()]: /admin/checkUser?id=49
+2016-10-31 10:21:42
+[ERROR]-[Thread: qtp1407343478-20]-[com.jfinal.core.ActionHandler.handle()]: /user/info
 java.lang.NullPointerException
-	at com.huijiasoft.model.Edu.getEduNameById(Edu.java:24)
-	at com.huijiasoft.controller.AdminController.checkUser(AdminController.java:624)
+	at com.huijiasoft.controller.UserController.info(UserController.java:107)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at com.jfinal.aop.Invocation.invoke(Invocation.java:73)
-	at com.huijiasoft.interceptor.AdminAuthInterceptor.intercept(AdminAuthInterceptor.java:24)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
-	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:74)
-	at com.huijiasoft.handler.ResourceHandler.handle(ResourceHandler.java:23)
-	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
-	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
-	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
-	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
-	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
-	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
-	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
-	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
-	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
-	at org.eclipse.jetty.server.Server.handle(Server.java:365)
-	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
-	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
-	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
-	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
-	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
-	at java.lang.Thread.run(Unknown Source)
-
-2016-10-29 09:05:26
-[ERROR]-[Thread: qtp1407343478-23]-[com.jfinal.core.ActionHandler.handle()]: /admin/checkUser?id=39
-java.lang.NullPointerException
-	at com.huijiasoft.model.Edu.getEduNameById(Edu.java:24)
-	at com.huijiasoft.controller.AdminController.checkUser(AdminController.java:624)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:73)
-	at com.huijiasoft.interceptor.AdminAuthInterceptor.intercept(AdminAuthInterceptor.java:24)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
-	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:74)
-	at com.huijiasoft.handler.ResourceHandler.handle(ResourceHandler.java:23)
-	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
-	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
-	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
-	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
-	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
-	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
-	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
-	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
-	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
-	at org.eclipse.jetty.server.Server.handle(Server.java:365)
-	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
-	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
-	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
-	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
-	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
-	at java.lang.Thread.run(Unknown Source)
-
-2016-10-29 09:08:08
-[ERROR]-[Thread: qtp1407343478-24]-[com.jfinal.core.ActionHandler.handle()]: /admin/checkUser?id=67
-java.lang.NullPointerException
-	at com.huijiasoft.model.Degree.getDegreeNameById(Degree.java:25)
-	at com.huijiasoft.controller.AdminController.checkUser(AdminController.java:638)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:73)
-	at com.huijiasoft.interceptor.AdminAuthInterceptor.intercept(AdminAuthInterceptor.java:24)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
-	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:74)
-	at com.huijiasoft.handler.ResourceHandler.handle(ResourceHandler.java:23)
-	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
-	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
-	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
-	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
-	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
-	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
-	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
-	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
-	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
-	at org.eclipse.jetty.server.Server.handle(Server.java:365)
-	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
-	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
-	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
-	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
-	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
-	at java.lang.Thread.run(Unknown Source)
-
-2016-10-29 09:08:58
-[ERROR]-[Thread: qtp1407343478-24]-[com.jfinal.core.ActionHandler.handle()]: /admin/checkUser?id=47
-java.lang.NullPointerException
-	at com.huijiasoft.model.Edu.getEduNameById(Edu.java:25)
-	at com.huijiasoft.controller.AdminController.checkUser(AdminController.java:624)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:73)
-	at com.huijiasoft.interceptor.AdminAuthInterceptor.intercept(AdminAuthInterceptor.java:24)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
-	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:74)
-	at com.huijiasoft.handler.ResourceHandler.handle(ResourceHandler.java:23)
-	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
-	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
-	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
-	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
-	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
-	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
-	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
-	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
-	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
-	at org.eclipse.jetty.server.Server.handle(Server.java:365)
-	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
-	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
-	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
-	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
-	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
-	at java.lang.Thread.run(Unknown Source)
-
-2016-10-29 09:10:01
-[ERROR]-[Thread: qtp1407343478-23]-[com.jfinal.core.ActionHandler.handle()]: /admin/checkUser?id=33
-java.lang.NullPointerException
-	at com.huijiasoft.model.Edu.getEduNameById(Edu.java:25)
-	at com.huijiasoft.controller.AdminController.checkUser(AdminController.java:624)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:73)
-	at com.huijiasoft.interceptor.AdminAuthInterceptor.intercept(AdminAuthInterceptor.java:24)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
-	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:74)
-	at com.huijiasoft.handler.ResourceHandler.handle(ResourceHandler.java:23)
-	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
-	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
-	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
-	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
-	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
-	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
-	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
-	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
-	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
-	at org.eclipse.jetty.server.Server.handle(Server.java:365)
-	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
-	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
-	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
-	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
-	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
-	at java.lang.Thread.run(Unknown Source)
-
-2016-10-29 09:11:07
-[ERROR]-[Thread: qtp1407343478-23]-[com.jfinal.core.ActionHandler.handle()]: /admin/checkUser?id=33
-java.lang.NullPointerException
-	at com.huijiasoft.model.Edu.getEduNameById(Edu.java:25)
-	at com.huijiasoft.controller.AdminController.checkUser(AdminController.java:624)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:73)
-	at com.huijiasoft.interceptor.AdminAuthInterceptor.intercept(AdminAuthInterceptor.java:24)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
-	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:74)
-	at com.huijiasoft.handler.ResourceHandler.handle(ResourceHandler.java:23)
-	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
-	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
-	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
-	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
-	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
-	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
-	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
-	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
-	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
-	at org.eclipse.jetty.server.Server.handle(Server.java:365)
-	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
-	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
-	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
-	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
-	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
-	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
-	at java.lang.Thread.run(Unknown Source)
-
-2016-10-29 09:13:20
-[ERROR]-[Thread: qtp1407343478-22]-[com.jfinal.core.ActionHandler.handle()]: /admin/checkUser?id=67
-java.lang.NullPointerException
-	at com.huijiasoft.model.Degree.getDegreeNameById(Degree.java:26)
-	at com.huijiasoft.controller.AdminController.checkUser(AdminController.java:638)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:73)
-	at com.huijiasoft.interceptor.AdminAuthInterceptor.intercept(AdminAuthInterceptor.java:24)
+	at com.huijiasoft.interceptor.UserAuthInterceptor.intercept(UserAuthInterceptor.java:24)
 	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
 	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:74)
 	at com.huijiasoft.handler.ResourceHandler.handle(ResourceHandler.java:23)
