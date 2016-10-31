@@ -109,7 +109,6 @@ public class UserController extends Controller {
 			mz = Mz.dao.getMzNameById(user.getMzId());
 			zzmm = Zzmm.dao.getZzmmNameById(user.getZzmmId());
 		} catch (Exception e) {
-			
 		}
 		
 		setAttr("area", area);
