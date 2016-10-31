@@ -56,11 +56,11 @@ public class UserController extends Controller {
 	// 用户信息查看
 	public void info() {
 		User user = (User) getSessionAttr(getCookie("cuser"));
-		String edu = "暂时无法显示";
-		String degree="暂时无法显示";
-		String area = "暂时无法显示";
-		String mz = "暂时无法显示";
-		String zzmm = "暂时无法显示";
+		String edu = "";
+		String degree="";
+		String area = "";
+		String mz = "";
+		String zzmm = "";
 		
 		try {
 			

@@ -34,7 +34,7 @@
 			<thead>
 				<tr class="text-c">
 					<th width="25"><input type="checkbox" name="" value=""></th>
-					<th width="25">ID</th>
+					<th width="25">用户名</th>
 					<th width="20">姓名</th>
 					<th width="20">性别</th>
 					<th width="20">年龄</th>
@@ -51,9 +51,11 @@
 			<#list userList as x>
 			<tr class="text-c">
 				<td><input type="checkbox" value="" name=""></td>
-				<td>${x.id}</td>
+				<td>
+				<a style="cursor:pointer" class="text-primary" href="checkUser?id=${x.id!}" title="查看">${x.uname?if_exists}</a>
+				</td>
 				<td class="text-l">
-				<a style="cursor:pointer" class="text-primary" href="checkUser?id=${x.id!}" title="查看">${x.uname}</a></td>
+				<a style="cursor:pointer" class="text-primary" href="checkUser?id=${x.id!}" title="查看">${x.true_name?if_exists}</a></td>
 				<td>
 				<#if x.usersex == "1">
 				男

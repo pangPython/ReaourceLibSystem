@@ -264,19 +264,19 @@ public class AdminController extends Controller {
 			String zzmm_id = getPara("user.zzmm_id");
 			String dec_id = getPara("user.dec_id");
 			if(sex!=null && !sex.equals("")){
-				map.put("user.usersex", sex);
+				map.put("p.usersex", sex);
 			}
 			if(mz_id!=null && !mz_id.equals("")){
-				map.put("user.mz_id", mz_id);
+				map.put("p.mz_id", mz_id);
 			}
 			if(area_id!=null && !area_id.equals("")){
-				map.put("user.area_id", area_id);
+				map.put("p.area_id", area_id);
 			}
 			if(zzmm_id!=null && !zzmm_id.equals("")){
-				map.put("user.zzmm_id", zzmm_id);
+				map.put("p.zzmm_id", zzmm_id);
 			}
 			if(dec_id!=null && !dec_id.equals("")){
-				map.put("user.dec_id", dec_id);
+				map.put("p.dec_id", dec_id);
 			}	
 			
 			List<User> userList = User.usermodel.getUserListByCondition(map);
@@ -643,20 +643,6 @@ public class AdminController extends Controller {
 		renderText("审核成功！");
 	}
 	
-	//打印
-/*	public void printer(){
-		
-		String fileName = "";
-		int id = getParaToInt("id");
-		try {
-			fileName = WriteToDocx.write(id);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		renderFile(new File(fileName));
-	}
-	*/
 	
 	//超级管理员列表
 	public void adminList(){
@@ -820,9 +806,16 @@ public class AdminController extends Controller {
 	}
 	
 	//用户审核是否通过的消息
-	public void message(){
-		render("message.html");
+	public void msg(){
+		if(User.usermodel.UserIsChecked(getParaToInt(0))){
+			setAttr("已经通过审核！", "ErrMsg");
+			render("error.html");
+			return;
+		}
+		renderText(getParaToInt(0)+"");
 	}
+	
+	
 	
 	
 }
