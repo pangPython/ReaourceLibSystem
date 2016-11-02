@@ -18,7 +18,7 @@ public class RegistValidator extends Validator {
 		validateRequired("user.pwd", "pwdMsg", "请输入密码!");
 		validateRequired("reg.confirmpwd", "confirmMsg", "请再输入一遍密码!");
 		validateRequired("reg.verifycode", "vcMsg", "请输入验证码!");
-		validateCaptcha("reg.verifycode", "vcMsg", "请正确输入验证码！");
+		
 	}
 
 	@Override

@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.huijiasoft.interceptor.UserAuthInterceptor;
 import com.huijiasoft.model.Area;
+import com.huijiasoft.model.DeclareType;
 import com.huijiasoft.model.Degree;
 import com.huijiasoft.model.Edu;
 import com.huijiasoft.model.Msg;
@@ -115,7 +116,9 @@ public class UserController extends Controller {
 		setAttr("area", area);
 		setAttr("mz", mz);
 		setAttr("zzmm", zzmm);
+		
 		render("info.html");
+		
 	}
 
 	// 已经登录用户的退出操作
@@ -145,6 +148,7 @@ public class UserController extends Controller {
 		setAttr("zzmmList", Zzmm.dao.getAllZzmm());
 		setAttr("eduList", Edu.dao.getAllEdu());
 		setAttr("degreeList", Degree.dao.getAllDegree());
+		setAttr("decList", DeclareType.dao.getAllDecType());
 
 		render("edit.html");
 	}

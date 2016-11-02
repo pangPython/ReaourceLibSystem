@@ -49,10 +49,9 @@ ${nameErrMsg?if_exists}				</td>
 				</select>
 				</td>
 		
-				<td>出生日期:</td>
+				<td>一寸照:</td>
 				<td>
-				<input id="d11" type="text" class="input-text Wdate" name="user.birth" onClick="WdatePicker()"/>
-		${birthErrMsg?if_exists}		</td>
+				</td>
 			</tr>
 			<tr>
 				<td>所属地区: </td>
@@ -89,15 +88,17 @@ ${nameErrMsg?if_exists}				</td>
 				
 		${jwErrMsg?if_exists}		</td>
 		
+		<td>出生日期:</td>
+				<td>
+				<input id="d11" type="text" class="input-text Wdate" name="user.birth" onClick="WdatePicker()"/>
+		${birthErrMsg?if_exists}		</td>
+		
 				<td>身份证号 </td>
 				<td>
 				<input type="text" class="input-text" value="${user.card?if_exists}" id="user.card" name="user.card">
 		${cardErrMsg?if_exists}		</td>
 		
-				<td>健康状况 </td>
-				<td>
-				<input type="text" class="input-text" value="${user.health?if_exists}" id="user.health" name="user.health">
-			${hErrMsg?if_exists}	</td>
+				
 			</tr>
 					<tr>
 						
@@ -173,6 +174,22 @@ ${nameErrMsg?if_exists}				</td>
 								<option value="0">全日制</option> 
 								<option value="1">在职</option> 
 						</select> </td>
+			</tr>
+					<tr>
+				<td>申报类型 </td>
+				<td >
+				<select name="user.dec_id" class="select">
+					<#list decList as x>
+						<option value="${x.dec_id?if_exists}">${x.decname?if_exists}</option>
+					</#list>
+				</select> 
+				</td>
+				<td>健康状况 </td>
+				<td>
+				<input type="text" class="input-text" value="${user.health?if_exists}" id="user.health" name="user.health">
+			${hErrMsg?if_exists}	</td>
+			<td></td>
+			<td></td>
 			</tr>
 			<tr>
 				<td>重要社会兼职 </td>

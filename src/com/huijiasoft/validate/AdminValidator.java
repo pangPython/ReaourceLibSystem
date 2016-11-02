@@ -19,7 +19,6 @@ public class AdminValidator extends Validator{
 		validateRequiredString("admin.name", "LoginNameMsg","请输入用户名！");
 		validateRequiredString("admin.pwd", "LoginPwdMsg","请输入密码！");
 		validateRequiredString("verifycode", "codeMeg", "请输入验证码！");
-		//validateCaptcha("verifycode", "codeMsg", "请正确输入验证码！");
 	}
 
 }
