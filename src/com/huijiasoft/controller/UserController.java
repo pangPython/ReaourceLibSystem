@@ -228,11 +228,22 @@ public class UserController extends Controller {
 			render("msg-success.html");
 			return;
 		} else {
-			//审核未通过,要显示失败信息
-			Msg m = Msg.dao.findByUserId(user.getId());
-			setAttr("Msg", m);
-			render("msg-failed.html");
-			return;
+			try {
+				//审核未通过,要显示失败信息
+				Msg m = Msg.dao.findByUserId(user.getId());
+				
+				if(m==null){
+					renderText("请提交资料后耐心等待审核...");
+					return;
+				}
+				setAttr("Msg", m);
+				render("msg-failed.html");
+				return;
+			} catch (Exception e) {
+				//当管理员还未审核时
+				renderText("请提交资料后耐心等待审核...");
+				return;
+			}
 		}
 	}
 

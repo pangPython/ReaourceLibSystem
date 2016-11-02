@@ -4,19 +4,25 @@
 <meta charset="utf-8">
 <meta name="renderer" content="webkit|ie-comp|ie-stand">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="viewport"
+	content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <!--[if lt IE 9]>
 <script type="text/javascript" src="lib/html5.js"></script>
 <script type="text/javascript" src="lib/respond.min.js"></script>
 <script type="text/javascript" src="lib/PIE_IE678.js"></script>
 <![endif]-->
-<link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
-<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
-<link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.7/iconfont.css" />
+<link rel="stylesheet" type="text/css"
+	href="static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css"
+	href="lib/Hui-iconfont/1.0.7/iconfont.css" />
 <link rel="stylesheet" type="text/css" href="lib/icheck/icheck.css" />
-<link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/default/skin.css" id="skin" />
-<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
+<link rel="stylesheet" type="text/css"
+	href="static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css"
+	href="static/h-ui.admin/css/style.css" />
 <!--[if IE 6]>
 <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
@@ -24,97 +30,123 @@
 <title>查询</title>
 </head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 人才管理 <span class="c-gray en">&gt;</span> 人才搜索 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
-<div class="page-container">
-<form method="post" action="/admin/uschbycondition">
-<div class="row cl">
-  <div class="text-c"> 
-    性别: <span class="select-box inline">
-    <select class="select" id="user.usersex" name="user.usersex">
-    <option value="">*</option>
-      <option value="1">男</option>
-      <option value="2">女</option>
-    </select>
-    </span>
-<br><br>
-    民族： <span class="select-box inline">
-    <select class="select" id="user.mz_id" name="user.mz_id">
-    <option value="">*</option>
-	<#list nationList as x>
-    <option value="${x.mz_id?if_exists}">${x.mzname?if_exists}</option>
-    </#list>
-    </select>
-    </span> 
-<br> <br>
-    地区：<span class="select-box inline">
-    <select class="select" id="user.area_id" name="user.area_id">
-    <option value="">*</option>
-<#list areaList as x>
-    <option value="${x.area_id?if_exists}">${x.area_name?if_exists}</option>
-</#list>
-    </select>
-    </span> <br><br>
-  </div>
-</div>
-<div class="row cl">
+	<nav class="breadcrumb">
+		<i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span>
+		人才管理 <span class="c-gray en">&gt;</span> 人才搜索 <a
+			class="btn btn-success radius r"
+			style="line-height: 1.6em; margin-top: 3px"
+			href="javascript:location.replace(location.href);" title="刷新"><i
+			class="Hui-iconfont">&#xe68f;</i></a>
+	</nav>
+	<div class="page-container">
+		<form method="post" action="/admin/uschbycondition">
+			<table class="table table-border table-bordered table-bg">
+				<thead>
+					<tr>
+						<th colspan="6" scope="col">人才检索
+						
+						</th>
+					</tr>
 
-  <div class="text-c">  
-    政治面貌： <span class="select-box inline">
-    <select class="select" id="user.zzmm_id" name="user.zzmm_id">
-    
-    <option value="">*</option>
-    <#list zzmmList as x>
-    <option value="${x.zzmm_id?if_exists}">${x.zzmmname?if_exists}</option>
-    </#list>
-    </select>
-    </span> 
-<br><br>
-    艺术类别： <span class="select-box inline">
-    <select class="select" id="user.dec_id" name="user.dec_id">
-    <option value="">*</option>
-    <#list decList as x>
-      <option value="${x.dec_id?if_exists}">${x.decname?if_exists}</option>
-    </#list>
-    </select>
-    </span><br><br>
-  </div>
-</div>
-<div class="row cl">
- <div class="text-c">
- <div class="Huialert Huialert-danger"><i class="icon-remove"></i>如果为*，则该条件下全满足</div>
-  <button type="submit" class="btn btn-primary radius" > 检索</button>
- </div>
-  </div>
-  </form>
-</div>
-  
+				</thead>
 
-<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
-<script type="text/javascript" src="lib/Validform/5.3.2/Validform.min.js"></script>  
-<script type="text/javascript" src="lib/layer/2.1/layer.js"></script>
-<script type="text/javascript" src="lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="static/h-ui/js/H-ui.js"></script> 
-<script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"></script> 
-<script type="text/javascript">
-$('.table-sort').dataTable({
-	"aaSorting": [[ 1, "desc" ]],//默认第几个排序
-	"bStateSave": true,//状态保存
-	"aoColumnDefs": [
-	  //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-	  {"orderable":false,"aTargets":[0,5]}// 制定列不参与排序
-	]
-});
-/*数据字典-编辑*/
-function system_data_edit(title,url,id,w,h){
-  layer_show(title,url,w,h);
-}
-/*数据字典-删除*/
-function system_data_del(obj,id){
-  layer.confirm('确认要删除吗？',function(index){
-    $(obj).parents("tr").remove();
-    layer.msg('已删除!',{icon:1,time:1000});
-  });
-}
-</script> 
+				<tbody>
+
+					<tr class="text-c">
+						<td width="10%">姓名：</td>
+						<td width="10%">
+						<input type="text" class="input-text radius" id="" name="">
+						</td>
+						<td>性别:</td>
+						<td><span class="select-box inline"> <select
+								class="select" id="user.usersex" name="user.usersex">
+									<option value="">*</option>
+									<option value="1">男</option>
+									<option value="2">女</option>
+							</select>
+						</span></td>
+
+						<td >年龄：</td>
+						<td>
+						<input type="text" class="input-text radius" id="" name="" style="width:120px;">
+						岁&nbsp;&nbsp;到&nbsp;&nbsp;
+						<input type="text" class="input-text radius" id="" name="" style="width:120px;">
+						岁
+						</td>
+					</tr>
+					<tr class="text-c">
+						<td>地区：</td>
+						<td><span class="select-box inline"> <select
+								class="select" id="user.area_id" name="user.area_id">
+									<option value="">*</option> <#list areaList as x>
+									<option value="${x.area_id?if_exists}">${x.area_name?if_exists}</option>
+									</#list>
+							</select>
+						</span></td>
+						<td>申报类别：</td>
+						<td><span class="select-box inline"> <select
+								class="select" id="user.dec_id" name="user.dec_id">
+									<option value="">*</option> <#list decList as x>
+									<option value="${x.dec_id?if_exists}">${x.decname?if_exists}</option>
+									</#list>
+							</select>
+						</span></td>
+						<td></td>
+						<td></td>
+					</tr>
+
+
+				</tbody>
+
+			</table>
+			<br>
+			<div class="row cl">
+				<div class="text-c">
+				
+						
+				
+					<button type="submit" class="btn btn-primary radius">检索</button>(如果为*，则该条件下全满足)
+				</div>
+			</div>
+		</form>
+
+	</div>
+
+
+	<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="lib/Validform/5.3.2/Validform.min.js"></script>
+	<script type="text/javascript" src="lib/layer/2.1/layer.js"></script>
+	<script type="text/javascript"
+		src="lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="static/h-ui/js/H-ui.js"></script>
+	<script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"></script>
+	<script type="text/javascript">
+		$('.table-sort').dataTable({
+			"aaSorting" : [ [ 1, "desc" ] ],//默认第几个排序
+			"bStateSave" : true,//状态保存
+			"aoColumnDefs" : [
+			//{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
+			{
+				"orderable" : false,
+				"aTargets" : [ 0, 5 ]
+			} // 制定列不参与排序
+			]
+		});
+		/*数据字典-编辑*/
+		function system_data_edit(title, url, id, w, h) {
+			layer_show(title, url, w, h);
+		}
+		/*数据字典-删除*/
+		function system_data_del(obj, id) {
+			layer.confirm('确认要删除吗？', function(index) {
+				$(obj).parents("tr").remove();
+				layer.msg('已删除!', {
+					icon : 1,
+					time : 1000
+				});
+			});
+		}
+	</script>
 </body>
 </html>

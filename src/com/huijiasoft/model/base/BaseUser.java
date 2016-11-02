@@ -281,4 +281,20 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("business_achievement");
 	}
 
+	public void setEmail(java.lang.String email) {
+		set("email", email);
+	}
+
+	public java.lang.String getEmail() {
+		return get("email");
+	}
+
+	public void setQqwx(java.lang.String qqwx) {
+		set("qqwx", qqwx);
+	}
+
+	public java.lang.String getQqwx() {
+		return get("qqwx");
+	}
+
 }
