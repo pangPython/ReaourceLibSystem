@@ -68,9 +68,9 @@
 
 						<td >年龄：</td>
 						<td>
-						<input type="text" class="input-text radius" id="" name="" style="width:120px;">
+						<input type="text" class="input-text radius" id="minage" name="minage" style="width:120px;">
 						岁&nbsp;&nbsp;到&nbsp;&nbsp;
-						<input type="text" class="input-text radius" id="" name="" style="width:120px;">
+						<input type="text" class="input-text radius" id="maxage" name="maxage" style="width:120px;">
 						岁
 						</td>
 					</tr>
@@ -84,15 +84,15 @@
 							</select>
 						</span></td>
 						<td>申报类别：</td>
-						<td><span class="select-box inline"> <select
-								class="select" id="user.dec_id" name="user.dec_id">
-									<option value="">*</option> <#list decList as x>
-									<option value="${x.dec_id?if_exists}">${x.decname?if_exists}</option>
-									</#list>
-							</select>
-						</span></td>
-						<td></td>
-						<td></td>
+						<td colspan="3" scope="col">
+							<#list decList as x>
+								<div class="check-box">
+									<input type="checkbox" id="checkbox-1" name="user.dec_id"
+										value="${x.dec_id?if_exists}"> <label for="checkbox-1">${x.decname?if_exists}</label>
+								</div>
+							</#list>
+						</td>
+
 					</tr>
 
 
