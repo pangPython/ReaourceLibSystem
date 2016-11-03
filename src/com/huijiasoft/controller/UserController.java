@@ -205,8 +205,8 @@ public class UserController extends Controller {
 	}
 
 	// ¶àÍ¼Æ¬ÉÏ´«
-	@ActionKey("/user/upload_pic")
-	public void upload_pic() throws IOException {
+	@ActionKey("/user/uploadpic")
+	public void uploadpic() throws IOException {
 		User user = getSessionAttr(getCookie("cuser"));
 
 		String picture_upload_path = user.getMediaPath();

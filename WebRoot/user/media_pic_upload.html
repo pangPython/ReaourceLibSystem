@@ -8,7 +8,7 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
 <link
-	href="/static/css/bootstrap3.3.4.min.css"
+	href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css"
 	rel="stylesheet">
 <link href="/static/css/fileinput.min.css" media="all" rel="stylesheet"
 	type="text/css" />
@@ -40,7 +40,7 @@
 		<hr>
 		<h2>个人照片上传</h2>
 		
-			<input id="photos" name="file" class="file" type="file" 
+			<input id="photos" name="picfile" class="file-loding" type="file" multiple
 				data-min-file-count="1">
 		
 		<br>
@@ -49,17 +49,17 @@
 	</div>
 </body>
 <script>
-$("#uploadpic").click(function(){
+
 	//alert();
  	$('#photos').fileinput({
+	    uploadUrl:'/user/uploadpic',
+	    uploadAsync: true,
 	    language: 'zh',
 	    showUpload: true,
 	    allowedFileExtensions : ['jpg', 'png','gif'],
-	    uploadUrl:'/user/testupload',
 	    previewFileType:'any',
 	    showCaption:true,
 	}); 
-});
 
 </script>
 </html>

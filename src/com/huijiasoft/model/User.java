@@ -24,7 +24,7 @@ public class User extends BaseUser<User> {
 	
 	//未使用Jfinal分页，使用h-ui-admin提供的js分页
 	public List<User> getAllUser(){
-		String sql = "select u.*,d.decname,m.mzname,z.zzmmname,a.area_name from ((((user u left join declare_type d on u.dec_id = d.dec_id) left join mz m on u.mz_id = m.mz_id) left join zzmm z on u.zzmm_id = z.zzmm_id) left join area a on u.area_id = a.area_id)";
+		String sql = "select u.*,d.decname,m.mzname,z.zzmmname,a.area_name from ((((user u left join declare_type d on u.dec_id = d.dec_id) left join mz m on u.mz_id = m.mz_id) left join zzmm z on u.zzmm_id = z.zzmm_id) left join area a on u.area_id = a.area_id) order by u.status desc,reg_date asc";
 		return  usermodel.find(sql);
 	}
 	
