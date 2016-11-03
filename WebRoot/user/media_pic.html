@@ -29,9 +29,9 @@
 <div class="page-container">
 		<div class="cl pd-5 bg-1 bk-gray mt-20">
 			<span class="l"> 
-			<a href="javascript:;" onclick="del()"
+			<a href="javascript:;" onclick="del();"
 				class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i>
-					批量删除
+					删除
 			</a>
 			<a href="javascript:;" onclick="allselect()"
 				class="btn btn-success radius"><i class="Hui-iconfont">&#xe6e2;</i>
@@ -44,7 +44,7 @@
 		<#list picList as x>
 			<li class="item">
 				<div class="portfoliobox">
-					<input class="checkbox" name="userpic" type="checkbox" value="">
+					<input class="checkbox" name="userpic" type="checkbox" value="${x}">
 					<div class="picbox"><a href="/upload/photo/${user.media_path}/${x}" data-lightbox="gallery" data-title="${user.true_name?if_exists}"><img src="/upload/photo/${user.media_path?if_exists}/${x?if_exists}"></a></div>
 					<div class="textbox">${user.true_name?if_exists}</div>
 				</div>
@@ -55,6 +55,7 @@
 	</div>
 </div>
 <script type="text/javascript" src="/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="/admin/lib/icheck/jquery.icheck.min.js"></script> 
 <script type="text/javascript" src="/admin/lib/layer/2.1/layer.js"></script> 
 <script type="text/javascript" src="/admin/lib/lightbox2/2.8.1/js/lightbox-plus-jquery.min.js"></script> 
 <script type="text/javascript" src="/admin/static/h-ui/js/H-ui.js"></script> 
@@ -65,7 +66,27 @@ $(function(){
 });
 
 function del(){
-	layer.show();
+	layer.confirm('确定要删除吗？',function(index){
+		
+
+	
+	var arr = new Array();
+	
+	 $('input[name="userpic"]:checked').each(function(){
+         arr.push($(this).val());
+         });
+	 
+	 $.post(
+	 	"/user/delpic",
+	 	{
+	 		filename : arr
+	 	},
+	 	function(result){
+	 		alert(result);
+	 	}
+	 );
+      
+	});
 }
 
 function allselect(){
