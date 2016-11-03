@@ -1,0 +1,248 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="/admin/lib/html5.js"></script>
+<script type="text/javascript" src="/admin/lib/respond.min.js"></script>
+<script type="text/javascript" src="/admin/lib/PIE_IE678.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="/admin/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="/admin/static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="/admin/lib/Hui-iconfont/1.0.7/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="/admin/lib/icheck/icheck.css" />
+<link rel="stylesheet" type="text/css" href="/admin/static/h-ui.admin/skin/blue/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="/admin/static/h-ui.admin/css/style.css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="/admin/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<title>添加人才信息</title>
+</head>
+<body onbeforeunload="return '当前页面还有未保存的数据，确定不保存就离开了吗？';">
+
+	<nav class="breadcrumb">
+		<i class="Hui-iconfont">&#xe67f;</i> 
+		<a href="/admin/welcome">首页 </a>
+		 <span class="c-gray en">&gt;</span> 
+		添加人才 <a
+			class="btn btn-success radius r"
+			style="line-height: 1.6em; margin-top: 3px"
+			href="javascript:location.replace(location.href);" title="刷新"><i
+			class="Hui-iconfont">&#xe68f;</i></a>
+	</nav>
+
+<div class="page-container">
+	<form action="/admin/adduser" method="post" enctype="multipart/form-data">
+	<table class="table table-border table-bordered table-bg mt-20">
+		<thead>
+			<tr>
+				<th colspan="6" scope="col">添加人才信息</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>前台登录用户名:</td>
+				<td>
+				<input type="text" class="input-text" id="user.uname" name="user.uname">
+				</td>
+				<td>密码:</td>
+				<td>
+				<input type="password" class="input-text" value="" id="password" name="password">
+				</td>
+				<td>一寸照</td>
+				<td>
+				<span class="btn-upload form-group">
+				<input class="input-text upload-url" type="text" name="uploadfile" id="uploadfile" readonly nullmsg="请添加附件！" style="width:200px">
+				<a href="javascript:void();" class="btn btn-primary radius upload-btn"><i class="Hui-iconfont">&#xe642;</i> 浏览文件</a>
+				<input type="file" multiple name="file-2" class="input-file">
+				</span>
+				</td>
+				
+			</tr>
+			<tr>
+				<td width="15%">真实姓名:</td>
+				<td>
+				<input type="text" class="input-text" value="" id="user.true_name" name="user.true_name">
+				</td>
+			
+				<td>性别:</td>
+				<td>
+				<select name="user.usersex" class="select">
+					<option value="0">女</option>
+					<option value="1">男</option>
+				</select>
+				</td>
+		
+				<td>出生日期:</td>
+				<td>
+				<input id="d11" type="text" class="input-text Wdate" name="user.birth" onClick="WdatePicker()"/>
+				</td>
+			</tr>
+			<tr>
+				<td>所属地区: </td>
+				<td>
+				<select name="user.area_id" class="select">
+					<#list areaList?if_exists as x>
+					<option value="${x.area_id?if_exists}">${x.area_name?if_exists}</option>
+					</#list>
+				</select>
+				</td>
+		
+				<td>民族 </td>
+				<td>
+				<select name="user.mz_id" class="select">
+					<#list nationList?if_exists as x>
+						<option value="${x.mz_id}">${x.mzname}</option>
+					</#list>
+				</select>
+				</td>
+		
+				<td>政治面貌 </td>
+				<td>
+				<select name="user.zzmm_id" class="select">
+					<#list zzmmList?if_exists as x>
+									<option value="${x.zzmm_id}">${x.zzmmname}</option>
+								</#list>
+				</select>
+				</td>
+			</tr>
+			<tr>
+				<td>参加工作时间 </td>
+				<td>
+				<input id="d12" type="text" class="input-text Wdate" name="user.join_work" onClick="WdatePicker()"/>
+				</td>
+		
+				<td>身份证号 </td>
+				<td>
+				<input type="text" class="input-text"  id="user.card" name="user.card">
+				</td>
+		
+				<td>健康状况 </td>
+				<td>
+				<input type="text" class="input-text"  id="user.health" name="user.health">
+				</td>
+			</tr>
+			<tr>
+				<td>学历 </td>
+				<td>
+				<select name="user.edu_id" class="select">
+					<#list eduList?if_exists as x>
+									<option value="${x.edu_id}">${x.eduname}</option>
+									</#list>
+				</select>
+				</td>
+		
+			
+		
+				<td>工作单位 </td>
+				<td>
+				<input type="text" class="input-text"  id="user.company" name="user.company">
+				</td>
+				
+				<td>单位电话 </td>
+				<td>
+				<input type="text" class="input-text"  id="user.company_tel" name="user.company_tel">
+				</td>
+			</tr>
+			<tr>
+				<td>学位 </td>
+				<td>
+				<select name="user.degree_id" class="select">
+					<#list degreeList?if_exists as x>
+									<option value="${x.degree_id}">${x.degreename}</option>
+								</#list>
+				</select>
+				</td>
+				<td>家庭住址 </td>
+				<td>
+				<input type="text" class="input-text"  id="user.address" name="user.address">
+				</td>
+		
+				<td>移动电话 </td>
+				<td>
+				<input type="text" class="input-text"  id="user.telephone" name="user.telephone">
+				</td>
+			</tr>
+			<tr>
+				<td>申报类别</td>
+				<td>
+					<select name="user.dec_id" class="select">
+					<#list decList?if_exists as x>
+									<option value="${x.dec_id}">${x.decname}</option>
+								</#list>
+				</select>
+				</td>
+		
+			
+		
+				<td>电子邮件</td>
+				<td>
+				<input type="text" class="input-text" value="" id="user.email" name="user.email">
+				</td>
+				
+				<td>QQ或微信</td>
+				<td>
+				<input type="text" class="input-text" value="" id="user.qqwx" name="user.qqwx">
+				</td>
+			</tr>
+	
+			<tr>
+				<td>重要社会兼职 </td>
+				<td colspan="5" scope="col">
+				<textarea class="textarea" id="user.socio_part_time" name="user.socio_part_time"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>主要工作及艺术简历 </td>
+				<td colspan="5" scope="col">
+				<textarea class="textarea" id="user.ysjj" name="user.ysjj"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>主要业务成就 </td>
+				<td colspan="5" scope="col">
+				<textarea class="textarea"  id="user.business_achievement" name="user.business_achievement"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>获奖情况 </td>
+				<td colspan="5" scope="col">
+				<textarea class="textarea" id="user.awards" name="user.awards"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>本人申请意见 </td>
+				<td colspan="5" scope="col">
+				<textarea class="textarea" id="user.opinion" name="user.opinion"></textarea>
+				</td>
+			</tr>
+			
+		</tbody>
+	</table><br>
+	<div class="va-m">
+	<button class="btn btn-secondary radius" type="submit">保存</button>
+	</div>
+	</form>
+	
+</div>
+<footer class="footer mt-20">
+	<div class="container">
+		<p>本系统由<a href="http://www.huijiasoft.com/" target="_blank" title="山东汇佳软件科技股份有限公司">山东汇佳软件科技</a>提供技术支持</p>
+	</div>
+</footer>
+<script type="text/javascript" src="/admin/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="/admin/lib/layer/2.1/layer.js"></script> 
+<script type="text/javascript" src="/admin/lib/laypage/1.2/laypage.js"></script> 
+<script type="text/javascript" src="/admin/lib/My97DatePicker/WdatePicker.js"></script> 
+<script type="text/javascript" src="/admin/static/h-ui/js/H-ui.js"></script>
+<script type="text/javascript" src="/admin/static/h-ui.admin/js/H-ui.admin.js"></script> 
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

@@ -45,6 +45,7 @@ import com.jfinal.upload.UploadFile;
 @Before(AdminAuthInterceptor.class)
 public class AdminController extends Controller {
 	
+	//TODO 此处有问题
 	public void index(){
 		setAttr("admin", getSessionAttr(getCookie("cadmin")));
 		render("index.html");
@@ -150,11 +151,20 @@ public class AdminController extends Controller {
 	}
 	
 	
-	//县区管理员添加人才
+	//显示县区管理员添加人才页面
 	public void xqadduser(){
+		setAttr("vv", "123");
+	}
+	
+	//县区管理员添加人才
+	public void xquseradd(){
 		
 	}
 	
+	
+	public void xqadmininfo(){
+		
+	}
 	
 	//退出方法
 	public void logout(){
