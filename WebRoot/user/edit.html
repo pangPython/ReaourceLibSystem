@@ -84,13 +84,13 @@ ${nameErrMsg?if_exists}				</td>
 			<tr>
 				<td>参加工作时间 </td>
 				<td>
-				<input id="d12" type="text" class="input-text Wdate" name="user.join_work" onClick="WdatePicker()"/>
+				<input id="d12" type="text" class="input-text Wdate" name="user.join_work" value="${user.join_work?if_exists}" onClick="WdatePicker()"/>
 				
 		${jwErrMsg?if_exists}		</td>
 		
 		<td>出生日期:</td>
 				<td>
-				<input id="d11" type="text" class="input-text Wdate" name="user.birth" onClick="WdatePicker()"/>
+				<input id="d11" type="text" class="input-text Wdate" name="user.birth" value="${user.birth?if_exists}" onClick="WdatePicker()"/>
 		${birthErrMsg?if_exists}		</td>
 		
 				<td>身份证号 </td>
@@ -146,7 +146,7 @@ ${nameErrMsg?if_exists}				</td>
 				</td>
 				<td>学校 </td>
 				<td>
-				<input type="text" class="input-text" value="" id="user.edu_school" name="user.edu_school">
+				<input type="text" class="input-text" value="${user.edu_school?if_exists}" id="user.edu_school" name="user.edu_school">
 				 </td>
 				<td>类型 </td>
 				<td>
@@ -167,7 +167,7 @@ ${nameErrMsg?if_exists}				</td>
 				</select></td>
 				<td>学校 </td>
 				<td>
-				<input type="text" class="input-text" value="" id="user.degree_school" name="user.degree_school">
+				<input type="text" class="input-text" value="${user.degree_school?if_exists}" id="user.degree_school" name="user.degree_school">
 				 </td>
 				<td>类型 </td>
 				<td><select name="user.degree_full_time" class="select">

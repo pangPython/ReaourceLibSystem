@@ -8,15 +8,15 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
 <link
-	href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css"
+	href="/static/css/bootstrap3.3.4.min.css"
 	rel="stylesheet">
 <link href="/static/css/fileinput.min.css" media="all" rel="stylesheet"
 	type="text/css" />
 
-<script src="http://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<script src="/static/js/jquery2.1.1.min.js"></script>
 <script src="/static/js/fileinput.min.js" type="text/javascript"></script>
 <script src="/static/js/locales/zh.js" type="text/javascript"></script>
-<script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"
+<script src="/static/js/bootstrap3.3.4.min.js"
 	type="text/javascript"></script>
 
 
@@ -39,23 +39,27 @@
 		<br>
 		<hr>
 		<h2>个人照片上传</h2>
-		<form action="/user/upload_pic" enctype="multipart/form-data" method="POST">
-			<input id="photos" name="file" class="file" type="file" multiple
-				data-min-file-count="1"> <br>
-			<button type="submit" class="btn btn-primary">上传</button>
-			<button type="reset" class="btn btn-default">重置</button>
-		</form>
+		
+			<input id="photos" name="file" class="file" type="file" 
+				data-min-file-count="1">
+		
 		<br>
 		<hr>
 	
 	</div>
 </body>
 <script>
-
-$('#photos').fileinput({
-    language: 'zh',
-    showUpload: true,
-    allowedFileExtensions : ['jpg', 'png','gif'],
+$("#uploadpic").click(function(){
+	//alert();
+ 	$('#photos').fileinput({
+	    language: 'zh',
+	    showUpload: true,
+	    allowedFileExtensions : ['jpg', 'png','gif'],
+	    uploadUrl:'/user/testupload',
+	    previewFileType:'any',
+	    showCaption:true,
+	}); 
 });
+
 </script>
 </html>
