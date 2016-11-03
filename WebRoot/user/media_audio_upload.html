@@ -37,12 +37,8 @@
 	<div class="container">
 
 		<h2>个人音频资料上传</h2>
-		<form action="/user/upload_audio" enctype="multipart/form-data" method="POST">
-			<input id="audio" name="file" class="file" type="file" multiple
+			<input id="audio" name="audiofile" class="file-loading" type="file" multiple
 				data-min-file-count="1"> <br>
-			<button type="submit" class="btn btn-primary">上传</button>
-			<button type="reset" class="btn btn-default">重置</button>
-		</form>
 		<br>
 		<hr>
 		
@@ -50,8 +46,13 @@
 </body>
 <script>
 $('#audio').fileinput({
+    uploadUrl:'/user/upload_audio',
+    uploadAsync: true,
     language: 'zh',
     allowedFileExtensions : ['mp3', 'wav'],
+    showUpload: true,
+    previewFileType:'any',
+    showCaption:true,
 });
 
 </script>
