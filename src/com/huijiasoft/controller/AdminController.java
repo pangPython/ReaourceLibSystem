@@ -162,9 +162,37 @@ public class AdminController extends Controller {
 	}
 	
 	
+	//显示县区管理员个人信息
 	public void xqadmininfo(){
+		Admin admin = getSessionAttr(getCookie("cadmin"));
+		setAttr("xqadmin", admin);
+	}
+	
+	//县区管理员更新信息
+	public void xqadminedit(){
+		
+		setAttr("xqadmin", Admin.dao.findById(getParaToInt(0)));
+	}
+	
+	public void xqadminupdate(){
+		Admin admin = Admin.dao.findById(getParaToInt(0));
+		admin.setTelephone(getPara("admin.telephone"));
+		admin.setEmail(getPara("admin.email"));
+		if(admin.update()){
+			//更新session
+			setSessionAttr(getCookie("cadmin"), admin);
+			renderText("修改成功！");
+		}else{
+			setAttr("ErrMsg", "修改出错,请重试！");
+			render("error");
+		}
+	}
+	
+	//显示县区管理员修改密码
+	public void xqchangepwd(){
 		
 	}
+	
 	
 	//退出方法
 	public void logout(){
