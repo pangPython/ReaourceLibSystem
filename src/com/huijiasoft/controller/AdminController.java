@@ -150,6 +150,11 @@ public class AdminController extends Controller {
 	}
 	
 	
+	//县区管理员添加人才
+	public void xqadduser(){
+		
+	}
+	
 	
 	//退出方法
 	public void logout(){
