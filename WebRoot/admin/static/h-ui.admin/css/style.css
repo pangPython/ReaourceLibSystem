@@ -28,3 +28,5 @@
 .adminitembg{
 	background-image: url(/static/images/lists.png);
 }
+
+.Hui-aside .menu_dropdown li a{color:#000;border-bottom: 1px solid #000}

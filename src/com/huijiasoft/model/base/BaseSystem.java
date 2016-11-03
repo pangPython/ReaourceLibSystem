@@ -73,4 +73,12 @@ public abstract class BaseSystem<M extends BaseSystem<M>> extends Model<M> imple
 		return get("open");
 	}
 
+	public void setVersion(java.lang.Float version) {
+		set("version", version);
+	}
+
+	public java.lang.Float getVersion() {
+		return get("version");
+	}
+
 }

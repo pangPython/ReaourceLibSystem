@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50547
 File Encoding         : 65001
 
-Date: 2016-11-02 09:28:36
+Date: 2016-11-03 10:06:19
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -61,7 +61,7 @@ INSERT INTO `area` VALUES ('1', '东营市', '0');
 INSERT INTO `area` VALUES ('2', '东营区', '1');
 INSERT INTO `area` VALUES ('3', ' 河口区', '1');
 INSERT INTO `area` VALUES ('4', '广饶县', '1');
-INSERT INTO `area` VALUES ('5', ' 垦利县', '1');
+INSERT INTO `area` VALUES ('5', ' 垦利区', '1');
 INSERT INTO `area` VALUES ('6', '利津县', '1');
 
 -- ----------------------------
@@ -153,7 +153,7 @@ CREATE TABLE `log` (
   `uname` varchar(255) NOT NULL,
   `date` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=125 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=130 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of log
@@ -282,6 +282,11 @@ INSERT INTO `log` VALUES ('121', '0:0:0:0:0:0:0:1', 'hjadmintest', '2016-10-31 1
 INSERT INTO `log` VALUES ('122', '0:0:0:0:0:0:0:1', 'hjadmintest', '2016-10-31 11:13:14');
 INSERT INTO `log` VALUES ('123', '0:0:0:0:0:0:0:1', 'whg_admin', '2016-10-31 11:28:21');
 INSERT INTO `log` VALUES ('124', '0:0:0:0:0:0:0:1', 'whg_admin', '2016-10-31 13:32:48');
+INSERT INTO `log` VALUES ('125', '0:0:0:0:0:0:0:1', 'whg_admin', '2016-11-02 09:43:30');
+INSERT INTO `log` VALUES ('126', '0:0:0:0:0:0:0:1', 'whg_admin', '2016-11-02 14:38:30');
+INSERT INTO `log` VALUES ('127', '0:0:0:0:0:0:0:1', 'whg_admin', '2016-11-02 20:50:03');
+INSERT INTO `log` VALUES ('128', '0:0:0:0:0:0:0:1', 'hjadmintest', '2016-11-02 21:16:32');
+INSERT INTO `log` VALUES ('129', '0:0:0:0:0:0:0:1', 'whg_admin', '2016-11-03 08:47:38');
 
 -- ----------------------------
 -- Table structure for `msg`
@@ -387,13 +392,14 @@ CREATE TABLE `system` (
   `record` varchar(255) DEFAULT NULL,
   `statistics_code` text,
   `open` int(11) NOT NULL,
+  `version` float(20,3) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of system
 -- ----------------------------
-INSERT INTO `system` VALUES ('1', '东营市社会文艺人才信息资源库', '关键词设置2', '网站描述设置', '东营市文化馆版权所有', '鲁ICP备00000000001号', ' 统计代码设置', '0');
+INSERT INTO `system` VALUES ('1', '东营市社会文艺人才信息资源库', '关键词设置2', '网站描述设置', '东营市文化馆版权所有', '鲁ICP备00000000001号', ' 统计代码设置', '0', '1.000');
 
 -- ----------------------------
 -- Table structure for `uploads`
@@ -527,7 +533,7 @@ CREATE TABLE `user` (
   `email` varchar(255) DEFAULT NULL,
   `qqwx` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
@@ -561,6 +567,7 @@ INSERT INTO `user` VALUES (null, null, '69', 'py123456', '我的真实姓名', '
 INSERT INTO `user` VALUES (null, null, '70', '前台', '我的真实姓名2', '4F1D9B55DA9D9B13685E3ED1A3CDAD99', null, null, '2016-10-17', '0', '0000000001', '0000000001', '00000000001', '00000000001', '372321199999999999', '1', '山东省滨州市', null, '山东汇佳', null, '艺术', '健康', '2016-10-31 09:31:11', '1', '2016-10-10', '149b99c5a8fd16270fa050aacd2bd441.png', null, null, '8088098', '兼职', '15762182222', '获奖', '申请', '成就', null, null);
 INSERT INTO `user` VALUES ('石油大', '东营职业学院', '76', 'pangPython', '我的真实姓名22', '8C5288517DF1185CFA6CEF8201353867', null, '1r23whlbnnxuvdkmcff9f130v', '2016-10-20', '0', '0000000001', '0000000001', null, null, '372321199999999999', '1', '山东省滨州市', '0', '山东汇佳', null, '测试', '健康', '2016-10-31 10:17:43', '0', '2016-10-04', null, null, '0000000000', '8088098', '测试', '15762182222', '测试', '测试 ', '测试', null, null);
 INSERT INTO `user` VALUES (null, null, '77', 'pangyong222', null, 'A1354A3FCC4305F1DD95F82201A2863A', null, '1qjsnarnwl1t320nmaqdf89rt', null, '1', null, null, null, null, null, null, null, null, null, null, null, null, '2016-10-31 14:38:06', '0', null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `user` VALUES (null, null, '78', '000000', null, '61B516E1B6019A7DDA6C6C3595FB0081', null, '11537mdt1xfqn1td641p6u1t5x', null, '1', null, null, null, null, null, null, null, null, null, null, null, null, '2016-11-02 14:41:44', '0', null, null, null, null, null, null, null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `zzmm`

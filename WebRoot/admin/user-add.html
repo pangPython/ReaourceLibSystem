@@ -24,14 +24,24 @@
 <title>添加人才信息</title>
 </head>
 <body onbeforeunload="return '当前页面还有未保存的数据，确定不保存就离开了吗？';">
-<div class="page-container">
-	<p class="f-20 text-success">>正在添加人才信息</p>
 
+	<nav class="breadcrumb">
+		<i class="Hui-iconfont">&#xe67f;</i> 
+		<a href="/admin/welcome">首页 </a>
+		 <span class="c-gray en">&gt;</span> 
+		添加人才 <a
+			class="btn btn-success radius r"
+			style="line-height: 1.6em; margin-top: 3px"
+			href="javascript:location.replace(location.href);" title="刷新"><i
+			class="Hui-iconfont">&#xe68f;</i></a>
+	</nav>
+
+<div class="page-container">
 	<form action="/admin/adduser" method="post" enctype="multipart/form-data">
 	<table class="table table-border table-bordered table-bg mt-20">
 		<thead>
 			<tr>
-				<th colspan="6" scope="col">编辑人才信息</th>
+				<th colspan="6" scope="col">添加人才信息</th>
 			</tr>
 		</thead>
 		<tbody>
