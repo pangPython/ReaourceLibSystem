@@ -227,23 +227,48 @@ public class UserController extends Controller {
 	
 	//删除图片
 	public void delpic(){
-		
-		//获取图片路径
+		boolean flag = false;
 		User user = User.usermodel.findById(getPara("uid"));
-		
+		//获取图片路径
 		String upath = "WebRoot\\upload\\photo\\"+user.getMediaPath()+"\\";
-		File file = null;
 		//获取用户提交的要删除的文件名
 		String[] pic_name = getParaValues("filename[]");
-		for (int i = 0; i < pic_name.length; i++) {
-			//System.out.println(upath+pic_name[i]+"========");
-			new File(upath+pic_name[i]).delete();
+		File file = null;
+		
+		if(pic_name==null){
+			renderNull();
+			return;
 		}
-//		file.
-		//进行文件删除操作
 		
 		
-		renderText("1");
+		for (int i = 0; i < pic_name.length; i++) {
+			file = new File(upath+pic_name[i]);
+			
+			if(!file.exists()){
+				//文件不存在
+				renderJson("{\"status\":0,\"errmsg\":\"文件不存在！\"}");
+				return;
+				
+			}else{
+				if(!file.isFile()){
+					//不是文件
+					renderJson("{\"status\":0,\"errmsg\":\"不是文件！\"}");
+					return;
+				}
+					if(file.delete()){
+						flag = true;
+					}else{
+						flag = false;
+					}
+			}
+			
+		}
+		
+		if(flag){
+			renderJson("{\"status\":1}");
+		}else{
+			renderJson("{\"status\":0,\"errmsg\":\"未知错误！\"}");
+		}
 	}
 
 	// 显示用户审核是否通过的管理员消息

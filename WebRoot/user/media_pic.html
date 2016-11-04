@@ -35,7 +35,7 @@
 					删除
 			</a>
 			<a href="javascript:;" onclick="allselect()"
-				class="btn btn-success radius"><i class="Hui-iconfont">&#xe6e2;</i>
+				class="btn btn-success radius"><i class="Hui-iconfont">&#xe676;</i>
 					全选
 			</a>
 			</span>
@@ -74,6 +74,12 @@ function del(){
     $('input[name="userpic"]:checked').each(function(){
         arr.push($(this).val());
     });
+    
+    if(arr.length == 0){
+    	return;
+    }
+    
+    
     layer.confirm('确定要删除吗？',function(index){
 
         $.post(
@@ -82,14 +88,17 @@ function del(){
                 uid:${user.id?if_exists},
                 filename : arr
             },function(result) {
-                if (result == "1") {
+            	var obj = result;
+            	
+                if (obj.status == 1) {
                     layer.msg('已删除!', function(){
-                        	alert();
+                    	location.replace(location.href);
                         }
                     );
                 } else {
-                    layer.msg('删除失败!', {icon: 1, time: 1000});
-                }
+                	
+                    layer.msg('删除失败:'+obj.errmsg, {icon: 1, time: 3000});
+                } 
             }
                 );
 

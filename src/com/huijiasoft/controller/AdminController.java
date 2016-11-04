@@ -240,23 +240,29 @@ public class AdminController extends Controller {
 	//÷¥––≤È—Ø
 	public void uschbycondition(){
 		Map<String,Object> map = new HashMap<String, Object>();
+		String uname = "'"+getPara("user.true_name")+"'";
 		String sex = getPara("user.usersex");
-		String mz_id = getPara("user.mz_id");
+	//	String mz_id = getPara("user.mz_id");
 		String area_id = getPara("user.area_id");
-		String zzmm_id = getPara("user.zzmm_id");
+		//String zzmm_id = getPara("user.zzmm_id");
 		String dec_id = getPara("user.dec_id");
+		
+		if(uname!=null && !uname.equals("")){
+			map.put("p.true_name", uname);
+		}
+		
 		if(sex!=null && !sex.equals("")){
 			map.put("p.usersex", sex);
 		}
-		if(mz_id!=null && !mz_id.equals("")){
-			map.put("p.mz_id", mz_id);
-		}
+//		if(mz_id!=null && !mz_id.equals("")){
+//			map.put("p.mz_id", mz_id);
+//		}
 		if(area_id!=null && !area_id.equals("")){
 			map.put("p.area_id", area_id);
 		}
-		if(zzmm_id!=null && !zzmm_id.equals("")){
-			map.put("p.zzmm_id", zzmm_id);
-		}
+//		if(zzmm_id!=null && !zzmm_id.equals("")){
+//			map.put("p.zzmm_id", zzmm_id);
+//		}
 		if(dec_id!=null && !dec_id.equals("")){
 			map.put("p.dec_id", dec_id);
 		}	

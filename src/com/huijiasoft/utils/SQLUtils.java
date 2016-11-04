@@ -39,7 +39,7 @@ public class SQLUtils {
 //		sql = sql.replaceAll("user.usersex", "u.usersex");
 //		sql = sql.replaceAll("user.", "u.");
 		
-		//System.out.println(sql);
+		System.out.println(sql);
 		
 		return sql;
 	}

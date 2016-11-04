@@ -2,6 +2,7 @@ package com.huijiasoft.controller;
 
 import com.jfinal.core.ActionKey;
 import com.jfinal.core.Controller;
+import com.jfinal.kit.JsonKit;
 import com.jfinal.render.CaptchaRender;
 
 /**
@@ -17,6 +18,11 @@ public class CommonController extends Controller {
 	@ActionKey("/verifycode")
 	public void verifycode(){
 		render(new CaptchaRender());
+	}
+	
+	public void test(){
+		renderJson("{status:0}");
+		
 	}
 	
 
