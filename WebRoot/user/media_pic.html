@@ -25,7 +25,8 @@
 <title>图片展示</title>
 </head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 图片管理 <span class="c-gray en">&gt;</span> 图片展示 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb">
+<i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 图片管理 <span class="c-gray en">&gt;</span> 图片展示 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
 		<div class="cl pd-5 bg-1 bk-gray mt-20">
 			<span class="l"> 
@@ -65,28 +66,36 @@ $(function(){
 	$.Huihover(".portfolio-area li");
 });
 
-function del(){
-	layer.confirm('确定要删除吗？',function(index){
-		
 
-	
-	var arr = new Array();
-	
-	 $('input[name="userpic"]:checked').each(function(){
-         arr.push($(this).val());
-         });
-	 
-	 $.post(
-	 	"/user/delpic",
-	 	{
-	 		filename : arr
-	 	},
-	 	function(result){
-	 		alert(result);
-	 	}
-	 );
-      
-	});
+function del(){
+    //定义数组,获取文件名
+    var arr = new Array();
+
+    $('input[name="userpic"]:checked').each(function(){
+        arr.push($(this).val());
+    });
+    layer.confirm('确定要删除吗？',function(index){
+
+        $.post(
+            "/user/delpic",
+            {
+                uid:${user.id?if_exists},
+                filename : arr
+            },function(result) {
+                if (result == "1") {
+                    layer.msg('已删除!', function(){
+                        	alert();
+                        }
+                    );
+                } else {
+                    layer.msg('删除失败!', {icon: 1, time: 1000});
+                }
+            }
+                );
+
+        layer.close(index);
+
+    });
 }
 
 function allselect(){

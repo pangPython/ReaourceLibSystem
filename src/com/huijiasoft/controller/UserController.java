@@ -224,6 +224,27 @@ public class UserController extends Controller {
 		renderText("图片资料上传成功！");
 
 	}
+	
+	//删除图片
+	public void delpic(){
+		
+		//获取图片路径
+		User user = User.usermodel.findById(getPara("uid"));
+		
+		String upath = "WebRoot\\upload\\photo\\"+user.getMediaPath()+"\\";
+		File file = null;
+		//获取用户提交的要删除的文件名
+		String[] pic_name = getParaValues("filename[]");
+		for (int i = 0; i < pic_name.length; i++) {
+			//System.out.println(upath+pic_name[i]+"========");
+			new File(upath+pic_name[i]).delete();
+		}
+//		file.
+		//进行文件删除操作
+		
+		
+		renderText("1");
+	}
 
 	// 显示用户审核是否通过的管理员消息
 	public void msg() {
