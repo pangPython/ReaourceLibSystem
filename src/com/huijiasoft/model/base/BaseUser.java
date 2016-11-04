@@ -201,11 +201,11 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("status");
 	}
 
-	public void setBirth(java.lang.String birth) {
+	public void setBirth(java.util.Date birth) {
 		set("birth", birth);
 	}
 
-	public java.lang.String getBirth() {
+	public java.util.Date getBirth() {
 		return get("birth");
 	}
 

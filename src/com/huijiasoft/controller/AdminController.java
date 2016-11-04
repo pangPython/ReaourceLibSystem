@@ -238,34 +238,49 @@ public class AdminController extends Controller {
 	
 	
 	//执行查询 name sex age(min,max) area dec
-	public void uschbycondition(){
+	public void uschbycondition() throws ParseException{
+		
+		Integer[] dec_ids = getParaValuesToInt("user.dec_id");
+		renderText(dec_ids.length+"");
+		return;
+		/*
 		Map<String,Object> map = new HashMap<String, Object>();
-		String uname = "'"+getPara("user.true_name")+"'";
+		String uname = getPara("user.true_name");
 		String sex = getPara("user.usersex");
-	//	String mz_id = getPara("user.mz_id");
 		String area_id = getPara("user.area_id");
-		//String zzmm_id = getPara("user.zzmm_id");
 		String dec_id = getPara("user.dec_id");
 		
+		try {
+			int minage = getParaToInt("minage");
+			int maxage = getParaToInt("maxage");
+			
+			map.put("minage", minage);
+			map.put("maxage", maxage);
+			
+		} catch (Exception e) {
+			
+		}
+		
+		
+		
+		
+		
 		if(uname!=null && !uname.equals("")){
+			uname = "'"+uname+"'";
 			map.put("p.true_name", uname);
 		}
 		
 		if(sex!=null && !sex.equals("")){
 			map.put("p.usersex", sex);
 		}
-//		if(mz_id!=null && !mz_id.equals("")){
-//			map.put("p.mz_id", mz_id);
-//		}
+
 		if(area_id!=null && !area_id.equals("")){
 			map.put("p.area_id", area_id);
 		}
-//		if(zzmm_id!=null && !zzmm_id.equals("")){
-//			map.put("p.zzmm_id", zzmm_id);
-//		}
+
 		if(dec_id!=null && !dec_id.equals("")){
 			map.put("p.dec_id", dec_id);
-		}	
+		}
 		
 		List<User> userList = User.usermodel.getUserListByCondition(map);
 		
@@ -286,7 +301,7 @@ public class AdminController extends Controller {
 		
 		setAttr("file", file_name);
 		setAttr("userList", userList);
-		render("s-u-result.html");
+		render("s-u-result.html");*/
 	}
 	
 	
@@ -304,7 +319,7 @@ public class AdminController extends Controller {
 	
 	
 	//执行查询
-		public void xquschbycondition(){
+		public void xquschbycondition() throws ParseException{
 			Map<String,Object> map = new HashMap<String, Object>();
 			String sex = getPara("user.usersex");
 			String mz_id = getPara("user.mz_id");

@@ -1,5 +1,7 @@
 package com.huijiasoft.utils;
 
+import java.text.ParseException;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -12,7 +14,22 @@ public class SQLUtils {
 
 	//根据请求参数动态生成sql，过滤空值
 	//适用于条件查询
-	public static String DynamicSQL(Map<String,Object> map){
+	public static String DynamicSQL(Map<String,Object> map) throws ParseException{
+		
+		String end = null;
+		String start = null;
+		try {
+			int minage = (Integer) map.get("minage");
+			int maxage = (Integer) map.get("maxage");
+			
+			map.remove("minage");
+			map.remove("maxage");
+			
+			start = BirthAgeUtils.getMinBirthByAge(minage);
+			end = BirthAgeUtils.getMaxBirthByAge(maxage);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		
 		String sql = " where ";
 		
@@ -26,12 +43,22 @@ public class SQLUtils {
 			}
 			
 		}
+		if(start!=null && end!=null){
+			if(sql.trim().endsWith("where") || sql.trim().endsWith("and")){
+				sql = sql + " p.birth > '" + end + "' and p.birth < '"+start+"'";
+			}else{
+				
+				sql = sql + " and p.birth > '" + end + "' and p.birth < '"+start+"'";
+			}
+		}
 		
 		if(sql.trim().endsWith("and")){
 			sql = sql.substring(0, sql.lastIndexOf("and"));
 		}
 		
+		
 		if(sql.equals(" where ")){
+			
 			return "";
 		}
 		

@@ -68,7 +68,7 @@ public class ReportExcel {
 			// DBUtils.setEmptyIfNull(user);
 			String tn = user.getTrueName();
 			String us = user.getUsersex();
-			String birth = user.getBirth();
+			Date birth = user.getBirth();
 			Long mz = user.getMzId();
 			Long zzmm = user.getZzmmId();
 

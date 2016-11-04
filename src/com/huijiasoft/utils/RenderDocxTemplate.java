@@ -52,7 +52,7 @@ public class RenderDocxTemplate {
 			Map<String,String> map = User.usermodel.getEduDegreeSchool(user);
 			
 			root.put("sex", sex);
-			root.put("birth", user.getBirth());
+			root.put("birth", user.getBirth()+"");
 			root.put("minzu", user.getStr("mzname"));
 			root.put("zzmm", user.getStr("zzmmname"));
 			root.put("join_work", user.getJoinWork());

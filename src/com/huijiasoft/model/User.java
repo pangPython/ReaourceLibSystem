@@ -2,6 +2,7 @@ package com.huijiasoft.model;
 
 
 
+import java.text.ParseException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,7 +44,9 @@ public class User extends BaseUser<User> {
 	}
 	
 	//条件查询用户列表
-	public List<User> getUserListByCondition(Map<String,Object> map){
+	public List<User> getUserListByCondition(Map<String,Object> map) throws ParseException{
+		
+		
 		String sql = "select p.*,d.decname,m.mzname,z.zzmmname,a.area_name from ((((user p left join declare_type d on p.dec_id = d.dec_id) left join mz m on p.mz_id = m.mz_id) left join zzmm z on p.zzmm_id = z.zzmm_id) left join area a on p.area_id = a.area_id) "+SQLUtils.DynamicSQL(map);
 		return usermodel.find(sql);
 	}
@@ -116,10 +119,10 @@ public class User extends BaseUser<User> {
 	
 	
 	//获取年龄
-	public int getAge(){
-		String birth_date = usermodel.getBirth();
-		return DateUtils.compareDateWithNow(DateUtils.parse(birth_date));
-	}
+//	public int getAge(){
+//		String birth_date = usermodel.getBirth();
+//		return DateUtils.compareDateWithNow(DateUtils.parse(birth_date));
+//	}
 	
 	
 	

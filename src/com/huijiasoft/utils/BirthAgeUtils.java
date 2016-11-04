@@ -1,5 +1,6 @@
 package com.huijiasoft.utils;
 
+import java.text.ParseException;
 import java.util.Date;
 
 /**
@@ -18,8 +19,27 @@ public class BirthAgeUtils {
 	//根据年龄获取生日 返回日期型
 	public static Date getBirthByAge(int age){
 		int now = Integer.parseInt(DateUtils.getNowTime("yyyy"));
-		int birth = now - age;
+		String birth = (now - age)+"";
 		
-		return null;
+		return DateUtils.parse(birth);
 	}
+	
+	public static String getMinBirthByAge(int age) throws ParseException{
+		int now = Integer.parseInt(DateUtils.getNowTime("yyyy"));
+		String birth = (now - age)+"-12-30 59:59:59";
+		System.out.println(birth+"======");
+		
+		return birth;
+		
+	}
+	
+	
+	public static String getMaxBirthByAge(int age){
+		int now = Integer.parseInt(DateUtils.getNowTime("yyyy"));
+		String birth = (now - age)+"-01-01 00:00:00";
+		
+		return birth;
+	}
+	
+	
 }
