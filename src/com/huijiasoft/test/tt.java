@@ -1,13 +1,10 @@
 package com.huijiasoft.test;
 
+import com.huijiasoft.utils.BirthAgeUtils;
 
 public class tt {
 	public static void main(String[] args) {
-		String str1 = "";
-		String str2 = null;
-		System.out.println(str1);
-		System.out.println(str2);
-	
+		System.out.println(BirthAgeUtils.getBirthByAge("22"));
 	}
 	
 	

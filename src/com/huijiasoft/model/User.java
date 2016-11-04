@@ -7,7 +7,9 @@ import java.util.List;
 import java.util.Map;
 
 import com.huijiasoft.model.base.BaseUser;
+import com.huijiasoft.utils.DateUtils;
 import com.huijiasoft.utils.SQLUtils;
+import com.jfinal.ext.kit.DateKit;
 import com.jfinal.plugin.activerecord.Page;
 
 @SuppressWarnings("serial")
@@ -111,5 +113,15 @@ public class User extends BaseUser<User> {
 		}
 		return false;
 	}
+	
+	
+	//ªÒ»°ƒÍ¡‰
+	public int getAge(){
+		String birth_date = usermodel.getBirth();
+		return DateUtils.compareDateWithNow(DateUtils.parse(birth_date));
+	}
+	
+	
+	
 
 }

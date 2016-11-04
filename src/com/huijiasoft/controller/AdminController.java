@@ -237,7 +237,7 @@ public class AdminController extends Controller {
 
 	
 	
-	//执行查询
+	//执行查询 name sex age(min,max) area dec
 	public void uschbycondition(){
 		Map<String,Object> map = new HashMap<String, Object>();
 		String uname = "'"+getPara("user.true_name")+"'";
@@ -278,16 +278,14 @@ public class AdminController extends Controller {
 			e.printStackTrace();
 		}
 		
-		File file =		new File(filename);
+		File file =	new File(filename);
 		String file_name = "";
 		if(file!=null){
 			file_name = file.getName();
 		}
 		
 		setAttr("file", file_name);
-		
 		setAttr("userList", userList);
-		
 		render("s-u-result.html");
 	}
 	
