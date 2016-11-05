@@ -240,25 +240,23 @@ public class AdminController extends Controller {
 	//执行查询 name sex age(min,max) area dec
 	public void uschbycondition() throws ParseException{
 		
-		Integer[] dec_ids = getParaValuesToInt("user.dec_id");
-		renderText(dec_ids.length+"");
-		return;
-		/*
 		Map<String,Object> map = new HashMap<String, Object>();
 		String uname = getPara("user.true_name");
 		String sex = getPara("user.usersex");
 		String area_id = getPara("user.area_id");
-		String dec_id = getPara("user.dec_id");
 		
+
 		try {
+			String[] dec_ids = getParaValues("user.dec_id");
 			int minage = getParaToInt("minage");
 			int maxage = getParaToInt("maxage");
 			
 			map.put("minage", minage);
 			map.put("maxage", maxage);
+			map.put("dec_id", dec_ids);
 			
 		} catch (Exception e) {
-			
+			//TODO 异常暂时未作处理
 		}
 		
 		
@@ -278,12 +276,11 @@ public class AdminController extends Controller {
 			map.put("p.area_id", area_id);
 		}
 
-		if(dec_id!=null && !dec_id.equals("")){
-			map.put("p.dec_id", dec_id);
-		}
+
 		
 		List<User> userList = User.usermodel.getUserListByCondition(map);
 		
+		//	查询的报表统计
 		String filename = "";
 		try {
 			filename = ReportExcel.report(userList);
@@ -298,10 +295,11 @@ public class AdminController extends Controller {
 		if(file!=null){
 			file_name = file.getName();
 		}
-		
+		//查询的报表统计
+
 		setAttr("file", file_name);
 		setAttr("userList", userList);
-		render("s-u-result.html");*/
+		render("s-u-result.html");
 	}
 	
 	

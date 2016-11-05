@@ -18,18 +18,34 @@ public class SQLUtils {
 		
 		String end = null;
 		String start = null;
+		String dec = "";
+		
 		try {
 			int minage = (Integer) map.get("minage");
 			int maxage = (Integer) map.get("maxage");
-			
-			map.remove("minage");
-			map.remove("maxage");
+			String[] decs =  (String[]) map.get("dec_id");
 			
 			start = BirthAgeUtils.getMinBirthByAge(minage);
 			end = BirthAgeUtils.getMaxBirthByAge(maxage);
+			
+			for (int i = 0; i < decs.length; i++) {
+				dec += decs[i]+",";
+			}
+			
+			
 		} catch (Exception e) {
+			
 			// TODO: handle exception
+			
+			
 		}
+		
+		map.remove("dec_id");
+		map.remove("minage");
+		map.remove("maxage");
+		
+		//map.replace("dec_id", null);
+		
 		
 		String sql = " where ";
 		
@@ -50,6 +66,20 @@ public class SQLUtils {
 				
 				sql = sql + " and p.birth > '" + end + "' and p.birth < '"+start+"'";
 			}
+		}
+		
+		if (dec != null && dec != "") {
+			if (dec.trim().endsWith(",")) {
+				dec = dec.substring(0, dec.lastIndexOf(","));
+			}
+			dec = "(" + dec + ")";
+
+			if (sql.trim().endsWith("where") || sql.trim().endsWith("and")) {
+				sql = sql + " p.dec_id in " + dec;
+			} else {
+				sql = sql + " and p.dec_id in " + dec;
+			}
+
 		}
 		
 		if(sql.trim().endsWith("and")){
