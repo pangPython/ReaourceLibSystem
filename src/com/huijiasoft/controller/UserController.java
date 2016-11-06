@@ -305,6 +305,45 @@ public class UserController extends Controller {
 		}
 	}
 	
+	
+	//删除视频文件
+	public void delvideo(){
+
+		boolean flag = false;
+		User user = User.usermodel.findById(getPara("userid"));
+		//获取图片路径
+		String upath = "WebRoot\\upload\\video\\"+user.getMediaPath()+"\\";
+		//获取用户提交的要删除的文件名
+		String audio_name = getPara("filename");
+		File file = null;
+		
+			file = new File(upath+audio_name);
+			
+			if(!file.exists()){
+				//文件不存在
+				renderJson("{\"status\":0,\"errmsg\":\"文件不存在！\"}");
+				return;
+			}else{
+				if(!file.isFile()){
+					//不是文件
+					renderJson("{\"status\":0,\"errmsg\":\"不是文件！\"}");
+					return;
+				}
+					if(file.delete()){
+						flag = true;
+					}else{
+						flag = false;
+					}
+			}
+			
+
+		
+		if(flag){
+			renderJson("{\"status\":1}");
+		}else{
+			renderJson("{\"status\":0,\"errmsg\":\"未知错误！\"}");
+		}
+	}
 
 	// 显示用户审核是否通过的管理员消息
 	public void msg() {
