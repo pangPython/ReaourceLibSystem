@@ -26,6 +26,11 @@
 <body>
 <div class="page-container">
 	<p class="f-20 text-success">>正在查看${user.true_name?if_exists}的报名信息</p>
+		<div class="cl pd-5 bg-1 bk-gray mt-20">
+			<span class="l">
+			<a href="javascript:;" onclick="del(${user.id?if_exists})" class="btn btn-danger radius">删除</a>
+				</span> 
+		</div>
 
 	
 	<table class="table table-border table-bordered table-bg mt-20">
@@ -46,8 +51,10 @@
   					女
  				</#if>
 				</td>
-				<td>出生日期:</td>
-				<td>${user.birth?if_exists}</td>
+				<td>1寸照</td>
+				<td>
+				<img alt="1寸照" src="/upload/${user.photo_path?if_exists}" width="100px" height="150px">
+				</td>
 			</tr>
 			<tr>
 				<td>所属地区: </td>
@@ -86,15 +93,17 @@
 				<td>移动电话 </td>
 				<td>${user.telephone?if_exists}</td>
 				<td>申报类别</td>
-				<td></td>
+				<td>${dec_type?if_exists}</td>
 			</tr>
 			<tr>
-				<td >电子邮件 </td>
-				<td ></td>
+				<td>电子邮件 </td>
+				<td>${user.email?if_exists}</td>
 				<td >QQ或微信</td>
-				<td ></td>
-				<td ></td>
-				<td ></td>
+				<td >${user.qqwx?if_exists}</td>
+				<td >出生年月</td>
+				<td >
+				${user.birth?if_exists}
+				</td>
 			</tr>
 			<tr>
 				<td >重要社会兼职 </td>
@@ -120,14 +129,16 @@
 		</tbody>
 	</table>
 		<div class="cl pd-5 bg-1 bk-gray mt-20">
-			<span class="l"><a href="javascript:;" onclick="datadel()"
-				class="btn btn-success radius"><i class="Hui-iconfont">&#xe6df;</i>
-					编辑信息</a> <a class="btn btn-primary radius" data-title="打印"
+			<span class="l">
+			<a href="javascript:;" onclick="edit(${user.id?if_exists})"class="btn btn-success radius">
+			<i class="Hui-iconfont">&#xe6df;</i>
+					编辑信息</a> 
+					<a class="btn btn-primary radius" data-title="打印"
 				_href="/admin/userinfoprint/${user.id}"
-				onclick="Hui_admin_tab(this)" href="javascript:;"><i
-					class="Hui-iconfont">&#xe652;</i>
-					打印${user.true_name?if_exists}的报名信息</a> <a
-				class="btn btn-primary radius" data-title="图片资料
+				onclick="Hui_admin_tab(this)" href="javascript:;">
+				<i class="Hui-iconfont">&#xe652;</i>
+					打印${user.true_name?if_exists}的报名信息</a> 
+					<a class="btn btn-primary radius" data-title="图片资料
 				_href="article-add.html" onclick="Hui_admin_tab(this)"
 				href="javascript:;"><i class="Hui-iconfont">&#xe613;</i>
 					${user.true_name?if_exists}的图片资料</a> <a class="btn btn-primary radius"
@@ -160,8 +171,39 @@
 		<p>本系统由<a href="http://www.huijiasoft.com/" target="_blank" title="山东汇佳软件科技股份有限公司">山东汇佳软件科技</a>提供技术支持</p>
 	</div>
 </footer>
-<script type="text/javascript" src="/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
-<script type="text/javascript" src="/admin/static/h-ui/js/H-ui.js"></script> 
-
+<script type="text/javascript" src="http://lib.h-ui.net/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="http://lib.h-ui.net/layer/2.1/layer.js"></script> 
+<script type="text/javascript" src="http://lib.h-ui.net/icheck/jquery.icheck.min.js"></script> 
+<script type="text/javascript" src="static/h-ui/js/H-ui.js"></script> 
+<script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"></script> 
+<script type="text/javascript">
+function edit(uid){
+	layer.confirm();
+}
+function del(uid){
+	layer.confirm('确认要删除吗？',function(index){
+		$.post(
+				'/admin/deluser',
+				{
+					userid:uid,
+				},function(result){
+					var obj = result;
+	            	
+	                if (obj.status == 1) {
+	                    layer.msg('已删除!', function(){
+	                    	history.go(-1);
+	                        }
+	                    );
+	                } else {
+	                	
+	                    layer.msg('删除失败:'+obj.errmsg, {icon: 1, time: 3000});
+	                } 
+				}
+				);
+		
+		layer.close(index);
+	});
+}
+</script>
 </body>
 </html>

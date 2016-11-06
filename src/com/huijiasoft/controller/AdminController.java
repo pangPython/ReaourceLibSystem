@@ -523,6 +523,31 @@ public class AdminController extends Controller {
 		
 	}
 	
+	//删除用户
+	public void deluser(){
+		User user = User.usermodel.findById(getPara("userid"));
+		try {
+			//删除用户的媒体文件夹
+			String media_path = user.getMediaPath();
+			File pic_path = new File(PathKit.getWebRootPath()+"\\photo\\"+media_path);
+			File audio_path = new File(PathKit.getWebRootPath()+"\\audio\\"+media_path);
+			File video_path = new File(PathKit.getWebRootPath()+"\\video\\"+media_path);
+			PathUtils.deleteDir(pic_path);
+			PathUtils.deleteDir(audio_path);
+			PathUtils.deleteDir(video_path);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		if(user.delete()){
+			renderJson("{\"status\":1}");
+		}else{
+			renderJson("{\"status\":0,\"errmsg\":\"删除用户失败！\"}");
+		}
+		
+	}
+	
 	
 	public void zzmmadd(){
 		render("zzmm-add.html");
@@ -678,6 +703,7 @@ public class AdminController extends Controller {
 	}
 	
 	//查看某个用户
+	//TODO 信息显示不完整
 	public void checkUser(){
 		int uid = getParaToInt("id");
 		User user = User.usermodel.findById_Relation(uid);
@@ -685,6 +711,8 @@ public class AdminController extends Controller {
 		setAttr("user", user);
 		setAttr("mz", mzname);
 		setAttr("zzmm", user.getStr("zzmmname"));
+		setAttr("dec_type", DeclareType.dao.getDecNameById(user.getDecId()));
+		setAttr("area", Area.dao.getAreaNameById(user.getAreaId()));
 		
 		String full_time = "";
 		String part_time = "";
