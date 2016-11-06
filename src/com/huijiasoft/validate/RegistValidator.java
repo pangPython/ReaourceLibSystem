@@ -19,6 +19,8 @@ public class RegistValidator extends Validator {
 		validateRequired("reg.confirmpwd", "confirmMsg", "请再输入一遍密码!");
 		validateRequired("reg.verifycode", "vcMsg", "请输入验证码!");
 		
+		//validateString("user.pwd", 6, 20, "pwdMsg", "密码最短6位,最长20位！");
+		
 	}
 
 	@Override

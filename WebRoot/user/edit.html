@@ -27,7 +27,7 @@
 <div class="page-container">
 	<p class="f-20 text-success">>正在编辑我的报名信息</p>
 
-	<form action="/user/updateinfo" method="post" class="form form-horizontal">
+	<form action="/user/updateinfo" method="post" class="form form-horizontal" enctype="multipart/form-data">
 	<table class="table table-border table-bordered table-bg mt-20 formControls">
 		<thead>
 			<tr>
@@ -38,7 +38,7 @@
 			<tr>
 				<th width="15%">姓名:</th>
 				<td>
-				<input type="text" class="input-text" nullmsg="姓名不能为空！" value="${user.true_name?if_exists}" id="user.true_name" name="user.true_name">
+				<input id="user.true_name" name="user.true_name" type="text" class="input-text" value="${user.true_name?if_exists}" >
 ${nameErrMsg?if_exists}				</td>
 			
 				<td>性别:</td>
@@ -50,9 +50,16 @@ ${nameErrMsg?if_exists}				</td>
 				</td>
 		
 				<td>一寸照:</td>
-				<td>
-				</td>
-			</tr>
+						<td>
+							<span class="btn-upload"> <a
+								href="javascript:void();" class="btn btn-primary radius"><i
+									class="Hui-iconfont">&#xe642;</i> 浏览文件</a> 
+									<input type="file" id="file_0" 
+								name="file_0" class="input-file">
+							</span>
+								<img src="" id="img0" height="200">
+						</td>
+					</tr>
 			<tr>
 				<td>所属地区: </td>
 				<td>
@@ -138,7 +145,7 @@ ${nameErrMsg?if_exists}				</td>
 			</tr>
 			<tr>
 			<td>学历</td>
-						<td><select name="user.usersex" class="select">
+						<td><select name="user.edu_id" class="select">
 								<#list eduList as x>
 								<option value="${x.edu_id}">${x.eduname}</option> </#list>
 						</select></td>
@@ -160,7 +167,7 @@ ${nameErrMsg?if_exists}				</td>
 			<tr>
 			<td>学位 </td>
 				<td>
-				<select name="user.usersex" class="select">
+				<select name="user.degree_id" class="select">
 					<#list degreeList as x>
 									<option value="${x.degree_id}">${x.degreename}</option>
 								</#list>
@@ -237,6 +244,26 @@ ${nameErrMsg?if_exists}				</td>
 <script type="text/javascript" src="/admin/lib/My97DatePicker/WdatePicker.js"></script> 
 <script type="text/javascript" src="/admin/static/h-ui/js/H-ui.js"></script>
 <script type="text/javascript" src="/admin/static/h-ui.admin/js/H-ui.admin.js"></script> 
-
+<script type="text/javascript">
+$("#file_0").change(function(){
+	var objUrl = getObjectURL(this.files[0]) ;
+	
+	if (objUrl) {
+		$("#img0").attr("src", objUrl);
+	}
+}) ;
+//建立一個可存取到該file的url
+function getObjectURL(file) {
+	var url = null ; 
+	if (window.createObjectURL!=undefined) { // basic
+		url = window.createObjectURL(file) ;
+	} else if (window.URL!=undefined) { // mozilla(firefox)
+		url = window.URL.createObjectURL(file) ;
+	} else if (window.webkitURL!=undefined) { // webkit or chrome
+		url = window.webkitURL.createObjectURL(file) ;
+	}
+	return url ;
+}
+</script>
 </body>
 </html>

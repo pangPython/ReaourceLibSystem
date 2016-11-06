@@ -157,11 +157,19 @@ public class UserController extends Controller {
 	@Before(UserUpdateValidator.class)
 	@ActionKey("/user/updateinfo")
 	public void updateinfo() {
+		
+		String media_path = getFile().getFileName();
 		User user = (User) getSession().getAttribute(getCookie("cuser"));
-		getModel(User.class).set("id", user.getId()).set("status", 0).update();
+		
+		User u = getModel(User.class);
+		u.set("id", user.getId());
+		u.set("status", 0);
+		u.setPhotoPath(media_path);
+		u.update();
+		
 		user = User.usermodel.findById(user.getId());
 		setSessionAttr(getCookie("cuser"), user);
-		renderText("修改成功！");
+		renderText("信息填写成功,将自动提交审核！");
 	}
 
 	public void media_upload() {

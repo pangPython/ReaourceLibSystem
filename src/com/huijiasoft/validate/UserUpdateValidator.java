@@ -1,5 +1,6 @@
 package com.huijiasoft.validate;
 
+import com.huijiasoft.model.User;
 import com.jfinal.core.Controller;
 import com.jfinal.validate.Validator;
 
@@ -31,7 +32,8 @@ public class UserUpdateValidator extends Validator {
 
 	@Override
 	protected void handleError(Controller c) {
-		c.renderText("请重新填写所有字段！");
+		c.keepModel(User.class);
+		//c.renderText("请重新填写所有字段！");
 	}
 
 }

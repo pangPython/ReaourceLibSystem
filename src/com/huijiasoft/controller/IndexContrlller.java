@@ -94,12 +94,31 @@ public class IndexContrlller extends Controller {
 	public void regist() {
 
 		// 验证码校验
+		boolean result = validateCaptcha("reg.verifycode");
+		if (!result) {
+			setAttr("vcMsg", "验证码错误！");
+			setAttr("system", IndexService.getSysConfig());
+			render("regist.html");
+			return;
+		}
+		
 
 		String mima = getPara("user.pwd");
 		String confirm = getPara("reg.confirmpwd");
+		
+		if(mima.length()<6 || mima.length()>20){
+			setAttr("pwdMsg", "密码最短6位,最长20位！");
+			setAttr("system", IndexService.getSysConfig());
+			render("regist.html");
+			return;
+		}
+		
+		
 
 		if (!confirm.equals(mima)) {
-			setAttr("confirmMsg", "请再次输入正确密码！");
+			setAttr("confirmMsg", "两次密码不一致！");
+			setAttr("system", IndexService.getSysConfig());
+			render("regist.html");
 			return;
 		}
 
@@ -110,6 +129,7 @@ public class IndexContrlller extends Controller {
 			setAttr("unameMsg", "该用户名已被注册");
 			setAttr("system", IndexService.getSysConfig());
 			render("regist.html");
+			return;
 		} else {
 			// 使用工具包把当前时间转换成unix时间戳再转换成string类型
 			// 注册时间，并作为用户密码md5加密的salt

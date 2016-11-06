@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.huijiasoft.interceptor.AdminAuthInterceptor;
+import com.huijiasoft.interceptor.SuAuthInterceptor;
 import com.huijiasoft.model.Admin;
 import com.huijiasoft.model.Area;
 import com.huijiasoft.model.DeclareType;
@@ -45,15 +46,16 @@ import com.jfinal.upload.UploadFile;
 @Before(AdminAuthInterceptor.class)
 public class AdminController extends Controller {
 	
-	//TODO 此处有问题
+	@Before(SuAuthInterceptor.class)
 	public void index(){
 		setAttr("admin", getSessionAttr(getCookie("cadmin")));
 		render("index.html");
 	}
 	
+	@Before(SuAuthInterceptor.class)
 	@ActionKey("/admin/")
 	public void root(){
-		
+		setAttr("admin", getSessionAttr(getCookie("cadmin")));
 		render("index.html");
 	}
 	
@@ -80,8 +82,8 @@ public class AdminController extends Controller {
 			String admin_pwd = MD5.GetMD5Code(getPara("admin.pwd")+admin.getCreateTime());
 			
 			if(admin.getStatus() == 0){
-				//setAttr("LoginNameMsg", "该管理员账号已禁用！");
-				setAttr("LoginNameMsg","用户名或密码错误！");
+				setAttr("LoginNameMsg", "该管理员账号已禁用！");
+				//setAttr("LoginNameMsg","用户名或密码错误！");
 				setAttr("system", IndexService.getSysConfig());
 				render("login.html");
 				return;
