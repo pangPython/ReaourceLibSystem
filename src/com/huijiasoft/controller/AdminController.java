@@ -414,14 +414,34 @@ public class AdminController extends Controller {
 		renderText("添加成功！");
 	}
 	//显示页面
-	public void useredit(){
-		
-	}
-	//进行修改更新
 	public void edituser(){
+//		renderText(getPara(0));
+		User user = User.usermodel.findById(getParaToInt(0));
+		setAttr("user", user);
 		
+		setAttr("areaList", Area.dao.getAllArea());
+		setAttr("nationList", Mz.dao.getAllMz());
+		setAttr("zzmmList", Zzmm.dao.getAllZzmm());
+		setAttr("eduList", Edu.dao.getAllEdu());
+		setAttr("degreeList", Degree.dao.getAllDegree());
+		setAttr("decList", DeclareType.dao.getAllDecType());
+		
+		render("user-edit.html");
 	}
 	
+	//进行修改更新
+	public void updateuser(){
+
+		String media_path = getFile().getFileName();
+		
+		User u = getModel(User.class);
+		u.set("id", getParaToInt(0));
+		u.set("status", 0);
+		u.setPhotoPath(media_path);
+		u.update();
+		
+		renderText("保存成功！");
+	}
 	
 	//审核参数设置
 	public void examineset(){
