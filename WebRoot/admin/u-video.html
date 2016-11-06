@@ -38,7 +38,7 @@
 			<tr>
 				<th width="30%">文件名</th>
 				<td>播放</td>
-				<td>备注</td>
+				<td>操作</td>
 			</tr>
 			<#list videoList as x>
 			<tr>
@@ -46,7 +46,9 @@
 					<th>
 					<video src="/upload/video/${user.media_path}/${x}" controls="controls" width="400px"><a>您的浏览器不支持 视频播放请更换浏览器</a></video>
 					</th>
-				<th>暂无</th>
+				<th>
+				<a onclick="del(${user.id?if_exists},'${x}');" href="javascript:;"  class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+				</th>
 			</tr>
 			</#list>
 			
@@ -60,8 +62,36 @@
 		<p>本系统由<a href="http://www.huijiasoft.com/" target="_blank" title="山东汇佳软件科技股份有限公司">山东汇佳软件科技</a>提供技术支持</p>
 	</div>
 </footer>
-<script type="text/javascript" src="/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="/admin/lib/jquery/1.9.1/jquery.min.js"></script>  
+<script type="text/javascript" src="/admin/lib/layer/2.1/layer.js"></script> 
+<script type="text/javascript" src="/admin/lib/laypage/1.2/laypage.js"></script> 
+<script type="text/javascript" src="/admin/lib/My97DatePicker/WdatePicker.js"></script> 
 <script type="text/javascript" src="/admin/static/h-ui/js/H-ui.js"></script> 
+<script type="text/javascript" src="/admin/static/h-ui.admin/js/H-ui.admin.js"></script> 
+<script type="text/javascript">
+function del(uid,fname){
 
+	layer.confirm('确认要删除吗？',function(index){
+		$.post(
+			'/admin/delvideo',{
+				userid:uid,
+				filename:fname
+			},
+			function(result){
+				var obj = result;
+                if (obj.status == 1) {
+                    layer.msg('已删除!', function(){
+                    	location.replace(location.href);
+                        }
+                    );
+                } else {
+                    layer.msg('删除失败:'+obj.errmsg, {icon: 1, time: 3000});
+                } 
+			}		
+		);
+		
+	});
+}
+</script>
 </body>
 </html>

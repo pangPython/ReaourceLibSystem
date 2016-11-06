@@ -47,7 +47,9 @@
  				</#if>
 				</td>
 				<td>一寸照片</td>
-				<td></td>
+				<td>
+				<img alt="一寸照片" src="/upload/${user.photo_path?if_exists}" height="200">
+				</td>
 			</tr>
 			<tr>
 				<td>所属地区: </td>
@@ -90,14 +92,14 @@
 			</tr>
 			<tr>
 			<td>申报类别</td>
-			<td></td>
+			<td>${dec?if_exists}</td>
 			<td>电子邮件</td>
-			<td></td>
+			<td>${user.email?if_exists}</td>
 			<td>QQ或微信</td>
-			<td></td>
+			<td>${user.qqwx?if_exists}</td>
 			</tr>
 			<tr>
-				<td >重要社会兼职 </td>
+				<td>重要社会兼职 </td>
 				<td colspan="5" scope="col">${user.socio_part_time?if_exists}</td>
 			</tr>
 			<tr>

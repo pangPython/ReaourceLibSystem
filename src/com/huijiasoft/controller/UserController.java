@@ -63,6 +63,7 @@ public class UserController extends Controller {
 		String area = "";
 		String mz = "";
 		String zzmm = "";
+		String dec = "";
 		
 		try {
 			
@@ -72,6 +73,7 @@ public class UserController extends Controller {
 			long dft = user.getDegreeFullTime();
 			Long eduid = user.getEduId();
 			Long degreeid = user.getDegreeId();
+		
 			
 			if(es!=null){
 				edu += es;
@@ -110,13 +112,14 @@ public class UserController extends Controller {
 			area = Area.dao.getAreaNameById(user.getAreaId());
 			mz = Mz.dao.getMzNameById(user.getMzId());
 			zzmm = Zzmm.dao.getZzmmNameById(user.getZzmmId());
+			dec = DeclareType.dao.getDecNameById(user.getDecId());
 		} catch (Exception e) {
 		}
 		
 		setAttr("area", area);
 		setAttr("mz", mz);
 		setAttr("zzmm", zzmm);
-		
+		setAttr("dec", dec);
 		render("info.html");
 		
 	}
