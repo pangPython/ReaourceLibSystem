@@ -134,24 +134,22 @@
 			<i class="Hui-iconfont">&#xe6df;</i>
 					编辑信息</a> 
 					<a class="btn btn-primary radius" data-title="打印"
-				_href="/admin/userinfoprint/${user.id}"
-				onclick="Hui_admin_tab(this)" href="javascript:;">
+				href="/admin/userinfoprint/${user.id}">
 				<i class="Hui-iconfont">&#xe652;</i>
 					打印${user.true_name?if_exists}的报名信息</a> 
-					<a class="btn btn-primary radius" data-title="图片资料
-				_href="article-add.html" onclick="Hui_admin_tab(this)"
-				href="javascript:;"><i class="Hui-iconfont">&#xe613;</i>
-					${user.true_name?if_exists}的图片资料</a> <a class="btn btn-primary radius"
-				data-title="音频资料" _href="article-add.html"
-				onclick="Hui_admin_tab(this)" href="javascript:;"><i
+					<a class="btn btn-primary radius" data-title="图片资料 " href="/admin/userphoto/${user.id?if_exists}">
+					<i class="Hui-iconfont">&#xe613;</i>
+					${user.true_name?if_exists}的图片资料</a> 
+					<a class="btn btn-primary radius"
+				data-title="音频资料" href="/admin/useraudio/${user.id?if_exists}"
+				><i
 					class="Hui-iconfont">&#xe646;</i> ${user.true_name?if_exists}的音频资料</a>
 				<a class="btn btn-primary radius" data-title="视频资料"
-				_href="article-add.html" onclick="Hui_admin_tab(this)"
-				href="javascript:;"><i class="Hui-iconfont">&#xe6e6;</i>
+				href="/admin/uservideo/${user.id?if_exists}"><i class="Hui-iconfont">&#xe6e6;</i>
 					${user.true_name?if_exists}的视频资料</a>
 					<a class="btn btn-success radius"
-				data-title="审核通过" _href="article-add.html"
-				onclick="Hui_admin_tab(this)" href="javascript:;"><i
+				data-title="审核通过"
+				onclick="shenhe(this,${user.id?if_exists})" href="javascript:;"><i
 					class="Hui-iconfont">&#xe6e1;</i> 审核通过</a>
 					<a class="btn btn-danger radius"
 				data-title="审核不通过" _href="article-add.html"
@@ -202,6 +200,28 @@ function del(uid){
 				);
 		
 		layer.close(index);
+	});
+}
+
+function shenhe(obj,uid){
+	layer.confirm('确认通过审核吗？',function(index){
+		$.post(
+			'/admin/examine',{
+				userid:uid
+			},function(result){
+				var obj = result;
+            	
+                if (obj.status == 1) {
+                    layer.msg('审核成功!', function(){
+                    	history.go(-1);
+                        }
+                    );
+                } else {
+                	
+                    layer.msg('审核失败:'+obj.errmsg, {icon: 1, time: 3000});
+                } 
+			}
+		);
 	});
 }
 </script>

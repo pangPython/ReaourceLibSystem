@@ -731,8 +731,14 @@ public class AdminController extends Controller {
 	
 	//通过审核
 	public void examine(){
-		getModel(User.class).set("id", getParaToInt(0)).set("status", 1).update();
-		renderText("审核成功！");
+		User user = getModel(User.class);
+		user.set("id", getParaToInt("userid")).set("status", 1);
+		
+		if(user.update()){
+			renderJson("{\"status\":1}");
+		}else{
+			renderJson("{\"status\":0,\"errmsg\":\"审核用户失败！\"}");
+		}
 	}
 	
 	
