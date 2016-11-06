@@ -580,6 +580,12 @@ public class AdminController extends Controller {
 		
 	}
 	
+	//删除管理员
+	public void deladmin(){
+		
+	}
+	
+	
 	//删除用户图片资料
 	public void delpic(){
 		boolean flag = false;
