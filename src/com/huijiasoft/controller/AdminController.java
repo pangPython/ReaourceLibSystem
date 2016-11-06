@@ -378,6 +378,9 @@ public class AdminController extends Controller {
 		render("user-add.html");
 	}
 	
+
+	
+	
 	//管理员添加用户
 	public void adduser(){
 		
@@ -410,6 +413,15 @@ public class AdminController extends Controller {
 		user.save();
 		renderText("添加成功！");
 	}
+	//显示页面
+	public void useredit(){
+		
+	}
+	//进行修改更新
+	public void edituser(){
+		
+	}
+	
 	
 	//审核参数设置
 	public void examineset(){
