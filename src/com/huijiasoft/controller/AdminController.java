@@ -383,7 +383,7 @@ public class AdminController extends Controller {
 		
 		//检测用户名是否存在
 		
-		if(User.usermodel.find("select * from user where uname = ? limit 1",getPara("user.uname")) != null){
+		if(User.usermodel.findFirst("select * from user where uname = ? limit 1",getPara("user.uname")) != null){
 			setAttr("ErrMsg", "前台用户名已经存在！");
 			render("error.html");
 			return;
@@ -406,7 +406,7 @@ public class AdminController extends Controller {
 		user.setPwd(pwd);
 		user.setPhotoPath(user_photo_name);
 		user.setUname(getPara("user.uname"));
-		user.setStatus(1);
+		user.setStatus(0);
 		user.save();
 		renderText("添加成功！");
 	}
@@ -548,6 +548,51 @@ public class AdminController extends Controller {
 		
 	}
 	
+	//删除用户图片资料
+	public void delpic(){
+		boolean flag = false;
+		User user = User.usermodel.findById(getPara("uid"));
+		//获取图片路径
+		String upath = "WebRoot\\upload\\photo\\"+user.getMediaPath()+"\\";
+		//获取用户提交的要删除的文件名
+		String[] pic_name = getParaValues("filename[]");
+		File file = null;
+		
+		if(pic_name==null){
+			renderNull();
+			return;
+		}
+		
+		
+		for (int i = 0; i < pic_name.length; i++) {
+			file = new File(upath+pic_name[i]);
+			
+			if(!file.exists()){
+				//文件不存在
+				renderJson("{\"status\":0,\"errmsg\":\"文件不存在！\"}");
+				return;
+				
+			}else{
+				if(!file.isFile()){
+					//不是文件
+					renderJson("{\"status\":0,\"errmsg\":\"不是文件！\"}");
+					return;
+				}
+					if(file.delete()){
+						flag = true;
+					}else{
+						flag = false;
+					}
+			}
+			
+		}
+		
+		if(flag){
+			renderJson("{\"status\":1}");
+		}else{
+			renderJson("{\"status\":0,\"errmsg\":\"未知错误！\"}");
+		}
+	}
 	
 	public void zzmmadd(){
 		render("zzmm-add.html");

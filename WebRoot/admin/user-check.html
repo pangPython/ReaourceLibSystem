@@ -152,14 +152,14 @@
 				onclick="shenhe(this,${user.id?if_exists})" href="javascript:;"><i
 					class="Hui-iconfont">&#xe6e1;</i> 审核通过</a>
 					<a class="btn btn-danger radius"
-				data-title="审核不通过" _href="article-add.html"
-				onclick="Hui_admin_tab(this)" href="javascript:;"><i
+				data-title="审核不通过" 
+				onclick="nopass('审核不通过消息','/admin/msg/${user.id?if_exists}',400,300)" href="javascript:;"><i
 					class="Hui-iconfont">&#xe6dd;</i> 审核不通过</a>
 					<a class="btn btn-success radius"
 				data-title="返回上一页" 
 				onclick="javascript:history.back(-1);" href="javascript:;"><i
 					class="Hui-iconfont">&#xe66b;</i> 返回上一页</a>
-					</span> 
+					</span>
 		</div>
 
 
@@ -223,6 +223,10 @@ function shenhe(obj,uid){
 			}
 		);
 	});
+}
+
+function nopass(title,url,w,h){
+	layer_show(title,url,w,h);
 }
 </script>
 </body>

@@ -57,10 +57,10 @@
 				<td>一寸照</td>
 				<td>
 				<span class="btn-upload form-group">
-				<input class="input-text upload-url" type="text" name="uploadfile" id="uploadfile" readonly nullmsg="请添加附件！" style="width:200px">
 				<a href="javascript:void();" class="btn btn-primary radius upload-btn"><i class="Hui-iconfont">&#xe642;</i> 浏览文件</a>
-				<input type="file" multiple name="file-2" class="input-file">
+				<input id="file_0" type="file" multiple name="file-2" class="input-file">
 				</span>
+				<img src="" id="img0" height="200">
 				</td>
 				
 			</tr>
@@ -242,7 +242,25 @@
 <script type="text/javascript" src="/admin/static/h-ui/js/H-ui.js"></script>
 <script type="text/javascript" src="/admin/static/h-ui.admin/js/H-ui.admin.js"></script> 
 <script type="text/javascript">
-
+$("#file_0").change(function(){
+	var objUrl = getObjectURL(this.files[0]) ;
+	
+	if (objUrl) {
+		$("#img0").attr("src", objUrl);
+	}
+}) ;
+//建立一個可存取到該file的url
+function getObjectURL(file) {
+	var url = null ; 
+	if (window.createObjectURL!=undefined) { // basic
+		url = window.createObjectURL(file) ;
+	} else if (window.URL!=undefined) { // mozilla(firefox)
+		url = window.URL.createObjectURL(file) ;
+	} else if (window.webkitURL!=undefined) { // webkit or chrome
+		url = window.webkitURL.createObjectURL(file) ;
+	}
+	return url ;
+}
 </script>
 </body>
 </html>
