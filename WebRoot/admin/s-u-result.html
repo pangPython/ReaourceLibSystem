@@ -83,7 +83,7 @@
 				
 				
 				</td>
-				<td>${x.birth?if_exists}</td>
+				<td>${x.birth?if_exists?substring(0,10)}</td>
 				<td>${x.mzname?if_exists}</td>
 				<td>${x.area_name?if_exists}</td>
 				<td>${x.zzmmname?if_exists}</td>

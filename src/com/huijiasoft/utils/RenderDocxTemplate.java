@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,6 +14,7 @@ import com.huijiasoft.model.Edu;
 import com.huijiasoft.model.Mz;
 import com.huijiasoft.model.User;
 import com.huijiasoft.model.Zzmm;
+import com.jfinal.ext.kit.DateKit;
 import com.jfinal.kit.PathKit;
 
 import freemarker.template.Configuration;
@@ -53,9 +55,11 @@ public class RenderDocxTemplate {
 				sex = "Ů";
 			}
 			
-			
+			String birth = new SimpleDateFormat("yyyy-MM-dd").format(user.getBirth());
+		//	System.out.println(birth+"====");
 			root.put("sex", sex);
-			root.put("birth", user.getBirth()+"");
+			root.put("birth", birth);
+			//System.out.println(root.get("birth"+"------"));
 			root.put("minzu", Mz.dao.getMzNameById(user.getMzId()));
 			root.put("zzmm", Zzmm.dao.getZzmmNameById(user.getZzmmId()));
 			root.put("join_work", user.getJoinWork());

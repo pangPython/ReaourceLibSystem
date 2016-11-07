@@ -119,7 +119,7 @@ public class ReportExcel {
 			if (birth == null) {
 				data.createCell(2).setCellValue("");
 			} else {
-				data.createCell(2).setCellValue(birth);
+				data.createCell(2).setCellValue(sdf.format(birth));
 			}
 			if (mz == null) {
 				data.createCell(3).setCellValue("");

@@ -631,8 +631,13 @@ public class AdminController extends Controller {
 	
 	//进行修改更新
 	public void updateuser(){
-
-		String media_path = getFile().getFileName();
+		String media_path = "";
+		User user = User.usermodel.findById(getParaToInt(0));
+		try {
+			media_path = getFile().getFileName();
+		} catch (Exception e) {
+			media_path = user.getPhotoPath();
+		}
 		
 		User u = getModel(User.class);
 		u.set("id", getParaToInt(0));

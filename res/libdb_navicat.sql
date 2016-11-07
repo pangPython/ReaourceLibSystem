@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50547
 File Encoding         : 65001
 
-Date: 2016-11-07 21:04:07
+Date: 2016-11-07 23:39:38
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -151,7 +151,7 @@ CREATE TABLE `log` (
   `uname` varchar(255) NOT NULL,
   `date` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=179 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=182 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of log
@@ -334,6 +334,9 @@ INSERT INTO `log` VALUES ('175', '0:0:0:0:0:0:0:1', 'whgdyadmin', '2016-11-07 19
 INSERT INTO `log` VALUES ('176', '0:0:0:0:0:0:0:1', 'whgdyadmin', '2016-11-07 19:54:06');
 INSERT INTO `log` VALUES ('177', '0:0:0:0:0:0:0:1', 'whgdyadmin', '2016-11-07 20:00:29');
 INSERT INTO `log` VALUES ('178', '0:0:0:0:0:0:0:1', 'whgdyadmin', '2016-11-07 20:56:29');
+INSERT INTO `log` VALUES ('179', '0:0:0:0:0:0:0:1', 'whg_admin', '2016-11-07 22:29:05');
+INSERT INTO `log` VALUES ('180', '0:0:0:0:0:0:0:1', 'whg_admin', '2016-11-07 23:15:17');
+INSERT INTO `log` VALUES ('181', '0:0:0:0:0:0:0:1', 'whg_admin', '2016-11-07 23:35:19');
 
 -- ----------------------------
 -- Table structure for `msg`
@@ -347,7 +350,7 @@ CREATE TABLE `msg` (
   `admin_name` varchar(255) NOT NULL,
   `date` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of msg
@@ -355,6 +358,7 @@ CREATE TABLE `msg` (
 INSERT INTO `msg` VALUES ('1', '64', '2222', '1', 'whg_admin', '2016-10-31 14:21:58');
 INSERT INTO `msg` VALUES ('3', '61', ' 您的资料未完善！请完善重新提交审核！', '1', 'whg_admin', '2016-10-31 14:29:53');
 INSERT INTO `msg` VALUES ('4', '38', ' 1111111', '1', 'whg_admin', '2016-11-06 17:56:43');
+INSERT INTO `msg` VALUES ('5', '100', ' 0000', '1', 'whg_admin', '2016-11-07 22:47:15');
 
 -- ----------------------------
 -- Table structure for `mz`
@@ -582,7 +586,7 @@ CREATE TABLE `user` (
   `email` varchar(255) DEFAULT NULL,
   `qqwx` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
@@ -635,6 +639,8 @@ INSERT INTO `user` VALUES ('96', 'mmytest7', '李毅', 'EFF0CEC062368CFB90185362
 INSERT INTO `user` VALUES ('97', 'mmytest6', '李毅', '5A4FE3D5F3BFAEF2BBCA2DE780EEB74C', '00000000001', '1a2ovixp0hu0x1964yloi4jydu', '2016-11-07', '0', '0000000001', '0000000001', '国防科技大学', '中国科技大学', '3', '4', '东营职业学院', '山东师范大学', '2', '3', '372321199999999999', '1', '山东省滨州市', '山东汇佳', '测试', '健康', '2016-11-07 20:08:55', '0', '2016-11-07 00:00:00', '2311.jpg', '计算机', '8088098', '测试', '15762182222', '测试', '测试', '测试', 'sdhj@huijiasoft.com', '1253973173');
 INSERT INTO `user` VALUES ('98', 'mmytest5', '李毅', 'BD7E1E15A35F038E85530DBE6DEC1555', '00000000001', '1l729es2zzhlo13lsupy0gq0m1', '2016-11-07', '0', '0000000001', '0000000001', '国防科技大学', '中国科技大学', '1', '1', '东营职业学院', '山东师范大学', '3', '4', '372321199999999999', '1', '山东省滨州市', '山东汇佳', '测试', '健康', '2016-11-07 20:10:27', '0', '2016-10-20 00:00:00', '2312.jpg', '计算机', '8088098', '测试', '15762182222', '测试', '测试', '测试', 'sdhj@huijiasoft.com', '1253973173');
 INSERT INTO `user` VALUES ('99', 'mmytest43', '李毅', '8AEC0F2CE113E3DFEA7F6343BDA4E741', '00000000001', '1hu9atft6ewvx8v7ehnnvk5bd', '2016-11-15', '0', '0000000001', '0000000001', '国防科技大学', '中国科技大学', '1', '3', '东营职业学院', '山东师范大学', '2', '1', '372321199999999999', '1', '山东省滨州市', '山东汇佳', '测试', '健康', '2016-11-07 20:14:59', '0', '2016-10-03 00:00:00', '1116.jpg', '计算机', '8088098', '测试', '15762182222', '测试', '测试', '测试', 'sdhj@huijiasoft.com', '1253973173');
+INSERT INTO `user` VALUES ('100', 'ceshi222', '李毅', '5FFBAC392F6568F4E9F59ABA8910D5F7', '00000000001', '12huslmcmcylk1w2u21nehji8g', '2016-11-22', '0', '0000000001', '0000000001', '国防科技大学', '中国科技大学', '0', '0', '东营职业学院', '山东师范大学', '0', '0', '372321199999999999', '1', '山东省滨州市', '山东汇佳', '测试测试  ', '健康', '2016-11-07 22:09:35', '0', '2016-11-07 00:00:00', '2315.jpg', '计算机', '8088098', '测试测试  ', '15762182222', '测试测试', ' 测试测试 ', '测试测试  ', 'sdhj@huijiasoft.com', '1253973173');
+INSERT INTO `user` VALUES ('101', 'mmytest1231', '李毅', '843754618910BB606D46C836FB6FCC4B', '00000000001', '1uh19s7g30a1zqjggx3zfy6dq', '2016-11-07', '0', '0000000001', '0000000001', '国防科技大学', '中国科技大学', '1', '2', '东营职业学院', '山东师范大学', '1', '3', '372321199999999999', '1', '山东省滨州市', '山东汇佳', '测试', '健康', '2016-11-07 22:49:53', '0', '2016-11-07 00:00:00', '2316.jpg', '计算机', '8088098', '测试', '15762182222', '测试', '测试', '测试', 'sdhj@huijiasoft.com', '1253973173');
 
 -- ----------------------------
 -- Table structure for `zzmm`

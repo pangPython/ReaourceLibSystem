@@ -23,21 +23,26 @@ public class SQLUtils {
 		try {
 			int minage = (Integer) map.get("minage");
 			int maxage = (Integer) map.get("maxage");
-			String[] decs =  (String[]) map.get("dec_id");
 			
 			start = BirthAgeUtils.getMinBirthByAge(minage);
 			end = BirthAgeUtils.getMaxBirthByAge(maxage);
-			
-			for (int i = 0; i < decs.length; i++) {
-				dec += decs[i]+",";
-			}
+		
 			
 			
 		} catch (Exception e) {
 			
 			// TODO: handle exception
+		}
+		
+		try {
+			String[] decs =  (String[]) map.get("dec_id");
 			
-			
+			for (int i = 0; i < decs.length; i++) {
+				dec += decs[i]+",";
+			}
+			System.out.println(dec+"=====");
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
 		
 		map.remove("dec_id");
