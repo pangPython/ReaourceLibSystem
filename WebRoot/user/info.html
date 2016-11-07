@@ -88,7 +88,7 @@
 				<td>移动电话 </td>
 				<td>${user.telephone?if_exists}</td>
 				<td>出生日期</td>
-				<td>${user.birth?if_exists}</td>
+				<td>${user.birth?if_exists?substring(0,10)}</td>
 			</tr>
 			<tr>
 			<td>申报类别</td>

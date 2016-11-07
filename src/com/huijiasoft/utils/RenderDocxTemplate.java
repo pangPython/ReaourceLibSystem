@@ -8,7 +8,9 @@ import java.io.Writer;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.huijiasoft.model.Mz;
 import com.huijiasoft.model.User;
+import com.huijiasoft.model.Zzmm;
 import com.jfinal.kit.PathKit;
 
 import freemarker.template.Configuration;
@@ -53,13 +55,16 @@ public class RenderDocxTemplate {
 			
 			root.put("sex", sex);
 			root.put("birth", user.getBirth()+"");
-			root.put("minzu", user.getStr("mzname"));
-			root.put("zzmm", user.getStr("zzmmname"));
+			root.put("minzu", Mz.dao.getMzNameById(user.getMzId()));
+			root.put("zzmm", Zzmm.dao.getZzmmNameById(user.getZzmmId()));
 			root.put("join_work", user.getJoinWork());
 			root.put("card",user.getCard());
 			root.put("health", user.getHealth());
 			root.put("zyzw", user.getTechnicalPosition());
 			root.put("techang", user.getSpecialty());
+			
+			root.put("email", user.getEmail());
+			root.put("qqwx", user.getQqwx());
 			
 			root.put("qrzxl", map.get("full_time"));
 			root.put("zzxl", map.get("part_time"));
@@ -75,6 +80,9 @@ public class RenderDocxTemplate {
 			root.put("yewuchengjiu",user.getBusinessAchievement());
 			root.put("huojiang", user.getAwards());
 			root.put("shenqingyijian", user.getOpinion());
+			
+			root.put("pic", PhotoUtils.getImageStr(PathKit.getWebRootPath()+"\\upload\\"+user.getPhotoPath()));
+			
 			//将模板和数据模型合并生成文件
 			file_name = PathKit.getWebRootPath()+"\\download\\application\\my\\"+user.getTrueName()+".doc";
 			File docFile = new File(file_name);

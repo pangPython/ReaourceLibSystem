@@ -60,15 +60,18 @@ public class User extends BaseUser<User> {
 		
 		int f = 0;
 		Long df ;
+		
+		long edu_id = user.getEduId();
+		long degree_id = user.getDegreeId();
 		if(user.getEduFullTime() != null){
 			f = user.getEduFullTime();
 			switch (f) {
 			case 0:
-				part_time += Edu.dao.getEduNameById(f);
+				part_time += Edu.dao.getEduNameById(edu_id);
 				part_time_school += user.getEduSchool();
 				break;
 			case 1:
-				full_time += Edu.dao.getEduNameById(f);
+				full_time += Edu.dao.getEduNameById(edu_id);
 				full_time_school += user.getEduSchool();
 				break;
 				
@@ -80,11 +83,11 @@ public class User extends BaseUser<User> {
 			df = user.getDegreeFullTime();
 			switch (df.intValue()) {
 			case 0:
-				part_time += Degree.dao.getDegreeNameById(df);
+				part_time += Degree.dao.getDegreeNameById(degree_id);
 				part_time_school += user.getDegreeSchool();
 				break;
 			case 1:
-				full_time += Degree.dao.getDegreeNameById(df);
+				full_time += Degree.dao.getDegreeNameById(degree_id);
 				full_time_school += user.getDegreeSchool();
 				break;
 			default:

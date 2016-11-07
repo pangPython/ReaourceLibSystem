@@ -149,7 +149,13 @@ public class AdminController extends Controller {
 	//县区管理员搜索
 	public void xqsearch(){
 		Admin admin = getSessionAttr(getCookie("cadmin"));
-		setAttr("userList", User.usermodel.getUserByAreaId(admin.getAreaId()));
+		//如果是东营市显示全部人才
+		if(Area.dao.getAreaNameById(admin.getAreaId().toString()).equals("东营市")){
+			setAttr("userList", User.usermodel.getAllUser());
+		}else{
+			
+			setAttr("userList", User.usermodel.getUserByAreaId(admin.getAreaId()));
+		}
 		render("xqsearch.html");
 	}
 	
@@ -682,6 +688,13 @@ public class AdminController extends Controller {
 	
 	//删除管理员
 	public void deladmin(){
+		Admin admin = Admin.dao.findById(getParaToInt("adminid"));
+		
+		if(admin.delete()){
+			renderJson("{\"status\":1}");
+		}else{
+			renderJson("{\"status\":0,\"errmsg\":\"删除管理员失败！\"}");
+		}
 		
 	}
 	
