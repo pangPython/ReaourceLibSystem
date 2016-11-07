@@ -140,7 +140,7 @@
 			</td>
 			<td>学校</td>
 			<td>
-			<input name="user.f_edu_school" type="text" class="input-text">
+			<input name="user.f_edu_school" id="user.f_edu_school" type="text" class="input-text">
 			</td>
 			</tr>
 			
@@ -158,7 +158,7 @@
 			</td>
 			<td>学校</td>
 			<td>
-			<input name="user.f_edu_school" type="text" class="input-text">
+			<input name="user.f_degree_school" id="user.f_degree_school" type="text" class="input-text">
 			</td>
 		</tr>
 			<tr>
@@ -169,12 +169,13 @@
 			<select name="user.p_edu_id" class="select">
 			<option value="0">暂无</option>
 								<#list eduList as x>
-								<option value="${x.edu_id}">${x.eduname}</option> </#list>
+								<option value="${x.edu_id}">${x.eduname}</option> 
+								</#list>
 						</select>
 			</td>
 			<td>学校</td>
 			<td>
-			<input name="user.p_edu_school" type="text" class="input-text">
+			<input name="user.p_edu_school" id="user.p_edu_school" type="text" class="input-text">
 			</td>
 			</tr>
 				<tr>
@@ -191,7 +192,7 @@
 			</td>
 			<td>学校</td>
 			<td>
-			<input name="user.p_degree_school" type="text" class="input-text">
+			<input name="user.p_degree_school" id="user.p_degree_school" type="text" class="input-text">
 			</td>
 			</tr>
 			

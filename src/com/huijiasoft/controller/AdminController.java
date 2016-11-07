@@ -164,7 +164,7 @@ public class AdminController extends Controller {
 	public void xqadduser(){
 		Admin admin = getSessionAttr(getCookie("cadmin"));
 		setAttr("area", Area.dao.getAreaNameById(admin.getAreaId().toString()));
-		//setAttr("areaList", Area.dao.getAllArea());
+		setAttr("areaid", admin.getAreaId()+"");
 		setAttr("nationList", Mz.dao.getAllMz());
 		setAttr("zzmmList", Zzmm.dao.getAllZzmm());
 		setAttr("eduList", Edu.dao.getAllEdu());
@@ -175,7 +175,8 @@ public class AdminController extends Controller {
 	//县区管理员添加人才
 	public void xquseradd(){
 		
-		Admin admin = getSessionAttr(getCookie("cadmin"));
+		
+		UploadFile upfile = getFile();
 		
 		//检测用户名是否存在
 		
@@ -185,25 +186,70 @@ public class AdminController extends Controller {
 			return;
 		}
 		
-		UploadFile upfile = getFile();
-		
 		if(upfile==null){
 			setAttr("ErrMsg", "请上传一寸照片！");
 			render("error.html");
 			return;
 		}
 		
+		Admin admin = getSessionAttr(getCookie("cadmin"));
+		
+		
 		String user_photo_name = upfile.getFileName();
 		User user = getModel(User.class);
 		String reg_time = DateUtils.getNowTime();
 		String pwd = this.getPara("password");
 		String media_path = SessionIdKit.me().generate(getRequest());
+		
+		String f_edu_scho = "";
+		String f_degree_scho = "";
+		String p_edu_scho ="";
+		String p_degree_scho = "";
+		
+		int f_edu_id = getParaToInt("user.f_edu_id");
+		int f_degree_id = getParaToInt("user.f_degree_id");
+		int p_edu_id = getParaToInt("user.p_edu_id");
+		int p_degree_id = getParaToInt("user.p_degree_id");
+		
+		
+		
+	
+	try {
+		if(f_edu_id!=0){
+			f_edu_scho = getPara("user.f_edu_school");
+		}
+		if(f_degree_id!=0){
+			f_degree_scho = getPara("user.f_degree_school");
+		}
+		if(p_edu_id!=0){
+			p_edu_scho = getPara("user.p_edu_school");
+		}
+		if(p_degree_id!=0){
+			p_degree_scho = getPara("user.p_degree_school");
+		}
+	} catch (Exception e) {
+		// TODO: handle exception
+	}
+		
+	
+		user.setFEduId(f_edu_id);
+		user.setFDegreeId(f_degree_id);
+		user.setPEduId(p_edu_id);
+		user.setPDegreeId(p_degree_id);
+	
+		user.setFEduSchool(f_edu_scho);
+		user.setFDegreeSchool(f_degree_scho);
+		user.setPEduSchool(p_edu_scho);
+		user.setPDegreeSchool(p_degree_scho);
+	
 		pwd = MD5.GetMD5Code(pwd+reg_time);
 		user.setRegDate(reg_time);
 		user.setPwd(pwd);
 		user.setPhotoPath(user_photo_name);
 		user.setUname(getPara("user.uname"));
-		user.setAreaId(admin.getAreaId().toString());
+		
+		user.setAreaId(getPara("user.area_id"));
+		
 		user.setMediaPath(media_path);
 		user.setStatus(0);
 		user.save();
@@ -492,7 +538,6 @@ public class AdminController extends Controller {
 	public void adduser(){
 		
 		//检测用户名是否存在
-		
 		if(User.usermodel.findFirst("select * from user where uname = ? limit 1",getPara("user.uname")) != null){
 			setAttr("ErrMsg", "前台用户名已经存在！");
 			render("error.html");
@@ -512,6 +557,38 @@ public class AdminController extends Controller {
 		String reg_time = DateUtils.getNowTime();
 		String pwd = this.getPara("password");
 		
+		String f_edu_scho = "";
+		String f_degree_scho = "";
+		String p_edu_scho ="";
+		String p_degree_scho = "";
+		
+		int f_edu_id = getParaToInt("user.f_edu_id");
+		int f_degree_id = getParaToInt("user.f_degree_id");
+		int p_edu_id = getParaToInt("user.p_edu_id");
+		int p_degree_id = getParaToInt("user.p_degree_id");
+		
+		
+		
+	
+	try {
+		if(f_edu_id!=0){
+			f_edu_scho = getPara("user.f_edu_school");
+		}
+		if(f_degree_id!=0){
+			f_degree_scho = getPara("user.f_degree_school");
+		}
+		if(p_edu_id!=0){
+			p_edu_scho = getPara("user.p_edu_school");
+		}
+		if(p_degree_id!=0){
+			p_degree_scho = getPara("user.p_degree_school");
+		}
+	} catch (Exception e) {
+		// TODO: handle exception
+	}
+	
+		//renderText(f_edu_scho+"======"+f_degree_scho+" "+p_edu_scho+" "+p_degree_scho);
+			
 		pwd = MD5.GetMD5Code(pwd+reg_time);
 		user.setRegDate(reg_time);
 		user.setPwd(pwd);
@@ -519,9 +596,23 @@ public class AdminController extends Controller {
 		user.setUname(getPara("user.uname"));
 		user.setMediaPath(SessionIdKit.me().generate(getRequest()));
 		user.setStatus(0);
+		
+		user.setFEduId(f_edu_id);
+		user.setFDegreeId(f_degree_id);
+		user.setPEduId(p_edu_id);
+		user.setPDegreeId(p_degree_id);
+		
+		user.setFEduSchool(f_edu_scho);
+		user.setFDegreeSchool(f_degree_scho);
+		user.setPEduSchool(p_edu_scho);
+		user.setPDegreeSchool(p_degree_scho);
+		
 		user.save();
 		renderText("添加成功！");
 	}
+	
+	
+	
 	//显示页面
 	public void edituser(){
 //		renderText(getPara(0));

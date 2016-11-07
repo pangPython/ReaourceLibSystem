@@ -87,6 +87,7 @@
 				<td>所属地区: </td>
 				<td>
 				${area?if_exists}
+				<input type="text" name="user.area_id" value="${areaid?if_exists}" hidden="true">
 				</td>
 		
 				<td>民族 </td>
@@ -123,18 +124,77 @@
 				<input type="text" class="input-text"  id="user.health" name="user.health">
 				</td>
 			</tr>
-			<tr>
-				<td>学历 </td>
-				<td>
-				<select name="user.edu_id" class="select">
-					<#list eduList as x>
-									<option value="${x.edu_id}">${x.eduname}</option>
-									</#list>
-				</select>
-				</td>
-		
 			
-		
+			<tr>
+			<td colspan="2" scope="col"><h5>全日制</h5></td>
+			<td>学历</td>
+			<td>
+			<select name="user.f_edu_id" class="select">
+								<option value="0">暂无</option>
+								<#list eduList as x>
+								<option value="${x.edu_id}">${x.eduname}</option> </#list>
+						</select>
+			</td>
+			<td>学校</td>
+			<td>
+			<input name="user.f_edu_school" id="user.f_edu_school" type="text" class="input-text">
+			</td>
+			</tr>
+			
+			
+		<tr>
+			<td colspan="2" scope="col"><h5></h5></td>
+			<td>学位</td>
+			<td>
+			<select name="user.f_degree_id" class="select">
+			<option value="0">暂无</option>
+					<#list degreeList as x>
+									<option value="${x.degree_id}">${x.degreename}</option>
+								</#list>
+				</select>
+			</td>
+			<td>学校</td>
+			<td>
+			<input name="user.f_degree_school" id="user.f_degree_school" type="text" class="input-text">
+			</td>
+		</tr>
+			<tr>
+			
+			<td colspan="2" scope="col"><h5>在职</h5></td>
+			<td>学历</td>
+			<td>
+			<select name="user.p_edu_id" class="select">
+			<option value="0">暂无</option>
+								<#list eduList as x>
+								<option value="${x.edu_id}">${x.eduname}</option> 
+								</#list>
+						</select>
+			</td>
+			<td>学校</td>
+			<td>
+			<input name="user.p_edu_school" id="user.p_edu_school" type="text" class="input-text">
+			</td>
+			</tr>
+				<tr>
+			
+			<td colspan="2" scope="col"><h5></h5></td>
+			<td>学位</td>
+			<td>
+				<select name="user.p_degree_id" class="select">
+				<option value="0">暂无</option>
+					<#list degreeList as x>
+									<option value="${x.degree_id}">${x.degreename}</option>
+								</#list>
+				</select>
+			</td>
+			<td>学校</td>
+			<td>
+			<input name="user.p_degree_school" id="user.p_degree_school" type="text" class="input-text">
+			</td>
+			</tr>
+			
+			
+			<tr>
 				<td>工作单位 </td>
 				<td>
 				<input type="text" class="input-text"  id="user.company" name="user.company">
@@ -144,16 +204,13 @@
 				<td>
 				<input type="text" class="input-text"  id="user.company_tel" name="user.company_tel">
 				</td>
+				<td>电子邮件</td>
+				<td>
+				<input type="text" class="input-text" value="" id="user.email" name="user.email">
+				</td>
 			</tr>
 			<tr>
-				<td>学位 </td>
-				<td>
-				<select name="user.degree_id" class="select">
-					<#list degreeList as x>
-									<option value="${x.degree_id}">${x.degreename}</option>
-								</#list>
-				</select>
-				</td>
+		
 				<td>家庭住址 </td>
 				<td>
 				<input type="text" class="input-text"  id="user.address" name="user.address">
@@ -162,6 +219,10 @@
 				<td>移动电话 </td>
 				<td>
 				<input type="text" class="input-text"  id="user.telephone" name="user.telephone">
+				</td>
+					<td>QQ或微信</td>
+				<td>
+				<input type="text" class="input-text" value="" id="user.qqwx" name="user.qqwx">
 				</td>
 			</tr>
 			<tr>
@@ -173,18 +234,15 @@
 								</#list>
 				</select>
 				</td>
-		
-			
-		
-				<td>电子邮件</td>
+				<td>专业技术职务</td>
 				<td>
-				<input type="text" class="input-text" value="" id="user.email" name="user.email">
+				<input type="text" class="input-text"  id="user.technical_position" name="user.technical_position">
 				</td>
+				<td></td>		
+				<td></td>
 				
-				<td>QQ或微信</td>
-				<td>
-				<input type="text" class="input-text" value="" id="user.qqwx" name="user.qqwx">
-				</td>
+				
+			
 			</tr>
 	
 			<tr>
