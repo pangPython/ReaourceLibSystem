@@ -51,7 +51,7 @@ public class User extends BaseUser<User> {
 		return usermodel.find(sql);
 	}
 	
-	public Map<String,String> getEduDegreeSchool(User user){
+	/*public Map<String,String> getEduDegreeSchool(User user){
 		Map<String,String> map = new HashMap<String, String>();
 		String full_time = "";
 		String part_time = "";
@@ -102,7 +102,7 @@ public class User extends BaseUser<User> {
 		
 		
 		return map;
-	}
+	}*/
 
 	public boolean UnameIsExists(String uname){
 		if(usermodel.findFirst("select * from user where uname = ? limit 1", uname)!=null){
@@ -120,12 +120,6 @@ public class User extends BaseUser<User> {
 		return false;
 	}
 	
-	
-	//ªÒ»°ƒÍ¡‰
-//	public int getAge(){
-//		String birth_date = usermodel.getBirth();
-//		return DateUtils.compareDateWithNow(DateUtils.parse(birth_date));
-//	}
 	
 	
 	

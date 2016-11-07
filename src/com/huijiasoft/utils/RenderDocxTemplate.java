@@ -8,6 +8,8 @@ import java.io.Writer;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.huijiasoft.model.Degree;
+import com.huijiasoft.model.Edu;
 import com.huijiasoft.model.Mz;
 import com.huijiasoft.model.User;
 import com.huijiasoft.model.Zzmm;
@@ -51,7 +53,6 @@ public class RenderDocxTemplate {
 				sex = "Ů";
 			}
 			
-			Map<String,String> map = User.usermodel.getEduDegreeSchool(user);
 			
 			root.put("sex", sex);
 			root.put("birth", user.getBirth()+"");
@@ -61,15 +62,20 @@ public class RenderDocxTemplate {
 			root.put("card",user.getCard());
 			root.put("health", user.getHealth());
 			root.put("zyzw", user.getTechnicalPosition());
-			root.put("techang", user.getSpecialty());
 			
 			root.put("email", user.getEmail());
 			root.put("qqwx", user.getQqwx());
 			
-			root.put("qrzxl", map.get("full_time"));
-			root.put("zzxl", map.get("part_time"));
-			root.put("qrzxl_school", map.get("full_time_school"));
-			root.put("zzxl_school", map.get("part_time_school"));
+			root.put("fedu", Edu.dao.getEduNameById(user.getFEduId()));
+			root.put("fdegree",Degree.dao.getDegreeNameById(user.getFDegreeId()));
+			root.put("feduscho", user.getFEduSchool());
+			root.put("fdegreescho", user.getFDegreeSchool());
+			
+			root.put("pedu", Edu.dao.getEduNameById(user.getPEduId()));
+			root.put("pdegree",Degree.dao.getDegreeNameById(user.getPDegreeId()));
+			root.put("peduscho", user.getPEduSchool());
+			root.put("pdegreescho", user.getPDegreeSchool());
+			
 			
 			root.put("company", user.getCompany());
 			root.put("com_tel", user.getCompanyTel());

@@ -511,11 +511,13 @@ public class AdminController extends Controller {
 		User user = getModel(User.class);
 		String reg_time = DateUtils.getNowTime();
 		String pwd = this.getPara("password");
+		
 		pwd = MD5.GetMD5Code(pwd+reg_time);
 		user.setRegDate(reg_time);
 		user.setPwd(pwd);
 		user.setPhotoPath(user_photo_name);
 		user.setUname(getPara("user.uname"));
+		user.setMediaPath(SessionIdKit.me().generate(getRequest()));
 		user.setStatus(0);
 		user.save();
 		renderText("Ìí¼Ó³É¹¦£¡");
@@ -984,23 +986,41 @@ public class AdminController extends Controller {
 		int uid = getParaToInt("id");
 		User user = User.usermodel.findById_Relation(uid);
 		String mzname = user.getStr("mzname");
+		
+		String fedu = "";
+		String pedu = "";
+		String fdegree = "";
+		String pdegree = "";
+
+		try {
+			fedu = Edu.dao.getEduNameById(user.getFEduId());
+			pedu = Edu.dao.getEduNameById(user.getPEduId());
+			fdegree = Degree.dao.getDegreeNameById(user.getFDegreeId());
+			pdegree = Degree.dao.getDegreeNameById(user.getPDegreeId());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		
+		
 		setAttr("user", user);
 		setAttr("mz", mzname);
 		setAttr("zzmm", user.getStr("zzmmname"));
 		setAttr("dec_type", DeclareType.dao.getDecNameById(user.getDecId()));
 		setAttr("area", Area.dao.getAreaNameById(user.getAreaId()));
 		
-		String full_time = "";
-		String part_time = "";
-		String full_time_school = "";
-		String part_time_school = "";
 		
-		Map<String,String> map = User.usermodel.getEduDegreeSchool(user);
+		setAttr("fedu", fedu);
+		setAttr("pedu", pedu);
+		setAttr("fdegree", fdegree);
+		setAttr("pdegree", pdegree);
+		setAttr("feduscho", user.getFEduSchool());
+		setAttr("peduscho", user.getPEduSchool());
+		setAttr("fdegreescho", user.getFDegreeSchool());
+		setAttr("pdegreescho", user.getPDegreeSchool());
 		
-		setAttr("qrz",map.get("full_time"));
-		setAttr("zz",map.get("part_time"));
-		setAttr("qrz_school",map.get("full_time_school"));
-		setAttr("zz_school",map.get("part_time_school"));
+		
+		
 		render("user-check.html");
 	}
 	

@@ -9,22 +9,6 @@ import com.jfinal.plugin.activerecord.IBean;
 @SuppressWarnings("serial")
 public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implements IBean {
 
-	public void setDegreeSchool(java.lang.String degreeSchool) {
-		set("degree_school", degreeSchool);
-	}
-
-	public java.lang.String getDegreeSchool() {
-		return get("degree_school");
-	}
-
-	public void setEduSchool(java.lang.String eduSchool) {
-		set("edu_school", eduSchool);
-	}
-
-	public java.lang.String getEduSchool() {
-		return get("edu_school");
-	}
-
 	public void setId(java.lang.Integer id) {
 		set("id", id);
 	}
@@ -105,20 +89,68 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("zzmm_id");
 	}
 
-	public void setDegreeId(java.lang.Long degreeId) {
-		set("degree_id", degreeId);
+	public void setPDegreeSchool(java.lang.String pDegreeSchool) {
+		set("p_degree_school", pDegreeSchool);
 	}
 
-	public java.lang.Long getDegreeId() {
-		return get("degree_id");
+	public java.lang.String getPDegreeSchool() {
+		return get("p_degree_school");
 	}
 
-	public void setEduId(java.lang.Long eduId) {
-		set("edu_id", eduId);
+	public void setPEduSchool(java.lang.String pEduSchool) {
+		set("p_edu_school", pEduSchool);
 	}
 
-	public java.lang.Long getEduId() {
-		return get("edu_id");
+	public java.lang.String getPEduSchool() {
+		return get("p_edu_school");
+	}
+
+	public void setPDegreeId(java.lang.Integer pDegreeId) {
+		set("p_degree_id", pDegreeId);
+	}
+
+	public java.lang.Integer getPDegreeId() {
+		return get("p_degree_id");
+	}
+
+	public void setPEduId(java.lang.Integer pEduId) {
+		set("p_edu_id", pEduId);
+	}
+
+	public java.lang.Integer getPEduId() {
+		return get("p_edu_id");
+	}
+
+	public void setFEduSchool(java.lang.String fEduSchool) {
+		set("f_edu_school", fEduSchool);
+	}
+
+	public java.lang.String getFEduSchool() {
+		return get("f_edu_school");
+	}
+
+	public void setFDegreeSchool(java.lang.String fDegreeSchool) {
+		set("f_degree_school", fDegreeSchool);
+	}
+
+	public java.lang.String getFDegreeSchool() {
+		return get("f_degree_school");
+	}
+
+	public void setFDegreeId(java.lang.Integer fDegreeId) {
+		set("f_degree_id", fDegreeId);
+	}
+
+	public java.lang.Integer getFDegreeId() {
+		return get("f_degree_id");
+	}
+
+	public void setFEduId(java.lang.Integer fEduId) {
+		set("f_edu_id", fEduId);
+	}
+
+	public java.lang.Integer getFEduId() {
+		return get("f_edu_id");
 	}
 
 	public void setCard(java.lang.String card) {
@@ -145,28 +177,12 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("address");
 	}
 
-	public void setEduFullTime(java.lang.Integer eduFullTime) {
-		set("edu_full_time", eduFullTime);
-	}
-
-	public java.lang.Integer getEduFullTime() {
-		return get("edu_full_time");
-	}
-
 	public void setCompany(java.lang.String company) {
 		set("company", company);
 	}
 
 	public java.lang.String getCompany() {
 		return get("company");
-	}
-
-	public void setSpecialty(java.lang.String specialty) {
-		set("specialty", specialty);
-	}
-
-	public java.lang.String getSpecialty() {
-		return get("specialty");
 	}
 
 	public void setYsjj(java.lang.String ysjj) {
@@ -223,14 +239,6 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 
 	public java.lang.String getTechnicalPosition() {
 		return get("technical_position");
-	}
-
-	public void setDegreeFullTime(java.lang.Long degreeFullTime) {
-		set("degree_full_time", degreeFullTime);
-	}
-
-	public java.lang.Long getDegreeFullTime() {
-		return get("degree_full_time");
 	}
 
 	public void setCompanyTel(java.lang.String companyTel) {

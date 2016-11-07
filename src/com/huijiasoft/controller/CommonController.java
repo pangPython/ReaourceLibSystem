@@ -19,11 +19,5 @@ public class CommonController extends Controller {
 	public void verifycode(){
 		render(new CaptchaRender());
 	}
-	
-	public void test(){
-		renderJson("{status:0}");
-		
-	}
-	
 
 }

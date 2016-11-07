@@ -58,55 +58,13 @@ public class UserController extends Controller {
 	// 用户信息查看
 	public void info() {
 		User user = (User) getSessionAttr(getCookie("cuser"));
-		String edu = "";
-		String degree="";
 		String area = "";
 		String mz = "";
 		String zzmm = "";
 		String dec = "";
 		
-		try {
-			
-			String es = user.getEduSchool();
-			String ds = user.getDegreeSchool();
-			int eft = user.getEduFullTime();
-			long dft = user.getDegreeFullTime();
-			Long eduid = user.getEduId();
-			Long degreeid = user.getDegreeId();
-		
-			
-			if(es!=null){
-				edu += es;
-			}
-			if(ds!=null){
-				degree += ds;
-			}
-			if(eft==1){
-				edu += " 在职";	
-			}
-			if(eft==0){
-				edu += " 全日制";
-			}
-			if(dft==1){
-				degree += " 在职";	
-			}
-			if(dft==0){
-				degree += " 全日制";
-			}
-			if(eduid!=null){
-				edu += " "+Edu.dao.getEduNameById(eduid);
-			}
-			if(degreeid!=null){
-				degree += " "+Degree.dao.getDegreeNameById(degreeid);
-			}
-			
-		} catch (Exception e) {
-			
-		}
 		
 		setAttr("user", user);
-		setAttr("edu", edu);
-		setAttr("degree", degree);
 		
 		try {
 			area = Area.dao.getAreaNameById(user.getAreaId());
@@ -115,6 +73,17 @@ public class UserController extends Controller {
 			dec = DeclareType.dao.getDecNameById(user.getDecId());
 		} catch (Exception e) {
 		}
+		
+		setAttr("fedu", Edu.dao.getEduNameById(user.getFEduId()));
+		setAttr("pedu", Edu.dao.getEduNameById(user.getPEduId()));
+		setAttr("fdegree", Degree.dao.getDegreeNameById(user.getFDegreeId()));
+		setAttr("pdegree", Degree.dao.getDegreeNameById(user.getPDegreeId()));
+		setAttr("feduscho", user.getFEduSchool());
+		setAttr("peduscho", user.getPEduSchool());
+		setAttr("fdegreescho", user.getFDegreeSchool());
+		setAttr("pdegreescho", user.getPDegreeSchool());
+		
+		
 		
 		setAttr("area", area);
 		setAttr("mz", mz);
@@ -163,11 +132,51 @@ public class UserController extends Controller {
 		
 		String media_path = getFile().getFileName();
 		User user = (User) getSession().getAttribute(getCookie("cuser"));
+
+		String f_edu_school = "";
+		String f_degree_school = "";
+		String p_edu_school = "";
+		String p_degree_school = "";
+		
+		int f_edu_id = getParaToInt("user.f_edu_id");
+		int f_degree_id = getParaToInt("user.f_degree_id");
+		int p_edu_id = getParaToInt("user.p_edu_id");
+		int p_degree_id = getParaToInt("user.p_degree_id");
+		
+		try {
+			if(f_edu_id!=0){
+				f_edu_school = getPara("user.f_edu_school");
+			}
+			if(f_degree_id!=0){
+				f_degree_school = getPara("user.f_degree_school");
+			}
+			if(p_edu_id!=0){
+				p_edu_school = getPara("user.p_edu_school");
+			}
+			if(p_degree_id!=0){
+				p_degree_school = getPara("user.p_degree_school");
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		
 		User u = getModel(User.class);
 		u.set("id", user.getId());
 		u.set("status", 0);
 		u.setPhotoPath(media_path);
+		
+		u.setFDegreeId(f_degree_id);
+		u.setFEduId(f_edu_id);
+		u.setPDegreeId(p_degree_id);
+		u.setPEduId(p_edu_id);
+		
+		u.setFDegreeSchool(f_degree_school);
+		u.setFEduSchool(f_edu_school);
+		u.setPDegreeSchool(p_degree_school);
+		u.setPEduSchool(p_edu_school);
+		
+		
 		u.update();
 		
 		user = User.usermodel.findById(user.getId());
@@ -176,10 +185,6 @@ public class UserController extends Controller {
 	}
 
 
-//
-//	// 用户上传媒体文件
-//	public void upload() {
-//	}
 	
 	//显示用户上传的图片文件
 	public void media_pic() {

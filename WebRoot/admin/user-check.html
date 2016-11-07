@@ -76,15 +76,36 @@
 				<td>健康状况 </td>
 				<td>${user.health?if_exists}</td>
 			</tr>
+
 			<tr>
-				<td>学历 </td>
-				<td>${edu?if_exists}</td>
+				<td colspan="2" scope="col">全日制</td>
+				<td>学历</td>
+				<td>${fedu?if_exists}</td>
+				<td>学校</td>
+				<td>${feduscho?if_exists}</td>
+			</tr>
 			
-				<td>学位 </td>
-				<td>${degree?if_exists}</td>
+			<tr>
+				<td colspan="2" scope="col"></td>
+				<td>学位</td>
+				<td>${fdegree?if_exists}</td>
+				<td>学校</td>
+				<td>${fdegreescho?if_exists}</td>
+			</tr>
+				<tr>
+				<td colspan="2" scope="col">在职</td>
+				<td>学历</td>
+				<td>${pedu?if_exists}</td>
+				<td>学校</td>
+				<td>${peduscho?if_exists}</td>
+			</tr>
 			
-				<td>工作单位 </td>
-				<td>${user.company?if_exists}</td>
+			<tr>
+				<td colspan="2" scope="col"></td>
+				<td>学位</td>
+				<td>${pdegree?if_exists}</td>
+				<td>学校</td>
+				<td>${pdegreescho?if_exists}</td>
 			</tr>
 			<tr>
 				<td>家庭住址 </td>
@@ -102,8 +123,16 @@
 				<td >${user.qqwx?if_exists}</td>
 				<td >出生年月</td>
 				<td >
-				${user.birth?if_exists}
+				${user.birth?if_exists?substring(0,10)}
 				</td>
+			</tr>
+			<tr>
+				<td>工作单位 </td>
+				<td>${user.company?if_exists}</td>
+				<td>单位电话 </td>
+				<td>${user.company_tel?if_exists}</td>
+				<td></td>
+				<td></td>
 			</tr>
 			<tr>
 				<td >重要社会兼职 </td>
