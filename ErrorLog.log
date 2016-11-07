@@ -248,3 +248,9 @@ java.lang.NullPointerException
 	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
 	at java.lang.Thread.run(Unknown Source)
+
+2016-11-07 08:07:40
+[WARN]-[Thread: qtp1407343478-20]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /admin/xqupdatepwd/2
+
+2016-11-07 08:08:35
+[WARN]-[Thread: qtp1407343478-25]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /admin/xqupdatepwd/2

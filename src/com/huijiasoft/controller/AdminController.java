@@ -21,6 +21,7 @@ import com.huijiasoft.model.System;
 import com.huijiasoft.model.User;
 import com.huijiasoft.model.Zzmm;
 import com.huijiasoft.service.IndexService;
+import com.huijiasoft.utils.ControllerUtils;
 import com.huijiasoft.utils.DBUtils;
 import com.huijiasoft.utils.DateUtils;
 import com.huijiasoft.utils.JavaMysqlUtil;
@@ -155,11 +156,52 @@ public class AdminController extends Controller {
 	
 	//显示县区管理员添加人才页面
 	public void xqadduser(){
-		setAttr("vv", "123");
+		Admin admin = getSessionAttr(getCookie("cadmin"));
+		setAttr("area", Area.dao.getAreaNameById(admin.getAreaId().toString()));
+		//setAttr("areaList", Area.dao.getAllArea());
+		setAttr("nationList", Mz.dao.getAllMz());
+		setAttr("zzmmList", Zzmm.dao.getAllZzmm());
+		setAttr("eduList", Edu.dao.getAllEdu());
+		setAttr("degreeList", Degree.dao.getAllDegree());
+		setAttr("decList", DeclareType.dao.getAllDecType());
 	}
 	
 	//县区管理员添加人才
 	public void xquseradd(){
+		
+		Admin admin = getSessionAttr(getCookie("cadmin"));
+		
+		//检测用户名是否存在
+		
+		if(User.usermodel.findFirst("select * from user where uname = ? limit 1",getPara("user.uname")) != null){
+			setAttr("ErrMsg", "前台用户名已经存在！");
+			render("error.html");
+			return;
+		}
+		
+		UploadFile upfile = getFile();
+		
+		if(upfile==null){
+			setAttr("ErrMsg", "请上传一寸照片！");
+			render("error.html");
+			return;
+		}
+		
+		String user_photo_name = upfile.getFileName();
+		User user = getModel(User.class);
+		String reg_time = DateUtils.getNowTime();
+		String pwd = this.getPara("password");
+		String media_path = SessionIdKit.me().generate(getRequest());
+		pwd = MD5.GetMD5Code(pwd+reg_time);
+		user.setRegDate(reg_time);
+		user.setPwd(pwd);
+		user.setPhotoPath(user_photo_name);
+		user.setUname(getPara("user.uname"));
+		user.setAreaId(admin.getAreaId().toString());
+		user.setMediaPath(media_path);
+		user.setStatus(0);
+		user.save();
+		renderText("添加成功！");
 		
 	}
 	
@@ -192,7 +234,59 @@ public class AdminController extends Controller {
 	
 	//显示县区管理员修改密码
 	public void xqchangepwd(){
-		
+		Admin admin = getSessionAttr(getCookie("cadmin"));
+		setAttr("admin", admin);
+	}
+	//县区管理员修改密码方法
+	public void xqupdatepwd(){
+
+		Admin admin = getSessionAttr(getCookie("cadmin"));
+		// 验证码
+		boolean yzm = this.validateCaptcha("yzm");
+		if (!yzm) {
+
+			setAttr("admin", admin);
+			setAttr("yzmErrMsg", "请正确输入验证码！");
+			render("change_pwd.html");
+			return;
+		}
+
+		String reg_time = admin.getCreateTime();
+
+		// 验证原密码
+		String old_pwd = MD5.GetMD5Code(getPara("oldpwd") + reg_time);
+		if (!admin.getPwd().equals(old_pwd)) {
+			setAttr("admin", admin);
+			setAttr("oldpwdErrMsg", "请正确输入原密码！");
+			render("xqchangepwd.html");
+			return;
+		}
+
+		// 比对确认密码
+		String new_pwd = getPara("newpwd");
+		String confirm_new_pwd = getPara("confirmnewpwd");
+
+		if (!new_pwd.equals(confirm_new_pwd)) {
+			setAttr("admin", admin);
+			setAttr("confirmpwdErrMsg", "请正确输入新密码！");
+			render("xqchangepwd.html");
+			return;
+		}
+
+		// 新旧密码是否相同
+		new_pwd = MD5.GetMD5Code(new_pwd + reg_time);
+
+		if (new_pwd.equals(old_pwd)) {
+			setAttr("admin", admin);
+			setAttr("newpwdErrMsg", "旧密码与新密码相同！");
+			render("xqchangepwd.html");
+			return;
+		}
+
+		// 修改密码
+		admin.setPwd(new_pwd);
+		admin.update();
+		renderText("密码更改成功！");
 	}
 	
 	
@@ -308,11 +402,6 @@ public class AdminController extends Controller {
 	//县区管理员进行条件查询
 	public void xqsearchuser(){
 
-		setAttr("areaList", Area.dao.getAllArea());
-		setAttr("nationList", Mz.dao.getAllMz());
-		setAttr("zzmmList", Zzmm.dao.getAllZzmm());
-		setAttr("eduList", Edu.dao.getAllEdu());
-		setAttr("degreeList", Degree.dao.getAllDegree());
 		setAttr("decList", DeclareType.dao.getAllDecType());
 		render("xq-search-user.html");
 	}
@@ -320,31 +409,42 @@ public class AdminController extends Controller {
 	
 	//执行查询
 		public void xquschbycondition() throws ParseException{
+
 			Map<String,Object> map = new HashMap<String, Object>();
+			String uname = getPara("user.true_name");
 			String sex = getPara("user.usersex");
-			String mz_id = getPara("user.mz_id");
-			Admin admin = getSessionAttr(getCookie("cadmin"));
-			String area_id = admin.getAreaId()+"";
-			String zzmm_id = getPara("user.zzmm_id");
-			String dec_id = getPara("user.dec_id");
+			
+			
+
+			try {
+				String[] dec_ids = getParaValues("user.dec_id");
+				int minage = getParaToInt("minage");
+				int maxage = getParaToInt("maxage");
+				
+				map.put("minage", minage);
+				map.put("maxage", maxage);
+				map.put("dec_id", dec_ids);
+				
+			} catch (Exception e) {
+				//TODO 异常暂时未作处理
+			}
+			
+			
+			
+			
+			
+			if(uname!=null && !uname.equals("")){
+				uname = "'"+uname+"'";
+				map.put("p.true_name", uname);
+			}
+			
 			if(sex!=null && !sex.equals("")){
 				map.put("p.usersex", sex);
 			}
-			if(mz_id!=null && !mz_id.equals("")){
-				map.put("p.mz_id", mz_id);
-			}
-			if(area_id!=null && !area_id.equals("")){
-				map.put("p.area_id", area_id);
-			}
-			if(zzmm_id!=null && !zzmm_id.equals("")){
-				map.put("p.zzmm_id", zzmm_id);
-			}
-			if(dec_id!=null && !dec_id.equals("")){
-				map.put("p.dec_id", dec_id);
-			}	
 			
 			List<User> userList = User.usermodel.getUserListByCondition(map);
 			
+			//	查询的报表统计
 			String filename = "";
 			try {
 				filename = ReportExcel.report(userList);
@@ -354,17 +454,17 @@ public class AdminController extends Controller {
 				e.printStackTrace();
 			}
 			
-			File file =		new File(filename);
+			File file =	new File(filename);
 			String file_name = "";
 			if(file!=null){
 				file_name = file.getName();
 			}
-			
+			//查询的报表统计
+
 			setAttr("file", file_name);
-			
 			setAttr("userList", userList);
 			
-			render("s-u-result.html");
+			render("xqsearchresult.html");
 		}
 	
 	
