@@ -215,6 +215,7 @@ public class AdminController extends Controller {
 	//显示县区管理员个人信息
 	public void xqadmininfo(){
 		Admin admin = getSessionAttr(getCookie("cadmin"));
+		setAttr("area", Area.dao.getAreaNameById(admin.getAreaId().toString()));
 		setAttr("xqadmin", admin);
 	}
 	
@@ -1019,12 +1020,13 @@ public class AdminController extends Controller {
 	
 	//超级管理员列表
 	public void adminList(){
-		setAttr("adminList", Admin.dao.getAllAdmin());
+		setAttr("adminList", Admin.dao.getAllSuAdmin());
 		render("admin-list.html");
 	}
 	
 	//渲染添加管理员页面
 	public void addAdmin(){
+		setAttr("areaList", Area.dao.getAllArea());
 		render("admin-add.html");
 	}
 	
@@ -1060,14 +1062,40 @@ public class AdminController extends Controller {
 		String reg_date = DateUtils.getNowTime();
 		String pwd = MD5.GetMD5Code(getPara("admin.pwd")+reg_date);
 		
-		getModel(Admin.class).set("pwd", pwd).set("create_time",reg_date).set("status", 1).save();
+		getModel(Admin.class).set("pwd", pwd).set("create_time",reg_date).set("status", 1).set("auth",0).save();
 		renderText("添加管理员 "+getPara("admin.name")+" 成功！");
 	}
 	
+	//停用管理员
+	public void stopadmin(){
+		Admin admin = Admin.dao.findById(getParaToInt("adminid"));
+		
+		admin.setStatus(0);
+		
+		if(admin.update()){
+			renderJson("{\"status\":1}");
+		}else{
+			renderJson("{\"status\":0,\"errmsg\":\"停用失败！\"}");
+		}
+		
+	}
+	
+	public void startadmin(){
+		Admin admin = Admin.dao.findById(getParaToInt("adminid"));
+		
+		admin.setStatus(1);
+		
+		if(admin.update()){
+			renderJson("{\"status\":1}");
+		}else{
+			renderJson("{\"status\":0,\"errmsg\":\"启用失败！\"}");
+		}
+	}
 	
 	//县区市管理员列表
 	public void countryadminList(){
 		setAttr("caList", Admin.dao.getAllCountryAdmin());
+		
 		render("countryadminlist.html");
 	}
 	

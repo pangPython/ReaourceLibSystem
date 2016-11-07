@@ -14,12 +14,12 @@
 <script type="text/javascript" src="http://lib.h-ui.net/respond.min.js"></script>
 <script type="text/javascript" src="http://lib.h-ui.net/PIE_IE678.js"></script>
 <![endif]-->
-<link rel="stylesheet" type="text/css" href="http://static.h-ui.net/h-ui/css/H-ui.min.css" />
-<link rel="stylesheet" type="text/css" href="http://static.h-ui.net/h-ui/css/H-ui.admin.css" />
-<link rel="stylesheet" type="text/css" href="http://lib.h-ui.net/Hui-iconfont/1.0.7/iconfont.css" />
-<link rel="stylesheet" type="text/css" href="http://lib.h-ui.net/icheck/icheck.css" />
-<link rel="stylesheet" type="text/css" href="http://static.h-ui.net/h-ui/skin/default/skin.css" id="skin" />
-<link rel="stylesheet" type="text/css" href="http://static.h-ui.net/h-ui/css/style.css" />
+<link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.7/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="lib/icheck/icheck.css" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
 <!--[if IE 6]>
 <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
@@ -67,7 +67,7 @@
 		<div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:150px;">
 			<select class="select" name="admin.type" id="type" size="1">
 				<option value="0">超级管理员</option>
-				<option value="0">县区管理员</option>
+				<option value="1">县区管理员</option>
 			</select>
 			</span> 
 		</div>
@@ -76,25 +76,14 @@
 		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>地区：</label>
 		<div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:150px;">
 			<select class="select" name="admin.area_id" size="1">
-				<option value="0">东营</option>
-				<option value="0">垦利</option>
+				<#list areaList as x>
+					<option value="${x.area_id}">${x.area_name}</option>
+				</#list>
 			</select>
 			</span> 
 		</div>
 		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">是否可以查看全市人才?</label>
-				<div class="formControls col-xs-8 col-sm-9">
-				<div class="radio-box">
-					<input type="radio" name="admin.auth" id="1" value="1">
-					<label for="sex-1">是</label>
-				</div>
-				<div class="radio-box">
-					<input type="radio" name="admin.auth" id="0" value="0">
-					<label for="sex-2">否</label>
-				</div>
-			</div>
-		</div>
+
 	<div class="row cl">
 		<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
 			<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">

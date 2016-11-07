@@ -54,18 +54,27 @@
 				<td><input type="checkbox" value="1" name=""></td>
 				<td>${x.id!}</td>
 				<td>${x.name!}</td>
-				<td>${x.area_id!}</td>
+				<td>${x.area_name!}</td>
 				<td>${x.email!}</td>
 				<td>${x.telephone!}</td>
-				<td>${x.auth!}</td>
+				<td>
+				<#if x.area_id == 1>
+				可查看全部人才
+				<#else>
+				可查看本地所有人才
+				</#if>
+				</td>
 				<td>${x.create_time!}</td>
 				<td class="td-status">
 				<#if x.status == 1>
 				<span class="label label-success radius">已启用</span></td>
+				<td class="td-manage"><a style="text-decoration:none" onClick="admin_stop(this,'${x.id}')" href="javascript:;" title="停用">
 				<#elseif x.status == 0>
 				<span class="label label-danger radius">已禁用</span></td>
+				<td class="td-manage"><a style="text-decoration:none" onClick="admin_start(this,'${x.id}')" href="javascript:;" title="启用">
 				</#if>
-				<td class="td-manage"><a style="text-decoration:none" onClick="admin_stop(this,'10001')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> <a title="编辑" href="javascript:;" onclick="admin_edit('管理员编辑','admin-add.html','1','800','500')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="admin_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+				<i class="Hui-iconfont">&#xe631;</i></a> 
+				<a title="编辑" href="javascript:;" onclick="admin_edit('管理员编辑','/admin/editadmin/${x.id?if_exists}','1','500','300')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="admin_del(this,'${x.id}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 			</tr>
 		</#list>
 		</tbody>
@@ -106,8 +115,23 @@ function admin_del(obj,id){
 	layer.confirm('确认要删除吗？',function(index){
 		//此处请求后台程序，下方是成功后的前台处理……
 		
-		$(obj).parents("tr").remove();
-		layer.msg('已删除!',{icon:1,time:1000});
+		$.post(
+				'/admin/deladmin',{
+					adminid:id
+				},function(result){
+					var obj = result;
+	            	
+	                if (obj.status == 1) {
+	                    layer.msg('已删除!', function(){
+	                    	location.replace(location.href);
+	                        }
+	                    );
+	                } else {
+	                	
+	                    layer.msg('删除失败:'+obj.errmsg, {icon: 1, time: 3000});
+	                } 
+				}		
+		);
 	});
 }
 /*管理员-编辑*/
@@ -118,11 +142,23 @@ function admin_edit(title,url,id,w,h){
 function admin_stop(obj,id){
 	layer.confirm('确认要停用吗？',function(index){
 		//此处请求后台程序，下方是成功后的前台处理……
-		
-		$(obj).parents("tr").find(".td-manage").prepend('<a onClick="admin_start(this,id)" href="javascript:;" title="启用" style="text-decoration:none"><i class="Hui-iconfont">&#xe615;</i></a>');
-		$(obj).parents("tr").find(".td-status").html('<span class="label label-default radius">已禁用</span>');
-		$(obj).remove();
-		layer.msg('已停用!',{icon: 5,time:1000});
+		$.post(
+				'/admin/stopadmin',{
+					adminid:id
+				},function(result){
+					var obj = result;
+	            	
+	                if (obj.status == 1) {
+	                    layer.msg('已停用!', function(){
+	                    	location.replace(location.href);
+	                        }
+	                    );
+	                } else {
+	                	
+	                    layer.msg('停用失败:'+obj.errmsg, {icon: 1, time: 3000});
+	                } 
+				}		
+			);
 	});
 }
 
@@ -131,11 +167,23 @@ function admin_start(obj,id){
 	layer.confirm('确认要启用吗？',function(index){
 		//此处请求后台程序，下方是成功后的前台处理……
 		
-		
-		$(obj).parents("tr").find(".td-manage").prepend('<a onClick="admin_stop(this,id)" href="javascript:;" title="停用" style="text-decoration:none"><i class="Hui-iconfont">&#xe631;</i></a>');
-		$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已启用</span>');
-		$(obj).remove();
-		layer.msg('已启用!', {icon: 6,time:1000});
+		$.post(
+				'/admin/startadmin',{
+					adminid:id
+				},function(result){
+					var obj = result;
+	            	
+	                if (obj.status == 1) {
+	                    layer.msg('已启用!', function(){
+	                    	location.replace(location.href);
+	                        }
+	                    );
+	                } else {
+	                	
+	                    layer.msg('启用失败:'+obj.errmsg, {icon: 1, time: 3000});
+	                } 
+				}		
+			);
 	});
 }
 </script>

@@ -17,9 +17,13 @@ public class Admin extends BaseAdmin<Admin> {
 		return dao.find("select * from admin order by id desc");
 	}
 	
+	public List<Admin> getAllSuAdmin(){
+		return dao.find("select * from admin where type = ?  order by id desc",0);
+	}
+	
 	//获取所有县区管理员
 		public List<Admin> getAllCountryAdmin(){
-			return dao.find("select * from admin where type = ?",1);
+			return dao.find("select a.*,ar.area_name from admin a left join area ar on a.area_id = ar.area_id where type = ?",1);
 		}
 		
 		public String MD5_ID(){
