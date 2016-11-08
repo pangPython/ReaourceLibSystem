@@ -113,7 +113,7 @@ public class JavaMysqlUtil {
      try {
       Runtime.getRuntime().exec(stmt1);
       Runtime.getRuntime().exec(cmd);
-      System.out.println("数据已从 " + filepath + " 导入到数据库中");
+     // System.out.println("数据已从 " + filepath + " 导入到数据库中");
      } catch (IOException e) {
       e.printStackTrace();
      }

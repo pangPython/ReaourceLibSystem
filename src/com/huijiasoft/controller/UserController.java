@@ -235,7 +235,7 @@ public class UserController extends Controller {
 		boolean flag = false;
 		User user = User.usermodel.findById(getPara("uid"));
 		//获取图片路径
-		String upath = "WebRoot\\upload\\photo\\"+user.getMediaPath()+"\\";
+		String upath = PathKit.getWebRootPath()+"\\upload\\photo\\"+user.getMediaPath()+"\\";
 		//获取用户提交的要删除的文件名
 		String[] pic_name = getParaValues("filename[]");
 		File file = null;
@@ -280,7 +280,7 @@ public class UserController extends Controller {
 		boolean flag = false;
 		User user = User.usermodel.findById(getPara("userid"));
 		//获取图片路径
-		String upath = "WebRoot\\upload\\audio\\"+user.getMediaPath()+"\\";
+		String upath = PathKit.getWebRootPath()+"\\upload\\audio\\"+user.getMediaPath()+"\\";
 		//获取用户提交的要删除的文件名
 		String audio_name = getPara("filename");
 		File file = null;
@@ -320,7 +320,7 @@ public class UserController extends Controller {
 		boolean flag = false;
 		User user = User.usermodel.findById(getPara("userid"));
 		//获取图片路径
-		String upath = "WebRoot\\upload\\video\\"+user.getMediaPath()+"\\";
+		String upath = PathKit.getWebRootPath()+"\\upload\\video\\"+user.getMediaPath()+"\\";
 		//获取用户提交的要删除的文件名
 		String audio_name = getPara("filename");
 		File file = null;

@@ -40,7 +40,7 @@ public class SQLUtils {
 			for (int i = 0; i < decs.length; i++) {
 				dec += decs[i]+",";
 			}
-			System.out.println(dec+"=====");
+			//System.out.println(dec+"=====");
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -101,7 +101,7 @@ public class SQLUtils {
 //		sql = sql.replaceAll("user.usersex", "u.usersex");
 //		sql = sql.replaceAll("user.", "u.");
 		
-		System.out.println(sql);
+		//System.out.println(sql);
 		
 		return sql;
 	}
