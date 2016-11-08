@@ -396,16 +396,24 @@ public class AdminController extends Controller {
 		
 
 		try {
-			String[] dec_ids = getParaValues("user.dec_id");
+			
 			int minage = getParaToInt("minage");
 			int maxage = getParaToInt("maxage");
 			
 			map.put("minage", minage);
 			map.put("maxage", maxage);
-			map.put("dec_id", dec_ids);
+			
 			
 		} catch (Exception e) {
 			//TODO 异常暂时未作处理
+		}
+		
+		
+		try {
+			String[] dec_ids = getParaValues("user.dec_id");
+			map.put("dec_id", dec_ids);
+		} catch (Exception e) {
+			
 		}
 		
 		
@@ -470,18 +478,24 @@ public class AdminController extends Controller {
 			
 
 			try {
-				String[] dec_ids = getParaValues("user.dec_id");
+				
 				int minage = getParaToInt("minage");
 				int maxage = getParaToInt("maxage");
 				
 				map.put("minage", minage);
 				map.put("maxage", maxage);
-				map.put("dec_id", dec_ids);
+				
 				
 			} catch (Exception e) {
 				//TODO 异常暂时未作处理
 			}
 			
+			try {
+				String[] dec_ids = getParaValues("user.dec_id");
+				map.put("dec_id", dec_ids);
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
 			
 			
 			
