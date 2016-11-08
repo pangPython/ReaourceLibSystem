@@ -21,6 +21,7 @@ import com.huijiasoft.model.Edu;
 import com.huijiasoft.model.Mz;
 import com.huijiasoft.model.User;
 import com.huijiasoft.model.Zzmm;
+import com.jfinal.kit.PathKit;
 
 /**
  * @author pangPython 后台报表
@@ -213,7 +214,7 @@ public class ReportExcel {
 		}
 
 		String filename = DateUtils.dateToUnixTimestamp(DateUtils.getNowTime()) + ".xls";
-		String path = "WebRoot\\download\\report\\" + filename;
+		String path = PathKit.getWebRootPath()+"\\download\\report\\" + filename;
 		FileOutputStream fileOut = new FileOutputStream(path);
 
 		try {
