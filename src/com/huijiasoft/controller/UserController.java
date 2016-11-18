@@ -62,7 +62,14 @@ public class UserController extends Controller {
 		String mz = "";
 		String zzmm = "";
 		String dec = "";
-		
+		String fedu = "";
+		String pedu = "";
+		String fdegree = "";
+		String pdegree = "";
+		String feduscho = "";
+		String peduscho = "";
+		String fdegreescho ="";
+		String pdegreescho = "";
 		
 		setAttr("user", user);
 		
@@ -71,19 +78,27 @@ public class UserController extends Controller {
 			mz = Mz.dao.getMzNameById(user.getMzId());
 			zzmm = Zzmm.dao.getZzmmNameById(user.getZzmmId());
 			dec = DeclareType.dao.getDecNameById(user.getDecId());
+			
+			fedu = Edu.dao.getEduNameById(user.getFEduId());
+			pedu = Edu.dao.getEduNameById(user.getPEduId());
+			fdegree = Degree.dao.getDegreeNameById(user.getFDegreeId());
+			pdegree = Degree.dao.getDegreeNameById(user.getPDegreeId());
+			feduscho = user.getFEduSchool();
+			peduscho = user.getPEduSchool();
+			fdegreescho = user.getFDegreeSchool();
+			pdegreescho = user.getPDegreeSchool();
+					
 		} catch (Exception e) {
 		}
 		
-		setAttr("fedu", Edu.dao.getEduNameById(user.getFEduId()));
-		setAttr("pedu", Edu.dao.getEduNameById(user.getPEduId()));
-		setAttr("fdegree", Degree.dao.getDegreeNameById(user.getFDegreeId()));
-		setAttr("pdegree", Degree.dao.getDegreeNameById(user.getPDegreeId()));
-		setAttr("feduscho", user.getFEduSchool());
-		setAttr("peduscho", user.getPEduSchool());
-		setAttr("fdegreescho", user.getFDegreeSchool());
-		setAttr("pdegreescho", user.getPDegreeSchool());
-		
-		
+		setAttr("fedu", fedu);
+		setAttr("pedu", pedu);
+		setAttr("fdegree", fdegree);
+		setAttr("pdegree", pdegree);
+		setAttr("feduscho", feduscho);
+		setAttr("peduscho", peduscho);
+		setAttr("fdegreescho", fdegreescho);
+		setAttr("pdegreescho", pdegreescho);
 		
 		setAttr("area", area);
 		setAttr("mz", mz);
