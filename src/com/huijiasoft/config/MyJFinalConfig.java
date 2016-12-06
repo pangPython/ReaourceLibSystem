@@ -25,9 +25,8 @@ import com.jfinal.plugin.c3p0.C3p0Plugin;
 public class MyJFinalConfig extends JFinalConfig {
 
 	public static void main(String[] args) {
-		JFinal.start("WebRoot",80,"/",5);
+		JFinal.start("WebRoot",8080,"/",5);
 	}
-	
 	
 	@Override
 	public void configConstant(Constants me) {
@@ -37,7 +36,6 @@ public class MyJFinalConfig extends JFinalConfig {
 		me.setBaseDownloadPath("WebRoot/download/");
 		me.setBaseUploadPath(PathKit.getWebRootPath()+"/upload/");
 	}
-	
 	
 	@Override
 	public void configRoute(Routes me) {

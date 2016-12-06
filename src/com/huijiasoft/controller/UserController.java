@@ -2,8 +2,6 @@ package com.huijiasoft.controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Enumeration;
-import java.util.Iterator;
 import java.util.List;
 
 import com.huijiasoft.interceptor.UserAuthInterceptor;
@@ -13,13 +11,11 @@ import com.huijiasoft.model.Degree;
 import com.huijiasoft.model.Edu;
 import com.huijiasoft.model.Msg;
 import com.huijiasoft.model.Mz;
-import com.huijiasoft.model.UploadPhoto;
 import com.huijiasoft.model.Uploads;
 import com.huijiasoft.model.User;
 import com.huijiasoft.model.Zzmm;
 import com.huijiasoft.utils.ControllerUtils;
 import com.huijiasoft.utils.DBUtils;
-import com.huijiasoft.utils.DateUtils;
 import com.huijiasoft.utils.MD5;
 import com.huijiasoft.utils.PathUtils;
 import com.huijiasoft.utils.RenderDocxTemplate;
@@ -27,10 +23,7 @@ import com.huijiasoft.validate.UserUpdateValidator;
 import com.jfinal.aop.Before;
 import com.jfinal.core.ActionKey;
 import com.jfinal.core.Controller;
-import com.jfinal.ext.kit.SessionIdKit;
 import com.jfinal.kit.PathKit;
-import com.jfinal.upload.UploadFile;
-import com.oreilly.servlet.MultipartRequest;
 
 /**
  * @author pangPython 用户控制器
@@ -58,18 +51,18 @@ public class UserController extends Controller {
 	// 用户信息查看
 	public void info() {
 		User user = (User) getSessionAttr(getCookie("cuser"));
-		String area = "";
-		String mz = "";
-		String zzmm = "";
-		String dec = "";
-		String fedu = "";
-		String pedu = "";
-		String fdegree = "";
-		String pdegree = "";
-		String feduscho = "";
-		String peduscho = "";
-		String fdegreescho ="";
-		String pdegreescho = "";
+		String area = " ";
+		String mz = " ";
+		String zzmm = " ";
+		String dec = " ";
+		String fedu = " ";
+		String pedu = " ";
+		String fdegree = " ";
+		String pdegree = " ";
+		String feduscho = " ";
+		String peduscho = " ";
+		String fdegreescho =" ";
+		String pdegreescho = " ";
 		
 		setAttr("user", user);
 		
@@ -144,14 +137,21 @@ public class UserController extends Controller {
 	@Before(UserUpdateValidator.class)
 	@ActionKey("/user/updateinfo")
 	public void updateinfo() {
+		//异常处理
+		String media_path = " ";
 		
-		String media_path = getFile().getFileName();
+		try {
+			media_path = getFile().getFileName();
+		} catch (Exception e) {
+			
+		}
+		
 		User user = (User) getSession().getAttribute(getCookie("cuser"));
 
-		String f_edu_school = "";
-		String f_degree_school = "";
-		String p_edu_school = "";
-		String p_degree_school = "";
+		String f_edu_school = " ";
+		String f_degree_school = " ";
+		String p_edu_school = " ";
+		String p_degree_school = " ";
 		
 		int f_edu_id = getParaToInt("user.f_edu_id");
 		int f_degree_id = getParaToInt("user.f_degree_id");
@@ -199,7 +199,7 @@ public class UserController extends Controller {
 		renderText("信息填写成功,将自动提交审核！");
 	}
 
-
+//上传路径的文件系统分隔符要做跨平台linux--/  windows--\ 
 	
 	//显示用户上传的图片文件
 	public void media_pic() {

@@ -23,23 +23,23 @@
 <![endif]-->
 <title>编辑报名信息</title>
 </head>
-<body onbeforeunload="return '当前页面可能还有未保存的数据，确定不保存就离开吗？';">
+<body>
 <div class="page-container">
 	<p class="f-20 text-success">>正在编辑我的报名信息</p>
 
-	<form action="/user/updateinfo" method="post" class="form form-horizontal" enctype="multipart/form-data">
+	<form action="/user/updateinfo" method="post" class="form form-horizontal" enctype="multipart/form-data" id="userinfoadd">
 	<table class="table table-border table-bordered table-bg mt-20 formControls">
 		<thead>
 			<tr>
-				<th colspan="6" scope="col">编辑报名信息&nbsp;&nbsp;<a style="color:#FF0000">提示：没有的信息请填写"空"</a></th>
+				<th colspan="6" scope="col">编辑报名信息&nbsp;&nbsp;<a style="color:#FF0000">提示：没有的信息请填写"暂无"</a></th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
 				<th width="15%">姓名:</th>
 				<td>
-				<input id="user.true_name" name="user.true_name" type="text" class="input-text" value="${user.true_name?if_exists}" >
-${nameErrMsg?if_exists}				</td>
+				<input id="usertrue_name"  name="user.true_name" type="text" class="input-text"  value="${user.true_name?if_exists}"  required>
+				${nameErrMsg?if_exists}</td>
 			
 				<td>性别:</td>
 				<td>
@@ -54,10 +54,9 @@ ${nameErrMsg?if_exists}				</td>
 							<span class="btn-upload"> 
 							<a	href="javascript:void();" class="btn btn-primary radius"><i
 									class="Hui-iconfont">&#xe642;</i> 浏览文件</a> 
-									<input type="file" id="file_0" 
-								name="file_0" class="input-file">
+									<input type="file"  id="file_0" 	name="file_0" class="input-file" >
 							</span>
-								<img src="" id="img0" height="200">
+								<img src=""  id="img0"  height="100px">
 						</td>
 					</tr>
 			<tr>
@@ -91,7 +90,7 @@ ${nameErrMsg?if_exists}				</td>
 			<tr>
 				<td>参加工作时间 </td>
 				<td>
-				<input id="d12" type="text" class="input-text Wdate" name="user.join_work" value="${user.join_work?if_exists}" onClick="WdatePicker()"/>
+				<input id="d12" type="text" class="input-text Wdate" name="user.join_work" value="${user.join_work?if_exists}" onClick="WdatePicker()" required/>
 				
 		${jwErrMsg?if_exists}		</td>
 		
@@ -140,7 +139,7 @@ ${nameErrMsg?if_exists}				</td>
 				${telErrMsg?if_exists}</td>
 				<td>QQ或微信</td>
 				<td>
-				<input type="text" class="input-text" value="${user.qqwx?if_exists}" id="user.qqwx" name="user.qqwx">
+				<input type="text" class="input-text" value=""  id="qqwx"  name="user.qqwx">
 				</td>
 			</tr>
 			<tr>
@@ -269,31 +268,52 @@ ${nameErrMsg?if_exists}				</td>
 </div>
 
 <script type="text/javascript" src="/admin/lib/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="/admin/lib/layer/2.1/layer.js"></script> 
+<script type="text/javascript" src="/admin/lib/layer/2.1/layer.js"></script>
+<script type="text/javascript" src="/admin/lib/jquery.validation/1.14.0/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/admin/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="/admin/lib/jquery.validation/1.14.0/messages_zh.min.js"></script>
 <script type="text/javascript" src="/admin/lib/laypage/1.2/laypage.js"></script> 
 <script type="text/javascript" src="/admin/lib/My97DatePicker/WdatePicker.js"></script> 
 <script type="text/javascript" src="/admin/static/h-ui/js/H-ui.js"></script>
 <script type="text/javascript" src="/admin/static/h-ui.admin/js/H-ui.admin.js"></script> 
 <script type="text/javascript">
-$("#file_0").change(function(){
-	var objUrl = getObjectURL(this.files[0]) ;
+	$("#userinfoadd").validate({
+		rules:{
+			usertrue_name:"required",
+		},
+		ignore: "#file_0",
+		messages: {
+			user.true_name : "请填写真实姓名！",
+		},
+		onkeyup:false,
+		focusCleanup:true,
+		success:"valid",
+		submitHandler:function(form){
+			//$(form).ajaxSubmit();
+			//var index = parent.layer.getFrameIndex(window.name);
+			//parent.$('.btn-refresh').click();
+			//parent.layer.close(index);
+		}
+	}); 
+	$("#file_0").change(function(){
+		 var objUrl = getObjectURL(this.files[0]) ;
+		if (objUrl) {
+			$("#img0").attr("src", objUrl);
+		} 
 	
-	if (objUrl) {
-		$("#img0").attr("src", objUrl);
+	}) ;
+	//建立一個可存取到該file的url
+	function getObjectURL(file) {
+		var url = null ; 
+		if (window.createObjectURL!=undefined) { // basic
+			url = window.createObjectURL(file) ;
+		} else if (window.URL!=undefined) { // mozilla(firefox)
+			url = window.URL.createObjectURL(file) ;
+		} else if (window.webkitURL!=undefined) { // webkit or chrome
+			url = window.webkitURL.createObjectURL(file) ;
+		}
+		return url ;
 	}
-}) ;
-//建立一個可存取到該file的url
-function getObjectURL(file) {
-	var url = null ; 
-	if (window.createObjectURL!=undefined) { // basic
-		url = window.createObjectURL(file) ;
-	} else if (window.URL!=undefined) { // mozilla(firefox)
-		url = window.URL.createObjectURL(file) ;
-	} else if (window.webkitURL!=undefined) { // webkit or chrome
-		url = window.webkitURL.createObjectURL(file) ;
-	}
-	return url ;
-}
 </script>
 </body>
 </html>

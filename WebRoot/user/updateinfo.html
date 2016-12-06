@@ -23,7 +23,7 @@
 <![endif]-->
 <title>编辑报名信息</title>
 </head>
-<body onbeforeunload="return '当前页面还有未保存的数据，确定不保存就离开了吗？';">
+<body>
 <div class="page-container">
 	<p class="f-20 text-success">>正在编辑我的报名信息</p>
 
@@ -184,6 +184,7 @@ ${nameErrMsg?if_exists}				</td>
 	</div>
 </footer>
 <script type="text/javascript" src="/admin/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="/admin/lib/jquery.validation/1.14.0/jquery.validate.min.js"></script> 
 <script type="text/javascript" src="/admin/lib/layer/2.1/layer.js"></script> 
 <script type="text/javascript" src="/admin/lib/laypage/1.2/laypage.js"></script> 
 <script type="text/javascript" src="/admin/lib/My97DatePicker/WdatePicker.js"></script> 
@@ -191,6 +192,47 @@ ${nameErrMsg?if_exists}				</td>
 <script type="text/javascript" src="/admin/static/h-ui.admin/js/H-ui.admin.js"></script> 
 <script type="text/javascript">
 
+$(function(){
+	$('.skin-minimal input').iCheck({
+		checkboxClass: 'icheckbox-blue',
+		radioClass: 'iradio-blue',
+		increaseArea: '20%'
+	});
+	
+	$("#userinfo_add").validate({
+		rules:{
+			user.true_name:{
+				required:true,
+				minlength:2,
+				maxlength:16
+			},
+			sex:{
+				required:true,
+			},
+			mobile:{
+				required:true,
+				isMobile:true,
+			},
+			email:{
+				required:true,
+				email:true,
+			},
+			uploadfile:{
+				required:true,
+			},
+			
+		},
+		onkeyup:false,
+		focusCleanup:true,
+		success:"valid",
+		submitHandler:function(form){
+			//$(form).ajaxSubmit();
+			var index = parent.layer.getFrameIndex(window.name);
+			//parent.$('.btn-refresh').click();
+			parent.layer.close(index);
+		}
+	});
+});
 </script>
 </body>
 </html>
