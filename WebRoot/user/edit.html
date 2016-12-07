@@ -27,7 +27,7 @@
 <div class="page-container">
 	<p class="f-20 text-success">>正在编辑我的报名信息</p>
 
-	<form action="/user/updateinfo" method="post" class="form form-horizontal" enctype="multipart/form-data" id="userinfoadd">
+	<form action="/user/updateinfo" method="post" class="form form-horizontal" enctype="multipart/form-data" id="userinfoadd2">
 	<table class="table table-border table-bordered table-bg mt-20 formControls">
 		<thead>
 			<tr>
@@ -39,11 +39,11 @@
 				<th width="15%">姓名:</th>
 				<td>
 				<input id="usertrue_name"  name="user.true_name" type="text" class="input-text"  value="${user.true_name?if_exists}"  required>
-				${nameErrMsg?if_exists}</td>
+				</td>
 			
 				<td>性别:</td>
 				<td>
-				<select name="user.usersex" class="select">
+				<select name="user.usersex" class="select" >
 					<option value="0">女</option>
 					<option value="1">男</option>
 				</select>
@@ -54,9 +54,9 @@
 							<span class="btn-upload"> 
 							<a	href="javascript:void();" class="btn btn-primary radius"><i
 									class="Hui-iconfont">&#xe642;</i> 浏览文件</a> 
-									<input type="file"  id="file_0" 	name="file_0" class="input-file" >
+									<input type="file"  id="file_0" 	name="file_0" class="input-file"  required>
 							</span>
-								<img src=""  id="img0"  height="100px">
+								<img src=""  id="img0"  height="200px">
 						</td>
 					</tr>
 			<tr>
@@ -90,56 +90,49 @@
 			<tr>
 				<td>参加工作时间 </td>
 				<td>
-				<input id="d12" type="text" class="input-text Wdate" name="user.join_work" value="${user.join_work?if_exists}" onClick="WdatePicker()" required/>
-				
-		${jwErrMsg?if_exists}		</td>
+				<input id="d12" type="text" class="input-text Wdate" name="user.join_work" value="${user.join_work?if_exists}" onClick="WdatePicker()" required >
+		</td>
 		
 		<td>出生日期:</td>
 				<td>
-				<input id="d11" type="text" class="input-text Wdate" name="user.birth" value="${user.birth?if_exists}" onClick="WdatePicker()"/>
-		${birthErrMsg?if_exists}		</td>
+				<input id="d11" type="text" class="input-text Wdate" name="user.birth" value="${user.birth?if_exists}" onClick="WdatePicker()" required>
+	</td>
 		
 				<td>身份证号 </td>
 				<td>
-				<input type="text" class="input-text" value="${user.card?if_exists}" id="user.card" name="user.card">
-		${cardErrMsg?if_exists}		</td>
-		
-				
+				<input type="text" class="input-text" value="${user.card?if_exists}" id="usercard" name="user.card" required>
+	</td>
 			</tr>
 					<tr>
-						
-
-
-
 						<td>工作单位</td>
-						<td>${comErrMsg?if_exists}<input type="text"
+						<td><input type="text"
 							class="input-text" value="${user.company?if_exists}"
-							id="user.company" name="user.company">
+							id="usercompany" name="user.company" required>
 						</td>
 
 						<td>单位电话</td>
 						<td><input type="text" class="input-text"
-							value="${user.company_tel?if_exists}" id="user.company_tel"
-							name="user.company_tel"> ${comtelErrMsg?if_exists}</td>
+							value="${user.company_tel?if_exists}" id="usercompany_tel"
+							name="user.company_tel" required></td>
 							<td>电子邮件</td>
 							<td>
-							<input type="text" class="input-text" value="${user.email?if_exists}" id="user.email" name="user.email">
+							<input type="text" class="input-text" value="${user.email?if_exists}" id="useremail" name="user.email" required>
 							</td>
 					</tr>
 					<tr>
 				
 				<td>家庭住址 </td>
 				<td>
-				<input type="text" class="input-text" value="${user.address?if_exists}" id="user.address" name="user.address">
-				${addrErrMsg?if_exists}</td>
+				<input type="text" class="input-text" value="${user.address?if_exists}" id="useraddress" name="user.address" required>
+				</td>
 		
 				<td>移动电话 </td>
 				<td>
-				<input type="text" class="input-text" value="${user.telephone?if_exists}" id="user.telephone" name="user.telephone">
-				${telErrMsg?if_exists}</td>
+				<input type="text" class="input-text" value="${user.telephone?if_exists}" id="usertelephone" name="user.telephone" required>
+				</td>
 				<td>QQ或微信</td>
 				<td>
-				<input type="text" class="input-text" value=""  id="qqwx"  name="user.qqwx">
+				<input type="text" class="input-text" value="${user.qqwx?if_exists}"  id="userqqwx"  name="user.qqwx" required>
 				</td>
 			</tr>
 			<tr>
@@ -220,42 +213,42 @@
 				</td>
 				<td>健康状况 </td>
 				<td>
-				<input type="text" class="input-text" value="${user.health?if_exists}" id="user.health" name="user.health">
-			${hErrMsg?if_exists}	</td>
+				<input type="text" class="input-text" value="${user.health?if_exists}" id="userhealth" name="user.health" required>
+		</td>
 			<td>专业技术职务</td>
 			<td>
-			<input type="text" class="input-text" value="${user.technical_position?if_exists}" id="user.technical_position" name="user.technical_position">
+			<input type="text" class="input-text" value="${user.technical_position?if_exists}" id="usertechnical_position" name="user.technical_position" required>
 			</td>
 			</tr>
 			<tr>
 				<td>重要社会兼职 </td>
 				<td colspan="5" scope="col">
-				<textarea class="textarea" placeholder="如担任县级以上行业组织重要职务，应写明任职时间；担任中共党代会代表、全国人大代表、全国政协委员以及省、市党代会代表、人大代表、政协委员，或担任民主党派重要职务，应在此栏写明。" id="user.socio_part_time" name="user.socio_part_time">${user.socio_part_time?if_exists}</textarea>
+				<textarea class="textarea" placeholder="如担任县级以上行业组织重要职务，应写明任职时间；担任中共党代会代表、全国人大代表、全国政协委员以及省、市党代会代表、人大代表、政协委员，或担任民主党派重要职务，应在此栏写明。" id="usersocio_part_time" name="user.socio_part_time" >${user.socio_part_time?if_exists}</textarea>
 				</td>
 			</tr>
 			<tr>
 				<td>主要工作及艺术简历 </td>
 				<td colspan="5" scope="col">
-				<textarea class="textarea" id="user.ysjj" name="user.ysjj">${user.ysjj?if_exists}</textarea>
-				${ysjjErrMsg?if_exists}</td>
+				<textarea class="textarea" id="userysjj" name="user.ysjj" >${user.ysjj?if_exists}</textarea>
+				</td>
 			</tr>
 			<tr>
 				<td>主要业务成就 </td>
 				<td colspan="5" scope="col">
-				<textarea class="textarea" placeholder="简述本人各个时期的业务成果（著作、论文、专业作品等）、组织或参与的重大活动、社会影响等，并写明成果、活动全称及具体时间。表述要客观准确，不超过1000字。" id="user.business_achievement" name="user.business_achievement">${user.business_achievement?if_exists}</textarea>
-				${baErrMsg?if_exists}</td>
+				<textarea class="textarea" placeholder="简述本人各个时期的业务成果（著作、论文、专业作品等）、组织或参与的重大活动、社会影响等，并写明成果、活动全称及具体时间。表述要客观准确，不超过1000字。" id="userbusiness_achievement" name="user.business_achievement" >${user.business_achievement?if_exists}</textarea>
+			</td>
 			</tr>
 			<tr>
 				<td>获奖情况 </td>
 				<td colspan="5" scope="col">
-				<textarea class="textarea" id="user.awards" placeholder="包括所获专业成果奖励，国家、社会荣誉奖励和物质奖励等。各种奖励须写明成果、奖项、称号、奖章、津贴等名称（津贴含数额）和获奖名次、届次、时间等。" name="user.awards">${user.awards?if_exists}</textarea>
-				${awsErrMsg?if_exists}</td>
+				<textarea class="textarea" id="userawards" placeholder="包括所获专业成果奖励，国家、社会荣誉奖励和物质奖励等。各种奖励须写明成果、奖项、称号、奖章、津贴等名称（津贴含数额）和获奖名次、届次、时间等。" name="user.awards" >${user.awards?if_exists}</textarea>
+				</td>
 			</tr>
 			<tr>
 				<td>本人申请意见 </td>
 				<td colspan="5" scope="col">
-				<textarea class="textarea" id="user.opinion" name="user.opinion"> ${user.opinion?if_exists}</textarea>
-				${opErrMsg?if_exists}</td>
+				<textarea class="textarea" id="useropinion" name="user.opinion" > ${user.opinion?if_exists}</textarea>
+				</td>
 			</tr>
 			
 		</tbody>
@@ -279,11 +272,19 @@
 <script type="text/javascript">
 	$("#userinfoadd").validate({
 		rules:{
-			usertrue_name:"required",
-		},
-		ignore: "#file_0",
-		messages: {
-			user.true_name : "请填写真实姓名！",
+		 	usertrue_name:"required",
+			file_0:"required",
+			d12:"required",
+			d11:"required",
+			useremail:"required",
+			useraddress:"required",
+			usertelephone:"required",
+			userqqwx:"required",
+			userhealth:"required",
+			usercard:"required",
+			usercompany:"required",
+			usercompany_tel:"required",
+			usertechnical_position:"required", 
 		},
 		onkeyup:false,
 		focusCleanup:true,
@@ -312,7 +313,7 @@
 		} else if (window.webkitURL!=undefined) { // webkit or chrome
 			url = window.webkitURL.createObjectURL(file) ;
 		}
-		return url ;
+		return url;
 	}
 </script>
 </body>
