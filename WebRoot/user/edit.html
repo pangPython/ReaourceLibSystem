@@ -63,6 +63,7 @@
 				<td>所属地区: </td>
 				<td>
 				<select name="user.area_id" class="select">
+						<option value="${user.area_id}">${area?if_exists}</option>
 					<#list areaList as x>
 						<option value="${x.area_id}">${x.area_name?if_exists}</option>
 					</#list>

@@ -123,6 +123,7 @@ public class UserController extends Controller {
 		User user = (User) getSession().getAttribute(getCookie("cuser"));
 
 		setAttr("user", user);
+		setAttr("area", Area.dao.getAreaNameById(user.getAreaId().toString()));
 		setAttr("areaList", Area.dao.getAllArea());
 		setAttr("nationList", Mz.dao.getAllMz());
 		setAttr("zzmmList", Zzmm.dao.getAllZzmm());
